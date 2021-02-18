@@ -1,0 +1,6 @@
+{
+ "title": "OSM Queries",
+ "description": "A collection of Overpass queries to help demonstrate the usefulness of the OpenStreetmap API",
+ "author": ["Leigh Dodds"],
+ "extra-files": ["background.md"]
+}
