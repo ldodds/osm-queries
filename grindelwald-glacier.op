@@ -1,0 +1,15 @@
+/*
+ @title Extract glacier features as a specific location
+*/
+[out:json][timeout:25][bbox:46.5914,8.0828,46.6301, 8.1674];
+// gather results
+(
+  // query part for: “natural=glacier”
+  node["natural"="glacier"];
+  way["natural"="glacier"];
+  relation["natural"="glacier"];
+);
+// print results
+out body;
+>;
+out skel qt;
