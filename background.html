@@ -1,0 +1,137 @@
+<!doctype html>
+<html class="h-100">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>OSM Queries</title>
+
+    <script src="jquery.js" type="text/javascript"></script>
+	  <script src="bootstrap.min.js" type="text/javascript"></script>
+    <script src="codemirror.js" type="text/javascript"></script>
+	  <script src="mode/clike/clike.js" type="text/javascript"></script>
+	  <script src="util/multiplex.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="codemirror.css">
+    <link href="bootstrap.min.css" rel="stylesheet" />
+    <link href="codemirror.css" rel="stylesheet" />
+
+    <style type="text/css">
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      main > .container {
+        padding: 60px 15px 0;
+      }
+    </style>
+
+  </head>
+
+
+  <body class="d-flex flex-column h-100">
+
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">OSM Queries</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                
+                  <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="index.html#overview">Overview</a>
+                  </li>
+                
+                
+        		  	  
+                    <li class="nav-item">
+                      <a class="nav-link" href="background.html">Background</a>
+                    </li>
+        		  	  
+        		  	
+              </ul>
+            </div>
+          </div>
+        </nav>
+    </header>
+
+      <main class="flex-shrink-0">
+       <div class="container">
+ <h1>Background</h1>
+
+<p>The OpenStreetmap project provides an API that can be used to query and
+extract data in a variety of formats.</p>
+
+<p>The <a href="https://wiki.openstreetmap.org/wiki/Overpass_API#Public_Overpass_API_instances">Overpass API</a> is
+a completely public API and can be freely used without registration.</p>
+
+<p>The API uses a custom query language called <a href="https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL">Overpass QL</a>
+that can be used to construct some very powerful and flexible queries.</p>
+
+<p>These are frequently written and executed via a web based API called <a href="https://wiki.openstreetmap.org/wiki/Overpass_turbo">Overpass
+Turbo</a> which provides a
+wizard to support creation of queries, as well as some additional functionality.
+This includes providing the ability to save queries in your browser and view
+styled results on an embedded map.</p>
+
+<p>Like any powerful query language, Overpass QL has a lot of features. It also
+has syntax shortcuts that allow the same query to be expressed in different ways.</p>
+
+<p>It&#39;s really a mini programming language that has been designed to interact with
+the OpenStreetmap data model. This also means it doesn&#39;t really look like other
+query languages you may have used like SQL, GraphQL or SPARQL.</p>
+
+<p>This flexibility, complexity, and the variety of ways in which data can be
+tagged in OpenStreetmap, can make Overpass QL a bit daunting to learn and tricky to
+use to get exactly the data you want.</p>
+
+<p>However it is a very powerful language and is well suited to quick interactive
+explorations of OpenStreetmap data, as well as performing small exports in a variety
+of languages.</p>
+
+<p>This website provides a range of example queries that are intended to help
+people to learn the language whilst showcasing its functionality.</p>
+
+<p>It&#39;s intended to build on and complement a number of other resources, including:</p>
+
+<ul>
+<li><a href="https://wiki.openstreetmap.org/wiki/Overpass_API/Language_Guide">The Overpass Language Guide</a> which provides a
+detailed overview of the language syntax and functionality</li>
+<li>The <a href="https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_API_by_Example">Overpass API by example</a> page on the OSM wiki which includes a range of examples</li>
+<li>And the <a href="https://dev.overpass-api.de/overpass-doc/en/">Overpass API user&#39;s manual</a> which is still a work in progress</li>
+</ul>
+
+<p>Use these as additional references.</p>
+
+<h2>How this website was put together</h2>
+
+<p>This website was generated using a tool called <a href="https://github.com/ldodds/overpass-doc">overpass-doc</a>
+developed by <a href="http://ldodds.com">Leigh Dodds</a>.</p>
+
+<p>It provides a simple command-line interface for generating documentation from packages
+of Overpass queries.</p>
+
+
+</div>
+
+      </main>
+
+       <footer class="footer mt-auto py-3 bg-light">
+         <div class="container">
+           <span class="text-muted">Generated with <a href="http://github.com/ldodds/overpass-doc">overpass-doc</a>.</span>
+         </div>
+       </footer>
+
+
+  </body>
+</html>
