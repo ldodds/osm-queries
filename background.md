@@ -49,3 +49,5 @@ developed by [Leigh Dodds](http://ldodds.com).
 
 It provides a simple command-line interface for generating documentation from packages
 of Overpass queries.
+
+The [source files are all in github](https://github.com/ldodds/overpass-doc) and are in the public domain.
