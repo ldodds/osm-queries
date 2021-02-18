@@ -1,5 +1,7 @@
 /*
  @title Extract glacier features as a specific location
+ @see https://en.wikipedia.org/wiki/Upper_Grindelwald_Glacier
+ @tags glacier
 */
 [out:json][timeout:25][bbox:46.5914,8.0828,46.6301, 8.1674];
 // gather results
