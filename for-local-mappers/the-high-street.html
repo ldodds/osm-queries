@@ -2,7 +2,7 @@
 <html class="h-100">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>OSM Queries</title>
+    <title>For Local Mappers</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -45,7 +45,7 @@
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
           <div class="container-fluid">
             
-              <a class="navbar-brand" href="/">OSM Queries</a>
+              <a class="navbar-brand" href="/">OSM Queries | For Local Mappers</a>
             
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -57,24 +57,14 @@
                     Packages
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="index.html">Home</a>
+                    <a class="dropdown-item" href="../index.html">Home</a>
                     
-                      <a class="dropdown-item" href=".//for-local-mappers/index.html">For Local Mappers</a>
+                      <a class="dropdown-item" href="..//for-local-mappers/index.html">For Local Mappers</a>
                     
                   </div>
                 </li>
                 
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.html#overview">Overview</a>
-                  </li>
                 
-                
-        		  	  
-                    <li class="nav-item">
-                      <a class="nav-link" href="background.html">Background</a>
-                    </li>
-        		  	  
-        		  	
               </ul>
             </div>
           </div>
@@ -87,13 +77,34 @@
         <div class="col">
           <div class="row">
               <div id="query-viewer">
-					<h2 property="title">Export bronze statues, sculptures and bust as CSV</h2>
+					<h2 property="title">Extract data for a typical UK high street</h2>
 					
-						<p property="description"></p>
+						<p property="description"><p>Finds information for a selection of buildings and amenities
+that you might find on a typical UK high street.</p>
+
+<p>The query uses the &quot;nwr&quot; specifier to query for (n)odes,
+(w)ays and (r)elations. Sometimes local businesses might
+only be tagged as points, in other cases the entire outline of
+a building might be drawn and tagged. This allows us to
+find information regardless of how its represented on the map.</p>
+
+<p>The query also uses a range of different filters to identify
+the information we&#39;re interested in. In this case a variety of
+building=* and amenity=* filters. The result will be the union
+of all nodes, ways and relations that have these tags.</p>
+
+<p>A global bounding box query filter is used to specify the
+location we are interested in. The special &quot;{{bbox}}&quot; syntax here means
+this query only works in Overpass Turbo which determines the
+bounding box based on your zoom level.</p>
+
+<p>Alternatively you could specify a fixed bounding box:
+[bbox:(&quot;...&quot;)] specifying the coordinates.</p>
+</p>
 					
 					<dl>
 					  <dt>Source File</dt>
-					  <dd><code>export-statues.op</code></dd>
+					  <dd><code>the-high-street.op</code></dd>
 					  
 					  <dt>Author</dt>
 					  <dd><span property="creator">Leigh Dodds</span></dd>
@@ -102,18 +113,44 @@
 					  
 					</dl>
 					<textarea id="overpass" cols="120" rows="50">/*
- @title Export bronze statues, sculptures and bust as CSV
-*/
-[out:csv( ::id, ::lat, ::lon, name, artwork_type, description, artist_name, start_date, wikidata; TRUE; "|") ][timeout:60];
-// gather results
-(
-  //find any statues, sculptures or busts made of bronze
-  node["material"="bronze"][~"artwork_type"~"^statue|sculpture|bust$"];
-  //also find any memorial statues made of bronze
-  node["material"="bronze"]["memorial"="statue"];
+ Finds information for a selection of buildings and amenities
+ that you might find on a typical UK high street.
 
+ The query uses the "nwr" specifier to query for (n)odes,
+ (w)ays and (r)elations. Sometimes local businesses might
+ only be tagged as points, in other cases the entire outline of
+ a building might be drawn and tagged. This allows us to
+ find information regardless of how its represented on the map.
+
+ The query also uses a range of different filters to identify
+ the information we're interested in. In this case a variety of
+ building=* and amenity=* filters. The result will be the union
+ of all nodes, ways and relations that have these tags.
+
+ A global bounding box query filter is used to specify the
+ location we are interested in. The special "{{bbox}}" syntax here means
+ this query only works in Overpass Turbo which determines the
+ bounding box based on your zoom level.
+
+ Alternatively you could specify a fixed bounding box:
+ [bbox:("...")] specifying the coordinates.
+
+ @title Extract data for a typical UK high street
+ */
+[bbox:{{bbox}}];
+(
+  nwr["building"="retail"];
+  nwr["building"="supermarket"];
+  nwr["building"="commercial"];
+
+  nwr["amenity"="pub"];
+  nwr["amenity"="bar"];
+  nwr["amenity"="restaurant"];
+  nwr["amenity"="cafe"];
+  nwr["amenity"="library"];
+  nwr["amenity"="bank"];
+  nwr["amenity"="fast_food"];
 );
-// print results
 out body;
 >;
 out skel qt;
@@ -195,7 +232,7 @@ out skel qt;
 					<p>Try this query in Overpass Turbo:</p>
 					<ul>
 					    <li>
-					      <a href="https://overpass-turbo.eu/?Q=%2F%2A%0A+%40title+Export+bronze+statues%2C+sculptures+and+bust+as+CSV%0A%2A%2F%0A%5Bout%3Acsv%28+%3A%3Aid%2C+%3A%3Alat%2C+%3A%3Alon%2C+name%2C+artwork_type%2C+description%2C+artist_name%2C+start_date%2C+wikidata%3B+TRUE%3B+%22%7C%22%29+%5D%5Btimeout%3A60%5D%3B%0A%2F%2F+gather+results%0A%28%0A++%2F%2Ffind+any+statues%2C+sculptures+or+busts+made+of+bronze%0A++node%5B%22material%22%3D%22bronze%22%5D%5B~%22artwork_type%22~%22%5Estatue%7Csculpture%7Cbust%24%22%5D%3B%0A++%2F%2Falso+find+any+memorial+statues+made+of+bronze%0A++node%5B%22material%22%3D%22bronze%22%5D%5B%22memorial%22%3D%22statue%22%5D%3B%0A%0A%29%3B%0A%2F%2F+print+results%0Aout+body%3B%0A%3E%3B%0Aout+skel+qt%3B%0A&R" target="_blank">https://overpass-turbo.eu/</a>
+					      <a href="https://overpass-turbo.eu/?Q=%2F%2A%0A+Finds+information+for+a+selection+of+buildings+and+amenities%0A+that+you+might+find+on+a+typical+UK+high+street.%0A%0A+The+query+uses+the+%22nwr%22+specifier+to+query+for+%28n%29odes%2C%0A+%28w%29ays+and+%28r%29elations.+Sometimes+local+businesses+might%0A+only+be+tagged+as+points%2C+in+other+cases+the+entire+outline+of%0A+a+building+might+be+drawn+and+tagged.+This+allows+us+to%0A+find+information+regardless+of+how+its+represented+on+the+map.%0A%0A+The+query+also+uses+a+range+of+different+filters+to+identify%0A+the+information+we%27re+interested+in.+In+this+case+a+variety+of%0A+building%3D%2A+and+amenity%3D%2A+filters.+The+result+will+be+the+union%0A+of+all+nodes%2C+ways+and+relations+that+have+these+tags.%0A%0A+A+global+bounding+box+query+filter+is+used+to+specify+the%0A+location+we+are+interested+in.+The+special+%22%7B%7Bbbox%7D%7D%22+syntax+here+means%0A+this+query+only+works+in+Overpass+Turbo+which+determines+the%0A+bounding+box+based+on+your+zoom+level.%0A%0A+Alternatively+you+could+specify+a+fixed+bounding+box%3A%0A+%5Bbbox%3A%28%22...%22%29%5D+specifying+the+coordinates.%0A%0A+%40title+Extract+data+for+a+typical+UK+high+street%0A+%2A%2F%0A%5Bbbox%3A%7B%7Bbbox%7D%7D%5D%3B%0A%28%0A++nwr%5B%22building%22%3D%22retail%22%5D%3B%0A++nwr%5B%22building%22%3D%22supermarket%22%5D%3B%0A++nwr%5B%22building%22%3D%22commercial%22%5D%3B%0A%0A++nwr%5B%22amenity%22%3D%22pub%22%5D%3B%0A++nwr%5B%22amenity%22%3D%22bar%22%5D%3B%0A++nwr%5B%22amenity%22%3D%22restaurant%22%5D%3B%0A++nwr%5B%22amenity%22%3D%22cafe%22%5D%3B%0A++nwr%5B%22amenity%22%3D%22library%22%5D%3B%0A++nwr%5B%22amenity%22%3D%22bank%22%5D%3B%0A++nwr%5B%22amenity%22%3D%22fast_food%22%5D%3B%0A%29%3B%0Aout+body%3B%0A%3E%3B%0Aout+skel+qt%3B%0A&R" target="_blank">https://overpass-turbo.eu/</a>
 					    </li>
 					</ul>
 

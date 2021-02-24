@@ -2,7 +2,7 @@
 <html class="h-100">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>OSM Queries</title>
+    <title>For Local Mappers</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -45,7 +45,7 @@
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
           <div class="container-fluid">
             
-              <a class="navbar-brand" href="/">OSM Queries</a>
+              <a class="navbar-brand" href="/">OSM Queries | For Local Mappers</a>
             
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
@@ -57,24 +57,14 @@
                     Packages
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="index.html">Home</a>
+                    <a class="dropdown-item" href="../index.html">Home</a>
                     
-                      <a class="dropdown-item" href=".//for-local-mappers/index.html">For Local Mappers</a>
+                      <a class="dropdown-item" href="..//for-local-mappers/index.html">For Local Mappers</a>
                     
                   </div>
                 </li>
                 
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.html#overview">Overview</a>
-                  </li>
                 
-                
-        		  	  
-                    <li class="nav-item">
-                      <a class="nav-link" href="background.html">Background</a>
-                    </li>
-        		  	  
-        		  	
               </ul>
             </div>
           </div>
@@ -87,33 +77,73 @@
         <div class="col">
           <div class="row">
               <div id="query-viewer">
-					<h2 property="title">Export bronze statues, sculptures and bust as CSV</h2>
+					<h2 property="title">Interesting places without wikidata links</h2>
 					
-						<p property="description"></p>
+						<p property="description"><p>Finds a range of potentially interesting, historic or
+noteworthy locations that don&#39;t have a Wikidata link.</p>
+
+<p>Of course, what you might consider interesting, historic
+or noteworthy might be different. And lack of a wikidata
+link doesn&#39;t require that a) there is a wikidata entry or
+that b) it should have one.</p>
+
+<p>But this might be a useful starting point to find locally
+significant places and either link them to wikidata,
+perhaps adding a new entry if useful.</p>
+</p>
 					
 					<dl>
 					  <dt>Source File</dt>
-					  <dd><code>export-statues.op</code></dd>
+					  <dd><code>quite-interesting-no-link.op</code></dd>
 					  
 					  <dt>Author</dt>
 					  <dd><span property="creator">Leigh Dodds</span></dd>
 					  
 					  
+					  <dt>Link</dt>
+					  <dd><a href="https://wiki.openstreetmap.org/wiki/Key:wikidata">https://wiki.openstreetmap.org/wiki/Key:wikidata</a></dd>
+					  
+					  <dt>Link</dt>
+					  <dd><a href="https://wiki.openstreetmap.org/wiki/Key:tourism">https://wiki.openstreetmap.org/wiki/Key:tourism</a></dd>
+					  
 					  
 					</dl>
 					<textarea id="overpass" cols="120" rows="50">/*
- @title Export bronze statues, sculptures and bust as CSV
-*/
-[out:csv( ::id, ::lat, ::lon, name, artwork_type, description, artist_name, start_date, wikidata; TRUE; "|") ][timeout:60];
-// gather results
-(
-  //find any statues, sculptures or busts made of bronze
-  node["material"="bronze"][~"artwork_type"~"^statue|sculpture|bust$"];
-  //also find any memorial statues made of bronze
-  node["material"="bronze"]["memorial"="statue"];
+ Finds a range of potentially interesting, historic or
+ noteworthy locations that don't have a Wikidata link.
 
-);
-// print results
+ Of course, what you might consider interesting, historic
+ or noteworthy might be different. And lack of a wikidata
+ link doesn't require that a) there is a wikidata entry or
+ that b) it should have one.
+
+ But this might be a useful starting point to find locally
+ significant places and either link them to wikidata,
+ perhaps adding a new entry if useful.
+
+ @title Interesting places without wikidata links
+ @see https://wiki.openstreetmap.org/wiki/Key:wikidata
+ @see https://wiki.openstreetmap.org/wiki/Key:tourism
+*/
+[bbox:{{bbox}}];
+(
+  //historic locations
+  nwr["historic"];
+
+  //tourist attractions
+  nwr["tourism"="attraction"];
+  nwr["tourism"="artwork"];
+  nwr["tourism"="museum"];
+
+  //parks
+  nwr["leisure"="park"];
+
+  //historic buildings
+  nwr["amenity"="townhall"];
+  nwr["amenity"="university"];
+
+)->.qi;
+nwr.qi["wikidata"!~"."];
 out body;
 >;
 out skel qt;
@@ -195,7 +225,7 @@ out skel qt;
 					<p>Try this query in Overpass Turbo:</p>
 					<ul>
 					    <li>
-					      <a href="https://overpass-turbo.eu/?Q=%2F%2A%0A+%40title+Export+bronze+statues%2C+sculptures+and+bust+as+CSV%0A%2A%2F%0A%5Bout%3Acsv%28+%3A%3Aid%2C+%3A%3Alat%2C+%3A%3Alon%2C+name%2C+artwork_type%2C+description%2C+artist_name%2C+start_date%2C+wikidata%3B+TRUE%3B+%22%7C%22%29+%5D%5Btimeout%3A60%5D%3B%0A%2F%2F+gather+results%0A%28%0A++%2F%2Ffind+any+statues%2C+sculptures+or+busts+made+of+bronze%0A++node%5B%22material%22%3D%22bronze%22%5D%5B~%22artwork_type%22~%22%5Estatue%7Csculpture%7Cbust%24%22%5D%3B%0A++%2F%2Falso+find+any+memorial+statues+made+of+bronze%0A++node%5B%22material%22%3D%22bronze%22%5D%5B%22memorial%22%3D%22statue%22%5D%3B%0A%0A%29%3B%0A%2F%2F+print+results%0Aout+body%3B%0A%3E%3B%0Aout+skel+qt%3B%0A&R" target="_blank">https://overpass-turbo.eu/</a>
+					      <a href="https://overpass-turbo.eu/?Q=%2F%2A%0A+Finds+a+range+of+potentially+interesting%2C+historic+or%0A+noteworthy+locations+that+don%27t+have+a+Wikidata+link.%0A%0A+Of+course%2C+what+you+might+consider+interesting%2C+historic%0A+or+noteworthy+might+be+different.+And+lack+of+a+wikidata%0A+link+doesn%27t+require+that+a%29+there+is+a+wikidata+entry+or%0A+that+b%29+it+should+have+one.%0A%0A+But+this+might+be+a+useful+starting+point+to+find+locally%0A+significant+places+and+either+link+them+to+wikidata%2C%0A+perhaps+adding+a+new+entry+if+useful.%0A%0A+%40title+Interesting+places+without+wikidata+links%0A+%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FKey%3Awikidata%0A+%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FKey%3Atourism%0A%2A%2F%0A%5Bbbox%3A%7B%7Bbbox%7D%7D%5D%3B%0A%28%0A++%2F%2Fhistoric+locations%0A++nwr%5B%22historic%22%5D%3B%0A%0A++%2F%2Ftourist+attractions%0A++nwr%5B%22tourism%22%3D%22attraction%22%5D%3B%0A++nwr%5B%22tourism%22%3D%22artwork%22%5D%3B%0A++nwr%5B%22tourism%22%3D%22museum%22%5D%3B%0A%0A++%2F%2Fparks%0A++nwr%5B%22leisure%22%3D%22park%22%5D%3B%0A%0A++%2F%2Fhistoric+buildings%0A++nwr%5B%22amenity%22%3D%22townhall%22%5D%3B%0A++nwr%5B%22amenity%22%3D%22university%22%5D%3B%0A%0A%29-%3E.qi%3B%0Anwr.qi%5B%22wikidata%22%21~%22.%22%5D%3B%0Aout+body%3B%0A%3E%3B%0Aout+skel+qt%3B%0A&R" target="_blank">https://overpass-turbo.eu/</a>
 					    </li>
 					</ul>
 
