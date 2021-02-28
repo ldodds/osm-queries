@@ -1,0 +1,33 @@
+/*
+OverpassQL supports searching within a polygon defined by a collection of
+points.
+
+The `poly` filter accepts a single parameter. This must be a string value that
+contains an even number of latitude and longitude pairs. Collectively these
+coordinates define a closed shape on the map. This polygon then provides the
+boundary within which we are searching.
+
+The query below extract nodes that can be found within a polygon that covers
+an area to the west of Uluru.
+
+Note that there isn't a bounding box defined in this query, as our area of
+interest is fully described by the `poly` filter.
+
+Note there's some quirks around syntax here which make `poly` slightly different to
+`around`:
+
+* the parameter must be provided as a quoted string.
+* the coordinate values must be separated by spaces and not commas.
+
+Unfortunately, unlike `around`, the `poly` filter doesn't support querying based
+on a polygon that can be found within a previously extracted set of nodes. So you
+can't, for example, extract the polygon describing a closed way stored in OpenStreetmap
+and search within it. This feels like an oversight.
+
+**Tip**: the more complex your polygon, the slower the search. Simply the boundary
+to improve performance.
+
+@title 14 - Searching by polygon
+*/
+node(poly:"-25.336204100149033 131.0238147136019 -25.341828144950995 131.02072480881674 -25.341944501738343 131.02754834855062");
+out body;

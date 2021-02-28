@@ -1,0 +1,40 @@
+/*
+Objects in the Openstreetmap database can be represented in different ways.
+
+For example a shop might initially be added as a node (a point location)
+and later changed to be represented by a way. This might happen if a mapper adds
+an outline for the building in which the business operates.
+
+Sometimes we want to query using `node`, `way` or `relation` because we know what
+data we want. But how do we find things that might be represented as any of these
+types?
+
+When we're not sure which type to query for, then we use one of the following
+statements instead of `node`, `way` or `relation`:
+
+* `nw` - to find nodes and ways
+* `nr` - to find nodes and relations
+* `wr` - to find ways and relations
+* `nwr` - to find nodes, ways and relations
+
+We can apply tag, `around` and `poly` filters with these statements just like
+their single type equivalents.
+
+This is a much more succinct way of finding objects of various types. These
+are fairly recent additions to the language, so will still occasionally see
+queries that build up results by querying for each type in turn (see the comments
+in the example below).
+
+This example extracts all of the nodes, ways and relations in our bounding box.
+
+@title 21 - Type agnostic queries (nwr)
+*/
+[bbox:-25.38653, 130.99883, -25.31478, 131.08938];
+nwr;
+
+//this is equivalent to the following three lines:
+//node;
+//way;
+//relation;
+
+out body;

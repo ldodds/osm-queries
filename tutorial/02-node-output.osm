@@ -1,0 +1,68 @@
+/*
+
+This query shows how to create different levels of detail in the output
+from your query.
+
+The `out` statement can be controlled by adding some parameters to it. These
+are appended to the statement.
+
+The parameters can be used to control things like:
+
+* how much information is extracted about each node (or way, or relation)
+* control how geographic information is output
+* sorting and limiting results
+
+In this query we are just looking at the first of these: how to control the
+level of data provided for each node.
+
+The different parameters are:
+
+* `ids` - outputs only the id of nodes
+* `tags` - outputs only the id and tags attached to a node
+* `skel` - outputs only the id and geometry
+* `body` - output id, geometry and tags
+* `meta` - output id, geometry, tags plus change history
+
+Because they don't include any coordinates, the first two options will cause
+OverpassQL to only show you some XML output. As it can't generate a map from a
+list of ids and tags.
+
+Run the query, trying different parameters. You can click around on the map to
+see the different levels of detail provided.
+
+If you look closely when using the `body` and `meta` options, you'll see that
+the majority of nodes returned don't have any tags. This is typically because these
+nodes are being used in a way or relation. For example, to describe the location of a
+road or footpath. They aren't points of interest in their own right.
+
+@title 02 - Outputting data about nodes
+@see https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#out
+*/
+//find all the nodes in this box around Uluru
+[bbox:-25.38653, 130.99883, -25.31478, 131.08938];
+node;
+
+//...and output data about those nodes
+
+//Outputing ids only means Overpass Turbo can't draw you a map,
+//you'll just get some XML output
+out ids;
+
+//TRYME #1 try this variant to output ids and tags
+//OverpassTurbo still can't draw a map, but some nodes will now
+//have extra information in the XML output.
+//out tags;
+
+//TRYME #2 try these other variants. After running each
+//one, click on some nodes to see how the returned data varies by
+//each option. Each one includes more information than the previous
+
+//ids and coordinates only
+//out skel;
+
+//ids, coordinates, tags, etc
+//out body;
+
+//same as body but with addition of information about when the node
+//was updatd, who edited it, etc
+//out meta;

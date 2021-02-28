@@ -1,0 +1,70 @@
+/*
+This query selects all of nodes that are within a bounding box.
+
+A bounding box is a rectangle that defines a geographic area. In OverpassQL a bounding box
+is defined by four values. The first two define the south-west corner of the box. The
+second pair defines its north east corner.
+
+There are two main ways to define a bounding box within an OverpassQL.
+
+This example defines a bounding box that applies to the whole query. This is achieved using
+a query setting called "`bbox`".
+
+Query settings provide a way to configure how a query runs. As we'll see later,
+that will setting query timeouts and customising output formats.
+
+Query settings appear at the start of a query and are defined with square
+brackets: `[]`.
+
+Here we're using the `bbox` setting which lets us define a default bounding box that will be
+used by statements that query the database.
+
+The coordinates we've provided (`25.38653, 130.99883, -25.31478, 131.08938`) defines a
+rectangle that includes Uluru. The sandstone monolith in Uluru-Kata Tjuta National Park, Australia.
+
+The second way to define a bounding box, is as a parameter to a statement.
+
+To test this out, run the query in Overpass Turbo, then follow the instructions
+in the TRYME #1 comment to see that the bounding box is applied.
+
+If you define a bounding box using a fixed set of points, then the query will
+only ever use that geographic area. But sometimes you want to run a query over
+whatever section of the map you're currently looking at.
+
+Overpass Turbo allows you to automatically insert a bounding box into your query
+based on the map view you currently have open. This is specified by including
+the text "`{{box}}`" instead of the coordinates. Overpass Turbo will then adjust
+your query before its run.
+
+This won't happen if you submit a query directly to the API. Its only a feature
+of the API
+
+When should you use the different variations?
+
+* if you're using the same bounding box across your query, use a query setting. It makes the query more readable
+* if you need to apply a bounding box to a single statement, then define it as a parameter
+* if you're writing a query intended to be used interactively within Overpass Turbo then use `{{bbox}}`
+* if you're querying the API directly, always submit queries using specific coordinates. `{{bbox}}` won't work
+
+@title 01 - Finding nodes with a bounding box
+*/
+//Defining a bounding box using query settings
+[bbox:-25.38653, 130.99883, -25.31478, 131.08938];
+node;
+
+//Defining a bounding box using a statement parameter
+//
+//TRYME #1 delete or comment out the previous two statement lines
+//and try running the following variation instead after first removing
+// the two "// characters so that the statement is not treated as a comment
+//node(-25.38653, 130.99883, -25.31478, 131.08938);
+
+//Defining a bounding box based on the map view in Overpass Turbo
+//
+//TRYME #2. Delete or comment out the previous lines, then
+//try running this variation. While the other versions use a fixed box,
+//this version tracks you as you pan and zoom over the map. Try running it to
+//confirm this for yourself
+//node({{bbox}});
+
+out skel;

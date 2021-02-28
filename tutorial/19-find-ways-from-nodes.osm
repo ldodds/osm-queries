@@ -1,0 +1,27 @@
+/*
+We previously looked at how to use the `>` operator to find members of ways.
+
+But we can also go the opposite way and find ways from their nodes. We can do
+this using the "recurse up" operator (`<`) which, as the arrow might suggest, goes in the
+opposite direction.
+
+This query finds all of the nodes in our bounding box and also the ways of which
+they are members.
+
+which they are members.
+@title 19 - Finding ways from their nodes
+*/
+[bbox:-25.38653, 130.99883, -25.31478, 131.08938];
+
+//this block creates a collection of ways and their nodes
+(
+
+ //find the nodes
+ node;
+
+ //find the way of which they are members
+ <;
+);
+
+//output the collection of nodes and ways
+out body;

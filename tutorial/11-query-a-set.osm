@@ -1,0 +1,46 @@
+/*
+This query demonstrates syntax for querying and serialising
+the contents of a named set.
+
+Rather than work with the default set, this query only used named sets.
+
+First we find nodes that have a name and store them in a set of results
+called "named_nodes".
+
+Set names can include letters, digits and the underscore character. But names
+must not start with a digit.
+
+Secondly, we then query within that set of results, filtering to just those
+nodes that are tagged as a cave entrance.
+
+To work with the nodes contained in a named set, rather than against the
+underlying OSM database, we append its name to the node command.
+
+So `node.named_nodes` means "Query nodes found in the set 'named_nodes'". The
+nodes are then filtered based on the value of their `natural` tag.
+
+The results of that query are written to another named set. This time called
+`caves`.
+
+Finally, we output the content of the `caves` set.
+
+This query is a little artificial as we can achieve the same thing by querying
+the database directly. But in more complex queries you may be working with
+multiple sets of results that you want to filter, explore and output in different
+ways.
+
+Every OverpassQL query command can work with named sets as well as the default
+"`_`" set. They can also store their results in named sets. This provides a
+great deal of flexibility.
+
+@title 11 - Querying a set
+*/
+[bbox:-25.38653, 130.99883, -25.31478, 131.08938];
+
+//find all nodes with a name, storing results in a set called "named_nodes"
+node["name"]->.named_nodes;
+
+//extract from the set "named_nodes", just those with
+node.named_nodes["natural"="cave_entrance"]->.caves;
+
+.caves out body;

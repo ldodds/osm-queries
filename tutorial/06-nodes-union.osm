@@ -1,0 +1,35 @@
+/*
+Sometimes when we are querying for data, we want to build up a larger collection of nodes
+(or ways, or relations) that we are interested in. For example, a collection of
+different types of road, amenities or natural features.
+
+Rather than do this in multiple separate queries, we can extract that collection
+using a single query, using a union.
+
+In OverpassQL we create a union by specifying a block using curved brackets (`()`).
+Within that block we can include all of the queries necessary to build our collection
+of results.
+
+For example, the following query will return all those nodes that have been tagged with the
+`tourism` tag AND those tagged as a cave entrance. We use separate individual `node` statements
+to build up the collection we want.
+
+The `out` statement then outputs the combined results.
+
+This type of query is useful in any database operation. But its particularly useful for
+querying the OpenStreetMap database because:
+
+* we are often extracting different types of features, e.g. nodes, ways and relations, and its easier to get these in one pass
+* nodes (and ways, and relations) can be tagged in different ways, so we often need to specify variations of tags to collect the features of interest
+* by building up larger sets, we can do more complex queries that involve set operations
+
+We'll cover set operations and variables in a later example.
+
+@title 06 - Extracting multiple sets of nodes
+*/
+[bbox:-25.38653, 130.99883, -25.31478, 131.08938];
+(
+node["tourism"];
+node["natural"="cave_entrance"];
+);
+out meta;

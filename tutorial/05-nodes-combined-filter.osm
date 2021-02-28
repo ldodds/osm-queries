@@ -1,0 +1,26 @@
+/*
+Filters applied to queries for nodes, ways and relations can be combined to
+build up more complex expressions.
+
+In this example we combine a key-value match with a regular expression to
+match nodes that are tagged as cave entrances and whose name starts with
+"Kulpi" in Pitjantjatjara.
+
+The comments show a variation that illustrates querying for nodes that
+have a name but don't have a name in Pitjantjatjara
+
+Any number of filters can be appended to the `node` keyword (or other ways to
+extract data, like `way`). All will need to be true for a node to be included
+in the results.
+
+@title 05 - Find nodes by applying multiple filters
+@see https://wiki.openstreetmap.org/wiki/Key:natural
+*/
+//find all the nodes in this box around Uluru
+[bbox:-25.38653, 130.99883, -25.31478, 131.08938];
+node["natural"="cave_entrance"]["name:pjt"~"^Kulpi"];
+
+//TRYME nodes that have a name tag, but which don't have a Pitjantjatjara name tag
+//node["name"][!"name:pjt"];
+
+out meta;

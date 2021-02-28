@@ -1,0 +1,50 @@
+/*
+This query illustrates others ways to find nodes based on their tags and the
+values of those tags.
+
+Tags and their values can be filtered by:
+
+* existence, e.g. whether a tag is or isn't present on the nodes
+* by value, e.g. whether a tag has a specific value
+* by regular expression matching tag values, e.g. whether the value of a tag matches a specific pattern
+* by regular expression matching tag names and values, e.g. where names and values match (different) patterns
+
+@title 04 - Find nodes by matching tags and their values
+@see https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#By_tag_.28has-kv.29
+@see https://en.wikipedia.org/wiki/Regular_expression#POSIX_basic_and_extended
+*/
+//find all the nodes in this box around Uluru
+[bbox:-25.38653, 130.99883, -25.31478, 131.08938];
+
+//EXISTENCE CHECKS
+
+//but limit to just those nodes that DO have a name tag
+node["name"];
+
+//TRYME nodes that DON'T have a name tag
+//node[!"name"];
+
+//BY VALUE
+
+//TRYME nodes that have the name 'Uluṟu' in Pitjantjatjara
+//node["name:pjt"="Uluṟu"];
+
+//REGULAR EXPRESSIONS, matching values
+
+//TRYME nodes whose name ends in 'Viewing'
+//node["name"~"Viewing$"];
+
+//TRYME nodes whose name starts in 'Viewing'
+//node["name"~"^Viewing"];
+
+//TRYME nodes whose name includes 'Viewing'
+//node["name"~"Viewing"];
+
+//TRYME nodes who name includes 'Viewing', ignoring case
+//node["name"~"Viewing", i];
+
+//REGULAR EXPRESSIONS, matching tag names
+//in this case any node with a name, or language code qualified name
+//node[~"^name(:.*)?$"~"."];
+
+out body;

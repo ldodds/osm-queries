@@ -1,0 +1,34 @@
+/*
+The previous example demonstrated how to create the union of multiple queries.
+
+The general syntax was:
+
+```
+( statement1; statement2; )
+```
+
+We can also calculate the difference between two sets of results. We do
+this by using the minus operator. The general syntax is:
+
+```
+( statement1; - statement2; )
+```
+
+Where the result will be those nodes (or ways or relations) returned by
+`statement1` that weren't returned by `statement2`
+
+The query below illustrates how to use this by finding all nodes that are
+tagged as tourist areas and are not tagged as caves.
+
+We can achieve the same thing using simple tag filters, but this helps to
+illustrate the basic syntax.
+
+@title 07 - Calculating differences between results
+*/
+[bbox:-25.38653, 130.99883, -25.31478, 131.08938];
+(
+node["tourism"];
+-
+node["natural"="cave_entrance"];
+);
+out body;

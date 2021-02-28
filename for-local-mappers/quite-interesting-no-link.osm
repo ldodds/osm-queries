@@ -1,0 +1,39 @@
+/*
+ Finds a range of potentially interesting, historic or
+ noteworthy locations that don't have a Wikidata link.
+
+ Of course, what you might consider interesting, historic
+ or noteworthy might be different. And lack of a wikidata
+ link doesn't require that a) there is a wikidata entry or
+ that b) it should have one.
+
+ But this might be a useful starting point to find locally
+ significant places and either link them to wikidata,
+ perhaps adding a new entry if useful.
+
+ @title Interesting places without wikidata links
+ @see https://wiki.openstreetmap.org/wiki/Key:wikidata
+ @see https://wiki.openstreetmap.org/wiki/Key:tourism
+*/
+[bbox:{{bbox}}];
+(
+  //historic locations
+  nwr["historic"];
+
+  //tourist attractions
+  nwr["tourism"="attraction"];
+  nwr["tourism"="artwork"];
+  nwr["tourism"="museum"];
+
+  //parks
+  nwr["leisure"="park"];
+
+  //historic buildings
+  nwr["amenity"="townhall"];
+  nwr["amenity"="university"];
+
+)->.qi;
+nwr.qi["wikidata"!~"."];
+out body;
+>;
+out skel qt;
