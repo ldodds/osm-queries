@@ -1,0 +1,30 @@
+/*
+Overpass queries consist of statements that query the OSM database to build
+up a set of results which can be serialised into different output formats.
+
+That set of results has a name. It's called `_`(underscore).
+
+All of the queries we've written so far have implicitly worked with this result
+set.
+
+Our `node` queries have added results to the `_` set and the `out` statements
+have used the default set to produce our output.
+
+The query below makes this use of the default set explicit by naming it in
+each statement.
+
+The results of a statement can be written to a set using the `->` operator.
+
+As we'll see in the following examples it is possible to create, manipulate
+and produce output from multiple named sets of results.
+
+@title 10 - The default set
+*/
+[bbox:-25.38653, 130.99883, -25.31478, 131.08938];
+
+//find nodes within out bounding box that have a name
+//and write the result to the default set
+node["name"]->._;
+
+//from the default set output just the id and coordinates of the result
+._ out skel;

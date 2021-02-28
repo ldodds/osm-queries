@@ -1,0 +1,57 @@
+/*
+The OpenStreetMap data model consists of:
+
+* nodes - single points, e.g a postbox or tree
+* ways - a set of connected points, e.g. a path or a building
+* relations - a grouping of ways and nodes, e.g. a collection of buildings
+
+When you drill down from relations and ways you always end up with nodes. So
+you can think of nodes as the most basic element of the data model: a point on
+the globe with some data attached to it as tags (name-value pairs).
+
+Our first query is one of the simplest possible OverpassQL queries. It select
+the node that has an `id` of `1` from the OSM database. It then outputs some
+information about that node.
+
+We'll learn more about different ways to query for nodes, ways and relations in
+other queries.
+
+And we'll also learn how to control what information is extracted and output
+from the database.
+
+But, for this first query, the main things to note is that a query consists of
+a series of statements. In this case there are two. Each statement ends with a semi-colon.
+
+The first statement (`node(1)`) performs the query.
+
+The second statement (`out`) creates the output.
+
+More complex queries will consist of many more statements of different types.
+But an OverpassQL queries is a list of statements that are executed by the API.
+These statements build of sets of results that are then returned to the
+user.
+
+The Overpass Turbo user interface helpfully displays those results on a map. But
+if you use the API directly, e.g. from a script or programme, then you can choose to
+consume and use the data however you like.
+
+To run the query, click the "Run in Overpass Turbo" link. A new window will open
+containing your results. As you work through this tutorial, you're encouraged
+to actually run the queries and, where suggested, customise them to explore
+some of the features of the language.
+
+In case you're wondering node number 1 happens to be a communications tower in
+Italy. I have no idea why.
+
+One important thing to note is that OpenStreetMap ids are not guaranteed to
+be stable. Someone could come along delete a node and then it might later be recreated
+by the same or a different user. But the node will end up with a new identifier.
+
+When you use OverpassQL you're likely to be querying information based on their location
+or metadata, rather than their identifier. Or, if you do, be prepared that the
+nodes, ways or relations you're fetching might disappear in the future.
+
+@title 00 - The Beginning
+*/
+node(1);
+out;

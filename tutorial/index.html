@@ -2,7 +2,7 @@
 <html class="h-100">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>For Local Mappers</title>
+    <title>Overpass Tutorial</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -97,19 +97,91 @@
         <ul>
           
             <li>
-              <a href="disused-places.osm.html">Disused amenities and buildings</a>
+              <a href="00-node-1.osm.html">00 - The Beginning</a>
             </li>
           
             <li>
-              <a href="the-high-street.osm.html">Extract data for a typical UK high street</a>
+              <a href="01-nodes.osm.html">01 - Finding nodes with a bounding box</a>
             </li>
           
             <li>
-              <a href="high-street-recent-changes.osm.html">Extract recently changed data for a typical UK high street</a>
+              <a href="02-node-output.osm.html">02 - Outputting data about nodes</a>
             </li>
           
             <li>
-              <a href="quite-interesting-no-link.osm.html">Interesting places without wikidata links</a>
+              <a href="03-nodes-basic-filter.osm.html">03 - Filtering nodes that have a tag</a>
+            </li>
+          
+            <li>
+              <a href="04-nodes-has-kv.osm.html">04 - Find nodes by matching tags and their values</a>
+            </li>
+          
+            <li>
+              <a href="05-nodes-combined-filter.osm.html">05 - Find nodes by applying multiple filters</a>
+            </li>
+          
+            <li>
+              <a href="06-nodes-union.osm.html">06 - Extracting multiple sets of nodes</a>
+            </li>
+          
+            <li>
+              <a href="07-nodes-differences.osm.html">07 - Calculating differences between results</a>
+            </li>
+          
+            <li>
+              <a href="08-nodes-json-output.osm.html">08 - Generating JSON output</a>
+            </li>
+          
+            <li>
+              <a href="09-nodes-csv-output.osm.html">09 - Generating CSV output</a>
+            </li>
+          
+            <li>
+              <a href="10-the-default-set.osm.html">10 - The default set</a>
+            </li>
+          
+            <li>
+              <a href="11-query-a-set.osm.html">11 - Querying a set</a>
+            </li>
+          
+            <li>
+              <a href="12-radius-search.osm.html">12 - Searching within a radius using around</a>
+            </li>
+          
+            <li>
+              <a href="13-around-with-set.osm.html">12 - Using around to filter against a set of results</a>
+            </li>
+          
+            <li>
+              <a href="14-searching-by-polygon.osm.html">14 - Searching by polygon</a>
+            </li>
+          
+            <li>
+              <a href="15-ways.osm.html">15 - Finding ways</a>
+            </li>
+          
+            <li>
+              <a href="16-ways-and-their-nodes.osm.html">16 - Ways and their nodes</a>
+            </li>
+          
+            <li>
+              <a href="17-ways-and-their-tags.osm.html">17 - Ways and their tags</a>
+            </li>
+          
+            <li>
+              <a href="18-nodes-and-ways.osm.html">18 - Combining node and way queries</a>
+            </li>
+          
+            <li>
+              <a href="19-find-ways-from-nodes.osm.html">19 - Finding ways from their nodes</a>
+            </li>
+          
+            <li>
+              <a href="20-relations.osm.html">20 - Finding relations</a>
+            </li>
+          
+            <li>
+              <a href="21-type-agnostic-queries.osm.html">21 - Type agnostic queries (nwr)</a>
             </li>
           
         </ul>
@@ -118,10 +190,34 @@
 
     <div class="col">
       <div class="bg-light p-5 rounded">
-        	<h1>For Local Mappers</h1>
-          <p class="lead">Queries to support local mappers</p>
+        	<h1>Overpass Tutorial</h1>
+          <p class="lead">A basic tutorial covering the key features of the Overpass language</p>
       </div>
       
+        	<div class="row">
+          	<div class="col">
+            	<p>This collection of queries provides a simple tutorial that covers the key features
+of Overpass QL.</p>
+
+<p>Each query focuses on a specific feature of the language. Each feature is
+introduced and then you are encouraged to read, run and customise the query to
+learn how to adapt it.</p>
+
+<p>Each query includes comments that explains the basic syntax of the query and
+how it works.</p>
+
+<p>In some cases, comments are marked as &quot;<code>TRYME</code>&quot;. These indicate sections of the
+query that you can customise to explore more of the functionality. Instructions
+are given in each example.</p>
+
+<p><strong>Note</strong>: Overpass Turbo remembers which area of OpenStreetMap you were last looking at.
+This means that sometimes after a query is loaded and run in the editor, you might be
+looking at the wrong location. Use the &quot;Zoom to Data&quot; option (the magnifying glass) to
+recentre on your results.</p>
+
+          	</div>
+        	</div>
+  	  
     </div>
 
   </div>

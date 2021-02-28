@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html class="h-100">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Overpass Tutorial</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="../../codemirror.css">
+
+    <script src="../../codemirror.js" type="text/javascript"></script>
+    <script src="../../mode/clike/clike.js" type="text/javascript"></script>
+    <script src="../../util/multiplex.js" type="text/javascript"></script>
+
+    <style type="text/css">
+      .CodeMirror {
+        /* Bootstrap Settings */
+        box-sizing: border-box;
+        margin: 0;
+        font: inherit;
+        overflow: auto;
+        font-family: inherit;
+        display: block;
+        width: 100%;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075); /* Bootstrap 3 */
+        box-shadow: none; /* Bootstrap 4 */
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        /* Code Mirror Settings */
+        font-family: monospace;
+        position: relative;
+        overflow: hidden;
+      }
+      .CodeMirror-scrollbar {
+        visibility: hidden;
+      }
+      .CodeMirror-focused {
+        /* Bootstrap Settings */
+        border-color: #66afe9;
+        outline: 0;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6); /* Bootstrap 3 */
+        box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25); /* Bootstrap 4 */
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+      }
+    </style>
+
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light"  style="background-color: #e3f2fd;">
+            <h1>OSM Queries</h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav">
+                
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      About
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      
+                          <a class="dropdown-item" href="background.html">Background</a>
+            		  	  
+                    </div>
+                  </li>
+        		  	
+                
+              </ul>
+            </div>
+        </nav>
+    </header>
+
+      <main>
+       <div class="container-fluid">
+  <div class="row">
+
+    <div class="col-md-auto">
+      
+
+      
+        <h4>Queries</h4>
+        <ul>
+          
+            <li>
+              <a href="00-node-1.osm.html">00 - The Beginning</a>
+            </li>
+          
+            <li>
+              <a href="01-nodes.osm.html">01 - Finding nodes with a bounding box</a>
+            </li>
+          
+            <li>
+              <a href="02-node-output.osm.html">02 - Outputting data about nodes</a>
+            </li>
+          
+            <li>
+              <a href="03-nodes-basic-filter.osm.html">03 - Filtering nodes that have a tag</a>
+            </li>
+          
+            <li>
+              <a href="04-nodes-has-kv.osm.html">04 - Find nodes by matching tags and their values</a>
+            </li>
+          
+            <li>
+              <a href="05-nodes-combined-filter.osm.html">05 - Find nodes by applying multiple filters</a>
+            </li>
+          
+            <li>
+              <a href="06-nodes-union.osm.html">06 - Extracting multiple sets of nodes</a>
+            </li>
+          
+            <li>
+              <a href="07-nodes-differences.osm.html">07 - Calculating differences between results</a>
+            </li>
+          
+            <li>
+              <a href="08-nodes-json-output.osm.html">08 - Generating JSON output</a>
+            </li>
+          
+            <li>
+              <a href="09-nodes-csv-output.osm.html">09 - Generating CSV output</a>
+            </li>
+          
+            <li>
+              <a href="10-the-default-set.osm.html">10 - The default set</a>
+            </li>
+          
+            <li>
+              <a href="11-query-a-set.osm.html">11 - Querying a set</a>
+            </li>
+          
+            <li>
+              <a href="12-radius-search.osm.html">12 - Searching within a radius using around</a>
+            </li>
+          
+            <li>
+              <a href="13-around-with-set.osm.html">12 - Using around to filter against a set of results</a>
+            </li>
+          
+            <li>
+              <a href="14-searching-by-polygon.osm.html">14 - Searching by polygon</a>
+            </li>
+          
+            <li>
+              <a href="15-ways.osm.html">15 - Finding ways</a>
+            </li>
+          
+            <li>
+              <a href="16-ways-and-their-nodes.osm.html">16 - Ways and their nodes</a>
+            </li>
+          
+            <li>
+              <a href="17-ways-and-their-tags.osm.html">17 - Ways and their tags</a>
+            </li>
+          
+            <li>
+              <a href="18-nodes-and-ways.osm.html">18 - Combining node and way queries</a>
+            </li>
+          
+            <li>
+              <a href="19-find-ways-from-nodes.osm.html">19 - Finding ways from their nodes</a>
+            </li>
+          
+            <li>
+              <a href="20-relations.osm.html">20 - Finding relations</a>
+            </li>
+          
+            <li>
+              <a href="21-type-agnostic-queries.osm.html">21 - Type agnostic queries (nwr)</a>
+            </li>
+          
+        </ul>
+      
+    </div>
+
+    <div class="col-6">
+      <div class="row">
+        <div class="col">
+          <h2 property="title">09 - Generating CSV output</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+					<textarea id="overpass" cols="120">
+//Comma separated table of id, coordinates and names
+[out:csv(::id, ::lat, ::lon, name; true; ",")];
+
+//TRYME #1 include node type
+//[out:csv(::id, ::lat, ::lon, ::type, name; true; ",")];
+
+//TRYME #1 pipe delimited, no header
+//[out:csv(::id, ::lat, ::lon, ::type, name; false; "|")];
+
+//find nodes tagged as caves
+node(-25.38653, 130.99883, -25.31478, 131.08938)["natural"="cave_entrance"];
+
+//include tags in output, so we can have them in our CSV output
+out body;
+</textarea>
+          <div class="float-right">
+            <a class="btn btn-primary" href="https://overpass-turbo.eu/?Q=%2F%2A%0AOverpassQL+can+also+be+used+to+generate+simple+CSV+exports.%0A%0AThis+is+achieved+by+using+the+%60%5Bout%3Acsv%5D%60+query+setting.%0A%0AIn+order+for+the+API+to+know+how+to+construct+the+CSV+output+you+must+provide%0Aa+specification+of+what+fields+%28columns%29+to+include.+These+fields+are+either%3A%0A%0A%2A+a+special+field+name%2C+which+is+predefined+by+the+API%2C+e.g.+%60%3A%3Aid%60%0A%2A+the+name+of+a+tag%0A%0AThe+special+field+names+include%3A%0A%0A%2A+%60%3A%3Aid%60+-+the+database+id+of+the+object%0A%2A+%60%3A%3Atype%60+-+its+type%2C+e.g.+node%2C+way+or+relation%0A%2A+%60%3A%3Alat%60+-+its+latitude%0A%2A+%60%3A%3Alon%60+-+its+longitude%0A%0AThe+list+of+columns+to+include+are+specified+as+parameters+in+the+query+setting.%0A%0AIts+also+possible+to+customise+whether+a+header+line+is+included+in+the+CSV%0Afile+and+the+column+separator+to+use.+The+default+is+to+include+a+head+and%0Ause+tabs.%0A%0AThe+general+syntax+for+the+%60out%3Acsv%60+setting+is%3A%0A%0A%60%60%60%0A%5Bout%3Acsv+%28columns%3B+header%3B+col-separator%29%5D%0A%60%60%60%0A%0AWhere%3A%0A%0A%2A+%60columns%60+is+a+comma+separated+list+of+names%0A%2A+%60header%60+is+either+%60true%60+or+%60false%60%0A%2A+%60col-separator%60+is+the+desired+separator+provided+as+a+string.%0A%0AThe+following+query+generates+a+simple+comma-separated+table+containing%0Athe+id%2C+coordinates+and+names+of+caves.+But+some+variations+are+also+provided.%0A%0A%2A%2ANote%2A%2A%3A+if+you+want+to+include+tags+in+your+CSV+output%2C+then+the+%60out%60+keyword%0Aof+your+query+MUST+generate+tags.+E.g+%60out+body%60+or+%60out+meta%60.%0A%0A%2A%2ANote%2A%2A%3A+The+latitude+and+longitude+values+only+really+apply+to+nodes.+Ways+and+relations+are%0Amore+complex+spatial+objects.+However+you+can+use+the+%60out%60+keyword+to+automatically%0Agenerate+a+single+location+%28%22centroid%22%29+for+those+types+of+feature.+Specifying%0A%60out+body+center%60+will+do+the+trick+if+your+query+returns+ways+or+relations.%0A%0A%2A%2ATip%2A%2A%3A+when+generating+CSV+output%2C+if+there+is+a+query+error+or+timeout+then+you+will%0Aget+empty+results.+I%27d+recommend+writing+and+testing+your+basic+query+first%2C+so+you%27re%0Asure+its+working.+And+then+customise+it+further+to+generate+the+desired+CSV+output.%0A%0A%40title+09+-+Generating+CSV+output%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FOverpass_API%2FOverpass_QL%23CSV_output_mode%0A%2A%2F%0A%2F%2FComma+separated+table+of+id%2C+coordinates+and+names%0A%5Bout%3Acsv%28%3A%3Aid%2C+%3A%3Alat%2C+%3A%3Alon%2C+name%3B+true%3B+%22%2C%22%29%5D%3B%0A%0A%2F%2FTRYME+%231+include+node+type%0A%2F%2F%5Bout%3Acsv%28%3A%3Aid%2C+%3A%3Alat%2C+%3A%3Alon%2C+%3A%3Atype%2C+name%3B+true%3B+%22%2C%22%29%5D%3B%0A%0A%2F%2FTRYME+%231+pipe+delimited%2C+no+header%0A%2F%2F%5Bout%3Acsv%28%3A%3Aid%2C+%3A%3Alat%2C+%3A%3Alon%2C+%3A%3Atype%2C+name%3B+false%3B+%22%7C%22%29%5D%3B%0A%0A%2F%2Ffind+nodes+tagged+as+caves%0Anode%28-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%29%5B%22natural%22%3D%22cave_entrance%22%5D%3B%0A%0A%2F%2Finclude+tags+in+output%2C+so+we+can+have+them+in+our+CSV+output%0Aout+body%3B%0A&R" target="_blank">
+                <i class="bi bi-play"></i>Run
+            </a>
+          </div>
+					<script>
+            CodeMirror.defineMIME("text/x-overpassQL", {
+              name: "clike",
+              keywords: (function (str) {
+                var r = {};
+                var a = str.split(" ");
+                for (var i = 0; i < a.length; i++) r[a[i]] = true;
+                return r;
+              })(
+                "out json xml custom popup timeout maxsize bbox" + // initial declarations
+                  " date diff adiff" + //attic declarations
+                  " foreach" + // block statements
+                  " relation rel way node is_in area around user uid newer changed poly pivot nwr derived" + // queries
+                  " out meta body skel tags ids count qt asc" + // actions
+                  " center bb geom" // geometry types
+                //+"r w n br bw" // recursors
+              )
+            });
+            CodeMirror.defineMIME("text/x-overpassXML", "xml");
+            CodeMirror.defineMode("xml+mustache", function (config) {
+              return CodeMirror.multiplexingMode(
+                CodeMirror.multiplexingMode(CodeMirror.getMode(config, "xml"), {
+                  open: "{{",
+                  close: "}}",
+                  mode: CodeMirror.getMode(config, "text/plain"),
+                  delimStyle: "mustache"
+                }),
+                {
+                  open: "{{style:",
+                  close: "}}",
+                  mode: CodeMirror.getMode(config, "text/css"),
+                  delimStyle: "mustache"
+                }
+              );
+            });
+            CodeMirror.defineMode("ql+mustache", function (config) {
+              return CodeMirror.multiplexingMode(
+                CodeMirror.multiplexingMode(
+                  CodeMirror.getMode(config, "text/x-overpassQL"),
+                  {
+                    open: "{{",
+                    close: "}}",
+                    mode: CodeMirror.getMode(config, "text/plain"),
+                    delimStyle: "mustache"
+                  }
+                ),
+                {
+                  open: "{{style:",
+                  close: "}}",
+                  mode: CodeMirror.getMode(config, "text/css"),
+                  delimStyle: "mustache"
+                }
+              );
+            });
+					  var editor = CodeMirror.fromTextArea(document.getElementById("overpass"), {
+						    autofocus: false,
+						    readOnly: true,
+                mode: "ql+mustache",
+						    lineNumbers: true,
+                lineWrapping: true,
+                matchBrackets: true,
+                closeTagEnabled: true,
+                closeTagIndent: [
+                  "osm-script",
+                  "query",
+                  "union",
+                  "foreach",
+                  "difference"
+                ]
+						  });
+					</script>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          
+						<p property="description"><p>OverpassQL can also be used to generate simple CSV exports.</p>
+
+<p>This is achieved by using the <code>[out:csv]</code> query setting.</p>
+
+<p>In order for the API to know how to construct the CSV output you must provide
+a specification of what fields (columns) to include. These fields are either:</p>
+
+<ul>
+<li>a special field name, which is predefined by the API, e.g. <code>::id</code></li>
+<li>the name of a tag</li>
+</ul>
+
+<p>The special field names include:</p>
+
+<ul>
+<li><code>::id</code> - the database id of the object</li>
+<li><code>::type</code> - its type, e.g. node, way or relation</li>
+<li><code>::lat</code> - its latitude</li>
+<li><code>::lon</code> - its longitude</li>
+</ul>
+
+<p>The list of columns to include are specified as parameters in the query setting.</p>
+
+<p>Its also possible to customise whether a header line is included in the CSV
+file and the column separator to use. The default is to include a head and
+use tabs.</p>
+
+<p>The general syntax for the <code>out:csv</code> setting is:</p>
+
+<p><code>
+[out:csv (columns; header; col-separator)]
+</code></p>
+
+<p>Where:</p>
+
+<ul>
+<li><code>columns</code> is a comma separated list of names</li>
+<li><code>header</code> is either <code>true</code> or <code>false</code></li>
+<li><code>col-separator</code> is the desired separator provided as a string.</li>
+</ul>
+
+<p>The following query generates a simple comma-separated table containing
+the id, coordinates and names of caves. But some variations are also provided.</p>
+
+<p><strong>Note</strong>: if you want to include tags in your CSV output, then the <code>out</code> keyword
+of your query MUST generate tags. E.g <code>out body</code> or <code>out meta</code>.</p>
+
+<p><strong>Note</strong>: The latitude and longitude values only really apply to nodes. Ways and relations are
+more complex spatial objects. However you can use the <code>out</code> keyword to automatically
+generate a single location (&quot;centroid&quot;) for those types of feature. Specifying
+<code>out body center</code> will do the trick if your query returns ways or relations.</p>
+
+<p><strong>Tip</strong>: when generating CSV output, if there is a query error or timeout then you will
+get empty results. I&#39;d recommend writing and testing your basic query first, so you&#39;re
+sure its working. And then customise it further to generate the desired CSV output.</p>
+</p>
+					
+
+          <table class="table">
+            <thead>
+              <th>Property</th><th>Value</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Source File</td><td><a href="09-nodes-csv-output.osm"><code>09-nodes-csv-output.osm</code></a></td>
+              </tr>
+              <tr>
+                <td>Links</td>
+                <td>
+                  
+                    <ul class="list-unstyled">
+                      
+          					       <li><a href="https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#CSV_output_mode">https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#CSV_output_mode</a></li>
+          					  
+                    </ul>
+                  
+                </td>
+              </tr>
+              <tr>
+                <td>Authors</td>
+                <td>
+                  
+                    <ul class="list-unstyled">
+                      
+          					       <li><span>Leigh Dodds</span></li>
+          					  
+                    </ul>
+                  
+                </td>
+              </tr>
+              <tr>
+                <td>Tags</td>
+                <td>
+                  
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+      </main>
+
+       <footer class="footer mt-auto py-3 bg-light">
+         <div class="container">
+           <span class="text-muted">Generated with <a href="http://github.com/ldodds/overpass-doc">overpass-doc</a>.</span>
+         </div>
+       </footer>
+
+
+  </body>
+</html>

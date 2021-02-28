@@ -1,0 +1,62 @@
+/*
+This query demonstrates how to filter nodes based on what tags they have.
+
+Tags in OpenStreetmap are used to attach information to nodes, ways and
+relations. There is an ever growing list of tags used to capture different
+types of data.
+
+Often, when we're querying the database we're not interested in all of
+the nodes (or ways or relations) in an area. Just those of a specific type. Or
+which have certain information attached.
+
+We can specify filters in our Overpass QL queries to restrict the results to
+just those features that have specific tags and values.
+
+This query adds a filter to the `node` statement: `node["name"]`.
+
+This limits the set of returned nodes to just those that have a value for the
+`name` tag.
+
+As we saw in the previous example, many nodes in the OpenStreetMap data are
+there to help define larger geospatial features. They aren't all individually
+points of interest. So they don't typically have any tags attached to them.
+
+When you run this query you'll see that there are only around 30 nodes returned
+compared to the 4,000 or so returned in the previous examples.
+
+OpenStreetMap is a multilingual map. And some tags, like names, might have
+values in several different languages.
+
+The OpenStreetMap data model doesn't allow tags to have multiple languages.
+Instead, there are multiple tags, which are qualified by a language code.
+
+For example, if we wanted to find nodes that have a name in Pitjantjatjara, which is
+the language spoken by the indigenous peoples that live around Uluṟu, then we would
+instead filter for a tag called `name:pjt`.
+
+Who gets to decide what goes in the default `name` tag? That's something for
+local mappers to discuss and agree on. See the links below for more information.
+
+@title 03 - Filtering nodes that have a tag
+
+@see https://wiki.openstreetmap.org/wiki/Key:name
+@see https://wiki.openstreetmap.org/wiki/Multilingual_names
+@see https://en.wikipedia.org/wiki/Pitjantjatjara_dialect
+*/
+//find all the nodes in this box around Uluru
+[bbox:-25.38653, 130.99883, -25.31478, 131.08938];
+
+//but limit to just those nodes that have a name tag
+node["name"];
+
+//TRYME #1 the above two statements are equivalent to the following.
+//use this form if you need to query for features in several
+//different bounding boxes
+//node(-25.38653, 130.99883, -25.31478, 131.08938)["name"];
+
+//TRYME #2 try finding just nodes what have a Pitjantjatjara name
+//node["name:pjt"];
+
+//use out body to include tags in the output, so
+//we can inspect the results
+out body;

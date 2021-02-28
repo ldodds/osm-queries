@@ -1,0 +1,16 @@
+/*
+ @title Export bronze statues, sculptures and bust as CSV
+*/
+[out:csv( ::id, ::lat, ::lon, name, artwork_type, description, artist_name, start_date, wikidata; TRUE; "|") ][timeout:60];
+// gather results
+(
+  //find any statues, sculptures or busts made of bronze
+  node["material"="bronze"][~"artwork_type"~"^statue|sculpture|bust$"];
+  //also find any memorial statues made of bronze
+  node["material"="bronze"]["memorial"="statue"];
+
+);
+// print results
+out body;
+>;
+out skel qt;

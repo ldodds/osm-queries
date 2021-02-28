@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html class="h-100">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Overpass Tutorial</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+
+    <link rel="stylesheet" href="../../codemirror.css">
+
+    <script src="../../codemirror.js" type="text/javascript"></script>
+    <script src="../../mode/clike/clike.js" type="text/javascript"></script>
+    <script src="../../util/multiplex.js" type="text/javascript"></script>
+
+    <style type="text/css">
+      .CodeMirror {
+        /* Bootstrap Settings */
+        box-sizing: border-box;
+        margin: 0;
+        font: inherit;
+        overflow: auto;
+        font-family: inherit;
+        display: block;
+        width: 100%;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075); /* Bootstrap 3 */
+        box-shadow: none; /* Bootstrap 4 */
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        /* Code Mirror Settings */
+        font-family: monospace;
+        position: relative;
+        overflow: hidden;
+      }
+      .CodeMirror-scrollbar {
+        visibility: hidden;
+      }
+      .CodeMirror-focused {
+        /* Bootstrap Settings */
+        border-color: #66afe9;
+        outline: 0;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6); /* Bootstrap 3 */
+        box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25); /* Bootstrap 4 */
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+      }
+    </style>
+
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light"  style="background-color: #e3f2fd;">
+            <h1>OSM Queries</h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav">
+                
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      About
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      
+                          <a class="dropdown-item" href="background.html">Background</a>
+            		  	  
+                    </div>
+                  </li>
+        		  	
+                
+              </ul>
+            </div>
+        </nav>
+    </header>
+
+      <main>
+       <div class="container-fluid">
+  <div class="row">
+
+    <div class="col-md-auto">
+      
+
+      
+        <h4>Queries</h4>
+        <ul>
+          
+            <li>
+              <a href="00-node-1.osm.html">00 - The Beginning</a>
+            </li>
+          
+            <li>
+              <a href="01-nodes.osm.html">01 - Finding nodes with a bounding box</a>
+            </li>
+          
+            <li>
+              <a href="02-node-output.osm.html">02 - Outputting data about nodes</a>
+            </li>
+          
+            <li>
+              <a href="03-nodes-basic-filter.osm.html">03 - Filtering nodes that have a tag</a>
+            </li>
+          
+            <li>
+              <a href="04-nodes-has-kv.osm.html">04 - Find nodes by matching tags and their values</a>
+            </li>
+          
+            <li>
+              <a href="05-nodes-combined-filter.osm.html">05 - Find nodes by applying multiple filters</a>
+            </li>
+          
+            <li>
+              <a href="06-nodes-union.osm.html">06 - Extracting multiple sets of nodes</a>
+            </li>
+          
+            <li>
+              <a href="07-nodes-differences.osm.html">07 - Calculating differences between results</a>
+            </li>
+          
+            <li>
+              <a href="08-nodes-json-output.osm.html">08 - Generating JSON output</a>
+            </li>
+          
+            <li>
+              <a href="09-nodes-csv-output.osm.html">09 - Generating CSV output</a>
+            </li>
+          
+            <li>
+              <a href="10-the-default-set.osm.html">10 - The default set</a>
+            </li>
+          
+            <li>
+              <a href="11-query-a-set.osm.html">11 - Querying a set</a>
+            </li>
+          
+            <li>
+              <a href="12-radius-search.osm.html">12 - Searching within a radius using around</a>
+            </li>
+          
+            <li>
+              <a href="13-around-with-set.osm.html">12 - Using around to filter against a set of results</a>
+            </li>
+          
+            <li>
+              <a href="14-searching-by-polygon.osm.html">14 - Searching by polygon</a>
+            </li>
+          
+            <li>
+              <a href="15-ways.osm.html">15 - Finding ways</a>
+            </li>
+          
+            <li>
+              <a href="16-ways-and-their-nodes.osm.html">16 - Ways and their nodes</a>
+            </li>
+          
+            <li>
+              <a href="17-ways-and-their-tags.osm.html">17 - Ways and their tags</a>
+            </li>
+          
+            <li>
+              <a href="18-nodes-and-ways.osm.html">18 - Combining node and way queries</a>
+            </li>
+          
+            <li>
+              <a href="19-find-ways-from-nodes.osm.html">19 - Finding ways from their nodes</a>
+            </li>
+          
+            <li>
+              <a href="20-relations.osm.html">20 - Finding relations</a>
+            </li>
+          
+            <li>
+              <a href="21-type-agnostic-queries.osm.html">21 - Type agnostic queries (nwr)</a>
+            </li>
+          
+        </ul>
+      
+    </div>
+
+    <div class="col-6">
+      <div class="row">
+        <div class="col">
+          <h2 property="title">12 - Using around to filter against a set of results</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+					<textarea id="overpass" cols="120">
+[bbox:-25.38653, 130.99883, -25.31478, 131.08938];
+node["natural"="peak"];
+node(around:850.00)["natural"="cave_entrance"];
+
+//TRYME #1 this produces the same output, but shows how to
+//make around use a named set of results, instead of the default set
+//node["natural"="peak"]->.peaks;
+//node(around.peaks:850.00)["natural"="cave_entrance"];
+
+out body;
+
+//TRYME #2. Try producing a count of the results instead of a list of nodes
+//out count;
+</textarea>
+          <div class="float-right">
+            <a class="btn btn-primary" href="https://overpass-turbo.eu/?Q=%2F%2A%0AThe+%60around%60+filter+can+be+used+to+find+nodes%2C+or+other+features%2C+that+are+near%0Ato+a+previously+extract+set+of+results.%0A%0AThe+following+query+does+two+things.+Firstly+it+searches+within+the+bounding%0Abox+to+find+all+nodes+that+are+tagged+as+peaks.+These+nodes+are+stored+in+the%0Adefault+set+%28%22%60_%60%22%29.%0A%0AThe+second+part+of+the+query+then+find+just+those+nodes+that+are+tagged+as%0Acaves%2C+and+are+within+850m+of+one+of+the+previously+found+results.%0A%0AIn+this+case+there+is+only+a+single+peak+within+our+bounding+box+%28the+top+of%0AUluru%29%2C+so+the+query+returns+just+those+caves+that+are+within+850m.+If+there+were%0Amultiple+peaks%2C+then+our+results+would+be+larger.%0A%0AThis+works+because%2C+if+the+%60around%60+filter+isn%27t+provided+with+coordinates%2C%0Aor+a+set+of+coordinates%2C+then+it+uses+the+default+set+%28%22%60_%60%29+as+the+basis+for+its+search.%0A%0AAs+with+other+keywords%2C+you+can+also+specify+a+search+set.+The+comments%0Abelow+indicate+an+alternative+way+to+achieve+the+same+result+but+using%0Anamed+sets.%0A%0AThis+way+of+using+%60around%60+is+much+more+powerful+than+specifying+a+fixed+radius%0Aor+line.+We+can+instead+do+more+complex+queries+such+as+finding+amenities+that%0Aare+near+to+bus+stops+or+a+road.%0A%0AWhen+experimenting+with+this+query+try+using+the+%60out+count%60+variation.+This%0Aproduces+a+count+of+the+nodes%2C+rather+than+their+coordinates+and+tags.+Useful%0Aif+you+just+want+to+do+some+quick+analysis+or+collect+some+figures.%0A%0A%2A%2ANote%2A%2A%3A+If+you+try+%60out+count%60%2C+Overpass+Turbo+will+warn+you+that+there+are%0Ano+results+it+can+display+on+the+map.+Just+look+at+the+data+tab+instead.%0A%0A%40title+12+-+Using+around+to+filter+against+a+set+of+results%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0Anode%5B%22natural%22%3D%22peak%22%5D%3B%0Anode%28around%3A850.00%29%5B%22natural%22%3D%22cave_entrance%22%5D%3B%0A%0A%2F%2FTRYME+%231+this+produces+the+same+output%2C+but+shows+how+to%0A%2F%2Fmake+around+use+a+named+set+of+results%2C+instead+of+the+default+set%0A%2F%2Fnode%5B%22natural%22%3D%22peak%22%5D-%3E.peaks%3B%0A%2F%2Fnode%28around.peaks%3A850.00%29%5B%22natural%22%3D%22cave_entrance%22%5D%3B%0A%0Aout+body%3B%0A%0A%2F%2FTRYME+%232.+Try+producing+a+count+of+the+results+instead+of+a+list+of+nodes%0A%2F%2Fout+count%3B%0A&R" target="_blank">
+                <i class="bi bi-play"></i>Run
+            </a>
+          </div>
+					<script>
+            CodeMirror.defineMIME("text/x-overpassQL", {
+              name: "clike",
+              keywords: (function (str) {
+                var r = {};
+                var a = str.split(" ");
+                for (var i = 0; i < a.length; i++) r[a[i]] = true;
+                return r;
+              })(
+                "out json xml custom popup timeout maxsize bbox" + // initial declarations
+                  " date diff adiff" + //attic declarations
+                  " foreach" + // block statements
+                  " relation rel way node is_in area around user uid newer changed poly pivot nwr derived" + // queries
+                  " out meta body skel tags ids count qt asc" + // actions
+                  " center bb geom" // geometry types
+                //+"r w n br bw" // recursors
+              )
+            });
+            CodeMirror.defineMIME("text/x-overpassXML", "xml");
+            CodeMirror.defineMode("xml+mustache", function (config) {
+              return CodeMirror.multiplexingMode(
+                CodeMirror.multiplexingMode(CodeMirror.getMode(config, "xml"), {
+                  open: "{{",
+                  close: "}}",
+                  mode: CodeMirror.getMode(config, "text/plain"),
+                  delimStyle: "mustache"
+                }),
+                {
+                  open: "{{style:",
+                  close: "}}",
+                  mode: CodeMirror.getMode(config, "text/css"),
+                  delimStyle: "mustache"
+                }
+              );
+            });
+            CodeMirror.defineMode("ql+mustache", function (config) {
+              return CodeMirror.multiplexingMode(
+                CodeMirror.multiplexingMode(
+                  CodeMirror.getMode(config, "text/x-overpassQL"),
+                  {
+                    open: "{{",
+                    close: "}}",
+                    mode: CodeMirror.getMode(config, "text/plain"),
+                    delimStyle: "mustache"
+                  }
+                ),
+                {
+                  open: "{{style:",
+                  close: "}}",
+                  mode: CodeMirror.getMode(config, "text/css"),
+                  delimStyle: "mustache"
+                }
+              );
+            });
+					  var editor = CodeMirror.fromTextArea(document.getElementById("overpass"), {
+						    autofocus: false,
+						    readOnly: true,
+                mode: "ql+mustache",
+						    lineNumbers: true,
+                lineWrapping: true,
+                matchBrackets: true,
+                closeTagEnabled: true,
+                closeTagIndent: [
+                  "osm-script",
+                  "query",
+                  "union",
+                  "foreach",
+                  "difference"
+                ]
+						  });
+					</script>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          
+						<p property="description"><p>The <code>around</code> filter can be used to find nodes, or other features, that are near
+to a previously extract set of results.</p>
+
+<p>The following query does two things. Firstly it searches within the bounding
+box to find all nodes that are tagged as peaks. These nodes are stored in the
+default set (&quot;<code>_</code>&quot;).</p>
+
+<p>The second part of the query then find just those nodes that are tagged as
+caves, and are within 850m of one of the previously found results.</p>
+
+<p>In this case there is only a single peak within our bounding box (the top of
+Uluru), so the query returns just those caves that are within 850m. If there were
+multiple peaks, then our results would be larger.</p>
+
+<p>This works because, if the <code>around</code> filter isn&#39;t provided with coordinates,
+or a set of coordinates, then it uses the default set (&quot;<code>_</code>) as the basis for its search.</p>
+
+<p>As with other keywords, you can also specify a search set. The comments
+below indicate an alternative way to achieve the same result but using
+named sets.</p>
+
+<p>This way of using <code>around</code> is much more powerful than specifying a fixed radius
+or line. We can instead do more complex queries such as finding amenities that
+are near to bus stops or a road.</p>
+
+<p>When experimenting with this query try using the <code>out count</code> variation. This
+produces a count of the nodes, rather than their coordinates and tags. Useful
+if you just want to do some quick analysis or collect some figures.</p>
+
+<p><strong>Note</strong>: If you try <code>out count</code>, Overpass Turbo will warn you that there are
+no results it can display on the map. Just look at the data tab instead.</p>
+</p>
+					
+
+          <table class="table">
+            <thead>
+              <th>Property</th><th>Value</th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Source File</td><td><a href="13-around-with-set.osm"><code>13-around-with-set.osm</code></a></td>
+              </tr>
+              <tr>
+                <td>Links</td>
+                <td>
+                  
+                </td>
+              </tr>
+              <tr>
+                <td>Authors</td>
+                <td>
+                  
+                    <ul class="list-unstyled">
+                      
+          					       <li><span>Leigh Dodds</span></li>
+          					  
+                    </ul>
+                  
+                </td>
+              </tr>
+              <tr>
+                <td>Tags</td>
+                <td>
+                  
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+      </main>
+
+       <footer class="footer mt-auto py-3 bg-light">
+         <div class="container">
+           <span class="text-muted">Generated with <a href="http://github.com/ldodds/overpass-doc">overpass-doc</a>.</span>
+         </div>
+       </footer>
+
+
+  </body>
+</html>

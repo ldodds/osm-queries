@@ -1,0 +1,16 @@
+/*
+Now that we can query for both nodes and ways we can do more complex queries.
+
+Here's is an example that finds ways within our bounding box, then uses an
+`around` query to find nodes tagged as amenities that are within 100 meters.
+
+Remember that the `around` filter will read from the default set if no other
+options are specified. So here our search is just limited to the ways within
+our bounding box.
+
+@title 18 - Combining node and way queries
+*/
+[bbox:-25.38653, 130.99883, -25.31478, 131.08938];
+way;
+node(around:100)["amenity"];
+out body;

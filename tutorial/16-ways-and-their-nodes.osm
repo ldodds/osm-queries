@@ -1,0 +1,51 @@
+/*
+To create maps for ways, we need to also extract the nodes that describe
+their outline.
+
+In OverpassQL we do this using the "recurse down" operator "`>`". This statement
+takes an input set of elements and then finds any node (or way, or relation)
+that are a member of those elements.
+
+The members of a way consist of its nodes. The members of a relation would
+consist of the nodes and ways that it contains. Nodes don't have members so
+these are ignored when performing a traversal.
+
+The query below extracts all ways within our bounding box. It then uses the
+traversal operator to also find the members of those nodes.
+
+We use a union of those two queries to produce output that includes all the
+core information about both the nodes and the ways.
+
+The recurse operator implicitly uses the default set (`_`) as its input. Without
+that context, the syntax can seem a bit arcane!
+
+In fact the `>` operator is a syntax shortcut. Its commonly used in queries, so its
+useful to know what it means ("Find all members of elements in the result set").
+
+In some later examples we'll look at some variations on this syntax that might be
+easier to understand.
+
+**Note**: If we didn't use the `()` block and instead found the ways and then
+their nodes, then the output would only contain data about the nodes. This is because
+the `>` query will overwrite the contents of the default set with its results.
+
+Always use a union block when performing traversals unless you really want to
+ignore the parent elements. Many examples of using OverpassQL just include the
+
+`()` block by default, because its so important for most queries.
+@title 16 - Ways and their nodes
+*/
+//define the bounding box for our search
+[bbox:-25.38653, 130.99883, -25.31478, 131.08938];
+
+//this block creates a collection of ways and their nodes
+(
+ //find the ways
+ way;
+
+ //find the nodes that are members of those ways
+ >;
+);
+
+//output the collection of nodes and ways
+out body;
