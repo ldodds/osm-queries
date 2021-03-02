@@ -5,7 +5,9 @@
  "extra-files": {
    "label": "About",
    "files": [
-     { "label": "Background", "file": "background.md" }
+     { "label": "Background", "file": "background.md" },
+     { "label": "Licence", "file": "licence.md" },
+     { "label": "Colophon", "file": "colophon.md" }
    ]
  }
 }

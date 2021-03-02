@@ -41,13 +41,3 @@ detailed overview of the language syntax and functionality
 * And the [Overpass API user's manual](https://dev.overpass-api.de/overpass-doc/en/) which is still a work in progress
 
 Use these as additional references.
-
-## How this website was put together
-
-This website was generated using a tool called [overpass-doc](https://github.com/ldodds/overpass-doc)
-developed by [Leigh Dodds](http://ldodds.com).
-
-It provides a simple command-line interface for generating documentation from packages
-of Overpass queries.
-
-The [source files are all in github](https://github.com/ldodds/overpass-doc) and are in the public domain.
