@@ -59,14 +59,18 @@
       .CodeMirror-scroll {
         height: 100%;
       }
+
+      .bg-color {
+        background-color: #e3f2fd;
+      }
     </style>
 
   </head>
 
   <body class="d-flex flex-column h-100">
     <header>
-        <nav class="navbar navbar-expand-md navbar-light"  style="background-color: #e3f2fd;">
-            <a class="navbar-brand" href="/">OSM Queries</a>
+        <nav class="navbar navbar-expand-md navbar-light bg-color">
+            <a class="navbar-brand" href="/"><i class="bi bi-geo-fill"></i> OSM Queries</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -96,7 +100,7 @@
 
     <div class="col-md-auto">
       
-        <h4>Map CSS</h4>
+        <h5>Map CSS</h5>
       
 
       
@@ -104,7 +108,7 @@
       
         <ul class="list-unstyled">
           
-            <li>
+            <li class="bg-color" >
               <a href="the-bath-key.osm.html">the-bath-key.osm</a>
             </li>
           
@@ -170,7 +174,7 @@ out body;
 }}
 </textarea>
           <div class="float-right">
-            <a class="btn btn-primary" href="https://overpass-turbo.eu/?Q=%5Bbbox%3A51.38097%2C+-2.36957%2C+51.38716%2C+-2.35825%5D%3B%0A%28%0A+way%2849549786%29%3B+%0A+%3E%3B%0A+way%2849549785%29%3B%0A+%3E%3B%0A+way%28120948853%29%3B+%2F%2Fgrass%0A+%3E%3B+%0A+way%283609799%29%3B+%2F%2Fgay+street%0A+%3E%3B+%0A++%0A+way%2830992002%29%3B+%2F%2Fqs%0A+%3E%3B%0A++%0A+way%28210%29%3B%0A+%3E%3B+%0A++%0A+way%28331545472%29%3B%0A+%3E%3B%0A++%0A+way%28773250139%29%3B%0A+%3E%3B%0A++%0A+way%28131628669%29%3B%0A+%3E%3B+%0A++%0A+way%2859967625%29%3B%0A+%3E%3B%0A++%0A+relation%281338997%29%3B%0A+%3E%3B+%0A%29%3B%0A%0Aout+body%3B%0A%0A%7B%7Bstyle%3A%0A+way%0A+%7B+color%3Argb%2899%2C73%2C23%29%3B+width%3A4%3B+opacity%3A1%3B+%7D%0A%0A+way%5B%40id%3D120948853%5D%0A+%7B+color%3Argb%2899%2C73%2C23%29%3B+width%3A2%3B+opacity%3A1%3B+%7D%0A%0A+node%0A+%7B+opacity%3A+0%3B+%7D+%0A+%0A+relation%0A+%7B+color%3Argb%2899%2C73%2C23%29%3B+width%3A2%3B+opacity%3A1%3B+%7D%0A%7D%7D%0A&R" target="_blank">
+            <a class="btn btn-primary btn-sm" href="https://overpass-turbo.eu/?Q=%5Bbbox%3A51.38097%2C+-2.36957%2C+51.38716%2C+-2.35825%5D%3B%0A%28%0A+way%2849549786%29%3B+%0A+%3E%3B%0A+way%2849549785%29%3B%0A+%3E%3B%0A+way%28120948853%29%3B+%2F%2Fgrass%0A+%3E%3B+%0A+way%283609799%29%3B+%2F%2Fgay+street%0A+%3E%3B+%0A++%0A+way%2830992002%29%3B+%2F%2Fqs%0A+%3E%3B%0A++%0A+way%28210%29%3B%0A+%3E%3B+%0A++%0A+way%28331545472%29%3B%0A+%3E%3B%0A++%0A+way%28773250139%29%3B%0A+%3E%3B%0A++%0A+way%28131628669%29%3B%0A+%3E%3B+%0A++%0A+way%2859967625%29%3B%0A+%3E%3B%0A++%0A+relation%281338997%29%3B%0A+%3E%3B+%0A%29%3B%0A%0Aout+body%3B%0A%0A%7B%7Bstyle%3A%0A+way%0A+%7B+color%3Argb%2899%2C73%2C23%29%3B+width%3A4%3B+opacity%3A1%3B+%7D%0A%0A+way%5B%40id%3D120948853%5D%0A+%7B+color%3Argb%2899%2C73%2C23%29%3B+width%3A2%3B+opacity%3A1%3B+%7D%0A%0A+node%0A+%7B+opacity%3A+0%3B+%7D+%0A+%0A+relation%0A+%7B+color%3Argb%2899%2C73%2C23%29%3B+width%3A2%3B+opacity%3A1%3B+%7D%0A%7D%7D%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -257,33 +261,23 @@ out body;
 
           <table class="table">
             <tbody>
-              <tr>
-                <td>Links</td>
-                <td>
-                  
-                </td>
-              </tr>
+              
               <tr>
                 <td>Source File</td><td><a href="the-bath-key.osm"><code>the-bath-key.osm</code></a></td>
               </tr>
-              <tr>
-                <td>Authors</td>
-                <td>
-                  
-                    <ul class="list-unstyled">
-                      
-          					       <li><span>Leigh Dodds</span></li>
-          					  
-                    </ul>
-                  
-                </td>
-              </tr>
-              <tr>
-                <td>Tags</td>
-                <td>
-                  
-                </td>
-              </tr>
+              
+                <tr>
+                  <td>Authors</td>
+                  <td>
+                      <ul class="list-unstyled">
+                        
+            					       <li><span>Leigh Dodds</span></li>
+            					  
+                      </ul>
+                  </td>
+                </tr>
+              
+              
             </tbody>
           </table>
         </div>

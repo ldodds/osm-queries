@@ -59,14 +59,18 @@
       .CodeMirror-scroll {
         height: 100%;
       }
+
+      .bg-color {
+        background-color: #e3f2fd;
+      }
     </style>
 
   </head>
 
   <body class="d-flex flex-column h-100">
     <header>
-        <nav class="navbar navbar-expand-md navbar-light"  style="background-color: #e3f2fd;">
-            <a class="navbar-brand" href="/">OSM Queries</a>
+        <nav class="navbar navbar-expand-md navbar-light bg-color">
+            <a class="navbar-brand" href="/"><i class="bi bi-geo-fill"></i> OSM Queries</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -96,7 +100,7 @@
 
     <div class="col-md-auto">
       
-        <h4>Overpass Tutorial</h4>
+        <h5>Overpass Tutorial</h5>
       
 
       
@@ -104,91 +108,91 @@
       
         <ul class="list-unstyled">
           
-            <li>
+            <li class="" >
               <a href="00-node-1.osm.html">00 - The Beginning</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="01-nodes.osm.html">01 - Finding nodes with a bounding box</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="02-node-output.osm.html">02 - Outputting data about nodes</a>
             </li>
           
-            <li>
+            <li class="bg-color" >
               <a href="03-nodes-basic-filter.osm.html">03 - Filtering nodes that have a tag</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="04-nodes-has-kv.osm.html">04 - Find nodes by matching tags and their values</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="05-nodes-combined-filter.osm.html">05 - Find nodes by applying multiple filters</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="06-nodes-union.osm.html">06 - Extracting multiple sets of nodes</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="07-nodes-differences.osm.html">07 - Calculating differences between results</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="08-nodes-json-output.osm.html">08 - Generating JSON output</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="09-nodes-csv-output.osm.html">09 - Generating CSV output</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="10-the-default-set.osm.html">10 - The default set</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="11-query-a-set.osm.html">11 - Querying a set</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="12-radius-search.osm.html">12 - Searching within a radius using around</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="13-around-with-set.osm.html">12 - Using around to filter against a set of results</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="14-searching-by-polygon.osm.html">14 - Searching by polygon</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="15-ways.osm.html">15 - Finding ways</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="16-ways-and-their-nodes.osm.html">16 - Ways and their nodes</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="17-ways-and-their-tags.osm.html">17 - Ways and their tags</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="18-nodes-and-ways.osm.html">18 - Combining node and way queries</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="19-find-ways-from-nodes.osm.html">19 - Finding ways from their nodes</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="20-relations.osm.html">20 - Finding relations</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="21-type-agnostic-queries.osm.html">21 - Type agnostic queries (nwr)</a>
             </li>
           
@@ -224,7 +228,7 @@ node["name"];
 out body;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-primary" href="https://overpass-turbo.eu/?Q=%2F%2A%0AThis+query+demonstrates+how+to+filter+nodes+based+on+what+tags+they+have.%0A%0ATags+in+OpenStreetmap+are+used+to+attach+information+to+nodes%2C+ways+and%0Arelations.+There+is+an+ever+growing+list+of+tags+used+to+capture+different%0Atypes+of+data.%0A%0AOften%2C+when+we%27re+querying+the+database+we%27re+not+interested+in+all+of%0Athe+nodes+%28or+ways+or+relations%29+in+an+area.+Just+those+of+a+specific+type.+Or%0Awhich+have+certain+information+attached.%0A%0AWe+can+specify+filters+in+our+Overpass+QL+queries+to+restrict+the+results+to%0Ajust+those+features+that+have+specific+tags+and+values.%0A%0AThis+query+adds+a+filter+to+the+%60node%60+statement%3A+%60node%5B%22name%22%5D%60.%0A%0AThis+limits+the+set+of+returned+nodes+to+just+those+that+have+a+value+for+the%0A%60name%60+tag.%0A%0AAs+we+saw+in+the+previous+example%2C+many+nodes+in+the+OpenStreetMap+data+are%0Athere+to+help+define+larger+geospatial+features.+They+aren%27t+all+individually%0Apoints+of+interest.+So+they+don%27t+typically+have+any+tags+attached+to+them.%0A%0AWhen+you+run+this+query+you%27ll+see+that+there+are+only+around+30+nodes+returned%0Acompared+to+the+4%2C000+or+so+returned+in+the+previous+examples.%0A%0AOpenStreetMap+is+a+multilingual+map.+And+some+tags%2C+like+names%2C+might+have%0Avalues+in+several+different+languages.%0A%0AThe+OpenStreetMap+data+model+doesn%27t+allow+tags+to+have+multiple+languages.%0AInstead%2C+there+are+multiple+tags%2C+which+are+qualified+by+a+language+code.%0A%0AFor+example%2C+if+we+wanted+to+find+nodes+that+have+a+name+in+Pitjantjatjara%2C+which+is%0Athe+language+spoken+by+the+indigenous+peoples+that+live+around+Ulu%E1%B9%9Fu%2C+then+we+would%0Ainstead+filter+for+a+tag+called+%60name%3Apjt%60.%0A%0AWho+gets+to+decide+what+goes+in+the+default+%60name%60+tag%3F+That%27s+something+for%0Alocal+mappers+to+discuss+and+agree+on.+See+the+links+below+for+more+information.%0A%0A%40title+03+-+Filtering+nodes+that+have+a+tag%0A%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FKey%3Aname%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FMultilingual_names%0A%40see+https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FPitjantjatjara_dialect%0A%2A%2F%0A%2F%2Ffind+all+the+nodes+in+this+box+around+Uluru%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0A%0A%2F%2Fbut+limit+to+just+those+nodes+that+have+a+name+tag%0Anode%5B%22name%22%5D%3B%0A%0A%2F%2FTRYME+%231+the+above+two+statements+are+equivalent+to+the+following.%0A%2F%2Fuse+this+form+if+you+need+to+query+for+features+in+several%0A%2F%2Fdifferent+bounding+boxes%0A%2F%2Fnode%28-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%29%5B%22name%22%5D%3B%0A%0A%2F%2FTRYME+%232+try+finding+just+nodes+what+have+a+Pitjantjatjara+name%0A%2F%2Fnode%5B%22name%3Apjt%22%5D%3B%0A%0A%2F%2Fuse+out+body+to+include+tags+in+the+output%2C+so%0A%2F%2Fwe+can+inspect+the+results%0Aout+body%3B%0A&R" target="_blank">
+            <a class="btn btn-primary btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AThis+query+demonstrates+how+to+filter+nodes+based+on+what+tags+they+have.%0A%0ATags+in+OpenStreetmap+are+used+to+attach+information+to+nodes%2C+ways+and%0Arelations.+There+is+an+ever+growing+list+of+tags+used+to+capture+different%0Atypes+of+data.%0A%0AOften%2C+when+we%27re+querying+the+database+we%27re+not+interested+in+all+of%0Athe+nodes+%28or+ways+or+relations%29+in+an+area.+Just+those+of+a+specific+type.+Or%0Awhich+have+certain+information+attached.%0A%0AWe+can+specify+filters+in+our+Overpass+QL+queries+to+restrict+the+results+to%0Ajust+those+features+that+have+specific+tags+and+values.%0A%0AThis+query+adds+a+filter+to+the+%60node%60+statement%3A+%60node%5B%22name%22%5D%60.%0A%0AThis+limits+the+set+of+returned+nodes+to+just+those+that+have+a+value+for+the%0A%60name%60+tag.%0A%0AAs+we+saw+in+the+previous+example%2C+many+nodes+in+the+OpenStreetMap+data+are%0Athere+to+help+define+larger+geospatial+features.+They+aren%27t+all+individually%0Apoints+of+interest.+So+they+don%27t+typically+have+any+tags+attached+to+them.%0A%0AWhen+you+run+this+query+you%27ll+see+that+there+are+only+around+30+nodes+returned%0Acompared+to+the+4%2C000+or+so+returned+in+the+previous+examples.%0A%0AOpenStreetMap+is+a+multilingual+map.+And+some+tags%2C+like+names%2C+might+have%0Avalues+in+several+different+languages.%0A%0AThe+OpenStreetMap+data+model+doesn%27t+allow+tags+to+have+multiple+languages.%0AInstead%2C+there+are+multiple+tags%2C+which+are+qualified+by+a+language+code.%0A%0AFor+example%2C+if+we+wanted+to+find+nodes+that+have+a+name+in+Pitjantjatjara%2C+which+is%0Athe+language+spoken+by+the+indigenous+peoples+that+live+around+Ulu%E1%B9%9Fu%2C+then+we+would%0Ainstead+filter+for+a+tag+called+%60name%3Apjt%60.%0A%0AWho+gets+to+decide+what+goes+in+the+default+%60name%60+tag%3F+That%27s+something+for%0Alocal+mappers+to+discuss+and+agree+on.+See+the+links+below+for+more+information.%0A%0A%40title+03+-+Filtering+nodes+that+have+a+tag%0A%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FKey%3Aname%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FMultilingual_names%0A%40see+https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FPitjantjatjara_dialect%0A%2A%2F%0A%2F%2Ffind+all+the+nodes+in+this+box+around+Uluru%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0A%0A%2F%2Fbut+limit+to+just+those+nodes+that+have+a+name+tag%0Anode%5B%22name%22%5D%3B%0A%0A%2F%2FTRYME+%231+the+above+two+statements+are+equivalent+to+the+following.%0A%2F%2Fuse+this+form+if+you+need+to+query+for+features+in+several%0A%2F%2Fdifferent+bounding+boxes%0A%2F%2Fnode%28-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%29%5B%22name%22%5D%3B%0A%0A%2F%2FTRYME+%232+try+finding+just+nodes+what+have+a+Pitjantjatjara+name%0A%2F%2Fnode%5B%22name%3Apjt%22%5D%3B%0A%0A%2F%2Fuse+out+body+to+include+tags+in+the+output%2C+so%0A%2F%2Fwe+can+inspect+the+results%0Aout+body%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -348,43 +352,38 @@ local mappers to discuss and agree on. See the links below for more information.
 
           <table class="table">
             <tbody>
-              <tr>
-                <td>Links</td>
-                <td>
-                  
+              
+                <tr>
+                  <td>Links</td>
+                  <td>
                     <ul class="list-unstyled">
                       
-          					       <li><a href="https://wiki.openstreetmap.org/wiki/Key:name">https://wiki.openstreetmap.org/wiki/Key:name</a></li>
-          					  
-          					       <li><a href="https://wiki.openstreetmap.org/wiki/Multilingual_names">https://wiki.openstreetmap.org/wiki/Multilingual_names</a></li>
-          					  
-          					       <li><a href="https://en.wikipedia.org/wiki/Pitjantjatjara_dialect">https://en.wikipedia.org/wiki/Pitjantjatjara_dialect</a></li>
-          					  
+                           <li><a href="https://wiki.openstreetmap.org/wiki/Key:name">https://wiki.openstreetmap.org/wiki/Key:name</a></li>
+                      
+                           <li><a href="https://wiki.openstreetmap.org/wiki/Multilingual_names">https://wiki.openstreetmap.org/wiki/Multilingual_names</a></li>
+                      
+                           <li><a href="https://en.wikipedia.org/wiki/Pitjantjatjara_dialect">https://en.wikipedia.org/wiki/Pitjantjatjara_dialect</a></li>
+                      
                     </ul>
-                  
-                </td>
-              </tr>
+                  </td>
+                </tr>
+              
               <tr>
                 <td>Source File</td><td><a href="03-nodes-basic-filter.osm"><code>03-nodes-basic-filter.osm</code></a></td>
               </tr>
-              <tr>
-                <td>Authors</td>
-                <td>
-                  
-                    <ul class="list-unstyled">
-                      
-          					       <li><span>Leigh Dodds</span></li>
-          					  
-                    </ul>
-                  
-                </td>
-              </tr>
-              <tr>
-                <td>Tags</td>
-                <td>
-                  
-                </td>
-              </tr>
+              
+                <tr>
+                  <td>Authors</td>
+                  <td>
+                      <ul class="list-unstyled">
+                        
+            					       <li><span>Leigh Dodds</span></li>
+            					  
+                      </ul>
+                  </td>
+                </tr>
+              
+              
             </tbody>
           </table>
         </div>

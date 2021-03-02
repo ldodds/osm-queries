@@ -59,14 +59,18 @@
       .CodeMirror-scroll {
         height: 100%;
       }
+
+      .bg-color {
+        background-color: #e3f2fd;
+      }
     </style>
 
   </head>
 
   <body class="d-flex flex-column h-100">
     <header>
-        <nav class="navbar navbar-expand-md navbar-light"  style="background-color: #e3f2fd;">
-            <a class="navbar-brand" href="/">OSM Queries</a>
+        <nav class="navbar navbar-expand-md navbar-light bg-color">
+            <a class="navbar-brand" href="/"><i class="bi bi-geo-fill"></i> OSM Queries</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -96,7 +100,7 @@
 
     <div class="col-md-auto">
       
-        <h4>Overpass Tutorial</h4>
+        <h5>Overpass Tutorial</h5>
       
 
       
@@ -104,91 +108,91 @@
       
         <ul class="list-unstyled">
           
-            <li>
+            <li class="" >
               <a href="00-node-1.osm.html">00 - The Beginning</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="01-nodes.osm.html">01 - Finding nodes with a bounding box</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="02-node-output.osm.html">02 - Outputting data about nodes</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="03-nodes-basic-filter.osm.html">03 - Filtering nodes that have a tag</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="04-nodes-has-kv.osm.html">04 - Find nodes by matching tags and their values</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="05-nodes-combined-filter.osm.html">05 - Find nodes by applying multiple filters</a>
             </li>
           
-            <li>
+            <li class="bg-color" >
               <a href="06-nodes-union.osm.html">06 - Extracting multiple sets of nodes</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="07-nodes-differences.osm.html">07 - Calculating differences between results</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="08-nodes-json-output.osm.html">08 - Generating JSON output</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="09-nodes-csv-output.osm.html">09 - Generating CSV output</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="10-the-default-set.osm.html">10 - The default set</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="11-query-a-set.osm.html">11 - Querying a set</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="12-radius-search.osm.html">12 - Searching within a radius using around</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="13-around-with-set.osm.html">12 - Using around to filter against a set of results</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="14-searching-by-polygon.osm.html">14 - Searching by polygon</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="15-ways.osm.html">15 - Finding ways</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="16-ways-and-their-nodes.osm.html">16 - Ways and their nodes</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="17-ways-and-their-tags.osm.html">17 - Ways and their tags</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="18-nodes-and-ways.osm.html">18 - Combining node and way queries</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="19-find-ways-from-nodes.osm.html">19 - Finding ways from their nodes</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="20-relations.osm.html">20 - Finding relations</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="21-type-agnostic-queries.osm.html">21 - Type agnostic queries (nwr)</a>
             </li>
           
@@ -213,7 +217,7 @@ node["natural"="cave_entrance"];
 out meta;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-primary" href="https://overpass-turbo.eu/?Q=%2F%2A%0ASometimes+when+we+are+querying+for+data%2C+we+want+to+build+up+a+larger+collection+of+nodes%0A%28or+ways%2C+or+relations%29+that+we+are+interested+in.+For+example%2C+a+collection+of%0Adifferent+types+of+road%2C+amenities+or+natural+features.%0A%0ARather+than+do+this+in+multiple+separate+queries%2C+we+can+extract+that+collection%0Ausing+a+single+query%2C+using+a+union.%0A%0AIn+OverpassQL+we+create+a+union+by+specifying+a+block+using+curved+brackets+%28%60%28%29%60%29.%0AWithin+that+block+we+can+include+all+of+the+queries+necessary+to+build+our+collection%0Aof+results.%0A%0AFor+example%2C+the+following+query+will+return+all+those+nodes+that+have+been+tagged+with+the%0A%60tourism%60+tag+AND+those+tagged+as+a+cave+entrance.+We+use+separate+individual+%60node%60+statements%0Ato+build+up+the+collection+we+want.%0A%0AThe+%60out%60+statement+then+outputs+the+combined+results.%0A%0AThis+type+of+query+is+useful+in+any+database+operation.+But+its+particularly+useful+for%0Aquerying+the+OpenStreetMap+database+because%3A%0A%0A%2A+we+are+often+extracting+different+types+of+features%2C+e.g.+nodes%2C+ways+and+relations%2C+and+its+easier+to+get+these+in+one+pass%0A%2A+nodes+%28and+ways%2C+and+relations%29+can+be+tagged+in+different+ways%2C+so+we+often+need+to+specify+variations+of+tags+to+collect+the+features+of+interest%0A%2A+by+building+up+larger+sets%2C+we+can+do+more+complex+queries+that+involve+set+operations%0A%0AWe%27ll+cover+set+operations+and+variables+in+a+later+example.%0A%0A%40title+06+-+Extracting+multiple+sets+of+nodes%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0A%28%0Anode%5B%22tourism%22%5D%3B%0Anode%5B%22natural%22%3D%22cave_entrance%22%5D%3B%0A%29%3B%0Aout+meta%3B%0A&R" target="_blank">
+            <a class="btn btn-primary btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0ASometimes+when+we+are+querying+for+data%2C+we+want+to+build+up+a+larger+collection+of+nodes%0A%28or+ways%2C+or+relations%29+that+we+are+interested+in.+For+example%2C+a+collection+of%0Adifferent+types+of+road%2C+amenities+or+natural+features.%0A%0ARather+than+do+this+in+multiple+separate+queries%2C+we+can+extract+that+collection%0Ausing+a+single+query%2C+using+a+union.%0A%0AIn+OverpassQL+we+create+a+union+by+specifying+a+block+using+curved+brackets+%28%60%28%29%60%29.%0AWithin+that+block+we+can+include+all+of+the+queries+necessary+to+build+our+collection%0Aof+results.%0A%0AFor+example%2C+the+following+query+will+return+all+those+nodes+that+have+been+tagged+with+the%0A%60tourism%60+tag+AND+those+tagged+as+a+cave+entrance.+We+use+separate+individual+%60node%60+statements%0Ato+build+up+the+collection+we+want.%0A%0AThe+%60out%60+statement+then+outputs+the+combined+results.%0A%0AThis+type+of+query+is+useful+in+any+database+operation.+But+its+particularly+useful+for%0Aquerying+the+OpenStreetMap+database+because%3A%0A%0A%2A+we+are+often+extracting+different+types+of+features%2C+e.g.+nodes%2C+ways+and+relations%2C+and+its+easier+to+get+these+in+one+pass%0A%2A+nodes+%28and+ways%2C+and+relations%29+can+be+tagged+in+different+ways%2C+so+we+often+need+to+specify+variations+of+tags+to+collect+the+features+of+interest%0A%2A+by+building+up+larger+sets%2C+we+can+do+more+complex+queries+that+involve+set+operations%0A%0AWe%27ll+cover+set+operations+and+variables+in+a+later+example.%0A%0A%40title+06+-+Extracting+multiple+sets+of+nodes%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0A%28%0Anode%5B%22tourism%22%5D%3B%0Anode%5B%22natural%22%3D%22cave_entrance%22%5D%3B%0A%29%3B%0Aout+meta%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -327,33 +331,23 @@ querying the OpenStreetMap database because:</p>
 
           <table class="table">
             <tbody>
-              <tr>
-                <td>Links</td>
-                <td>
-                  
-                </td>
-              </tr>
+              
               <tr>
                 <td>Source File</td><td><a href="06-nodes-union.osm"><code>06-nodes-union.osm</code></a></td>
               </tr>
-              <tr>
-                <td>Authors</td>
-                <td>
-                  
-                    <ul class="list-unstyled">
-                      
-          					       <li><span>Leigh Dodds</span></li>
-          					  
-                    </ul>
-                  
-                </td>
-              </tr>
-              <tr>
-                <td>Tags</td>
-                <td>
-                  
-                </td>
-              </tr>
+              
+                <tr>
+                  <td>Authors</td>
+                  <td>
+                      <ul class="list-unstyled">
+                        
+            					       <li><span>Leigh Dodds</span></li>
+            					  
+                      </ul>
+                  </td>
+                </tr>
+              
+              
             </tbody>
           </table>
         </div>

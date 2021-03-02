@@ -59,14 +59,18 @@
       .CodeMirror-scroll {
         height: 100%;
       }
+
+      .bg-color {
+        background-color: #e3f2fd;
+      }
     </style>
 
   </head>
 
   <body class="d-flex flex-column h-100">
     <header>
-        <nav class="navbar navbar-expand-md navbar-light"  style="background-color: #e3f2fd;">
-            <a class="navbar-brand" href="/">OSM Queries</a>
+        <nav class="navbar navbar-expand-md navbar-light bg-color">
+            <a class="navbar-brand" href="/"><i class="bi bi-geo-fill"></i> OSM Queries</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -96,7 +100,7 @@
 
     <div class="col-md-auto">
       
-        <h4>For Local Mappers</h4>
+        <h5>For Local Mappers</h5>
       
 
       
@@ -104,19 +108,19 @@
       
         <ul class="list-unstyled">
           
-            <li>
+            <li class="bg-color" >
               <a href="disused-places.osm.html">Disused amenities and buildings</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="the-high-street.osm.html">Extract data for a typical UK high street</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="high-street-recent-changes.osm.html">Extract recently changed data for a typical UK high street</a>
             </li>
           
-            <li>
+            <li class="" >
               <a href="quite-interesting-no-link.osm.html">Interesting places without wikidata links</a>
             </li>
           
@@ -144,7 +148,7 @@ out body;
 out skel qt;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-primary" href="https://overpass-turbo.eu/?Q=%2F%2A%0A+Query+for+nodes%2C+ways+and+relations+that+use%0A+the+disused+tag+namespace+to+indicate+that+they%27re%0A+no+longer+in+use.%0A%0A+This+might+be+a+useful+query+for+local+mappers+as+it%0A+might+indicate+places+to+check+to+see+if+they+are+still%0A+disused+or+may+have+reopened.%0A%0A+%40title+Disused+amenities+and+buildings%0A+%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FKey%3Adisused%0A+%2A%2F%0A%5Bbbox%3A%7B%7Bbbox%7D%7D%5D%3B%0A%28%0A++nwr%5B%22disused%3Aamenity%22%5D%3B%0A++nwr%5B%22disused%3Abuilding%22%5D%3B%0A++nwr%5B%22disused%3Atourism%22%5D%3B%0A%29%3B%0Aout+body%3B%0A%3E%3B%0Aout+skel+qt%3B%0A&R" target="_blank">
+            <a class="btn btn-primary btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0A+Query+for+nodes%2C+ways+and+relations+that+use%0A+the+disused+tag+namespace+to+indicate+that+they%27re%0A+no+longer+in+use.%0A%0A+This+might+be+a+useful+query+for+local+mappers+as+it%0A+might+indicate+places+to+check+to+see+if+they+are+still%0A+disused+or+may+have+reopened.%0A%0A+%40title+Disused+amenities+and+buildings%0A+%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FKey%3Adisused%0A+%2A%2F%0A%5Bbbox%3A%7B%7Bbbox%7D%7D%5D%3B%0A%28%0A++nwr%5B%22disused%3Aamenity%22%5D%3B%0A++nwr%5B%22disused%3Abuilding%22%5D%3B%0A++nwr%5B%22disused%3Atourism%22%5D%3B%0A%29%3B%0Aout+body%3B%0A%3E%3B%0Aout+skel+qt%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -238,39 +242,34 @@ disused or may have reopened.</p>
 
           <table class="table">
             <tbody>
-              <tr>
-                <td>Links</td>
-                <td>
-                  
+              
+                <tr>
+                  <td>Links</td>
+                  <td>
                     <ul class="list-unstyled">
                       
-          					       <li><a href="https://wiki.openstreetmap.org/wiki/Key:disused">https://wiki.openstreetmap.org/wiki/Key:disused</a></li>
-          					  
+                           <li><a href="https://wiki.openstreetmap.org/wiki/Key:disused">https://wiki.openstreetmap.org/wiki/Key:disused</a></li>
+                      
                     </ul>
-                  
-                </td>
-              </tr>
+                  </td>
+                </tr>
+              
               <tr>
                 <td>Source File</td><td><a href="disused-places.osm"><code>disused-places.osm</code></a></td>
               </tr>
-              <tr>
-                <td>Authors</td>
-                <td>
-                  
-                    <ul class="list-unstyled">
-                      
-          					       <li><span>Leigh Dodds</span></li>
-          					  
-                    </ul>
-                  
-                </td>
-              </tr>
-              <tr>
-                <td>Tags</td>
-                <td>
-                  
-                </td>
-              </tr>
+              
+                <tr>
+                  <td>Authors</td>
+                  <td>
+                      <ul class="list-unstyled">
+                        
+            					       <li><span>Leigh Dodds</span></li>
+            					  
+                      </ul>
+                  </td>
+                </tr>
+              
+              
             </tbody>
           </table>
         </div>

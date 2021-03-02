@@ -59,14 +59,18 @@
       .CodeMirror-scroll {
         height: 100%;
       }
+
+      .bg-color {
+        background-color: #e3f2fd;
+      }
     </style>
 
   </head>
 
   <body class="d-flex flex-column h-100">
     <header>
-        <nav class="navbar navbar-expand-md navbar-light"  style="background-color: #e3f2fd;">
-            <a class="navbar-brand" href="/">OSM Queries</a>
+        <nav class="navbar navbar-expand-md navbar-light bg-color">
+            <a class="navbar-brand" href="/"><i class="bi bi-geo-fill"></i> OSM Queries</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
@@ -91,8 +95,37 @@
     </header>
 
       <main class="pt-4">
-       <div class="container">
- <h1>Background</h1>
+       <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-auto">
+      
+        <h5>Collections</h5>
+        <ul class="list-unstyled">
+          
+            <li>
+              <a href=".//tutorial/index.html">Overpass Tutorial</a>
+            </li>
+          
+            <li>
+              <a href=".//map-css/index.html">Map CSS</a>
+            </li>
+          
+            <li>
+              <a href=".//misc/index.html">Miscellaneous</a>
+            </li>
+          
+            <li>
+              <a href=".//for-local-mappers/index.html">For Local Mappers</a>
+            </li>
+          
+        </ul>
+      
+
+      
+    </div>
+
+    <div class="col-6">
+      <h1>Background</h1>
 
 <p>The OpenStreetmap project provides an API that can be used to query and
 extract data in a variety of formats.</p>
@@ -148,7 +181,8 @@ of Overpass queries.</p>
 
 <p>The <a href="https://github.com/ldodds/overpass-doc">source files are all in github</a> and are in the public domain.</p>
 
-
+    </div>
+  </div>
 </div>
 
       </main>
