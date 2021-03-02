@@ -85,6 +85,10 @@
                       
                           <a class="dropdown-item" href="../background.html">Background</a>
             		  	  
+                          <a class="dropdown-item" href="../licence.html">Licence</a>
+            		  	  
+                          <a class="dropdown-item" href="../colophon.html">Colophon</a>
+            		  	  
                     </div>
                   </li>
         		  	
@@ -100,7 +104,7 @@
 
     <div class="col-md-auto">
       
-        <h5>Map CSS</h5>
+        <h5><a href="index.html" class="text-decoration-none">Map CSS</a></h5>
       
 
       
@@ -109,7 +113,11 @@
         <ul class="list-unstyled">
           
             <li class="bg-color" >
-              <a href="the-bath-key.osm.html">the-bath-key.osm</a>
+              <a href="the-bath-key.osm.html">Bath's Hidden Key</a>
+            </li>
+          
+            <li class="" >
+              <a href="lotus-bahai-temple.osm.html">Lotus Bahai Temple</a>
             </li>
           
         </ul>
@@ -119,42 +127,36 @@
     <div class="col-6">
       <div class="row">
         <div class="col">
-          <h2 property="title">the-bath-key.osm</h2>
+          <h2 property="title">Bath's Hidden Key</h2>
         </div>
       </div>
       <div class="row">
         <div class="col">
-					<textarea id="overpass" cols="120">[bbox:51.38097, -2.36957, 51.38716, -2.35825];
+					<textarea id="overpass" cols="120">
+[bbox:51.38097, -2.36957, 51.38716, -2.35825];
 (
- way(49549786); 
+ way(49549786);
  >;
  way(49549785);
  >;
  way(120948853); //grass
- >; 
+ >;
  way(3609799); //gay street
- >; 
-  
+ >;
  way(30992002); //qs
  >;
-  
  way(210);
- >; 
-  
+ >;
  way(331545472);
  >;
-  
  way(773250139);
  >;
-  
  way(131628669);
- >; 
-  
+ >;
  way(59967625);
  >;
-  
  relation(1338997);
- >; 
+ >;
 );
 
 out body;
@@ -167,14 +169,14 @@ out body;
  { color:rgb(99,73,23); width:2; opacity:1; }
 
  node
- { opacity: 0; } 
- 
+ { opacity: 0; }
+
  relation
  { color:rgb(99,73,23); width:2; opacity:1; }
 }}
 </textarea>
           <div class="float-right">
-            <a class="btn btn-primary btn-sm" href="https://overpass-turbo.eu/?Q=%5Bbbox%3A51.38097%2C+-2.36957%2C+51.38716%2C+-2.35825%5D%3B%0A%28%0A+way%2849549786%29%3B+%0A+%3E%3B%0A+way%2849549785%29%3B%0A+%3E%3B%0A+way%28120948853%29%3B+%2F%2Fgrass%0A+%3E%3B+%0A+way%283609799%29%3B+%2F%2Fgay+street%0A+%3E%3B+%0A++%0A+way%2830992002%29%3B+%2F%2Fqs%0A+%3E%3B%0A++%0A+way%28210%29%3B%0A+%3E%3B+%0A++%0A+way%28331545472%29%3B%0A+%3E%3B%0A++%0A+way%28773250139%29%3B%0A+%3E%3B%0A++%0A+way%28131628669%29%3B%0A+%3E%3B+%0A++%0A+way%2859967625%29%3B%0A+%3E%3B%0A++%0A+relation%281338997%29%3B%0A+%3E%3B+%0A%29%3B%0A%0Aout+body%3B%0A%0A%7B%7Bstyle%3A%0A+way%0A+%7B+color%3Argb%2899%2C73%2C23%29%3B+width%3A4%3B+opacity%3A1%3B+%7D%0A%0A+way%5B%40id%3D120948853%5D%0A+%7B+color%3Argb%2899%2C73%2C23%29%3B+width%3A2%3B+opacity%3A1%3B+%7D%0A%0A+node%0A+%7B+opacity%3A+0%3B+%7D+%0A+%0A+relation%0A+%7B+color%3Argb%2899%2C73%2C23%29%3B+width%3A2%3B+opacity%3A1%3B+%7D%0A%7D%7D%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AJohn+Wood%2C+the+Elder+had+a+big+influence+on+the+architecture+and+design+of%0ABath.+Many+of+the+buildings+he+designed+into+masonic+symbols+and+icons.%0A%0AHis+design+for+the+Circus%2C+Gay+Street+and+Queen+Squre+in+Bath+creates+the%0Ashape+of+a+key.%0A%0AThis+query+selects+the+ways+and+relations+that+define+that+shape+in+the%0AOSM+database+and+then+uses+MapCSS+to+style+them.%0A%0A%40see+https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FJohn_Wood%2C_the_Elder%0A%40title+Bath%27s+Hidden+Key%0A%2A%2F%0A%5Bbbox%3A51.38097%2C+-2.36957%2C+51.38716%2C+-2.35825%5D%3B%0A%28%0A+way%2849549786%29%3B%0A+%3E%3B%0A+way%2849549785%29%3B%0A+%3E%3B%0A+way%28120948853%29%3B+%2F%2Fgrass%0A+%3E%3B%0A+way%283609799%29%3B+%2F%2Fgay+street%0A+%3E%3B%0A+way%2830992002%29%3B+%2F%2Fqs%0A+%3E%3B%0A+way%28210%29%3B%0A+%3E%3B%0A+way%28331545472%29%3B%0A+%3E%3B%0A+way%28773250139%29%3B%0A+%3E%3B%0A+way%28131628669%29%3B%0A+%3E%3B%0A+way%2859967625%29%3B%0A+%3E%3B%0A+relation%281338997%29%3B%0A+%3E%3B%0A%29%3B%0A%0Aout+body%3B%0A%0A%7B%7Bstyle%3A%0A+way%0A+%7B+color%3Argb%2899%2C73%2C23%29%3B+width%3A4%3B+opacity%3A1%3B+%7D%0A%0A+way%5B%40id%3D120948853%5D%0A+%7B+color%3Argb%2899%2C73%2C23%29%3B+width%3A2%3B+opacity%3A1%3B+%7D%0A%0A+node%0A+%7B+opacity%3A+0%3B+%7D%0A%0A+relation%0A+%7B+color%3Argb%2899%2C73%2C23%29%3B+width%3A2%3B+opacity%3A1%3B+%7D%0A%7D%7D%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -256,11 +258,30 @@ out body;
       <div class="row">
         <div class="col">
           
-						<p property="description"></p>
+						<p property="description"><p>John Wood, the Elder had a big influence on the architecture and design of
+Bath. Many of the buildings he designed into masonic symbols and icons.</p>
+
+<p>His design for the Circus, Gay Street and Queen Squre in Bath creates the
+shape of a key.</p>
+
+<p>This query selects the ways and relations that define that shape in the
+OSM database and then uses MapCSS to style them.</p>
+</p>
 					
 
           <table class="table">
             <tbody>
+              
+                <tr>
+                  <td>Links</td>
+                  <td>
+                    <ul class="list-unstyled">
+                      
+                           <li><a href="https://en.wikipedia.org/wiki/John_Wood,_the_Elder">https://en.wikipedia.org/wiki/John_Wood,_the_Elder</a></li>
+                      
+                    </ul>
+                  </td>
+                </tr>
               
               <tr>
                 <td>Source File</td><td><a href="the-bath-key.osm"><code>the-bath-key.osm</code></a></td>

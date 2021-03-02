@@ -85,6 +85,10 @@
                       
                           <a class="dropdown-item" href="../background.html">Background</a>
             		  	  
+                          <a class="dropdown-item" href="../licence.html">Licence</a>
+            		  	  
+                          <a class="dropdown-item" href="../colophon.html">Colophon</a>
+            		  	  
                     </div>
                   </li>
         		  	
@@ -100,7 +104,7 @@
 
     <div class="col-md-auto">
       
-        <h5>Overpass Tutorial</h5>
+        <h5><a href="index.html" class="text-decoration-none">Overpass Tutorial</a></h5>
       
 
       
@@ -214,7 +218,7 @@ relation["boundary"="administrative"];
 out body;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-primary btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AHaving+looked+at+nodes+and+ways%2C+the+final+part+of+the+data+model+to+explore%0Aare+relations.%0A%0ARelations+are+collections+of+nodes+and+ways.+They+describe+logical+groupings+of%0Aobjects+that+go+beyond+their+basic+spatial+relationship.+For+example+a+relation%0Acan+be+used+to+describe%3A%0A%0A%2A+a+bus+route%2C+which+connects+a+set+of+bus+stop+%28nodes%29+and+ways+%28the+route%29%0A%2A+an+administrative+boundary%0A%2A+a+multipolygon%2C+such+as+a+collection+of+buildings+that+represent+a+single+location%0A%0AWe+query+for+relations+using+the+%60relation%60+keyword.+We+can+filter+them+using%0Atheir+tags+and+use+the+recurse+down+operators+to+find+their+contents.%0A%0AThe+following+query+finds+administrative+boundaries+that+relate+to+our+bounding%0Abox.%0A%0A%40title+20+-+Finding+relations%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FRelation%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0Arelation%5B%22boundary%22%3D%22administrative%22%5D%3B%0Aout+body%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AHaving+looked+at+nodes+and+ways%2C+the+final+part+of+the+data+model+to+explore%0Aare+relations.%0A%0ARelations+are+collections+of+nodes+and+ways.+They+describe+logical+groupings+of%0Aobjects+that+go+beyond+their+basic+spatial+relationship.+For+example+a+relation%0Acan+be+used+to+describe%3A%0A%0A%2A+a+bus+route%2C+which+connects+a+set+of+bus+stop+%28nodes%29+and+ways+%28the+route%29%0A%2A+an+administrative+boundary%0A%2A+a+multipolygon%2C+such+as+a+collection+of+buildings+that+represent+a+single+location%0A%0AWe+query+for+relations+using+the+%60relation%60+keyword.+We+can+filter+them+using%0Atheir+tags+and+use+the+recurse+down+operators+to+find+their+contents.%0A%0AThe+following+query+finds+administrative+boundaries+that+relate+to+our+bounding%0Abox.%0A%0A%40title+20+-+Finding+relations%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FRelation%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0Arelation%5B%22boundary%22%3D%22administrative%22%5D%3B%0Aout+body%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>

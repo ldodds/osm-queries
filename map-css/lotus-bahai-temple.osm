@@ -1,0 +1,87 @@
+/*
+Colouring the Lotus Bahai Template as a lotus flower.
+
+This example illustrates selecting the same way more than once (44827278). In
+the second selection we output just its centroid and then style that using
+`way:placeholder`.
+
+We also hide nodes that are selected using the `>` recurse operator so they're
+not displayed.
+
+@see https://www.openstreetmap.org/way/44827278
+@see https://en.wikipedia.org/wiki/Lotus_Temple
+@title Lotus Bahai Temple
+*/
+[bbox:28.55215, 77.2574, 28.55433, 77.26023];
+(
+  way(44827278); //inner
+  >;
+  way["landuse"="basin"];
+  >;
+  way(119871876); //outer
+  >;
+  way(119912480);
+  >;
+  way(119912477);
+  >;
+  way(119912471);
+  >;
+  way(119912474);
+  >;
+  way(119912468);
+  >;
+  way(119912479);
+  >;
+  way(119912469);
+  >;
+  way(484723872); //entry path
+  >;
+  way(119871864); //stem
+  >;
+  way(484723864);
+  >;
+  way(484723863);
+  >;
+  way(119871875);
+  >;
+);
+out body;
+
+way(44827278);
+out center;
+
+{{style:
+ way
+ { fill-color: #E75480; fill-opacity: 1; opacity: 1; color:#E75480; width: 5;}
+
+ way[@id=44827278]
+ { fill-color: orange; fill-opacity: 1; opacity: 1; color:#F8C377; width: 5;}
+
+ way[landuse=basin]
+ { fill-color: #FADADD; dashes: 5,8; fill-opacity: 1; opacity: 1; color: #FFc0CB; width: 5; }
+
+ way[@id=119871876]
+ { fill-color: #E75480; fill-opacity: 1; opacity: 1; color:#E75480; width: 5;}
+
+ way[@id=484723872]
+ { opacity: 1; color:green; width: 5;}
+
+ way[@id=119871864]
+ { opacity: 1; color:green; width: 5;}
+
+ way[@id=484723864]
+ { opacity: 1; color:green; width: 5;}
+
+ way[@id=484723863]
+ { opacity: 1; color:green; width: 5;}
+
+ way[@id=119871875]
+ { opacity: 1; color:green; width: 5;}
+
+ way[building=temple]
+ { opacity: 1; colour:blue; }
+
+ way:placeholder { fill-color: yellow; }
+ node[entrance=yes] { opacity: 0; }
+ node[entrance=main] { opacity: 0; }
+}}

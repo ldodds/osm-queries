@@ -85,6 +85,10 @@
                       
                           <a class="dropdown-item" href="../background.html">Background</a>
             		  	  
+                          <a class="dropdown-item" href="../licence.html">Licence</a>
+            		  	  
+                          <a class="dropdown-item" href="../colophon.html">Colophon</a>
+            		  	  
                     </div>
                   </li>
         		  	
@@ -100,7 +104,7 @@
 
     <div class="col-md-auto">
       
-        <h5>Overpass Tutorial</h5>
+        <h5><a href="index.html" class="text-decoration-none">Overpass Tutorial</a></h5>
       
 
       
@@ -220,7 +224,7 @@ nwr;
 out body;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-primary btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AObjects+in+the+Openstreetmap+database+can+be+represented+in+different+ways.%0A%0AFor+example+a+shop+might+initially+be+added+as+a+node+%28a+point+location%29%0Aand+later+changed+to+be+represented+by+a+way.+This+might+happen+if+a+mapper+adds%0Aan+outline+for+the+building+in+which+the+business+operates.%0A%0ASometimes+we+want+to+query+using+%60node%60%2C+%60way%60+or+%60relation%60+because+we+know+what%0Adata+we+want.+But+how+do+we+find+things+that+might+be+represented+as+any+of+these%0Atypes%3F%0A%0AWhen+we%27re+not+sure+which+type+to+query+for%2C+then+we+use+one+of+the+following%0Astatements+instead+of+%60node%60%2C+%60way%60+or+%60relation%60%3A%0A%0A%2A+%60nw%60+-+to+find+nodes+and+ways%0A%2A+%60nr%60+-+to+find+nodes+and+relations%0A%2A+%60wr%60+-+to+find+ways+and+relations%0A%2A+%60nwr%60+-+to+find+nodes%2C+ways+and+relations%0A%0AWe+can+apply+tag%2C+%60around%60+and+%60poly%60+filters+with+these+statements+just+like%0Atheir+single+type+equivalents.%0A%0AThis+is+a+much+more+succinct+way+of+finding+objects+of+various+types.+These%0Aare+fairly+recent+additions+to+the+language%2C+so+will+still+occasionally+see%0Aqueries+that+build+up+results+by+querying+for+each+type+in+turn+%28see+the+comments%0Ain+the+example+below%29.%0A%0AThis+example+extracts+all+of+the+nodes%2C+ways+and+relations+in+our+bounding+box.%0A%0A%40title+21+-+Type+agnostic+queries+%28nwr%29%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0Anwr%3B%0A%0A%2F%2Fthis+is+equivalent+to+the+following+three+lines%3A%0A%2F%2Fnode%3B%0A%2F%2Fway%3B%0A%2F%2Frelation%3B%0A%0Aout+body%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AObjects+in+the+Openstreetmap+database+can+be+represented+in+different+ways.%0A%0AFor+example+a+shop+might+initially+be+added+as+a+node+%28a+point+location%29%0Aand+later+changed+to+be+represented+by+a+way.+This+might+happen+if+a+mapper+adds%0Aan+outline+for+the+building+in+which+the+business+operates.%0A%0ASometimes+we+want+to+query+using+%60node%60%2C+%60way%60+or+%60relation%60+because+we+know+what%0Adata+we+want.+But+how+do+we+find+things+that+might+be+represented+as+any+of+these%0Atypes%3F%0A%0AWhen+we%27re+not+sure+which+type+to+query+for%2C+then+we+use+one+of+the+following%0Astatements+instead+of+%60node%60%2C+%60way%60+or+%60relation%60%3A%0A%0A%2A+%60nw%60+-+to+find+nodes+and+ways%0A%2A+%60nr%60+-+to+find+nodes+and+relations%0A%2A+%60wr%60+-+to+find+ways+and+relations%0A%2A+%60nwr%60+-+to+find+nodes%2C+ways+and+relations%0A%0AWe+can+apply+tag%2C+%60around%60+and+%60poly%60+filters+with+these+statements+just+like%0Atheir+single+type+equivalents.%0A%0AThis+is+a+much+more+succinct+way+of+finding+objects+of+various+types.+These%0Aare+fairly+recent+additions+to+the+language%2C+so+will+still+occasionally+see%0Aqueries+that+build+up+results+by+querying+for+each+type+in+turn+%28see+the+comments%0Ain+the+example+below%29.%0A%0AThis+example+extracts+all+of+the+nodes%2C+ways+and+relations+in+our+bounding+box.%0A%0A%40title+21+-+Type+agnostic+queries+%28nwr%29%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0Anwr%3B%0A%0A%2F%2Fthis+is+equivalent+to+the+following+three+lines%3A%0A%2F%2Fnode%3B%0A%2F%2Fway%3B%0A%2F%2Frelation%3B%0A%0Aout+body%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>

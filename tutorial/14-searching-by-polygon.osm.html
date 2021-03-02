@@ -85,6 +85,10 @@
                       
                           <a class="dropdown-item" href="../background.html">Background</a>
             		  	  
+                          <a class="dropdown-item" href="../licence.html">Licence</a>
+            		  	  
+                          <a class="dropdown-item" href="../colophon.html">Colophon</a>
+            		  	  
                     </div>
                   </li>
         		  	
@@ -100,7 +104,7 @@
 
     <div class="col-md-auto">
       
-        <h5>Overpass Tutorial</h5>
+        <h5><a href="index.html" class="text-decoration-none">Overpass Tutorial</a></h5>
       
 
       
@@ -213,7 +217,7 @@ node(poly:"-25.336204100149033 131.0238147136019 -25.341828144950995 131.0207248
 out body;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-primary btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AOverpassQL+supports+searching+within+a+polygon+defined+by+a+collection+of%0Apoints.%0A%0AThe+%60poly%60+filter+accepts+a+single+parameter.+This+must+be+a+string+value+that%0Acontains+an+even+number+of+latitude+and+longitude+pairs.+Collectively+these%0Acoordinates+define+a+closed+shape+on+the+map.+This+polygon+then+provides+the%0Aboundary+within+which+we+are+searching.%0A%0AThe+query+below+extract+nodes+that+can+be+found+within+a+polygon+that+covers%0Aan+area+to+the+west+of+Uluru.%0A%0ANote+that+there+isn%27t+a+bounding+box+defined+in+this+query%2C+as+our+area+of%0Ainterest+is+fully+described+by+the+%60poly%60+filter.%0A%0ANote+there%27s+some+quirks+around+syntax+here+which+make+%60poly%60+slightly+different+to%0A%60around%60%3A%0A%0A%2A+the+parameter+must+be+provided+as+a+quoted+string.%0A%2A+the+coordinate+values+must+be+separated+by+spaces+and+not+commas.%0A%0AUnfortunately%2C+unlike+%60around%60%2C+the+%60poly%60+filter+doesn%27t+support+querying+based%0Aon+a+polygon+that+can+be+found+within+a+previously+extracted+set+of+nodes.+So+you%0Acan%27t%2C+for+example%2C+extract+the+polygon+describing+a+closed+way+stored+in+OpenStreetmap%0Aand+search+within+it.+This+feels+like+an+oversight.%0A%0A%2A%2ATip%2A%2A%3A+the+more+complex+your+polygon%2C+the+slower+the+search.+Simply+the+boundary%0Ato+improve+performance.%0A%0A%40title+14+-+Searching+by+polygon%0A%2A%2F%0Anode%28poly%3A%22-25.336204100149033+131.0238147136019+-25.341828144950995+131.02072480881674+-25.341944501738343+131.02754834855062%22%29%3B%0Aout+body%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AOverpassQL+supports+searching+within+a+polygon+defined+by+a+collection+of%0Apoints.%0A%0AThe+%60poly%60+filter+accepts+a+single+parameter.+This+must+be+a+string+value+that%0Acontains+an+even+number+of+latitude+and+longitude+pairs.+Collectively+these%0Acoordinates+define+a+closed+shape+on+the+map.+This+polygon+then+provides+the%0Aboundary+within+which+we+are+searching.%0A%0AThe+query+below+extract+nodes+that+can+be+found+within+a+polygon+that+covers%0Aan+area+to+the+west+of+Uluru.%0A%0ANote+that+there+isn%27t+a+bounding+box+defined+in+this+query%2C+as+our+area+of%0Ainterest+is+fully+described+by+the+%60poly%60+filter.%0A%0ANote+there%27s+some+quirks+around+syntax+here+which+make+%60poly%60+slightly+different+to%0A%60around%60%3A%0A%0A%2A+the+parameter+must+be+provided+as+a+quoted+string.%0A%2A+the+coordinate+values+must+be+separated+by+spaces+and+not+commas.%0A%0AUnfortunately%2C+unlike+%60around%60%2C+the+%60poly%60+filter+doesn%27t+support+querying+based%0Aon+a+polygon+that+can+be+found+within+a+previously+extracted+set+of+nodes.+So+you%0Acan%27t%2C+for+example%2C+extract+the+polygon+describing+a+closed+way+stored+in+OpenStreetmap%0Aand+search+within+it.+This+feels+like+an+oversight.%0A%0A%2A%2ATip%2A%2A%3A+the+more+complex+your+polygon%2C+the+slower+the+search.+Simply+the+boundary%0Ato+improve+performance.%0A%0A%40title+14+-+Searching+by+polygon%0A%2A%2F%0Anode%28poly%3A%22-25.336204100149033+131.0238147136019+-25.341828144950995+131.02072480881674+-25.341944501738343+131.02754834855062%22%29%3B%0Aout+body%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>

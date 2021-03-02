@@ -1,34 +1,40 @@
+/*
+John Wood, the Elder had a big influence on the architecture and design of
+Bath. Many of the buildings he designed into masonic symbols and icons.
+
+His design for the Circus, Gay Street and Queen Squre in Bath creates the
+shape of a key.
+
+This query selects the ways and relations that define that shape in the
+OSM database and then uses MapCSS to style them.
+
+@see https://en.wikipedia.org/wiki/John_Wood,_the_Elder
+@title Bath's Hidden Key
+*/
 [bbox:51.38097, -2.36957, 51.38716, -2.35825];
 (
- way(49549786); 
+ way(49549786);
  >;
  way(49549785);
  >;
  way(120948853); //grass
- >; 
+ >;
  way(3609799); //gay street
- >; 
-  
+ >;
  way(30992002); //qs
  >;
-  
  way(210);
- >; 
-  
+ >;
  way(331545472);
  >;
-  
  way(773250139);
  >;
-  
  way(131628669);
- >; 
-  
+ >;
  way(59967625);
  >;
-  
  relation(1338997);
- >; 
+ >;
 );
 
 out body;
@@ -41,8 +47,8 @@ out body;
  { color:rgb(99,73,23); width:2; opacity:1; }
 
  node
- { opacity: 0; } 
- 
+ { opacity: 0; }
+
  relation
  { color:rgb(99,73,23); width:2; opacity:1; }
 }}

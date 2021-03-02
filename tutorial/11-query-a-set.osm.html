@@ -85,6 +85,10 @@
                       
                           <a class="dropdown-item" href="../background.html">Background</a>
             		  	  
+                          <a class="dropdown-item" href="../licence.html">Licence</a>
+            		  	  
+                          <a class="dropdown-item" href="../colophon.html">Colophon</a>
+            		  	  
                     </div>
                   </li>
         		  	
@@ -100,7 +104,7 @@
 
     <div class="col-md-auto">
       
-        <h5>Overpass Tutorial</h5>
+        <h5><a href="index.html" class="text-decoration-none">Overpass Tutorial</a></h5>
       
 
       
@@ -220,7 +224,7 @@ node.named_nodes["natural"="cave_entrance"]->.caves;
 .caves out body;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-primary btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AThis+query+demonstrates+syntax+for+querying+and+serialising%0Athe+contents+of+a+named+set.%0A%0ARather+than+work+with+the+default+set%2C+this+query+only+used+named+sets.%0A%0AFirst+we+find+nodes+that+have+a+name+and+store+them+in+a+set+of+results%0Acalled+%22named_nodes%22.%0A%0ASet+names+can+include+letters%2C+digits+and+the+underscore+character.+But+names%0Amust+not+start+with+a+digit.%0A%0ASecondly%2C+we+then+query+within+that+set+of+results%2C+filtering+to+just+those%0Anodes+that+are+tagged+as+a+cave+entrance.%0A%0ATo+work+with+the+nodes+contained+in+a+named+set%2C+rather+than+against+the%0Aunderlying+OSM+database%2C+we+append+its+name+to+the+node+command.%0A%0ASo+%60node.named_nodes%60+means+%22Query+nodes+found+in+the+set+%27named_nodes%27%22.+The%0Anodes+are+then+filtered+based+on+the+value+of+their+%60natural%60+tag.%0A%0AThe+results+of+that+query+are+written+to+another+named+set.+This+time+called%0A%60caves%60.%0A%0AFinally%2C+we+output+the+content+of+the+%60caves%60+set.%0A%0AThis+query+is+a+little+artificial+as+we+can+achieve+the+same+thing+by+querying%0Athe+database+directly.+But+in+more+complex+queries+you+may+be+working+with%0Amultiple+sets+of+results+that+you+want+to+filter%2C+explore+and+output+in+different%0Aways.%0A%0AEvery+OverpassQL+query+command+can+work+with+named+sets+as+well+as+the+default%0A%22%60_%60%22+set.+They+can+also+store+their+results+in+named+sets.+This+provides+a%0Agreat+deal+of+flexibility.%0A%0A%40title+11+-+Querying+a+set%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0A%0A%2F%2Ffind+all+nodes+with+a+name%2C+storing+results+in+a+set+called+%22named_nodes%22%0Anode%5B%22name%22%5D-%3E.named_nodes%3B%0A%0A%2F%2Fextract+from+the+set+%22named_nodes%22%2C+just+those+with%0Anode.named_nodes%5B%22natural%22%3D%22cave_entrance%22%5D-%3E.caves%3B%0A%0A.caves+out+body%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AThis+query+demonstrates+syntax+for+querying+and+serialising%0Athe+contents+of+a+named+set.%0A%0ARather+than+work+with+the+default+set%2C+this+query+only+used+named+sets.%0A%0AFirst+we+find+nodes+that+have+a+name+and+store+them+in+a+set+of+results%0Acalled+%22named_nodes%22.%0A%0ASet+names+can+include+letters%2C+digits+and+the+underscore+character.+But+names%0Amust+not+start+with+a+digit.%0A%0ASecondly%2C+we+then+query+within+that+set+of+results%2C+filtering+to+just+those%0Anodes+that+are+tagged+as+a+cave+entrance.%0A%0ATo+work+with+the+nodes+contained+in+a+named+set%2C+rather+than+against+the%0Aunderlying+OSM+database%2C+we+append+its+name+to+the+node+command.%0A%0ASo+%60node.named_nodes%60+means+%22Query+nodes+found+in+the+set+%27named_nodes%27%22.+The%0Anodes+are+then+filtered+based+on+the+value+of+their+%60natural%60+tag.%0A%0AThe+results+of+that+query+are+written+to+another+named+set.+This+time+called%0A%60caves%60.%0A%0AFinally%2C+we+output+the+content+of+the+%60caves%60+set.%0A%0AThis+query+is+a+little+artificial+as+we+can+achieve+the+same+thing+by+querying%0Athe+database+directly.+But+in+more+complex+queries+you+may+be+working+with%0Amultiple+sets+of+results+that+you+want+to+filter%2C+explore+and+output+in+different%0Aways.%0A%0AEvery+OverpassQL+query+command+can+work+with+named+sets+as+well+as+the+default%0A%22%60_%60%22+set.+They+can+also+store+their+results+in+named+sets.+This+provides+a%0Agreat+deal+of+flexibility.%0A%0A%40title+11+-+Querying+a+set%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0A%0A%2F%2Ffind+all+nodes+with+a+name%2C+storing+results+in+a+set+called+%22named_nodes%22%0Anode%5B%22name%22%5D-%3E.named_nodes%3B%0A%0A%2F%2Fextract+from+the+set+%22named_nodes%22%2C+just+those+with%0Anode.named_nodes%5B%22natural%22%3D%22cave_entrance%22%5D-%3E.caves%3B%0A%0A.caves+out+body%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>

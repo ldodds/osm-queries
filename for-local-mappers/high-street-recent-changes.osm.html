@@ -85,6 +85,10 @@
                       
                           <a class="dropdown-item" href="../background.html">Background</a>
             		  	  
+                          <a class="dropdown-item" href="../licence.html">Licence</a>
+            		  	  
+                          <a class="dropdown-item" href="../colophon.html">Colophon</a>
+            		  	  
                     </div>
                   </li>
         		  	
@@ -100,7 +104,7 @@
 
     <div class="col-md-auto">
       
-        <h5>For Local Mappers</h5>
+        <h5><a href="index.html" class="text-decoration-none">For Local Mappers</a></h5>
       
 
       
@@ -158,7 +162,7 @@ out body;
 out skel qt;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-primary btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0A+This+is+a+variation+of+the+query+that+extract+information%0A+about+typical+high+street+shops+and+amenities.%0A%0A+However+it+applies+an+additional+filter+to+select+just+those%0A+nodes%2C+ways+and+relations+that+have+been+changed+since%0A+the+1st+January+2021.%0A%0A+It+does+this+using+the+%22newer%22+filter+which+used+to+specify+the%0A+full+date%2Ftime+of+interest.%0A%0A+The+filter+cannot+be+applied+directly+to+the+first+union%2C+so%0A+the+initial+results+are+assigned+to+a+variables+called+%22highstreet%22%0A+and+the+filter+applied+to+that.%0A%0A+%40title+Extract+recently+changed+data+for+a+typical+UK+high+street%0A+%2A%2F%0A%5Bbbox%3A%7B%7Bbbox%7D%7D%5D%3B%0A%28%0A++nwr%5B%22building%22%3D%22retail%22%5D%3B%0A++nwr%5B%22building%22%3D%22supermarket%22%5D%3B%0A++nwr%5B%22building%22%3D%22commercial%22%5D%3B%0A%0A++nwr%5B%22amenity%22%3D%22pub%22%5D%3B%0A++nwr%5B%22amenity%22%3D%22bar%22%5D%3B%0A++nwr%5B%22amenity%22%3D%22restaurant%22%5D%3B%0A++nwr%5B%22amenity%22%3D%22cafe%22%5D%3B%0A++nwr%5B%22amenity%22%3D%22library%22%5D%3B%0A++nwr%5B%22amenity%22%3D%22bank%22%5D%3B%0A++nwr%5B%22amenity%22%3D%22fast_food%22%5D%3B%0A%0A%29-%3E.highstreet%3B%0Anwr.highstreet%28newer%3A%222021-01-01T00%3A00%3A00Z%22%29%3B%0Aout+body%3B%0A%3E%3B%0Aout+skel+qt%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0A+This+is+a+variation+of+the+query+that+extract+information%0A+about+typical+high+street+shops+and+amenities.%0A%0A+However+it+applies+an+additional+filter+to+select+just+those%0A+nodes%2C+ways+and+relations+that+have+been+changed+since%0A+the+1st+January+2021.%0A%0A+It+does+this+using+the+%22newer%22+filter+which+used+to+specify+the%0A+full+date%2Ftime+of+interest.%0A%0A+The+filter+cannot+be+applied+directly+to+the+first+union%2C+so%0A+the+initial+results+are+assigned+to+a+variables+called+%22highstreet%22%0A+and+the+filter+applied+to+that.%0A%0A+%40title+Extract+recently+changed+data+for+a+typical+UK+high+street%0A+%2A%2F%0A%5Bbbox%3A%7B%7Bbbox%7D%7D%5D%3B%0A%28%0A++nwr%5B%22building%22%3D%22retail%22%5D%3B%0A++nwr%5B%22building%22%3D%22supermarket%22%5D%3B%0A++nwr%5B%22building%22%3D%22commercial%22%5D%3B%0A%0A++nwr%5B%22amenity%22%3D%22pub%22%5D%3B%0A++nwr%5B%22amenity%22%3D%22bar%22%5D%3B%0A++nwr%5B%22amenity%22%3D%22restaurant%22%5D%3B%0A++nwr%5B%22amenity%22%3D%22cafe%22%5D%3B%0A++nwr%5B%22amenity%22%3D%22library%22%5D%3B%0A++nwr%5B%22amenity%22%3D%22bank%22%5D%3B%0A++nwr%5B%22amenity%22%3D%22fast_food%22%5D%3B%0A%0A%29-%3E.highstreet%3B%0Anwr.highstreet%28newer%3A%222021-01-01T00%3A00%3A00Z%22%29%3B%0Aout+body%3B%0A%3E%3B%0Aout+skel+qt%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
