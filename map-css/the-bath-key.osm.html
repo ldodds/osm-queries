@@ -2,7 +2,7 @@
 <html class="h-100">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Miscellaneous</title>
+    <title>Map CSS</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -96,7 +96,7 @@
 
     <div class="col-md-auto">
       
-        <h4>Miscellaneous</h4>
+        <h4>Map CSS</h4>
       
 
       
@@ -105,23 +105,7 @@
         <ul class="list-unstyled">
           
             <li>
-              <a href="export-statues.osm.html">Export bronze statues, sculptures and bust as CSV</a>
-            </li>
-          
-            <li>
-              <a href="all-the-things.osm.html">Extract all data within the bounding box</a>
-            </li>
-          
-            <li>
-              <a href="grindelwald-glacier.osm.html">Extract glacier features as a specific location</a>
-            </li>
-          
-            <li>
-              <a href="playgrounds-with-styles.osm.html">Find and style playgrounds within current bounding box</a>
-            </li>
-          
-            <li>
-              <a href="playgrounds.osm.html">Find playgrounds within current bounding box</a>
+              <a href="the-bath-key.osm.html">the-bath-key.osm</a>
             </li>
           
         </ul>
@@ -131,49 +115,62 @@
     <div class="col-6">
       <div class="row">
         <div class="col">
-          <h2 property="title">Find and style playgrounds within current bounding box</h2>
+          <h2 property="title">the-bath-key.osm</h2>
         </div>
       </div>
       <div class="row">
         <div class="col">
-					<textarea id="overpass" cols="120">
-[out:json][timeout:25];
-// gather results
+					<textarea id="overpass" cols="120">[bbox:51.38097, -2.36957, 51.38716, -2.35825];
 (
-  // query part for: “leisure=playground and access!=no and access!=private”
-  node["leisure"="playground"]["access"!="no"]["access"!="private"]({{bbox}});
-  way["leisure"="playground"]["access"!="no"]["access"!="private"]({{bbox}});
-  relation["leisure"="playground"]["access"!="no"]["access"!="private"]({{bbox}});
+ way(49549786); 
+ >;
+ way(49549785);
+ >;
+ way(120948853); //grass
+ >; 
+ way(3609799); //gay street
+ >; 
+  
+ way(30992002); //qs
+ >;
+  
+ way(210);
+ >; 
+  
+ way(331545472);
+ >;
+  
+ way(773250139);
+ >;
+  
+ way(131628669);
+ >; 
+  
+ way(59967625);
+ >;
+  
+ relation(1338997);
+ >; 
 );
-// print results
+
 out body;
->;
-out skel qt;
 
 {{style:
-way{
-  color: green;
-  fill-color: green;
-  text: name:en;
-}
-node{
-  color: green;
-  fill-color: green;
-  text: name:en;
-}
-relation{
-  color: navy;
-  fill-color: green;
-  text: name:en;
-}
-relation node, relation way, relation relation {
-  color: green;
-  fill-color: green;
-}
+ way
+ { color:rgb(99,73,23); width:4; opacity:1; }
+
+ way[@id=120948853]
+ { color:rgb(99,73,23); width:2; opacity:1; }
+
+ node
+ { opacity: 0; } 
+ 
+ relation
+ { color:rgb(99,73,23); width:2; opacity:1; }
 }}
 </textarea>
           <div class="float-right">
-            <a class="btn btn-primary" href="https://overpass-turbo.eu/?Q=%2F%2A%0A+%40title+Find+and+style+playgrounds+within+current+bounding+box%0A+%2A%2F%0A%5Bout%3Ajson%5D%5Btimeout%3A25%5D%3B%0A%2F%2F+gather+results%0A%28%0A++%2F%2F+query+part+for%3A+%E2%80%9Cleisure%3Dplayground+and+access%21%3Dno+and+access%21%3Dprivate%E2%80%9D%0A++node%5B%22leisure%22%3D%22playground%22%5D%5B%22access%22%21%3D%22no%22%5D%5B%22access%22%21%3D%22private%22%5D%28%7B%7Bbbox%7D%7D%29%3B%0A++way%5B%22leisure%22%3D%22playground%22%5D%5B%22access%22%21%3D%22no%22%5D%5B%22access%22%21%3D%22private%22%5D%28%7B%7Bbbox%7D%7D%29%3B%0A++relation%5B%22leisure%22%3D%22playground%22%5D%5B%22access%22%21%3D%22no%22%5D%5B%22access%22%21%3D%22private%22%5D%28%7B%7Bbbox%7D%7D%29%3B%0A%29%3B%0A%2F%2F+print+results%0Aout+body%3B%0A%3E%3B%0Aout+skel+qt%3B%0A%0A%7B%7Bstyle%3A%0Away%7B%0A++color%3A+green%3B%0A++fill-color%3A+green%3B%0A++text%3A+name%3Aen%3B%0A%7D%0Anode%7B%0A++color%3A+green%3B%0A++fill-color%3A+green%3B%0A++text%3A+name%3Aen%3B%0A%7D%0Arelation%7B%0A++color%3A+navy%3B%0A++fill-color%3A+green%3B%0A++text%3A+name%3Aen%3B%0A%7D%0Arelation+node%2C+relation+way%2C+relation+relation+%7B%0A++color%3A+green%3B%0A++fill-color%3A+green%3B%0A%7D%0A%7D%7D%0A&R" target="_blank">
+            <a class="btn btn-primary" href="https://overpass-turbo.eu/?Q=%5Bbbox%3A51.38097%2C+-2.36957%2C+51.38716%2C+-2.35825%5D%3B%0A%28%0A+way%2849549786%29%3B+%0A+%3E%3B%0A+way%2849549785%29%3B%0A+%3E%3B%0A+way%28120948853%29%3B+%2F%2Fgrass%0A+%3E%3B+%0A+way%283609799%29%3B+%2F%2Fgay+street%0A+%3E%3B+%0A++%0A+way%2830992002%29%3B+%2F%2Fqs%0A+%3E%3B%0A++%0A+way%28210%29%3B%0A+%3E%3B+%0A++%0A+way%28331545472%29%3B%0A+%3E%3B%0A++%0A+way%28773250139%29%3B%0A+%3E%3B%0A++%0A+way%28131628669%29%3B%0A+%3E%3B+%0A++%0A+way%2859967625%29%3B%0A+%3E%3B%0A++%0A+relation%281338997%29%3B%0A+%3E%3B+%0A%29%3B%0A%0Aout+body%3B%0A%0A%7B%7Bstyle%3A%0A+way%0A+%7B+color%3Argb%2899%2C73%2C23%29%3B+width%3A4%3B+opacity%3A1%3B+%7D%0A%0A+way%5B%40id%3D120948853%5D%0A+%7B+color%3Argb%2899%2C73%2C23%29%3B+width%3A2%3B+opacity%3A1%3B+%7D%0A%0A+node%0A+%7B+opacity%3A+0%3B+%7D+%0A+%0A+relation%0A+%7B+color%3Argb%2899%2C73%2C23%29%3B+width%3A2%3B+opacity%3A1%3B+%7D%0A%7D%7D%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -267,7 +264,7 @@ relation node, relation way, relation relation {
                 </td>
               </tr>
               <tr>
-                <td>Source File</td><td><a href="playgrounds-with-styles.osm"><code>playgrounds-with-styles.osm</code></a></td>
+                <td>Source File</td><td><a href="the-bath-key.osm"><code>the-bath-key.osm</code></a></td>
               </tr>
               <tr>
                 <td>Authors</td>
