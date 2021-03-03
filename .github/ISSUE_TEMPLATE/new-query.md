@@ -2,7 +2,7 @@
 name: New query
 about: Submit a new query to the site
 title: ''
-labels: ''
+labels: contribution
 assignees: ''
 
 ---
