@@ -2,7 +2,7 @@
 <html class="h-100">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Miscellaneous</title>
+    <title>For Local Mappers</title>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -106,7 +106,7 @@
 
     <div class="col-md-auto">
       
-        <h5><a href="index.html" class="text-decoration-none">Miscellaneous</a></h5>
+        <h5><a href="index.html" class="text-decoration-none">For Local Mappers</a></h5>
       
 
       
@@ -114,28 +114,24 @@
       
         <ul class="list-unstyled">
           
+            <li class="" >
+              <a href="disused-places.osm.html">Disused amenities and buildings</a>
+            </li>
+          
+            <li class="" >
+              <a href="the-high-street.osm.html">Extract data for a typical UK high street</a>
+            </li>
+          
+            <li class="" >
+              <a href="high-street-recent-changes.osm.html">Extract recently changed data for a typical UK high street</a>
+            </li>
+          
+            <li class="" >
+              <a href="quite-interesting-no-link.osm.html">Interesting places without wikidata links</a>
+            </li>
+          
             <li class="bg-color" >
-              <a href="export-statues.osm.html">Export bronze statues, sculptures and bust as CSV</a>
-            </li>
-          
-            <li class="" >
-              <a href="all-the-things.osm.html">Extract all data within the bounding box</a>
-            </li>
-          
-            <li class="" >
-              <a href="grindelwald-glacier.osm.html">Extract glacier features as a specific location</a>
-            </li>
-          
-            <li class="" >
-              <a href="playgrounds-with-styles.osm.html">Find and style playgrounds within current bounding box</a>
-            </li>
-          
-            <li class="" >
-              <a href="playgrounds.osm.html">Find playgrounds within current bounding box</a>
-            </li>
-          
-            <li class="" >
-              <a href="geocode-area.osm.html">GeocodeArea</a>
+              <a href="mismatched-streets.osm.html">mismatched-streets.osm</a>
             </li>
           
         </ul>
@@ -145,28 +141,47 @@
     <div class="col-6">
       <div class="row">
         <div class="col">
-          <h2 property="title">Export bronze statues, sculptures and bust as CSV</h2>
+          <h2 property="title">mismatched-streets.osm</h2>
         </div>
       </div>
       <div class="row">
         <div class="col">
 					<textarea id="overpass" cols="120">
-[out:csv( ::id, ::lat, ::lon, name, artwork_type, description, artist_name, start_date, wikidata; TRUE; "|") ][timeout:60];
-// gather results
-(
-  //find any statues, sculptures or busts made of bronze
-  node["material"="bronze"][~"artwork_type"~"^statue|sculpture|bust$"];
-  //also find any memorial statues made of bronze
-  node["material"="bronze"]["memorial"="statue"];
+//find the area called Bath, saving to named set
+area[name="Bath"]->.a;
 
-);
-// print results
-out body;
->;
-out skel qt;
+//find all the ways tagged as highway in the named set
+way(area.a)[highway];
+
+//make a temporary element called "stat".
+//give it a name tag whose value will be the set of all highway names
+//save it in another temporary result set called "all"
+make stat name=set(t["name"])->.all;
+
+//find any node, way or relation in the area we first matched
+nwr(area.a)["addr:street"];
+
+//loop through all of the addr:street tags in the results
+//anything without a value for this tag will be ignored
+for (t["addr:street"])
+{
+  //Lots going on here, so to break it down:
+  //`lrs_in` is a function that checks to see if its first argument can be found in the second
+  //_.val is the current value of the `for` loop
+  // all.u is the union of all name tag values in the "all" set. In short, the list of all streets
+  //
+  //So this conditional returns true if the value of the `addr:street` tag for
+  //the current nodes is NOT in the list of names we found earlier
+  if (!lrs_in(_.val, all.u(t["name"])))
+  {
+    //output a point for the match
+    //this is the node, or a centroid for ways/relations
+    out center;
+  }
+}
 </textarea>
           <div class="float-right">
-            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0A+%40title+Export+bronze+statues%2C+sculptures+and+bust+as+CSV%0A%2A%2F%0A%5Bout%3Acsv%28+%3A%3Aid%2C+%3A%3Alat%2C+%3A%3Alon%2C+name%2C+artwork_type%2C+description%2C+artist_name%2C+start_date%2C+wikidata%3B+TRUE%3B+%22%7C%22%29+%5D%5Btimeout%3A60%5D%3B%0A%2F%2F+gather+results%0A%28%0A++%2F%2Ffind+any+statues%2C+sculptures+or+busts+made+of+bronze%0A++node%5B%22material%22%3D%22bronze%22%5D%5B~%22artwork_type%22~%22%5Estatue%7Csculpture%7Cbust%24%22%5D%3B%0A++%2F%2Falso+find+any+memorial+statues+made+of+bronze%0A++node%5B%22material%22%3D%22bronze%22%5D%5B%22memorial%22%3D%22statue%22%5D%3B%0A%0A%29%3B%0A%2F%2F+print+results%0Aout+body%3B%0A%3E%3B%0Aout+skel+qt%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AFind+features+with+an+%60addr%3Astreet%60+tag+whose+value+doesn%27t+match+a+local+street.%0A%0AThis+is+adapted+from+an+example+given+in+the+Overpass+developer+blog.+It+shows%0Asome+advanced+features+of+OverpassQL+language+including+creating+objects%2C%0Amanipulating+sets+and+use+of+functions.%0A%0AThe+intention+is+to+highlight+potential+data+errors.+There+may+be+reasons+why%0Athe+tags+and+values+are+different%2C+but+it+might+also+highlight+simple+typos.%0A%0ATry+adjusting+it+to+use+your+local+town.%0A%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FOverpass_API%2FAreas%0A%40see+https%3A%2F%2Fdev.overpass-api.de%2Fblog%2Fsliced_time_and_space.html%0A%2A%2F%0A%2F%2Ffind+the+area+called+Bath%2C+saving+to+named+set%0Aarea%5Bname%3D%22Bath%22%5D-%3E.a%3B%0A%0A%2F%2Ffind+all+the+ways+tagged+as+highway+in+the+named+set%0Away%28area.a%29%5Bhighway%5D%3B%0A%0A%2F%2Fmake+a+temporary+element+called+%22stat%22.%0A%2F%2Fgive+it+a+name+tag+whose+value+will+be+the+set+of+all+highway+names%0A%2F%2Fsave+it+in+another+temporary+result+set+called+%22all%22%0Amake+stat+name%3Dset%28t%5B%22name%22%5D%29-%3E.all%3B%0A%0A%2F%2Ffind+any+node%2C+way+or+relation+in+the+area+we+first+matched%0Anwr%28area.a%29%5B%22addr%3Astreet%22%5D%3B%0A%0A%2F%2Floop+through+all+of+the+addr%3Astreet+tags+in+the+results%0A%2F%2Fanything+without+a+value+for+this+tag+will+be+ignored%0Afor+%28t%5B%22addr%3Astreet%22%5D%29%0A%7B%0A++%2F%2FLots+going+on+here%2C+so+to+break+it+down%3A%0A++%2F%2F%60lrs_in%60+is+a+function+that+checks+to+see+if+its+first+argument+can+be+found+in+the+second%0A++%2F%2F_.val+is+the+current+value+of+the+%60for%60+loop%0A++%2F%2F+all.u+is+the+union+of+all+name+tag+values+in+the+%22all%22+set.+In+short%2C+the+list+of+all+streets%0A++%2F%2F%0A++%2F%2FSo+this+conditional+returns+true+if+the+value+of+the+%60addr%3Astreet%60+tag+for%0A++%2F%2Fthe+current+nodes+is+NOT+in+the+list+of+names+we+found+earlier%0A++if+%28%21lrs_in%28_.val%2C+all.u%28t%5B%22name%22%5D%29%29%29%0A++%7B%0A++++%2F%2Foutput+a+point+for+the+match%0A++++%2F%2Fthis+is+the+node%2C+or+a+centroid+for+ways%2Frelations%0A++++out+center%3B%0A++%7D%0A%7D%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -248,14 +263,37 @@ out skel qt;
       <div class="row">
         <div class="col">
           
-						<p property="description"></p>
+						<p property="description"><p>Find features with an <code>addr:street</code> tag whose value doesn&#39;t match a local street.</p>
+
+<p>This is adapted from an example given in the Overpass developer blog. It shows
+some advanced features of OverpassQL language including creating objects,
+manipulating sets and use of functions.</p>
+
+<p>The intention is to highlight potential data errors. There may be reasons why
+the tags and values are different, but it might also highlight simple typos.</p>
+
+<p>Try adjusting it to use your local town.</p>
+</p>
 					
 
           <table class="table">
             <tbody>
               
+                <tr>
+                  <td>Links</td>
+                  <td>
+                    <ul class="list-unstyled">
+                      
+                           <li><a href="https://wiki.openstreetmap.org/wiki/Overpass_API/Areas">https://wiki.openstreetmap.org/wiki/Overpass_API/Areas</a></li>
+                      
+                           <li><a href="https://dev.overpass-api.de/blog/sliced_time_and_space.html">https://dev.overpass-api.de/blog/sliced_time_and_space.html</a></li>
+                      
+                    </ul>
+                  </td>
+                </tr>
+              
               <tr>
-                <td>Source File</td><td><a href="export-statues.osm"><code>export-statues.osm</code></a></td>
+                <td>Source File</td><td><a href="mismatched-streets.osm"><code>mismatched-streets.osm</code></a></td>
               </tr>
               
                 <tr>
