@@ -1,4 +1,4 @@
-OpenStreetMap is an openly licensed geospatial database. It's regularly used in
+[OpenStreetMap](https://openstreetmap.org) is an openly licensed geospatial database. It's regularly used in
 a very wide range of applications that include some of the smallest and largest
 sites you'll find on the web.
 
@@ -46,4 +46,4 @@ freely reused, shared or adapted as you see fit.
 The content and source for this website is completely open. The intention is to update
 the website with new examples and tutorials over time.
 
-If you're interested in contributing to that work, then read [how to contribute](contribute.html)
+If you're interested in contributing to that work, then read [how to contribute](contribute.html).

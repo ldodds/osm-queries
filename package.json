@@ -6,7 +6,7 @@
    "label": "About",
    "files": [
      { "label": "Background", "file": "background.md" },
-     { "label": "Contribute", "file": "contribute.md" }
+     { "label": "Contribute", "file": "contribute.md" },
      { "label": "Licence", "file": "licence.md" },
      { "label": "Colophon", "file": "colophon.md" }
    ]
