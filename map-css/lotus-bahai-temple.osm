@@ -44,6 +44,8 @@ not displayed.
   >;
   way(119871875);
   >;
+  way(44278200); //outer way
+  >;
 );
 out body;
 
@@ -81,6 +83,7 @@ out center;
  way[building=temple]
  { opacity: 1; colour:blue; }
 
+ way[@id=44278200] { fill-color: white; color: white; }
  way:placeholder { fill-color: yellow; }
  node[entrance=yes] { opacity: 0; }
  node[entrance=main] { opacity: 0; }

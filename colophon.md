@@ -6,7 +6,7 @@ It was generated using an open source tool called [overpass-doc](https://github.
 which is designed to support the publication of collections of OverpassQL queries. It provides a
 simple command-line interface for generating documentation from packages of Overpass queries.
 
-The [source files are all in github](https://github.com/ldodds/overpass-doc) and are in the public domain.
+The [source files are all in github](https://github.com/ldodds/osm-queries) and are in the public domain.
 
 It relies on [Bootstrap](https://getbootstrap.com/), [JQuery](https://jquery.com/) and
 [CodeMirror](https://codemirror.net/).
