@@ -7,6 +7,10 @@ By submitting content or updates then you'll be agreeing that your work can be
 put into the public domain in accordance with [the licence](licence.html) for
 the website and source
 
+The following sections have more information about how to contribute. But if you'd
+like to discuss the project or provide more general feedback then you can use the
+[discussion forum on github](https://github.com/ldodds/osm-queries/discussions)
+
 ## Submitting a new query or collection of queries
 
 If you'd like to submit a new query, then please either:
