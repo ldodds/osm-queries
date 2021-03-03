@@ -15,7 +15,7 @@ places by name, finding features within areas, etc.
 @see https://wiki.openstreetmap.org/wiki/Overpass_turbo/Extended_Overpass_Turbo_Queries
 @see https://wiki.openstreetmap.org/wiki/Overpass_API/Areas
 @see https://wiki.openstreetmap.org/wiki/Nominatim
-@title GeocodeArea
+@title Geocode Area
 */
 [out:json][timeout:25];
 {{geocodeArea:Somerset}}->.searchArea;

@@ -131,7 +131,7 @@
             </li>
           
             <li class="bg-color" >
-              <a href="mismatched-streets.osm.html">mismatched-streets.osm</a>
+              <a href="mismatched-streets.osm.html">Mismatched streets</a>
             </li>
           
         </ul>
@@ -141,7 +141,7 @@
     <div class="col-6">
       <div class="row">
         <div class="col">
-          <h2 property="title">mismatched-streets.osm</h2>
+          <h2 property="title">Mismatched streets</h2>
         </div>
       </div>
       <div class="row">
@@ -181,7 +181,7 @@ for (t["addr:street"])
 }
 </textarea>
           <div class="float-right">
-            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AFind+features+with+an+%60addr%3Astreet%60+tag+whose+value+doesn%27t+match+a+local+street.%0A%0AThis+is+adapted+from+an+example+given+in+the+Overpass+developer+blog.+It+shows%0Asome+advanced+features+of+OverpassQL+language+including+creating+objects%2C%0Amanipulating+sets+and+use+of+functions.%0A%0AThe+intention+is+to+highlight+potential+data+errors.+There+may+be+reasons+why%0Athe+tags+and+values+are+different%2C+but+it+might+also+highlight+simple+typos.%0A%0ATry+adjusting+it+to+use+your+local+town.%0A%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FOverpass_API%2FAreas%0A%40see+https%3A%2F%2Fdev.overpass-api.de%2Fblog%2Fsliced_time_and_space.html%0A%2A%2F%0A%2F%2Ffind+the+area+called+Bath%2C+saving+to+named+set%0Aarea%5Bname%3D%22Bath%22%5D-%3E.a%3B%0A%0A%2F%2Ffind+all+the+ways+tagged+as+highway+in+the+named+set%0Away%28area.a%29%5Bhighway%5D%3B%0A%0A%2F%2Fmake+a+temporary+element+called+%22stat%22.%0A%2F%2Fgive+it+a+name+tag+whose+value+will+be+the+set+of+all+highway+names%0A%2F%2Fsave+it+in+another+temporary+result+set+called+%22all%22%0Amake+stat+name%3Dset%28t%5B%22name%22%5D%29-%3E.all%3B%0A%0A%2F%2Ffind+any+node%2C+way+or+relation+in+the+area+we+first+matched%0Anwr%28area.a%29%5B%22addr%3Astreet%22%5D%3B%0A%0A%2F%2Floop+through+all+of+the+addr%3Astreet+tags+in+the+results%0A%2F%2Fanything+without+a+value+for+this+tag+will+be+ignored%0Afor+%28t%5B%22addr%3Astreet%22%5D%29%0A%7B%0A++%2F%2FLots+going+on+here%2C+so+to+break+it+down%3A%0A++%2F%2F%60lrs_in%60+is+a+function+that+checks+to+see+if+its+first+argument+can+be+found+in+the+second%0A++%2F%2F_.val+is+the+current+value+of+the+%60for%60+loop%0A++%2F%2F+all.u+is+the+union+of+all+name+tag+values+in+the+%22all%22+set.+In+short%2C+the+list+of+all+streets%0A++%2F%2F%0A++%2F%2FSo+this+conditional+returns+true+if+the+value+of+the+%60addr%3Astreet%60+tag+for%0A++%2F%2Fthe+current+nodes+is+NOT+in+the+list+of+names+we+found+earlier%0A++if+%28%21lrs_in%28_.val%2C+all.u%28t%5B%22name%22%5D%29%29%29%0A++%7B%0A++++%2F%2Foutput+a+point+for+the+match%0A++++%2F%2Fthis+is+the+node%2C+or+a+centroid+for+ways%2Frelations%0A++++out+center%3B%0A++%7D%0A%7D%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AFind+features+with+an+%60addr%3Astreet%60+tag+whose+value+doesn%27t+match+a+local+street.%0A%0AThis+is+adapted+from+an+example+given+in+the+Overpass+developer+blog.+It+shows%0Asome+advanced+features+of+OverpassQL+language+including+creating+objects%2C%0Amanipulating+sets+and+use+of+functions.%0A%0AThe+intention+is+to+highlight+potential+data+errors.+There+may+be+reasons+why%0Athe+tags+and+values+are+different%2C+but+it+might+also+highlight+simple+typos.%0A%0ATry+adjusting+it+to+use+your+local+town.%0A%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FOverpass_API%2FAreas%0A%40see+https%3A%2F%2Fdev.overpass-api.de%2Fblog%2Fsliced_time_and_space.html%0A%40title+Mismatched+streets%0A%2A%2F%0A%2F%2Ffind+the+area+called+Bath%2C+saving+to+named+set%0Aarea%5Bname%3D%22Bath%22%5D-%3E.a%3B%0A%0A%2F%2Ffind+all+the+ways+tagged+as+highway+in+the+named+set%0Away%28area.a%29%5Bhighway%5D%3B%0A%0A%2F%2Fmake+a+temporary+element+called+%22stat%22.%0A%2F%2Fgive+it+a+name+tag+whose+value+will+be+the+set+of+all+highway+names%0A%2F%2Fsave+it+in+another+temporary+result+set+called+%22all%22%0Amake+stat+name%3Dset%28t%5B%22name%22%5D%29-%3E.all%3B%0A%0A%2F%2Ffind+any+node%2C+way+or+relation+in+the+area+we+first+matched%0Anwr%28area.a%29%5B%22addr%3Astreet%22%5D%3B%0A%0A%2F%2Floop+through+all+of+the+addr%3Astreet+tags+in+the+results%0A%2F%2Fanything+without+a+value+for+this+tag+will+be+ignored%0Afor+%28t%5B%22addr%3Astreet%22%5D%29%0A%7B%0A++%2F%2FLots+going+on+here%2C+so+to+break+it+down%3A%0A++%2F%2F%60lrs_in%60+is+a+function+that+checks+to+see+if+its+first+argument+can+be+found+in+the+second%0A++%2F%2F_.val+is+the+current+value+of+the+%60for%60+loop%0A++%2F%2F+all.u+is+the+union+of+all+name+tag+values+in+the+%22all%22+set.+In+short%2C+the+list+of+all+streets%0A++%2F%2F%0A++%2F%2FSo+this+conditional+returns+true+if+the+value+of+the+%60addr%3Astreet%60+tag+for%0A++%2F%2Fthe+current+nodes+is+NOT+in+the+list+of+names+we+found+earlier%0A++if+%28%21lrs_in%28_.val%2C+all.u%28t%5B%22name%22%5D%29%29%29%0A++%7B%0A++++%2F%2Foutput+a+point+for+the+match%0A++++%2F%2Fthis+is+the+node%2C+or+a+centroid+for+ways%2Frelations%0A++++out+center%3B%0A++%7D%0A%7D%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>

@@ -135,7 +135,7 @@
             </li>
           
             <li class="bg-color" >
-              <a href="geocode-area.osm.html">GeocodeArea</a>
+              <a href="geocode-area.osm.html">Geocode Area</a>
             </li>
           
         </ul>
@@ -145,7 +145,7 @@
     <div class="col-6">
       <div class="row">
         <div class="col">
-          <h2 property="title">GeocodeArea</h2>
+          <h2 property="title">Geocode Area</h2>
         </div>
       </div>
       <div class="row">
@@ -162,7 +162,7 @@ out body;
 out skel qt;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AFinds+cities+and+towns+in+Somerset%0A%0AThis+query+uses+an+Overpass+Turbo+extension+called+%60geocodeArea%60.+It+accepts%0Aa+search+term+as+a+parameter+and+attempts+to+match+that+against+the+name+of+an%0Aarea.%0A%0AAreas+are+not+present+in+the+basic+OpenStreetMap+database.+They%27re+constructed%0Aas+part+of+loading+data+into+the+database+that+serves+the+Overpass+API.+So%2C+while%0Athey+are+derived+from+real+map+features+they+don%27t+exist+as+something+you+can+edit.%0A%0AAreas+are+used+to+provide+some+additional+functionality%2C+such+as+searching+for%0Aplaces+by+name%2C+finding+features+within+areas%2C+etc.%0A%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FOverpass_turbo%2FExtended_Overpass_Turbo_Queries%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FOverpass_API%2FAreas%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FNominatim%0A%40title+GeocodeArea%0A%2A%2F%0A%5Bout%3Ajson%5D%5Btimeout%3A25%5D%3B%0A%7B%7BgeocodeArea%3ASomerset%7D%7D-%3E.searchArea%3B%0A%28%0A++node%5B%22place%22%3D%22town%22%5D%28area.searchArea%29%3B%0A++node%5B%22place%22%3D%22city%22%5D%28area.searchArea%29%3B%0A%29%3B%0Aout+body%3B%0A%3E%3B%0Aout+skel+qt%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AFinds+cities+and+towns+in+Somerset%0A%0AThis+query+uses+an+Overpass+Turbo+extension+called+%60geocodeArea%60.+It+accepts%0Aa+search+term+as+a+parameter+and+attempts+to+match+that+against+the+name+of+an%0Aarea.%0A%0AAreas+are+not+present+in+the+basic+OpenStreetMap+database.+They%27re+constructed%0Aas+part+of+loading+data+into+the+database+that+serves+the+Overpass+API.+So%2C+while%0Athey+are+derived+from+real+map+features+they+don%27t+exist+as+something+you+can+edit.%0A%0AAreas+are+used+to+provide+some+additional+functionality%2C+such+as+searching+for%0Aplaces+by+name%2C+finding+features+within+areas%2C+etc.%0A%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FOverpass_turbo%2FExtended_Overpass_Turbo_Queries%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FOverpass_API%2FAreas%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FNominatim%0A%40title+Geocode+Area%0A%2A%2F%0A%5Bout%3Ajson%5D%5Btimeout%3A25%5D%3B%0A%7B%7BgeocodeArea%3ASomerset%7D%7D-%3E.searchArea%3B%0A%28%0A++node%5B%22place%22%3D%22town%22%5D%28area.searchArea%29%3B%0A++node%5B%22place%22%3D%22city%22%5D%28area.searchArea%29%3B%0A%29%3B%0Aout+body%3B%0A%3E%3B%0Aout+skel+qt%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
