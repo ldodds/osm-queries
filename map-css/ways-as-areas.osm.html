@@ -122,11 +122,11 @@
               <a href="brondby.osm.html">Brøndby Haveby</a>
             </li>
           
-            <li class="bg-color" >
+            <li class="" >
               <a href="lotus-bahai-temple.osm.html">Lotus Bahai Temple</a>
             </li>
           
-            <li class="" >
+            <li class="bg-color" >
               <a href="ways-as-areas.osm.html">Style ways, as areas</a>
             </li>
           
@@ -145,91 +145,27 @@
     <div class="col-6">
       <div class="row">
         <div class="col">
-          <h2 property="title">Lotus Bahai Temple</h2>
+          <h2 property="title">Style ways, as areas</h2>
         </div>
       </div>
       <div class="row">
         <div class="col">
 					<textarea id="overpass" cols="120">
-[bbox:28.55215, 77.2574, 28.55433, 77.26023];
+[bbox:51.17798, -1.82733, 51.17953, -1.8245];
 (
-  way(44827278); //inner
-  >;
-  way["landuse"="basin"];
-  >;
-  way(119871876); //outer
-  >;
-  way(119912480);
-  >;
-  way(119912477);
-  >;
-  way(119912471);
-  >;
-  way(119912474);
-  >;
-  way(119912468);
-  >;
-  way(119912479);
-  >;
-  way(119912469);
-  >;
-  way(484723872); //entry path
-  >;
-  way(119871864); //stem
-  >;
-  way(484723864);
-  >;
-  way(484723863);
-  >;
-  way(119871875);
-  >;
-  way(44278200); //outer way
+  //select the ways and their nodes
+  way[!"name"]["historic"="stone"];
   >;
 );
 out body;
 
-way(44827278);
-out center;
-
+//MapCSS styles
 {{style:
- way
- { fill-color: #E75480; fill-opacity: 1; opacity: 1; color:#E75480; width: 5;}
-
- way[@id=44827278]
- { fill-color: orange; fill-opacity: 1; opacity: 1; color:#F8C377; width: 5;}
-
- way[landuse=basin]
- { fill-color: #FADADD; dashes: 5,8; fill-opacity: 1; opacity: 1; color: #FFc0CB; width: 5; }
-
- way[@id=119871876]
- { fill-color: #E75480; fill-opacity: 1; opacity: 1; color:#E75480; width: 5;}
-
- way[@id=484723872]
- { opacity: 1; color:green; width: 5;}
-
- way[@id=119871864]
- { opacity: 1; color:green; width: 5;}
-
- way[@id=484723864]
- { opacity: 1; color:green; width: 5;}
-
- way[@id=484723863]
- { opacity: 1; color:green; width: 5;}
-
- way[@id=119871875]
- { opacity: 1; color:green; width: 5;}
-
- way[building=temple]
- { opacity: 1; colour:blue; }
-
- way[@id=44278200] { fill-color: white; color: white; }
- way:placeholder { fill-color: yellow; }
- node[entrance=yes] { opacity: 0; }
- node[entrance=main] { opacity: 0; }
+  way { fill-color: brown;  fill-opacity: 1 }
 }}
 </textarea>
           <div class="float-right">
-            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AColouring+the+Lotus+Bahai+Template+as+a+lotus+flower.%0A%0AThis+example+illustrates+selecting+the+same+way+more+than+once+%2844827278%29.+In%0Athe+second+selection+we+output+just+its+centroid+and+then+style+that+using%0A%60way%3Aplaceholder%60.%0A%0AWe+also+hide+nodes+that+are+selected+using+the+%60%3E%60+recurse+operator+so+they%27re%0Anot+displayed.%0A%0A%40see+https%3A%2F%2Fwww.openstreetmap.org%2Fway%2F44827278%0A%40see+https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FLotus_Temple%0A%40title+Lotus+Bahai+Temple%0A%2A%2F%0A%5Bbbox%3A28.55215%2C+77.2574%2C+28.55433%2C+77.26023%5D%3B%0A%28%0A++way%2844827278%29%3B+%2F%2Finner%0A++%3E%3B%0A++way%5B%22landuse%22%3D%22basin%22%5D%3B%0A++%3E%3B%0A++way%28119871876%29%3B+%2F%2Fouter%0A++%3E%3B%0A++way%28119912480%29%3B%0A++%3E%3B%0A++way%28119912477%29%3B%0A++%3E%3B%0A++way%28119912471%29%3B%0A++%3E%3B%0A++way%28119912474%29%3B%0A++%3E%3B%0A++way%28119912468%29%3B%0A++%3E%3B%0A++way%28119912479%29%3B%0A++%3E%3B%0A++way%28119912469%29%3B%0A++%3E%3B%0A++way%28484723872%29%3B+%2F%2Fentry+path%0A++%3E%3B%0A++way%28119871864%29%3B+%2F%2Fstem%0A++%3E%3B%0A++way%28484723864%29%3B%0A++%3E%3B%0A++way%28484723863%29%3B%0A++%3E%3B%0A++way%28119871875%29%3B%0A++%3E%3B%0A++way%2844278200%29%3B+%2F%2Fouter+way%0A++%3E%3B%0A%29%3B%0Aout+body%3B%0A%0Away%2844827278%29%3B%0Aout+center%3B%0A%0A%7B%7Bstyle%3A%0A+way%0A+%7B+fill-color%3A+%23E75480%3B+fill-opacity%3A+1%3B+opacity%3A+1%3B+color%3A%23E75480%3B+width%3A+5%3B%7D%0A%0A+way%5B%40id%3D44827278%5D%0A+%7B+fill-color%3A+orange%3B+fill-opacity%3A+1%3B+opacity%3A+1%3B+color%3A%23F8C377%3B+width%3A+5%3B%7D%0A%0A+way%5Blanduse%3Dbasin%5D%0A+%7B+fill-color%3A+%23FADADD%3B+dashes%3A+5%2C8%3B+fill-opacity%3A+1%3B+opacity%3A+1%3B+color%3A+%23FFc0CB%3B+width%3A+5%3B+%7D%0A%0A+way%5B%40id%3D119871876%5D%0A+%7B+fill-color%3A+%23E75480%3B+fill-opacity%3A+1%3B+opacity%3A+1%3B+color%3A%23E75480%3B+width%3A+5%3B%7D%0A%0A+way%5B%40id%3D484723872%5D%0A+%7B+opacity%3A+1%3B+color%3Agreen%3B+width%3A+5%3B%7D%0A%0A+way%5B%40id%3D119871864%5D%0A+%7B+opacity%3A+1%3B+color%3Agreen%3B+width%3A+5%3B%7D%0A%0A+way%5B%40id%3D484723864%5D%0A+%7B+opacity%3A+1%3B+color%3Agreen%3B+width%3A+5%3B%7D%0A%0A+way%5B%40id%3D484723863%5D%0A+%7B+opacity%3A+1%3B+color%3Agreen%3B+width%3A+5%3B%7D%0A%0A+way%5B%40id%3D119871875%5D%0A+%7B+opacity%3A+1%3B+color%3Agreen%3B+width%3A+5%3B%7D%0A%0A+way%5Bbuilding%3Dtemple%5D%0A+%7B+opacity%3A+1%3B+colour%3Ablue%3B+%7D%0A%0A+way%5B%40id%3D44278200%5D+%7B+fill-color%3A+white%3B+color%3A+white%3B+%7D%0A+way%3Aplaceholder+%7B+fill-color%3A+yellow%3B+%7D%0A+node%5Bentrance%3Dyes%5D+%7B+opacity%3A+0%3B+%7D%0A+node%5Bentrance%3Dmain%5D+%7B+opacity%3A+0%3B+%7D%0A%7D%7D%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AThis+query+selects+the+unnamed+standing+stones+at+Stonehenge.+It%0Athen+styles+the+results+using+MapCSS.%0A%0AIt+demonstrates+all+the+basic+properties+that+can+control+the%0Afill+of+a+shape%0A%0A%2A+%60fill-color%60+-+defines+the+colour+of+the+fill.+Either+as+a+named+colour%2C+or+as+a+hex+%28e.g.+%60%23000000%60%29+or+RGB+value+%28e.g.+%60rgb%2899%2C73%2C23%29%60%29%0A%2A+%60fill-opacity%60+-+is+a+value+between+0-1%0A%0AYou%27ll+notice+that+Overpass+Turbo+will+apply+its+default+styles+to+the+shapes%0Aso+there+will+be+a+different+colour+outline+to+the+stones.%0A%0ATry+adjusting+the+query+to+use+this+instead%3A%0A%0A%60%60%60%0Away+%7B+color%3A+brown%3B+fill-color%3A+brown%3B+opacity%3A+1%3B+fill-opacity%3A+1+%7D%0A%60%60%60%0A%0A%40title+Style+ways%2C+as+areas%0A%2A%2F%0A%5Bbbox%3A51.17798%2C+-1.82733%2C+51.17953%2C+-1.8245%5D%3B%0A%28%0A++%2F%2Fselect+the+ways+and+their+nodes%0A++way%5B%21%22name%22%5D%5B%22historic%22%3D%22stone%22%5D%3B%0A++%3E%3B%0A%29%3B%0Aout+body%3B%0A%0A%2F%2FMapCSS+styles%0A%7B%7Bstyle%3A%0A++way+%7B+fill-color%3A+brown%3B++fill-opacity%3A+1+%7D%0A%7D%7D%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -311,35 +247,33 @@ out center;
       <div class="row">
         <div class="col">
           
-						<p property="description"><p>Colouring the Lotus Bahai Template as a lotus flower.</p>
+						<p property="description"><p>This query selects the unnamed standing stones at Stonehenge. It
+then styles the results using MapCSS.</p>
 
-<p>This example illustrates selecting the same way more than once (44827278). In
-the second selection we output just its centroid and then style that using
-<code>way:placeholder</code>.</p>
+<p>It demonstrates all the basic properties that can control the
+fill of a shape</p>
 
-<p>We also hide nodes that are selected using the <code>&gt;</code> recurse operator so they&#39;re
-not displayed.</p>
+<ul>
+<li><code>fill-color</code> - defines the colour of the fill. Either as a named colour, or as a hex (e.g. <code>#000000</code>) or RGB value (e.g. <code>rgb(99,73,23)</code>)</li>
+<li><code>fill-opacity</code> - is a value between 0-1</li>
+</ul>
+
+<p>You&#39;ll notice that Overpass Turbo will apply its default styles to the shapes
+so there will be a different colour outline to the stones.</p>
+
+<p>Try adjusting the query to use this instead:</p>
+
+<p><code>
+way { color: brown; fill-color: brown; opacity: 1; fill-opacity: 1 }
+</code></p>
 </p>
 					
 
           <table class="table">
             <tbody>
               
-                <tr>
-                  <td>Links</td>
-                  <td>
-                    <ul class="list-unstyled">
-                      
-                           <li><a href="https://www.openstreetmap.org/way/44827278">https://www.openstreetmap.org/way/44827278</a></li>
-                      
-                           <li><a href="https://en.wikipedia.org/wiki/Lotus_Temple">https://en.wikipedia.org/wiki/Lotus_Temple</a></li>
-                      
-                    </ul>
-                  </td>
-                </tr>
-              
               <tr>
-                <td>Source File</td><td><a href="lotus-bahai-temple.osm"><code>lotus-bahai-temple.osm</code></a></td>
+                <td>Source File</td><td><a href="ways-as-areas.osm"><code>ways-as-areas.osm</code></a></td>
               </tr>
               
                 <tr>

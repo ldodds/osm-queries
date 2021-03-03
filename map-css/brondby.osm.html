@@ -118,11 +118,11 @@
               <a href="the-bath-key.osm.html">Bath's Hidden Key</a>
             </li>
           
-            <li class="" >
+            <li class="bg-color" >
               <a href="brondby.osm.html">Brøndby Haveby</a>
             </li>
           
-            <li class="bg-color" >
+            <li class="" >
               <a href="lotus-bahai-temple.osm.html">Lotus Bahai Temple</a>
             </li>
           
@@ -145,91 +145,41 @@
     <div class="col-6">
       <div class="row">
         <div class="col">
-          <h2 property="title">Lotus Bahai Temple</h2>
+          <h2 property="title">Brøndby Haveby</h2>
         </div>
       </div>
       <div class="row">
         <div class="col">
 					<textarea id="overpass" cols="120">
-[bbox:28.55215, 77.2574, 28.55433, 77.26023];
+[bbox:55.6342, 12.39277, 55.63981, 12.40409];
 (
-  way(44827278); //inner
+  way["highway"="living_street"]["name"~"^Lille|Store"];
   >;
-  way["landuse"="basin"];
+  way["highway"="residential"]["name"="Store Harekærvej"];
   >;
-  way(119871876); //outer
+  node["addr:street"~"^Lille|Store"];
   >;
-  way(119912480);
+  way["amenity"="parking"];
   >;
-  way(119912477);
-  >;
-  way(119912471);
-  >;
-  way(119912474);
-  >;
-  way(119912468);
-  >;
-  way(119912479);
-  >;
-  way(119912469);
-  >;
-  way(484723872); //entry path
-  >;
-  way(119871864); //stem
-  >;
-  way(484723864);
-  >;
-  way(484723863);
-  >;
-  way(119871875);
-  >;
-  way(44278200); //outer way
+  relation(6323434);
   >;
 );
 out body;
 
-way(44827278);
-out center;
-
 {{style:
- way
- { fill-color: #E75480; fill-opacity: 1; opacity: 1; color:#E75480; width: 5;}
 
- way[@id=44827278]
- { fill-color: orange; fill-opacity: 1; opacity: 1; color:#F8C377; width: 5;}
-
- way[landuse=basin]
- { fill-color: #FADADD; dashes: 5,8; fill-opacity: 1; opacity: 1; color: #FFc0CB; width: 5; }
-
- way[@id=119871876]
- { fill-color: #E75480; fill-opacity: 1; opacity: 1; color:#E75480; width: 5;}
-
- way[@id=484723872]
- { opacity: 1; color:green; width: 5;}
-
- way[@id=119871864]
- { opacity: 1; color:green; width: 5;}
-
- way[@id=484723864]
- { opacity: 1; color:green; width: 5;}
-
- way[@id=484723863]
- { opacity: 1; color:green; width: 5;}
-
- way[@id=119871875]
- { opacity: 1; color:green; width: 5;}
-
- way[building=temple]
- { opacity: 1; colour:blue; }
-
- way[@id=44278200] { fill-color: white; color: white; }
- way:placeholder { fill-color: yellow; }
- node[entrance=yes] { opacity: 0; }
- node[entrance=main] { opacity: 0; }
+way[highway] { color: #654321; opacity: 1; }
+way[amenity=parking] { fill-color: yellow; fill-opacity: 1; color: yellow;}
+way[role=inner] { fill-color: green; width: 0; }
+relation { opacity: 0; fill-color: green; fill-opacity: 1; }
+way[barrier=hedge] { opacity: 0; }
+node{ color:red; opacity: 1; fill-color: red; fill-opacity: 1;}
+node[highway] { fill-color: orange; opacity: 0; }
+node[@id=3728284045] { opacity: 0; fill-opacity: 0;}
 }}
 </textarea>
           <div class="float-right">
-            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AColouring+the+Lotus+Bahai+Template+as+a+lotus+flower.%0A%0AThis+example+illustrates+selecting+the+same+way+more+than+once+%2844827278%29.+In%0Athe+second+selection+we+output+just+its+centroid+and+then+style+that+using%0A%60way%3Aplaceholder%60.%0A%0AWe+also+hide+nodes+that+are+selected+using+the+%60%3E%60+recurse+operator+so+they%27re%0Anot+displayed.%0A%0A%40see+https%3A%2F%2Fwww.openstreetmap.org%2Fway%2F44827278%0A%40see+https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FLotus_Temple%0A%40title+Lotus+Bahai+Temple%0A%2A%2F%0A%5Bbbox%3A28.55215%2C+77.2574%2C+28.55433%2C+77.26023%5D%3B%0A%28%0A++way%2844827278%29%3B+%2F%2Finner%0A++%3E%3B%0A++way%5B%22landuse%22%3D%22basin%22%5D%3B%0A++%3E%3B%0A++way%28119871876%29%3B+%2F%2Fouter%0A++%3E%3B%0A++way%28119912480%29%3B%0A++%3E%3B%0A++way%28119912477%29%3B%0A++%3E%3B%0A++way%28119912471%29%3B%0A++%3E%3B%0A++way%28119912474%29%3B%0A++%3E%3B%0A++way%28119912468%29%3B%0A++%3E%3B%0A++way%28119912479%29%3B%0A++%3E%3B%0A++way%28119912469%29%3B%0A++%3E%3B%0A++way%28484723872%29%3B+%2F%2Fentry+path%0A++%3E%3B%0A++way%28119871864%29%3B+%2F%2Fstem%0A++%3E%3B%0A++way%28484723864%29%3B%0A++%3E%3B%0A++way%28484723863%29%3B%0A++%3E%3B%0A++way%28119871875%29%3B%0A++%3E%3B%0A++way%2844278200%29%3B+%2F%2Fouter+way%0A++%3E%3B%0A%29%3B%0Aout+body%3B%0A%0Away%2844827278%29%3B%0Aout+center%3B%0A%0A%7B%7Bstyle%3A%0A+way%0A+%7B+fill-color%3A+%23E75480%3B+fill-opacity%3A+1%3B+opacity%3A+1%3B+color%3A%23E75480%3B+width%3A+5%3B%7D%0A%0A+way%5B%40id%3D44827278%5D%0A+%7B+fill-color%3A+orange%3B+fill-opacity%3A+1%3B+opacity%3A+1%3B+color%3A%23F8C377%3B+width%3A+5%3B%7D%0A%0A+way%5Blanduse%3Dbasin%5D%0A+%7B+fill-color%3A+%23FADADD%3B+dashes%3A+5%2C8%3B+fill-opacity%3A+1%3B+opacity%3A+1%3B+color%3A+%23FFc0CB%3B+width%3A+5%3B+%7D%0A%0A+way%5B%40id%3D119871876%5D%0A+%7B+fill-color%3A+%23E75480%3B+fill-opacity%3A+1%3B+opacity%3A+1%3B+color%3A%23E75480%3B+width%3A+5%3B%7D%0A%0A+way%5B%40id%3D484723872%5D%0A+%7B+opacity%3A+1%3B+color%3Agreen%3B+width%3A+5%3B%7D%0A%0A+way%5B%40id%3D119871864%5D%0A+%7B+opacity%3A+1%3B+color%3Agreen%3B+width%3A+5%3B%7D%0A%0A+way%5B%40id%3D484723864%5D%0A+%7B+opacity%3A+1%3B+color%3Agreen%3B+width%3A+5%3B%7D%0A%0A+way%5B%40id%3D484723863%5D%0A+%7B+opacity%3A+1%3B+color%3Agreen%3B+width%3A+5%3B%7D%0A%0A+way%5B%40id%3D119871875%5D%0A+%7B+opacity%3A+1%3B+color%3Agreen%3B+width%3A+5%3B%7D%0A%0A+way%5Bbuilding%3Dtemple%5D%0A+%7B+opacity%3A+1%3B+colour%3Ablue%3B+%7D%0A%0A+way%5B%40id%3D44278200%5D+%7B+fill-color%3A+white%3B+color%3A+white%3B+%7D%0A+way%3Aplaceholder+%7B+fill-color%3A+yellow%3B+%7D%0A+node%5Bentrance%3Dyes%5D+%7B+opacity%3A+0%3B+%7D%0A+node%5Bentrance%3Dmain%5D+%7B+opacity%3A+0%3B+%7D%0A%7D%7D%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AThis+is+Br%C3%B8ndby+Haveby+near+Copenhagen.+I+just+thought+they+looked+a+bit+like+flowers.%0A%0AThis+demonstrates+building+up+a+more+complex+query+to+select+and+then+style%0Aa+collection+of+nodes%2C+ways+and+relations.%0A%0A%40title+Br%C3%B8ndby+Haveby%0A%40see+https%3A%2F%2Fwww.lonelyplanet.com%2Farticles%2Fbroendby-haveby-denmark-from-above%0A%2A%2F%0A%5Bbbox%3A55.6342%2C+12.39277%2C+55.63981%2C+12.40409%5D%3B%0A%28%0A++way%5B%22highway%22%3D%22living_street%22%5D%5B%22name%22~%22%5ELille%7CStore%22%5D%3B%0A++%3E%3B%0A++way%5B%22highway%22%3D%22residential%22%5D%5B%22name%22%3D%22Store+Harek%C3%A6rvej%22%5D%3B%0A++%3E%3B%0A++node%5B%22addr%3Astreet%22~%22%5ELille%7CStore%22%5D%3B%0A++%3E%3B%0A++way%5B%22amenity%22%3D%22parking%22%5D%3B%0A++%3E%3B%0A++relation%286323434%29%3B%0A++%3E%3B%0A%29%3B%0Aout+body%3B%0A%0A%7B%7Bstyle%3A%0A%0Away%5Bhighway%5D+%7B+color%3A+%23654321%3B+opacity%3A+1%3B+%7D%0Away%5Bamenity%3Dparking%5D+%7B+fill-color%3A+yellow%3B+fill-opacity%3A+1%3B+color%3A+yellow%3B%7D%0Away%5Brole%3Dinner%5D+%7B+fill-color%3A+green%3B+width%3A+0%3B+%7D%0Arelation+%7B+opacity%3A+0%3B+fill-color%3A+green%3B+fill-opacity%3A+1%3B+%7D%0Away%5Bbarrier%3Dhedge%5D+%7B+opacity%3A+0%3B+%7D%0Anode%7B+color%3Ared%3B+opacity%3A+1%3B+fill-color%3A+red%3B+fill-opacity%3A+1%3B%7D%0Anode%5Bhighway%5D+%7B+fill-color%3A+orange%3B+opacity%3A+0%3B+%7D%0Anode%5B%40id%3D3728284045%5D+%7B+opacity%3A+0%3B+fill-opacity%3A+0%3B%7D%0A%7D%7D%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -311,14 +261,10 @@ out center;
       <div class="row">
         <div class="col">
           
-						<p property="description"><p>Colouring the Lotus Bahai Template as a lotus flower.</p>
+						<p property="description"><p>This is Brøndby Haveby near Copenhagen. I just thought they looked a bit like flowers.</p>
 
-<p>This example illustrates selecting the same way more than once (44827278). In
-the second selection we output just its centroid and then style that using
-<code>way:placeholder</code>.</p>
-
-<p>We also hide nodes that are selected using the <code>&gt;</code> recurse operator so they&#39;re
-not displayed.</p>
+<p>This demonstrates building up a more complex query to select and then style
+a collection of nodes, ways and relations.</p>
 </p>
 					
 
@@ -330,16 +276,14 @@ not displayed.</p>
                   <td>
                     <ul class="list-unstyled">
                       
-                           <li><a href="https://www.openstreetmap.org/way/44827278">https://www.openstreetmap.org/way/44827278</a></li>
-                      
-                           <li><a href="https://en.wikipedia.org/wiki/Lotus_Temple">https://en.wikipedia.org/wiki/Lotus_Temple</a></li>
+                           <li><a href="https://www.lonelyplanet.com/articles/broendby-haveby-denmark-from-above">https://www.lonelyplanet.com/articles/broendby-haveby-denmark-from-above</a></li>
                       
                     </ul>
                   </td>
                 </tr>
               
               <tr>
-                <td>Source File</td><td><a href="lotus-bahai-temple.osm"><code>lotus-bahai-temple.osm</code></a></td>
+                <td>Source File</td><td><a href="brondby.osm"><code>brondby.osm</code></a></td>
               </tr>
               
                 <tr>

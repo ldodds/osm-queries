@@ -122,7 +122,7 @@
               <a href="brondby.osm.html">Brøndby Haveby</a>
             </li>
           
-            <li class="bg-color" >
+            <li class="" >
               <a href="lotus-bahai-temple.osm.html">Lotus Bahai Temple</a>
             </li>
           
@@ -134,7 +134,7 @@
               <a href="ways-as-lines.osm.html">Style ways, as lines</a>
             </li>
           
-            <li class="" >
+            <li class="bg-color" >
               <a href="styling-nodes.osm.html">Styling nodes</a>
             </li>
           
@@ -145,91 +145,29 @@
     <div class="col-6">
       <div class="row">
         <div class="col">
-          <h2 property="title">Lotus Bahai Temple</h2>
+          <h2 property="title">Styling nodes</h2>
         </div>
       </div>
       <div class="row">
         <div class="col">
 					<textarea id="overpass" cols="120">
-[bbox:28.55215, 77.2574, 28.55433, 77.26023];
+[bbox:41.88926, 12.49109, 41.8911, 12.49392];
 (
-  way(44827278); //inner
-  >;
-  way["landuse"="basin"];
-  >;
-  way(119871876); //outer
-  >;
-  way(119912480);
-  >;
-  way(119912477);
-  >;
-  way(119912471);
-  >;
-  way(119912474);
-  >;
-  way(119912468);
-  >;
-  way(119912479);
-  >;
-  way(119912469);
-  >;
-  way(484723872); //entry path
-  >;
-  way(119871864); //stem
-  >;
-  way(484723864);
-  >;
-  way(484723863);
-  >;
-  way(119871875);
-  >;
-  way(44278200); //outer way
-  >;
+  node["shop"];
+  node["amenity"];
 );
 out body;
 
-way(44827278);
-out center;
-
+//MapCSS styles
 {{style:
- way
- { fill-color: #E75480; fill-opacity: 1; opacity: 1; color:#E75480; width: 5;}
-
- way[@id=44827278]
- { fill-color: orange; fill-opacity: 1; opacity: 1; color:#F8C377; width: 5;}
-
- way[landuse=basin]
- { fill-color: #FADADD; dashes: 5,8; fill-opacity: 1; opacity: 1; color: #FFc0CB; width: 5; }
-
- way[@id=119871876]
- { fill-color: #E75480; fill-opacity: 1; opacity: 1; color:#E75480; width: 5;}
-
- way[@id=484723872]
- { opacity: 1; color:green; width: 5;}
-
- way[@id=119871864]
- { opacity: 1; color:green; width: 5;}
-
- way[@id=484723864]
- { opacity: 1; color:green; width: 5;}
-
- way[@id=484723863]
- { opacity: 1; color:green; width: 5;}
-
- way[@id=119871875]
- { opacity: 1; color:green; width: 5;}
-
- way[building=temple]
- { opacity: 1; colour:blue; }
-
- way[@id=44278200] { fill-color: white; color: white; }
- way:placeholder { fill-color: yellow; }
- node[entrance=yes] { opacity: 0; }
- node[entrance=main] { opacity: 0; }
+  node { fill-color: red; color: red; fill-opacity: 1;}
+  node[amenity=drinking_water] { fill-color: blue; color: blue, fill-opacity 1;}
+  node[shop] { fill-color: green; fill-opacity 1; color: black }
+  node[amenity=toilets] { icon-image: url("icons/maki/toilets-24.png"); icon-width: 50;}
 }}
 </textarea>
           <div class="float-right">
-            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AColouring+the+Lotus+Bahai+Template+as+a+lotus+flower.%0A%0AThis+example+illustrates+selecting+the+same+way+more+than+once+%2844827278%29.+In%0Athe+second+selection+we+output+just+its+centroid+and+then+style+that+using%0A%60way%3Aplaceholder%60.%0A%0AWe+also+hide+nodes+that+are+selected+using+the+%60%3E%60+recurse+operator+so+they%27re%0Anot+displayed.%0A%0A%40see+https%3A%2F%2Fwww.openstreetmap.org%2Fway%2F44827278%0A%40see+https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FLotus_Temple%0A%40title+Lotus+Bahai+Temple%0A%2A%2F%0A%5Bbbox%3A28.55215%2C+77.2574%2C+28.55433%2C+77.26023%5D%3B%0A%28%0A++way%2844827278%29%3B+%2F%2Finner%0A++%3E%3B%0A++way%5B%22landuse%22%3D%22basin%22%5D%3B%0A++%3E%3B%0A++way%28119871876%29%3B+%2F%2Fouter%0A++%3E%3B%0A++way%28119912480%29%3B%0A++%3E%3B%0A++way%28119912477%29%3B%0A++%3E%3B%0A++way%28119912471%29%3B%0A++%3E%3B%0A++way%28119912474%29%3B%0A++%3E%3B%0A++way%28119912468%29%3B%0A++%3E%3B%0A++way%28119912479%29%3B%0A++%3E%3B%0A++way%28119912469%29%3B%0A++%3E%3B%0A++way%28484723872%29%3B+%2F%2Fentry+path%0A++%3E%3B%0A++way%28119871864%29%3B+%2F%2Fstem%0A++%3E%3B%0A++way%28484723864%29%3B%0A++%3E%3B%0A++way%28484723863%29%3B%0A++%3E%3B%0A++way%28119871875%29%3B%0A++%3E%3B%0A++way%2844278200%29%3B+%2F%2Fouter+way%0A++%3E%3B%0A%29%3B%0Aout+body%3B%0A%0Away%2844827278%29%3B%0Aout+center%3B%0A%0A%7B%7Bstyle%3A%0A+way%0A+%7B+fill-color%3A+%23E75480%3B+fill-opacity%3A+1%3B+opacity%3A+1%3B+color%3A%23E75480%3B+width%3A+5%3B%7D%0A%0A+way%5B%40id%3D44827278%5D%0A+%7B+fill-color%3A+orange%3B+fill-opacity%3A+1%3B+opacity%3A+1%3B+color%3A%23F8C377%3B+width%3A+5%3B%7D%0A%0A+way%5Blanduse%3Dbasin%5D%0A+%7B+fill-color%3A+%23FADADD%3B+dashes%3A+5%2C8%3B+fill-opacity%3A+1%3B+opacity%3A+1%3B+color%3A+%23FFc0CB%3B+width%3A+5%3B+%7D%0A%0A+way%5B%40id%3D119871876%5D%0A+%7B+fill-color%3A+%23E75480%3B+fill-opacity%3A+1%3B+opacity%3A+1%3B+color%3A%23E75480%3B+width%3A+5%3B%7D%0A%0A+way%5B%40id%3D484723872%5D%0A+%7B+opacity%3A+1%3B+color%3Agreen%3B+width%3A+5%3B%7D%0A%0A+way%5B%40id%3D119871864%5D%0A+%7B+opacity%3A+1%3B+color%3Agreen%3B+width%3A+5%3B%7D%0A%0A+way%5B%40id%3D484723864%5D%0A+%7B+opacity%3A+1%3B+color%3Agreen%3B+width%3A+5%3B%7D%0A%0A+way%5B%40id%3D484723863%5D%0A+%7B+opacity%3A+1%3B+color%3Agreen%3B+width%3A+5%3B%7D%0A%0A+way%5B%40id%3D119871875%5D%0A+%7B+opacity%3A+1%3B+color%3Agreen%3B+width%3A+5%3B%7D%0A%0A+way%5Bbuilding%3Dtemple%5D%0A+%7B+opacity%3A+1%3B+colour%3Ablue%3B+%7D%0A%0A+way%5B%40id%3D44278200%5D+%7B+fill-color%3A+white%3B+color%3A+white%3B+%7D%0A+way%3Aplaceholder+%7B+fill-color%3A+yellow%3B+%7D%0A+node%5Bentrance%3Dyes%5D+%7B+opacity%3A+0%3B+%7D%0A+node%5Bentrance%3Dmain%5D+%7B+opacity%3A+0%3B+%7D%0A%7D%7D%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AThis+query+selects+shops+and+amenities+within+the+Colosseum+in+Rome.%0A%0AThe+query+selects+any+node+with+either+the+shop+or+amenity+tag.+The%0AMapCSS+then+styles+the+nodes+based+on+their+tags+and+values.+This+highlights%0Athat+the+interpreter+has+access+to+all+of+the+data+about+a+map+feature.%0A%0AThe+styling+does+the+following%3A%0A%0A%2A+provides+a+fallback+to+style+any+unexpected+nodes+as+red%0A%2A+styles+drinking+water+fountains+as+blue+circles%0A%2A+styles+shops+as+black+circles+with+a+green+fill%0A%2A+styles+toilets+by+displaying+an+%28oversized%21%29+icon%0A%0AFor+icons%2C+Overpass+Turbo+has+three+sets+available.+See+the+links+below.%0A%0ANote%2C+the+ordering+of+the+styles+is+important.+They%27re+applied+in+order.+so%0Aif+we%27d+put+the+fallback+style+%28the+red+circle%29+at+the+end+then+that%27s+all+we%27d%0Asee.+You+can+try+it.%0A%0AIf+you%27re+wondering.+Its+a+wastebin.%0A%0A%40title+Styling+nodes%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FOverpass_turbo%2FMapCSS%0A%40see+https%3A%2F%2Fgithub.com%2Ftyrasd%2Foverpass-turbo%2Ftree%2Fmaster%2Ficons%0A%2A%2F%0A%5Bbbox%3A41.88926%2C+12.49109%2C+41.8911%2C+12.49392%5D%3B%0A%28%0A++node%5B%22shop%22%5D%3B%0A++node%5B%22amenity%22%5D%3B%0A%29%3B%0Aout+body%3B%0A%0A%2F%2FMapCSS+styles%0A%7B%7Bstyle%3A%0A++node+%7B+fill-color%3A+red%3B+color%3A+red%3B+fill-opacity%3A+1%3B%7D%0A++node%5Bamenity%3Ddrinking_water%5D+%7B+fill-color%3A+blue%3B+color%3A+blue%2C+fill-opacity+1%3B%7D%0A++node%5Bshop%5D+%7B+fill-color%3A+green%3B+fill-opacity+1%3B+color%3A+black+%7D%0A++node%5Bamenity%3Dtoilets%5D+%7B+icon-image%3A+url%28%22icons%2Fmaki%2Ftoilets-24.png%22%29%3B+icon-width%3A+50%3B%7D%0A%7D%7D%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -311,14 +249,28 @@ out center;
       <div class="row">
         <div class="col">
           
-						<p property="description"><p>Colouring the Lotus Bahai Template as a lotus flower.</p>
+						<p property="description"><p>This query selects shops and amenities within the Colosseum in Rome.</p>
 
-<p>This example illustrates selecting the same way more than once (44827278). In
-the second selection we output just its centroid and then style that using
-<code>way:placeholder</code>.</p>
+<p>The query selects any node with either the shop or amenity tag. The
+MapCSS then styles the nodes based on their tags and values. This highlights
+that the interpreter has access to all of the data about a map feature.</p>
 
-<p>We also hide nodes that are selected using the <code>&gt;</code> recurse operator so they&#39;re
-not displayed.</p>
+<p>The styling does the following:</p>
+
+<ul>
+<li>provides a fallback to style any unexpected nodes as red</li>
+<li>styles drinking water fountains as blue circles</li>
+<li>styles shops as black circles with a green fill</li>
+<li>styles toilets by displaying an (oversized!) icon</li>
+</ul>
+
+<p>For icons, Overpass Turbo has three sets available. See the links below.</p>
+
+<p>Note, the ordering of the styles is important. They&#39;re applied in order. so
+if we&#39;d put the fallback style (the red circle) at the end then that&#39;s all we&#39;d
+see. You can try it.</p>
+
+<p>If you&#39;re wondering. Its a wastebin.</p>
 </p>
 					
 
@@ -330,16 +282,16 @@ not displayed.</p>
                   <td>
                     <ul class="list-unstyled">
                       
-                           <li><a href="https://www.openstreetmap.org/way/44827278">https://www.openstreetmap.org/way/44827278</a></li>
+                           <li><a href="https://wiki.openstreetmap.org/wiki/Overpass_turbo/MapCSS">https://wiki.openstreetmap.org/wiki/Overpass_turbo/MapCSS</a></li>
                       
-                           <li><a href="https://en.wikipedia.org/wiki/Lotus_Temple">https://en.wikipedia.org/wiki/Lotus_Temple</a></li>
+                           <li><a href="https://github.com/tyrasd/overpass-turbo/tree/master/icons">https://github.com/tyrasd/overpass-turbo/tree/master/icons</a></li>
                       
                     </ul>
                   </td>
                 </tr>
               
               <tr>
-                <td>Source File</td><td><a href="lotus-bahai-temple.osm"><code>lotus-bahai-temple.osm</code></a></td>
+                <td>Source File</td><td><a href="styling-nodes.osm"><code>styling-nodes.osm</code></a></td>
               </tr>
               
                 <tr>
