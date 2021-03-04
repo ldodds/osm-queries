@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html class="h-100">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Overpass Tutorial</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../codemirror.css">
+
+    <script src="../../codemirror.js" type="text/javascript"></script>
+    <script src="../../mode/clike/clike.js" type="text/javascript"></script>
+    <script src="../../util/multiplex.js" type="text/javascript"></script>
+
+    <style type="text/css">
+      .CodeMirror {
+        /* Bootstrap Settings */
+        box-sizing: border-box;
+        margin: 0;
+        font: inherit;
+        overflow: auto;
+        font-family: inherit;
+        display: block;
+        width: 100%;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075); /* Bootstrap 3 */
+        box-shadow: none; /* Bootstrap 4 */
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        /* Code Mirror Settings */
+        font-family: monospace;
+        position: relative;
+        overflow: hidden;
+        height: auto;
+      }
+      .CodeMirror-scrollbar {
+        visibility: hidden;
+      }
+      .CodeMirror-focused {
+        /* Bootstrap Settings */
+        border-color: #66afe9;
+        outline: 0;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6); /* Bootstrap 3 */
+        box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25); /* Bootstrap 4 */
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+      }
+      .CodeMirror-scroll {
+        height: 100%;
+      }
+
+      .bg-color {
+        background-color: #e3f2fd;
+      }
+    </style>
+
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light bg-color">
+            <a class="navbar-brand" href="/"><i class="bi bi-geo-fill"></i> OSM Queries</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav">
+                
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      About
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      
+                          <a class="dropdown-item" href="../background.html">Background</a>
+            		  	  
+                          <a class="dropdown-item" href="../contribute.html">Contribute</a>
+            		  	  
+                          <a class="dropdown-item" href="../licence.html">Licence</a>
+            		  	  
+                          <a class="dropdown-item" href="../colophon.html">Colophon</a>
+            		  	  
+                    </div>
+                  </li>
+        		  	
+                
+              </ul>
+            </div>
+        </nav>
+    </header>
+
+      <main class="pt-4">
+       <div class="container-fluid">
+  <div class="row">
+
+    <div class="col-md-auto">
+      
+        <h5><a href="index.html" class="text-decoration-none">Overpass Tutorial</a></h5>
+      
+
+      
+
+      
+        <ul class="list-unstyled">
+          
+            <li class="" >
+              <a href="00-node-1.osm.html">00 - The Beginning</a>
+            </li>
+          
+            <li class="" >
+              <a href="01-nodes.osm.html">01 - Finding nodes with a bounding box</a>
+            </li>
+          
+            <li class="" >
+              <a href="02-node-output.osm.html">02 - Outputting data about nodes</a>
+            </li>
+          
+            <li class="" >
+              <a href="03-nodes-basic-filter.osm.html">03 - Filtering nodes that have a tag</a>
+            </li>
+          
+            <li class="" >
+              <a href="04-nodes-has-kv.osm.html">04 - Find nodes by matching tags and their values</a>
+            </li>
+          
+            <li class="" >
+              <a href="05-nodes-combined-filter.osm.html">05 - Find nodes by applying multiple filters</a>
+            </li>
+          
+            <li class="" >
+              <a href="06-nodes-union.osm.html">06 - Extracting multiple sets of nodes</a>
+            </li>
+          
+            <li class="" >
+              <a href="07-nodes-differences.osm.html">07 - Calculating differences between results</a>
+            </li>
+          
+            <li class="" >
+              <a href="08-nodes-json-output.osm.html">08 - Generating JSON output</a>
+            </li>
+          
+            <li class="" >
+              <a href="09-nodes-csv-output.osm.html">09 - Generating CSV output</a>
+            </li>
+          
+            <li class="" >
+              <a href="10-the-default-set.osm.html">10 - The default set</a>
+            </li>
+          
+            <li class="" >
+              <a href="11-query-a-set.osm.html">11 - Querying a set</a>
+            </li>
+          
+            <li class="" >
+              <a href="12-radius-search.osm.html">12 - Searching within a radius using around</a>
+            </li>
+          
+            <li class="" >
+              <a href="13-around-with-set.osm.html">12 - Using around to filter against a set of results</a>
+            </li>
+          
+            <li class="" >
+              <a href="14-searching-by-polygon.osm.html">14 - Searching by polygon</a>
+            </li>
+          
+            <li class="" >
+              <a href="15-ways.osm.html">15 - Finding ways</a>
+            </li>
+          
+            <li class="" >
+              <a href="16-ways-and-their-nodes.osm.html">16 - Ways and their nodes</a>
+            </li>
+          
+            <li class="" >
+              <a href="17-ways-and-their-tags.osm.html">17 - Ways and their tags</a>
+            </li>
+          
+            <li class="" >
+              <a href="18-nodes-and-ways.osm.html">18 - Combining node and way queries</a>
+            </li>
+          
+            <li class="" >
+              <a href="19-find-ways-from-nodes.osm.html">19 - Finding ways from their nodes</a>
+            </li>
+          
+            <li class="" >
+              <a href="20-relations.osm.html">20 - Finding relations</a>
+            </li>
+          
+            <li class="" >
+              <a href="21-type-agnostic-queries.osm.html">21 - Type agnostic queries (nwr)</a>
+            </li>
+          
+            <li class="" >
+              <a href="22-areas.osm.html">22 - Areas</a>
+            </li>
+          
+            <li class="" >
+              <a href="23-areas-from-features.osm.html">23 - Finding the areas enclosing a feature</a>
+            </li>
+          
+            <li class="" >
+              <a href="24-mapToArea.osm.html">24 - Find the area derived from a feature</a>
+            </li>
+          
+            <li class="" >
+              <a href="25-areas-via-nominatim.osm.html">25 - Areas via Nominatim search</a>
+            </li>
+          
+            <li class="bg-color" >
+              <a href="26-timeouts-and-endpoints.osm.html">26 - Timeouts and endpoints</a>
+            </li>
+          
+        </ul>
+      
+    </div>
+
+    <div class="col-6">
+      <div class="row">
+        <div class="col">
+          <h2 property="title">26 - Timeouts and endpoints</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+					<textarea id="overpass" cols="120">
+[out:csv(::id, ::lat, ::lon, name; true; ",")][timeout:60];
+node(-25.38653, 130.99883, -25.31478, 131.08938)["natural"="cave_entrance"];
+out body;
+</textarea>
+          <div class="float-right">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0ALike+any+open%2C+public+API+the+Overpass+API+imposes+both+time+and+memory+limits%0Aon+queries.%0A%0AThe+default+time+out+value+is+180+seconds.+Which+is+quite+a+long+time%2C+although+in%0Apractice+your+query+might+also+be+rejected+because+of+server+load+or+because+its+hit%0Amemory+limits.%0A%0AWhile+the+default+timeout+is+quite+generous%2C+sometimes+you+just+need+a+little+bit%0Amore+time.+The+%60timeout%60+query+parameter+can+be+used+to+request+a+longer+timeout+for+your%0Aquery.%0A%0AUse+it+to+specify+a+timeout+value+in+seconds.+The+below+takes+out+earlier+CSV+output%0Aexample+and+sets+a+timeout+of+60+seconds.%0A%0AOne+other+option+available+is+to+switch+to+using+a+different+Overpass+API+endpoint.%0AThere+are+a+number+of+public+Overpass+instances.+But+there+are+others+which%0Aare+listed+on+the+OSM+wiki.%0A%0AWhen+you%27re+using+Overpass+Turbo+your+queries+will+be+load-balanced+across+two+of%0Athese+endpoints.%0A%0ABe+sure+to+check+the+details+around+terms+of+use+before+putting+any+load+on+them.%0AAnd+be+aware+that+they+don%27t+store+exactly+the+same+data.+Some+don%27t+include+%22attic+data%22%0Awhich+includes+data+about+historical+changes+to+the+OSM+database.%0A%0AIf+you%27re+querying+the+APIs+directly%2C+then+you+can+just+point+your+code+at+the+right%0AURL.+But+if+you%27re+using+Overpass+Turbo+then+you%27ll+need+to+include+a+special+instruction%0Aas+the+first+line+of+your+query.%0A%0ATo+switch+to+the+development+version+of+the+Overpass+API+add+the+following%3A%0A%0A%60%60%60%0A%7B%7Bdata%3Aoverpass%2Cserver%3Dhttp%3A%2F%2Fdev.overpass-api.de%2Fapi_mmd%2F%7D%7D%0A%60%60%60%0A%0ATo+use+the+Kumi+Systems+Overpass+instance%2C+use+the+following%3A%0A%0A%60%60%60%0A%7B%7Bdata%3Aoverpass%2Cserver%3Dhttps%3A%2F%2Foverpass.kumi.systems%2Fapi%2F%7D%7D%0A%60%60%60%0A%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FOverpass_API%23Public_Overpass_API_instances%0A%40see+https%3A%2F%2Foverpass.kumi.systems%2F%0A%40title+26+-+Timeouts+and+endpoints%0A%2A%2F%0A%5Bout%3Acsv%28%3A%3Aid%2C+%3A%3Alat%2C+%3A%3Alon%2C+name%3B+true%3B+%22%2C%22%29%5D%5Btimeout%3A60%5D%3B%0Anode%28-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%29%5B%22natural%22%3D%22cave_entrance%22%5D%3B%0Aout+body%3B%0A&R" target="_blank">
+                <i class="bi bi-play"></i>Run
+            </a>
+          </div>
+					<script>
+            CodeMirror.defineMIME("text/x-overpassQL", {
+              name: "clike",
+              keywords: (function (str) {
+                var r = {};
+                var a = str.split(" ");
+                for (var i = 0; i < a.length; i++) r[a[i]] = true;
+                return r;
+              })(
+                "out json xml custom popup timeout maxsize bbox" + // initial declarations
+                  " date diff adiff" + //attic declarations
+                  " foreach" + // block statements
+                  " relation rel way node is_in area around user uid newer changed poly pivot nwr derived" + // queries
+                  " out meta body skel tags ids count qt asc" + // actions
+                  " center bb geom" // geometry types
+                //+"r w n br bw" // recursors
+              )
+            });
+            CodeMirror.defineMIME("text/x-overpassXML", "xml");
+            CodeMirror.defineMode("xml+mustache", function (config) {
+              return CodeMirror.multiplexingMode(
+                CodeMirror.multiplexingMode(CodeMirror.getMode(config, "xml"), {
+                  open: "{{",
+                  close: "}}",
+                  mode: CodeMirror.getMode(config, "text/plain"),
+                  delimStyle: "mustache"
+                }),
+                {
+                  open: "{{style:",
+                  close: "}}",
+                  mode: CodeMirror.getMode(config, "text/css"),
+                  delimStyle: "mustache"
+                }
+              );
+            });
+            CodeMirror.defineMode("ql+mustache", function (config) {
+              return CodeMirror.multiplexingMode(
+                CodeMirror.multiplexingMode(
+                  CodeMirror.getMode(config, "text/x-overpassQL"),
+                  {
+                    open: "{{",
+                    close: "}}",
+                    mode: CodeMirror.getMode(config, "text/plain"),
+                    delimStyle: "mustache"
+                  }
+                ),
+                {
+                  open: "{{style:",
+                  close: "}}",
+                  mode: CodeMirror.getMode(config, "text/css"),
+                  delimStyle: "mustache"
+                }
+              );
+            });
+					  var editor = CodeMirror.fromTextArea(document.getElementById("overpass"), {
+						    autofocus: false,
+						    readOnly: true,
+                viewportMargin: Infinity,
+                mode: "ql+mustache",
+						    lineNumbers: true,
+                lineWrapping: true,
+                matchBrackets: true,
+                closeTagEnabled: true,
+                closeTagIndent: [
+                  "osm-script",
+                  "query",
+                  "union",
+                  "foreach",
+                  "difference"
+                ]
+						  });
+					</script>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          
+						<p property="description"><p>Like any open, public API the Overpass API imposes both time and memory limits
+on queries.</p>
+
+<p>The default time out value is 180 seconds. Which is quite a long time, although in
+practice your query might also be rejected because of server load or because its hit
+memory limits.</p>
+
+<p>While the default timeout is quite generous, sometimes you just need a little bit
+more time. The <code>timeout</code> query parameter can be used to request a longer timeout for your
+query.</p>
+
+<p>Use it to specify a timeout value in seconds. The below takes out earlier CSV output
+example and sets a timeout of 60 seconds.</p>
+
+<p>One other option available is to switch to using a different Overpass API endpoint.
+There are a number of public Overpass instances. But there are others which
+are listed on the OSM wiki.</p>
+
+<p>When you&#39;re using Overpass Turbo your queries will be load-balanced across two of
+these endpoints.</p>
+
+<p>Be sure to check the details around terms of use before putting any load on them.
+And be aware that they don&#39;t store exactly the same data. Some don&#39;t include &quot;attic data&quot;
+which includes data about historical changes to the OSM database.</p>
+
+<p>If you&#39;re querying the APIs directly, then you can just point your code at the right
+URL. But if you&#39;re using Overpass Turbo then you&#39;ll need to include a special instruction
+as the first line of your query.</p>
+
+<p>To switch to the development version of the Overpass API add the following:</p>
+
+<p><code>
+{{data:overpass,server=http://dev.overpass-api.de/api_mmd/}}
+</code></p>
+
+<p>To use the Kumi Systems Overpass instance, use the following:</p>
+
+<p><code>
+{{data:overpass,server=https://overpass.kumi.systems/api/}}
+</code></p>
+</p>
+					
+
+          <table class="table">
+            <tbody>
+              
+                <tr>
+                  <td>Links</td>
+                  <td>
+                    <ul class="list-unstyled">
+                      
+                           <li><a href="https://wiki.openstreetmap.org/wiki/Overpass_API#Public_Overpass_API_instances">https://wiki.openstreetmap.org/wiki/Overpass_API#Public_Overpass_API_instances</a></li>
+                      
+                           <li><a href="https://overpass.kumi.systems/">https://overpass.kumi.systems/</a></li>
+                      
+                    </ul>
+                  </td>
+                </tr>
+              
+              <tr>
+                <td>Source File</td><td><a href="26-timeouts-and-endpoints.osm"><code>26-timeouts-and-endpoints.osm</code></a></td>
+              </tr>
+              
+                <tr>
+                  <td>Authors</td>
+                  <td>
+                      <ul class="list-unstyled">
+                        
+            					       <li><span>Leigh Dodds</span></li>
+            					  
+                      </ul>
+                  </td>
+                </tr>
+              
+              
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+      </main>
+
+       <footer class="footer mt-auto py-3 bg-light">
+         <div class="container">
+           <span class="text-muted">Generated with <a href="http://github.com/ldodds/overpass-doc">overpass-doc</a>.</span>
+         </div>
+       </footer>
+
+
+  </body>
+</html>

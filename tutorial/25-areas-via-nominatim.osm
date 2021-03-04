@@ -1,0 +1,27 @@
+/*
+This query shows another way to find areas to help filter queries.
+
+OverpassTurbo provides several extensions to the core OverpassQL language. We
+met one of those much earlier in the tutorial, where we used `{{bbox}}` to
+automatically define a bounding box based on the current view of the map in the
+IDE.
+
+Another useful extension is `geocodeArea`, which is demonstrated in this query.
+
+The extension accepts a search parameter which is used to do a Nominatim free-text
+search to find the first matching area.
+
+This can be a more flexible way to match areas. Otherwise we are limited to doing
+matching of tag values using regular expressions.
+
+Just remember this is an Overpass Turbo only feature.
+
+@see https://wiki.openstreetmap.org/wiki/Nominatim
+@title 25 - Areas via Nominatim search
+*/
+{{geocodeArea:"Uluru-Kata Tjuta National Park"}}->.searchArea;
+(
+ //find all nodes tagged as caves within the area we found
+ node["natural"="cave_entrance"](area.searchArea);
+);
+out body;

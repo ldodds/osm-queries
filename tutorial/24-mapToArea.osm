@@ -1,0 +1,32 @@
+/*
+The previous example illustrated how to turn an area into a way, so that we
+can plot it on the map. For that we used the `pivot` filter.
+
+Sometimes it can be helpful to go the other way and find the area that
+corresponds to a way or relation. To do that we use the `map_to_area` statement
+
+Because we can then do spatial queries using that area, which we can't do with
+the original way or relation.
+
+For example in this query we find the OSM relation tagged as Mutitjulu. This is
+the administrative boundary for the Mutitjulu aboriginal community which can be
+found just east of Uluru. This is stored in a temporary variable
+
+We then use the `map_to_area` statement to find the area corresponding to
+that relation. This is saved in a variable called `mutitjulu`.
+
+We then do a couple of type agnostic queries to find node, ways and relations
+that are tagged as buildings or leisure areas.
+
+@title 24 - Find the area derived from a feature
+*/
+[bbox:-25.38653, 130.99883, -25.31478, 131.08938];
+(
+  relation["name"="Mutitjulu"] ->.rel;
+  .rel map_to_area ->.mutitjulu;
+  nwr["leisure"](area.mutitjulu);
+  >;
+  nwr["building"](area.mutitjulu);
+  >;
+);
+out body;
