@@ -10,7 +10,7 @@ In OverpassQL we create a union by specifying a block using curved brackets (`()
 Within that block we can include all of the queries necessary to build our collection
 of results.
 
-For example, the following query will return all those nodes that have been tagged with the
+For example, this query will return all those nodes that have been tagged with the
 `tourism` tag AND those tagged as a cave entrance. We use separate individual `node` statements
 to build up the collection we want.
 

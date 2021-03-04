@@ -1,0 +1,49 @@
+/*
+Like any open, public API the Overpass API imposes both time and memory limits
+on queries.
+
+The default time out value is 180 seconds. Which is quite a long time, although in
+practice your query might also be rejected because of server load or because its hit
+memory limits.
+
+While the default timeout is quite generous, sometimes you just need a little bit
+more time. The `timeout` query parameter can be used to request a longer timeout for your
+query.
+
+Use it to specify a timeout value in seconds. The below takes out earlier CSV output
+example and sets a timeout of 60 seconds.
+
+One other option available is to switch to using a different Overpass API endpoint.
+There are a number of public Overpass instances. But there are others which
+are listed on the OSM wiki.
+
+When you're using Overpass Turbo your queries will be load-balanced across two of
+these endpoints.
+
+Be sure to check the details around terms of use before putting any load on them.
+And be aware that they don't store exactly the same data. Some don't include "attic data"
+which includes data about historical changes to the OSM database.
+
+If you're querying the APIs directly, then you can just point your code at the right
+URL. But if you're using Overpass Turbo then you'll need to include a special instruction
+as the first line of your query.
+
+To switch to the development version of the Overpass API add the following:
+
+```
+{{data:overpass,server=http://dev.overpass-api.de/api_mmd/}}
+```
+
+To use the Kumi Systems Overpass instance, use the following:
+
+```
+{{data:overpass,server=https://overpass.kumi.systems/api/}}
+```
+
+@see https://wiki.openstreetmap.org/wiki/Overpass_API#Public_Overpass_API_instances
+@see https://overpass.kumi.systems/
+@title 26 - Timeouts and endpoints
+*/
+[out:csv(::id, ::lat, ::lon, name; true; ",")][timeout:60];
+node(-25.38653, 130.99883, -25.31478, 131.08938)["natural"="cave_entrance"];
+out body;

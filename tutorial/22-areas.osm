@@ -1,0 +1,80 @@
+/*
+This query finds all natural rock formations within Uluru-Kata Tjuta National Park.
+The results include Uluru, Taputji and Mala Kata.
+
+So far we've written queries to find nodes, ways and relations. But in this query
+we are using a new statement: `area`.
+
+Areas are interesting in that they are not formally part of the OSM data model.
+They are features which are created within the Overpass API database. This means that
+they can be queried and manipulated via the API, but they're not something you can edit.
+
+Areas are automatically created for a subset of ways and relations, including:
+
+* any relation with a `type` of `multipolygon` and a `name`
+* any relation with a `type` of `boundary` and a `name`
+* any relation that has an `admin_level` and `name` attribute
+* any relation with a `postal_code` or `addr:postcode`
+* a wide range of different named ways including buildings, highways, natural features, leisure areas, places, historic and tourism areas
+
+A definitive list can be found in the links below.
+
+Areas then are a subset of relations and ways. From a query perspective, you
+can think of them like other elements. For example in this query we're finding an
+area based on its name.
+
+```
+area["name"="Uluru-Kata Tjuta National Park"]
+```
+
+The advantage of using these generated features over the original ways and relations
+is that the API and query language provides some additional functionality for working with them.
+
+For example in this query we're using an `area` filter, like this:
+
+```
+way(area);
+```
+
+The area filter will restrict the ways (or nodes, or relations) we're interested in
+to those that are within an area we've already found. This type of spatial query
+isn't available using either ways and relations. I presume this is to limit the amount
+of indexing required to support this type of query.
+
+The area query and the area filter both work with named sets. By default they work
+with the default set (`_`). This is what the example query uses.
+
+But an alternate way to write this example is to explicitly store the area we're
+interested in a named set. I find this a bit clearer in practice.
+
+Here's how this would look, using a named set called `ourArea`:
+
+```
+area["name"="Uluru-Kata Tjuta National Park"]->.ourArea;
+(
+ way(area.ourArea)["natural"="bare_rock"];
+ >;
+);
+```
+
+If we wanted to instead find nodes or relations then we could use either of the
+following:
+
+```
+node(area.ourArea);
+relation(area.ourArea);
+```
+
+@see http://www.indigenousaustralia.info/the-dreaming/rock-legends/taputji.html
+@see https://wiki.openstreetmap.org/wiki/Overpass_API/Areas
+@see https://github.com/drolbr/Overpass-API/blob/master/src/rules/areas.osm3s
+@title 22 - Areas
+*/
+//find any area with this name
+area["name"="Uluru-Kata Tjuta National Park"];
+(
+ //find any ways that are WITHIN that area, filtering them by their tag
+ way(area)["natural"="bare_rock"];
+ >;
+);
+out body;
