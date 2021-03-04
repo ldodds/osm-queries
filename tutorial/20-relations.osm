@@ -13,7 +13,7 @@ can be used to describe:
 We query for relations using the `relation` keyword. We can filter them using
 their tags and use the recurse down operators to find their contents.
 
-The following query finds administrative boundaries that relate to our bounding
+This query finds administrative boundaries that relate to our bounding
 box.
 
 @title 20 - Finding relations

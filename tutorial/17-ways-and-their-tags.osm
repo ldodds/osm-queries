@@ -23,7 +23,7 @@ highways, footpaths and amenities near to paths.
   way["tourism"="attraction"];
 
   //TRYME #1, ways that are tagged as highways. This includes roads and paths
-  way["highway"]
+  //way["highway"];
 
   //TRYME #2, ways that are tagged as paths
   //way["highway"="path"];

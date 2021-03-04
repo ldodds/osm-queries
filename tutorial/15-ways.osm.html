@@ -202,6 +202,26 @@
               <a href="21-type-agnostic-queries.osm.html">21 - Type agnostic queries (nwr)</a>
             </li>
           
+            <li class="" >
+              <a href="22-areas.osm.html">22 - Areas</a>
+            </li>
+          
+            <li class="" >
+              <a href="23-areas-from-features.osm.html">23 - Finding the areas enclosing a feature</a>
+            </li>
+          
+            <li class="" >
+              <a href="24-mapToArea.osm.html">24 - Find the area derived from a feature</a>
+            </li>
+          
+            <li class="" >
+              <a href="25-areas-via-nominatim.osm.html">25 - Areas via Nominatim search</a>
+            </li>
+          
+            <li class="" >
+              <a href="26-timeouts-and-endpoints.osm.html">26 - Timeouts and endpoints</a>
+            </li>
+          
         </ul>
       
     </div>
@@ -220,7 +240,7 @@ way;
 out body;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AWays+are+used+to+describe+lines+and+polygons+in+the+OpenStreetMap+database.%0A%0AWays+are+used+for+roads%2C+paths+and+the+boundaries+of+buildings+and+parks.%0A%0ATo+query+for+ways+we+just+use+the+%60way%60+keyword+instead+of+the+%60node%60+keyword.%0A%0AFor+example%2C+the+following+query+extracts+all+the+ways+in+our+bounding+box.%0A%0AWhen+you+run+this+query+it+will+return+the+data+about+those+ways.+This+includes%0Atheir+tags+and+references+to+the+individual+nodes+that+describe+them.%0A%0AWhen+you+run+this+query%2C+Overpass+Turbo+won%27t+be+able+to+generate+a+map+for+you.%0AIt+will+probably+give+you+a+warning+about+that.+This+is+because+ways+don%27t+have%0Atheir+own+geometry.+Instead+they+are+associated+with+a+collection+of+nodes+that%0Amark+out+the+line+or+polygon+we+might+draw+on+a+map.%0A%0AIn+Overpass+Turbo+you+can+view+the+tags+for+these+ways+and+the+ids+of+the%0Anodes+that+describe+them+in+the+%22Data%22+tab.%0A%0A%40title+15+-+Finding+ways%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FWay%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0Away%3B%0Aout+body%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AWays+are+used+to+describe+lines+and+polygons+in+the+OpenStreetMap+database.%0A%0AWays+are+used+for+roads%2C+paths+and+the+boundaries+of+buildings+and+parks.%0A%0ATo+query+for+ways+we+just+use+the+%60way%60+keyword+instead+of+the+%60node%60+keyword.%0A%0AFor+example%2C+this+query+extracts+all+the+ways+in+our+bounding+box.%0A%0AWhen+you+run+this+query+it+will+return+the+data+about+those+ways.+This+includes%0Atheir+tags+and+references+to+the+individual+nodes+that+describe+them.%0A%0AWhen+you+run+this+query%2C+Overpass+Turbo+won%27t+be+able+to+generate+a+map+for+you.%0AIt+will+probably+give+you+a+warning+about+that.+This+is+because+ways+don%27t+have%0Atheir+own+geometry.+Instead+they+are+associated+with+a+collection+of+nodes+that%0Amark+out+the+line+or+polygon+we+might+draw+on+a+map.%0A%0AIn+Overpass+Turbo+you+can+view+the+tags+for+these+ways+and+the+ids+of+the%0Anodes+that+describe+them+in+the+%22Data%22+tab.%0A%0A%40title+15+-+Finding+ways%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FWay%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0Away%3B%0Aout+body%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -308,7 +328,7 @@ out body;
 
 <p>To query for ways we just use the <code>way</code> keyword instead of the <code>node</code> keyword.</p>
 
-<p>For example, the following query extracts all the ways in our bounding box.</p>
+<p>For example, this query extracts all the ways in our bounding box.</p>
 
 <p>When you run this query it will return the data about those ways. This includes
 their tags and references to the individual nodes that describe them.</p>

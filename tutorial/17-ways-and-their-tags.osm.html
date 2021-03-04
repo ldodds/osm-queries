@@ -202,6 +202,26 @@
               <a href="21-type-agnostic-queries.osm.html">21 - Type agnostic queries (nwr)</a>
             </li>
           
+            <li class="" >
+              <a href="22-areas.osm.html">22 - Areas</a>
+            </li>
+          
+            <li class="" >
+              <a href="23-areas-from-features.osm.html">23 - Finding the areas enclosing a feature</a>
+            </li>
+          
+            <li class="" >
+              <a href="24-mapToArea.osm.html">24 - Find the area derived from a feature</a>
+            </li>
+          
+            <li class="" >
+              <a href="25-areas-via-nominatim.osm.html">25 - Areas via Nominatim search</a>
+            </li>
+          
+            <li class="" >
+              <a href="26-timeouts-and-endpoints.osm.html">26 - Timeouts and endpoints</a>
+            </li>
+          
         </ul>
       
     </div>
@@ -220,7 +240,7 @@
   way["tourism"="attraction"];
 
   //TRYME #1, ways that are tagged as highways. This includes roads and paths
-  way["highway"]
+  //way["highway"];
 
   //TRYME #2, ways that are tagged as paths
   //way["highway"="path"];
@@ -236,7 +256,7 @@
 out body;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AWhen+querying+for+ways+we+can+apply+everything+we%27ve+learned+from+querying%0Afor+nodes.%0A%0AThat+includes+filtering+them+based+on+their+tags.+Or+using+them+to+search%0Anearby+on+the+map.%0A%0AThe+query+below+selects+just+those+ways+in+our+bounding+box+that+have+been%0Atagged+as+a+tourist+attraction.+As+the+time+of+writing%2C+that+results+in+a%0Asingle+way+which+marks+out+the+boundary+of+Uluru.%0A%0ASee+the+query+comments+for+other+variations+to+try%2C+including+finding%0Ahighways%2C+footpaths+and+amenities+near+to+paths.%0A%0A%40title+17+-+Ways+and+their+tags%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FKey%3Atourism%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FKey%3Ahighway%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FKey%3Afoot%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FKey%3Adisused%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0A%28%0A++way%5B%22tourism%22%3D%22attraction%22%5D%3B%0A%0A++%2F%2FTRYME+%231%2C+ways+that+are+tagged+as+highways.+This+includes+roads+and+paths%0A++way%5B%22highway%22%5D%0A%0A++%2F%2FTRYME+%232%2C+ways+that+are+tagged+as+paths%0A++%2F%2Fway%5B%22highway%22%3D%22path%22%5D%3B%0A%0A++%2F%2FTRYME+%233%2C+ways+that+are+marked+as+designated+pedestrian+access%0A++%2F%2Fway%5B%22foot%22%3D%22designated%22%5D%3B%0A%0A++%2F%2FTRYME+%234%2C+ways+that+are+tagged+as+disused+highways%0A++%2F%2Fway%5B%22disused%3Ahighway%22%3D%22path%22%5D%3B%0A%0A++%3E%3B%0A%29%3B%0Aout+body%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AWhen+querying+for+ways+we+can+apply+everything+we%27ve+learned+from+querying%0Afor+nodes.%0A%0AThat+includes+filtering+them+based+on+their+tags.+Or+using+them+to+search%0Anearby+on+the+map.%0A%0AThe+query+below+selects+just+those+ways+in+our+bounding+box+that+have+been%0Atagged+as+a+tourist+attraction.+As+the+time+of+writing%2C+that+results+in+a%0Asingle+way+which+marks+out+the+boundary+of+Uluru.%0A%0ASee+the+query+comments+for+other+variations+to+try%2C+including+finding%0Ahighways%2C+footpaths+and+amenities+near+to+paths.%0A%0A%40title+17+-+Ways+and+their+tags%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FKey%3Atourism%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FKey%3Ahighway%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FKey%3Afoot%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FKey%3Adisused%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0A%28%0A++way%5B%22tourism%22%3D%22attraction%22%5D%3B%0A%0A++%2F%2FTRYME+%231%2C+ways+that+are+tagged+as+highways.+This+includes+roads+and+paths%0A++%2F%2Fway%5B%22highway%22%5D%3B%0A%0A++%2F%2FTRYME+%232%2C+ways+that+are+tagged+as+paths%0A++%2F%2Fway%5B%22highway%22%3D%22path%22%5D%3B%0A%0A++%2F%2FTRYME+%233%2C+ways+that+are+marked+as+designated+pedestrian+access%0A++%2F%2Fway%5B%22foot%22%3D%22designated%22%5D%3B%0A%0A++%2F%2FTRYME+%234%2C+ways+that+are+tagged+as+disused+highways%0A++%2F%2Fway%5B%22disused%3Ahighway%22%3D%22path%22%5D%3B%0A%0A++%3E%3B%0A%29%3B%0Aout+body%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>

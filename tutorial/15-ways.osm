@@ -5,7 +5,7 @@ Ways are used for roads, paths and the boundaries of buildings and parks.
 
 To query for ways we just use the `way` keyword instead of the `node` keyword.
 
-For example, the following query extracts all the ways in our bounding box.
+For example, this query extracts all the ways in our bounding box.
 
 When you run this query it will return the data about those ways. This includes
 their tags and references to the individual nodes that describe them.

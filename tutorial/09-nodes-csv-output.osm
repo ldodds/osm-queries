@@ -34,7 +34,7 @@ Where:
 * `header` is either `true` or `false`
 * `col-separator` is the desired separator provided as a string.
 
-The following query generates a simple comma-separated table containing
+The query generates a simple comma-separated table containing
 the id, coordinates and names of caves. But some variations are also provided.
 
 **Note**: if you want to include tags in your CSV output, then the `out` keyword

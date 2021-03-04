@@ -202,6 +202,26 @@
               <a href="21-type-agnostic-queries.osm.html">21 - Type agnostic queries (nwr)</a>
             </li>
           
+            <li class="" >
+              <a href="22-areas.osm.html">22 - Areas</a>
+            </li>
+          
+            <li class="" >
+              <a href="23-areas-from-features.osm.html">23 - Finding the areas enclosing a feature</a>
+            </li>
+          
+            <li class="" >
+              <a href="24-mapToArea.osm.html">24 - Find the area derived from a feature</a>
+            </li>
+          
+            <li class="" >
+              <a href="25-areas-via-nominatim.osm.html">25 - Areas via Nominatim search</a>
+            </li>
+          
+            <li class="" >
+              <a href="26-timeouts-and-endpoints.osm.html">26 - Timeouts and endpoints</a>
+            </li>
+          
         </ul>
       
     </div>
@@ -230,7 +250,7 @@ out body;
 //out count;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AThe+%60around%60+filter+can+be+used+to+find+nodes%2C+or+other+features%2C+that+are+near%0Ato+a+previously+extract+set+of+results.%0A%0AThe+following+query+does+two+things.+Firstly+it+searches+within+the+bounding%0Abox+to+find+all+nodes+that+are+tagged+as+peaks.+These+nodes+are+stored+in+the%0Adefault+set+%28%22%60_%60%22%29.%0A%0AThe+second+part+of+the+query+then+find+just+those+nodes+that+are+tagged+as%0Acaves%2C+and+are+within+850m+of+one+of+the+previously+found+results.%0A%0AIn+this+case+there+is+only+a+single+peak+within+our+bounding+box+%28the+top+of%0AUluru%29%2C+so+the+query+returns+just+those+caves+that+are+within+850m.+If+there+were%0Amultiple+peaks%2C+then+our+results+would+be+larger.%0A%0AThis+works+because%2C+if+the+%60around%60+filter+isn%27t+provided+with+coordinates%2C%0Aor+a+set+of+coordinates%2C+then+it+uses+the+default+set+%28%22%60_%60%29+as+the+basis+for+its+search.%0A%0AAs+with+other+keywords%2C+you+can+also+specify+a+search+set.+The+comments%0Abelow+indicate+an+alternative+way+to+achieve+the+same+result+but+using%0Anamed+sets.%0A%0AThis+way+of+using+%60around%60+is+much+more+powerful+than+specifying+a+fixed+radius%0Aor+line.+We+can+instead+do+more+complex+queries+such+as+finding+amenities+that%0Aare+near+to+bus+stops+or+a+road.%0A%0AWhen+experimenting+with+this+query+try+using+the+%60out+count%60+variation.+This%0Aproduces+a+count+of+the+nodes%2C+rather+than+their+coordinates+and+tags.+Useful%0Aif+you+just+want+to+do+some+quick+analysis+or+collect+some+figures.%0A%0A%2A%2ANote%2A%2A%3A+If+you+try+%60out+count%60%2C+Overpass+Turbo+will+warn+you+that+there+are%0Ano+results+it+can+display+on+the+map.+Just+look+at+the+data+tab+instead.%0A%0A%40title+12+-+Using+around+to+filter+against+a+set+of+results%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0Anode%5B%22natural%22%3D%22peak%22%5D%3B%0Anode%28around%3A850.00%29%5B%22natural%22%3D%22cave_entrance%22%5D%3B%0A%0A%2F%2FTRYME+%231+this+produces+the+same+output%2C+but+shows+how+to%0A%2F%2Fmake+around+use+a+named+set+of+results%2C+instead+of+the+default+set%0A%2F%2Fnode%5B%22natural%22%3D%22peak%22%5D-%3E.peaks%3B%0A%2F%2Fnode%28around.peaks%3A850.00%29%5B%22natural%22%3D%22cave_entrance%22%5D%3B%0A%0Aout+body%3B%0A%0A%2F%2FTRYME+%232.+Try+producing+a+count+of+the+results+instead+of+a+list+of+nodes%0A%2F%2Fout+count%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AThe+%60around%60+filter+can+be+used+to+find+nodes%2C+or+other+features%2C+that+are+near%0Ato+a+previously+extract+set+of+results.%0A%0AThe+query+does+two+things.+Firstly+it+searches+within+the+bounding%0Abox+to+find+all+nodes+that+are+tagged+as+peaks.+These+nodes+are+stored+in+the%0Adefault+set+%28%22%60_%60%22%29.%0A%0AThe+second+part+of+the+query+then+find+just+those+nodes+that+are+tagged+as%0Acaves%2C+and+are+within+850m+of+one+of+the+previously+found+results.%0A%0AIn+this+case+there+is+only+a+single+peak+within+our+bounding+box+%28the+top+of%0AUluru%29%2C+so+the+query+returns+just+those+caves+that+are+within+850m.+If+there+were%0Amultiple+peaks%2C+then+our+results+would+be+larger.%0A%0AThis+works+because%2C+if+the+%60around%60+filter+isn%27t+provided+with+coordinates%2C%0Aor+a+set+of+coordinates%2C+then+it+uses+the+default+set+%28%22%60_%60%29+as+the+basis+for+its+search.%0A%0AAs+with+other+keywords%2C+you+can+also+specify+a+search+set.+The+comments%0Abelow+indicate+an+alternative+way+to+achieve+the+same+result+but+using%0Anamed+sets.%0A%0AThis+way+of+using+%60around%60+is+much+more+powerful+than+specifying+a+fixed+radius%0Aor+line.+We+can+instead+do+more+complex+queries+such+as+finding+amenities+that%0Aare+near+to+bus+stops+or+a+road.%0A%0AWhen+experimenting+with+this+query+try+using+the+%60out+count%60+variation.+This%0Aproduces+a+count+of+the+nodes%2C+rather+than+their+coordinates+and+tags.+Useful%0Aif+you+just+want+to+do+some+quick+analysis+or+collect+some+figures.%0A%0A%2A%2ANote%2A%2A%3A+If+you+try+%60out+count%60%2C+Overpass+Turbo+will+warn+you+that+there+are%0Ano+results+it+can+display+on+the+map.+Just+look+at+the+data+tab+instead.%0A%0A%40title+12+-+Using+around+to+filter+against+a+set+of+results%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0Anode%5B%22natural%22%3D%22peak%22%5D%3B%0Anode%28around%3A850.00%29%5B%22natural%22%3D%22cave_entrance%22%5D%3B%0A%0A%2F%2FTRYME+%231+this+produces+the+same+output%2C+but+shows+how+to%0A%2F%2Fmake+around+use+a+named+set+of+results%2C+instead+of+the+default+set%0A%2F%2Fnode%5B%22natural%22%3D%22peak%22%5D-%3E.peaks%3B%0A%2F%2Fnode%28around.peaks%3A850.00%29%5B%22natural%22%3D%22cave_entrance%22%5D%3B%0A%0Aout+body%3B%0A%0A%2F%2FTRYME+%232.+Try+producing+a+count+of+the+results+instead+of+a+list+of+nodes%0A%2F%2Fout+count%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -315,7 +335,7 @@ out body;
 						<p property="description"><p>The <code>around</code> filter can be used to find nodes, or other features, that are near
 to a previously extract set of results.</p>
 
-<p>The following query does two things. Firstly it searches within the bounding
+<p>The query does two things. Firstly it searches within the bounding
 box to find all nodes that are tagged as peaks. These nodes are stored in the
 default set (&quot;<code>_</code>&quot;).</p>
 
