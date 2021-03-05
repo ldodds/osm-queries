@@ -1,5 +1,6 @@
 {
  "title": "For Local Mappers",
  "description": "Queries to support local mappers",
+ "base-url": "https://osm-queries.ldodds.com/",
  "author": ["Leigh Dodds"]
 }

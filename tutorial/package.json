@@ -1,5 +1,6 @@
 {
  "title": "Overpass Tutorial",
  "description": "A basic tutorial covering the key features of the Overpass language",
+ "base-url": "https://osm-queries.ldodds.com/",
  "author": ["Leigh Dodds"]
 }

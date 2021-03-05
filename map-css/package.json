@@ -1,5 +1,6 @@
 {
  "title": "Styling with Map CSS",
  "description": "Examples of how to style query results using Map CSS",
+ "base-url": "https://osm-queries.ldodds.com/",
  "author": ["Leigh Dodds"]
 }

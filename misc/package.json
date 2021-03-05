@@ -1,5 +1,6 @@
 {
  "title": "Miscellaneous",
  "description": "A home for all the other queries",
+ "base-url": "https://osm-queries.ldodds.com/",
  "author": ["Leigh Dodds"]
 }
