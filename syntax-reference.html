@@ -1,0 +1,977 @@
+<!DOCTYPE html>
+<html class="h-100" prefix="og: http://ogp.me/ns#">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>OSM Queries</title>
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="OSM Queries" />
+    <meta property="og:description" content="A collection of queries to help you use the OpenStreetMap Overpass API" />
+    <meta property="og:image" content="https://osm-queries.ldodds.com/overpass-doc.png" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="OSM Queries" />
+    <meta name="twitter:image" content="https://osm-queries.ldodds.com/overpass-doc.png" />
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+    <link rel="stylesheet" href="codemirror.css">
+
+    <script src="codemirror.js" type="text/javascript"></script>
+    <script src="mode/clike/clike.js" type="text/javascript"></script>
+    <script src="util/multiplex.js" type="text/javascript"></script>
+
+    <style type="text/css">
+      .CodeMirror {
+        /* Bootstrap Settings */
+        box-sizing: border-box;
+        margin: 0;
+        font: inherit;
+        overflow: auto;
+        font-family: inherit;
+        display: block;
+        width: 100%;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075); /* Bootstrap 3 */
+        box-shadow: none; /* Bootstrap 4 */
+        transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+        /* Code Mirror Settings */
+        font-family: monospace;
+        position: relative;
+        overflow: hidden;
+        height: auto;
+      }
+      .CodeMirror-scrollbar {
+        visibility: hidden;
+      }
+      .CodeMirror-focused {
+        /* Bootstrap Settings */
+        border-color: #66afe9;
+        outline: 0;
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(102, 175, 233, .6); /* Bootstrap 3 */
+        box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25); /* Bootstrap 4 */
+        transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+      }
+      .CodeMirror-scroll {
+        height: 100%;
+      }
+
+      .bg-color {
+        background-color: #e3f2fd;
+      }
+
+      pre code {
+        background-color: #f7f7f9;
+      }
+    </style>
+
+  </head>
+
+  <body class="d-flex flex-column h-100">
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light bg-color">
+            <a class="navbar-brand" href="/"><i class="bi bi-geo-fill"></i> OSM Queries</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav">
+                
+                
+                  <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      About
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      
+                          <a class="dropdown-item" href="background.html">Background</a>
+            		  	  
+                          <a class="dropdown-item" href="syntax-reference.html">Syntax Reference</a>
+            		  	  
+                          <a class="dropdown-item" href="contribute.html">Contribute</a>
+            		  	  
+                          <a class="dropdown-item" href="licence.html">Licence</a>
+            		  	  
+                          <a class="dropdown-item" href="colophon.html">Colophon</a>
+            		  	  
+                    </div>
+                  </li>
+        		  	
+              </ul>
+            </div>
+        </nav>
+    </header>
+
+      <main class="pt-4">
+       <div class="container-fluid">
+  <div class="row">
+    <div class="col-md-auto">
+      
+        <h5>Collections</h5>
+        <ul class="list-unstyled">
+          
+            <li>
+              <a href="tutorial/index.html">Overpass Tutorial</a>
+            </li>
+          
+            <li>
+              <a href="map-css/index.html">Styling with Map CSS</a>
+            </li>
+          
+            <li>
+              <a href="misc/index.html">Miscellaneous</a>
+            </li>
+          
+            <li>
+              <a href="for-local-mappers/index.html">For Local Mappers</a>
+            </li>
+          
+        </ul>
+      
+
+      
+    </div>
+
+    <div class="col-8">
+      <h1 id="overpassql-syntax-reference">OverpassQL Syntax Reference</h1>
+
+<p>A concise syntax reference for <a href="https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL">the OverpassQL language</a>.</p>
+
+<h2 id="comments">Comments</h2>
+
+<pre><code>//single-line comment
+/* multi line comment */
+</code></pre>
+
+<h2 id="escaping">Escaping</h2>
+
+<ul>
+<li><code>\n</code> escapes a newline</li>
+<li><code>\t</code> escapes a tabulation</li>
+<li><code>\&quot;</code> or <code>\&#39;</code> escapes the respective quotation mark</li>
+<li><code>\\</code> escapes the backslash</li>
+<li><code>\u####</code> escapes a unicode UTF-16 value.</li>
+</ul>
+
+<h2 id="statements">Statements</h2>
+
+<p>Statements are terminated by a semi-colon (<code>;</code>).</p>
+
+<p>A statement consist of either a <em>query setting</em>, a <em>keyword statement</em> or a <em>block statement</em> statement terminated by a semi-colon (<code>;</code>).</p>
+
+<p>A statement might include <em>filters</em>.</p>
+
+<p>Block statements and query filters might include <em>functions</em>.</p>
+
+<h2 id="query-setting">Query Setting</h2>
+
+<p>Must appear as the first uncommented statement in a query. Syntax is of the form:</p>
+
+<pre><code>[setting:value][setting2:value2][setting3:value3]...;
+</code></pre>
+
+<p><a href="https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#Settings">Settings</a> include: <code>bbox</code>, <code>out</code>, <code>timeout</code>, <code>date</code>, <code>diff</code>, <code>adiff</code>, <code>maxsize</code>.</p>
+
+<p>Legal values vary by setting.</p>
+
+<h2 id="keyword-statements">Keyword Statements</h2>
+
+<p>A keyword statement is a either a <em>query statement</em> or a <em>simple statement</em>.
+The keyword may optionally be preceded by the name of a set. And may be
+followed by <em>filters</em> or parameters. The optionality, number and syntax for these filters
+and parameters varies by statement.</p>
+
+<p>A keyword statement typically reads from and writes to a named set. Unless otherwise
+specified the statement will manipulate the default set (<code>._</code>)</p>
+
+<p>In general, the syntax for specifying input and output sets for a keyword statement
+is:</p>
+
+<pre><code>.input x -&gt;.output;
+</code></pre>
+
+<p>Where <code>.input</code> specifies the input set for a statement named <code>x</code>. And where
+the assignment operator (<code>-&gt;</code>) is used to name the output set (<code>.output</code>).</p>
+
+<p>However query statements use an alternate syntax for defining their input set.</p>
+
+<h3 id="query-statements">Query statements</h3>
+
+<p>These statements read from the OSM database by default, rather than a named
+set. Their output can be assigned to a named set, or are added to the default
+set if not specified.</p>
+<table class='table table-bordered table-hover'><tr>
+<th>Query Statement</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><code>node</code></td>
+<td>Find nodes</td>
+</tr>
+<tr>
+<td><code>way</code></td>
+<td>Find ways</td>
+</tr>
+<tr>
+<td><code>rel</code></td>
+<td>Find relations</td>
+</tr>
+<tr>
+<td><code>nwr</code></td>
+<td>Find nodes, ways, or relations</td>
+</tr>
+<tr>
+<td><code>nw</code></td>
+<td>Find nodes or ways</td>
+</tr>
+<tr>
+<td><code>nr</code></td>
+<td>Find nodes or relations</td>
+</tr>
+<tr>
+<td><code>wr</code></td>
+<td>Find ways or relations</td>
+</tr>
+<tr>
+<td><code>area</code></td>
+<td>Find areas</td>
+</tr>
+<tr>
+<td><code>&lt;</code></td>
+<td>Recurse up</td>
+</tr>
+<tr>
+<td><code>&lt;&lt;</code></td>
+<td>Recurse up relations</td>
+</tr>
+<tr>
+<td><code>&gt;</code></td>
+<td>Recurse down</td>
+</tr>
+<tr>
+<td><code>&gt;&gt;</code></td>
+<td>Recurse down relations</td>
+</tr>
+</table>
+<p>While the recursion operators use the standard <em>keyword statement</em> syntax for
+defining input and output sets, the <em>query statements</em> for finding nodes, ways,
+relations and areas use a different syntax.</p>
+
+<p>For example:</p>
+
+<pre><code>node.input -&gt;.output;
+</code></pre>
+
+<p>Where <code>.input</code> specifies the set against which the <code>node</code> statement will
+execute (applying any filters). And results are added to a set called <code>.output</code>.</p>
+
+<p><strong>Note</strong>: this syntax is described as a filter in the OverpassQL language reference,
+but is arguably better considered as specifing the input to the query.</p>
+
+<h3 id="simple-statements">Simple statements</h3>
+
+<p>Other statements only manipulate sets:</p>
+<table class='table table-bordered table-hover'><tr>
+<th>Simple Statement</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><code>out</code></td>
+<td>Output the contents of a set. Required to get any output at all</td>
+</tr>
+<tr>
+<td><code>.x;</code></td>
+<td>Reference to contents of the named set <code>.x</code>. Used in set arithmetic</td>
+</tr>
+<tr>
+<td><code>is_in</code></td>
+<td>Find areas that cover a lat/lng or nodes in a named set</td>
+</tr>
+<tr>
+<td><code>timeline</code></td>
+<td>Lookup version history of an object</td>
+</tr>
+<tr>
+<td><code>local</code></td>
+<td>Convert input into representation of OSM data</td>
+</tr>
+<tr>
+<td><code>convert</code></td>
+<td>Creates elements from its input set, adding or filters tags</td>
+</tr>
+<tr>
+<td><code>make</code></td>
+<td>Make a new element, e.g. a node, way or relation, or arbitrary object holding name-value pairs</td>
+</tr>
+<tr>
+<td><code>derived</code></td>
+<td>Query for derived objects?</td>
+</tr>
+</table>
+<h2 id="block-statements">Block Statements</h2>
+
+<p>Block statements are one of the following.</p>
+<table class='table table-bordered table-hover'><tr>
+<th>Statement</th>
+<th>Syntax</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Union</td>
+<td><code>(statement1; statement2; ...)</code></td>
+<td>Set union of the results of one or more statements</td>
+</tr>
+<tr>
+<td>Difference</td>
+<td><code>(statement1; - statement2;)</code></td>
+<td>Set difference between two statements</td>
+</tr>
+<tr>
+<td>If</td>
+<td><code>if (...evaluator...) { ... } else { ... }</code></td>
+<td>If statement, with optional else. See <em>evaluator</em></td>
+</tr>
+<tr>
+<td>For Each</td>
+<td><code>foreach { ... }</code></td>
+<td>Performs block for each statement of its input set</td>
+</tr>
+<tr>
+<td>For</td>
+<td><code>for (...evaluator...) { ... }</code></td>
+<td>Perform block of statements for each subset returned by its <em>evaluator</em>.</td>
+</tr>
+<tr>
+<td>Complete</td>
+<td><code>complete {...}</code></td>
+<td>Loop repeatedly until results of substatements no longer change.</td>
+</tr>
+<tr>
+<td>Retro</td>
+<td><code>retro (...evaluator...) {...}</code></td>
+<td>Perform block for dates specified by <em>evaluator</em></td>
+</tr>
+<tr>
+<td>Compare</td>
+<td><code>compare (...evaluator...) {...}</code></td>
+<td>Compare diff of two timestamps. Evaluator and statement block are optional</td>
+</tr>
+</table>
+<p><strong>Note</strong>: there is no Intersection block statement. The closest is to use a <em>query statement</em> of
+the form: <code>node.set1.set2</code></p>
+
+<p>The If and Retro statements do not read or write to sets. (Or this remains
+undocumented if so).</p>
+
+<p>The Union, Difference, For Each, For and Complete and Compare block statements
+write to the default set, unless a named set is specified via the <code>-&gt;</code> operator.
+But the syntax varies:</p>
+
+<ul>
+<li>Union and Difference use the basic syntax, e.g. <code>(...)-&gt;.output;</code></li>
+<li>For the others, which have blocks (<code>{}</code>), the <code>-&gt;</code> operator is appended to the keyword</li>
+</ul>
+
+<p>E.g. to direct the output of a For Each statement use:</p>
+
+<pre><code>foreach-&gt;.output {statements}
+</code></pre>
+
+<p>The For Each, For, Complete and Compare block statements all read values from the
+default set, unless a named set is specified instead.</p>
+
+<ul>
+<li>The Compare statement uses the default <em>keyword statement</em> syntax, e.g: <code>.input compare()-&gt;.output;</code></li>
+<li>Whereas the others use a dotted syntax similar to <em>query statements</em></li>
+</ul>
+
+<p>E.g. to specify that a For Each statement reads from <code>.input</code> and writes to <code>.output</code>
+use this syntax:</p>
+
+<pre><code>foreach.input-&gt;output { ... }
+</code></pre>
+
+<p>Within a <code>for</code> loop, the current value of the loop is assigned to a variable
+called <code>val</code> which is attached to the output set.</p>
+
+<p>For example with a <code>for</code> loop reading from <code>.input</code> and writing to <code>.output</code> within the block the
+value of <code>.output.val</code> is the current value of the evaluator.</p>
+
+<pre><code>for.input-&gt;output { ... .output.val is available here ... }
+</code></pre>
+
+<h2 id="filters">Filters</h2>
+
+<p>Filters can be applied to <em>query statements</em> to limit the query results in various
+ways.</p>
+
+<h3 id="tag-filters">Tag Filters</h3>
+
+<p>Tag filters are applied to the tags (name-value pairs) associated with the objects being queried.</p>
+
+<p>The use square brackets (<code>[]</code>). Names, values and regular expressions can optionally be
+wrapped in double or single quotes. Quotes must be used if there is a space in the value.</p>
+<table class='table table-bordered table-hover'><tr>
+<th>Filter</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><code>[&quot;name&quot;]</code></td>
+<td>The <code>name</code> tag must be present on the object</td>
+</tr>
+<tr>
+<td><code>[!&quot;name&quot;]</code></td>
+<td>The <code>name</code> tag must not be present</td>
+</tr>
+<tr>
+<td><code>[&quot;name&quot;=&quot;value&quot;]</code></td>
+<td>The <code>name</code> tag must have the value <code>value</code></td>
+</tr>
+<tr>
+<td><code>[&quot;name&quot;!=&quot;value&quot;]</code></td>
+<td>The <code>name</code> tag must not have the value <code>value</code></td>
+</tr>
+<tr>
+<td><code>[&quot;name&quot;~&quot;regex&quot;]</code></td>
+<td>The value of the <code>name</code> tag must match <code>regex</code></td>
+</tr>
+<tr>
+<td><code>[&quot;name&quot;~&quot;regex&quot;, i]</code></td>
+<td>As above, but case insensitive.</td>
+</tr>
+<tr>
+<td><code>[&quot;name&quot;~&quot;^$&quot;]</code></td>
+<td>The <code>name</code> tag has no value. Regex to match empty string. Only way to test for empty values.</td>
+</tr>
+<tr>
+<td><code>[~&quot;name-regex&quot;~&quot;value-regex&quot;]</code></td>
+<td>Apply the <code>value-regex</code> to any tag that matches <code>name-regex</code></td>
+</tr>
+<tr>
+<td><code>[~&quot;name-regex&quot;~&quot;value-regex&quot;, i]</code></td>
+<td>As above, but case insensitive</td>
+</tr>
+</table>
+<p><a href="https://en.wikipedia.org/wiki/Regular_expression#POSIX_basic_and_extended">POSIX Extended</a> regular
+expressions are supported. Use the <code>^</code> and <code>$</code> symbols to match start and end of strings. <code>|</code> to
+specify alternatives, etc.</p>
+
+<h3 id="identity-filter">Identity Filter</h3>
+
+<p>Uses <code>()</code> brackets.</p>
+
+<p>Limit results to the objects that have a specified id, e.g. <code>node(1)</code></p>
+
+<p>Limit results to one or more objects: <code>node(id:1, 2, 3)</code></p>
+
+<p>The second is more efficient than multiple individual identity filters for the same
+object type.</p>
+
+<h3 id="spatial-filters">Spatial Filters</h3>
+
+<p>Spatial filters use rounded brackets (<code>()</code>). The following spatial filters are
+supported.</p>
+<table class='table table-bordered table-hover'><tr>
+<th>Filter</th>
+<th>Syntax</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Bounding Box</td>
+<td><code>(south, west, north, east)</code></td>
+<td>Filter based on bounding box specified by four coordinates</td>
+</tr>
+<tr>
+<td>Around</td>
+<td><code>(around:radius,lat,lng)</code></td>
+<td>Filter to objects within circle defined by centroid <code>lat</code>, <code>lng</code> and <code>radius</code></td>
+</tr>
+<tr>
+<td>Around</td>
+<td><code>(around.input:radius)</code></td>
+<td>Filter to objects that are within <code>radius</code> distance of objects in <code>.input</code> set</td>
+</tr>
+<tr>
+<td>Around</td>
+<td><code>(around:radius,lat1,lng1,lat2,lng2,...,latn,lngn)</code></td>
+<td>Filter to objects with <code>radius</code> distance of a linestring</td>
+</tr>
+<tr>
+<td>Polygon</td>
+<td><code>(poly:&quot;lat1 lng1 lat2 lng2 ... latn lngn&quot;)</code></td>
+<td>Filter to objects within a polygon</td>
+</tr>
+</table>
+<h3 id="area-filters">Area Filters</h3>
+
+<p>Filters objects to those that are spatially contained within an area.</p>
+
+<p>This is different to <em>member filters</em> that look at parent-child relationships within the OSM data model.</p>
+
+<p>Also note that the <code>area</code> filter is different to the <code>area</code> <em>query statement</em>. The latter queries for
+areas, to fetch them from the database. Whereas the former is used to do a spatial filter on a result set.</p>
+
+<p>The <code>area</code> filter uses rounded brackets (<code>()</code>).</p>
+<table class='table table-bordered table-hover'><tr>
+<th>Syntax</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><code>(area)</code></td>
+<td>Filter based on whether objects are within areas in the default set</td>
+</tr>
+<tr>
+<td><code>(area.input)</code></td>
+<td>Filter based on whether objects are within an area stored in the named set (<code>.input</code>)</td>
+</tr>
+<tr>
+<td><code>(area:nnnnnnn)</code></td>
+<td>Filter to objects contained within a specific area, identified by is database id</td>
+</tr>
+</table>
+<p>The <code>pivot</code> filter is related to the <code>area</code> filter. It is used to select the OSM database
+object that corresponds to the area(s) contained in a result set:</p>
+
+<pre><code>way(pivot)       //find ways that correspond to areas in the default set
+way(pivot.input) //find ways that correspond to areas in set called &#39;input&#39;
+</code></pre>
+
+<h3 id="date-filters">Date Filters</h3>
+
+<p>Date filters use rounded brackets (<code>()</code>).</p>
+<table class='table table-bordered table-hover'><tr>
+<th>Filter</th>
+<th>Syntax</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Newer</td>
+<td><code>(newer:&quot;YYYY-mm-ddTHH:MM:ssZ&quot;)</code></td>
+<td>Filter to objects that have changed since specified date-time</td>
+</tr>
+<tr>
+<td>Changed</td>
+<td><code>(changed:&quot;YYYY-mm-ddTHH:MM:ssZ&quot;)</code></td>
+<td>Filter to objects that have changed between date-time and current time</td>
+</tr>
+<tr>
+<td>Changed</td>
+<td><code>(changed:&quot;YYYY-mm-ddTHH:MM:ssZ&quot;,&quot;YYYY-mm-ddTHH:MM:ssZ&quot;)</code></td>
+<td>Filter to objects that have changed between two dates</td>
+</tr>
+</table>
+<h3 id="member-recursion-filters">Member (Recursion) Filters</h3>
+
+<p>The recursion filters use rounded brackets (<code>()</code>).</p>
+
+<p>In the OSM data model. Nodes can be children of ways and relations. Ways can be children
+of relations. Relations can be children of other relations. These relationships can be
+qualifed by a role.</p>
+
+<p>The member filters allow traversal between parent and child objects via these relationships.</p>
+
+<p>They are used to select objects of different types, based on whether they are members of
+the objects in their input set.</p>
+
+<p>The input set is the default set (<code>._</code>) unless specified by dotted syntax. For example to
+find nodes in the OSM database that are members of ways found in a set called <code>.input</code>:</p>
+
+<pre><code>node(w.input);
+</code></pre>
+<table class='table table-bordered table-hover'><tr>
+<th>Name</th>
+<th>Filter</th>
+<th>Example</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>Members of ways</td>
+<td><code>(w)</code></td>
+<td><code>node(w)</code></td>
+<td>Select child nodes of ways from input set</td>
+</tr>
+<tr>
+<td>Members of relations</td>
+<td><code>(r)</code></td>
+<td><code>node(r)</code></td>
+<td>Select node members of relations in input set</td>
+</tr>
+<tr>
+<td>Members of relations</td>
+<td><code>(r)</code></td>
+<td><code>way(r)</code></td>
+<td>Select way members of relations in input set</td>
+</tr>
+<tr>
+<td>Parents of nodes</td>
+<td><code>(bn)</code></td>
+<td><code>way(bn)</code></td>
+<td>Select parent ways from nodes in input set</td>
+</tr>
+<tr>
+<td>Parents of nodes</td>
+<td><code>(bn)</code></td>
+<td><code>rel(bn)</code></td>
+<td>Select parent relations of nodes in input set</td>
+</tr>
+<tr>
+<td>Parents of ways</td>
+<td><code>(bw)</code></td>
+<td><code>rel(bw)</code></td>
+<td>Select parent relations of ways in input set</td>
+</tr>
+<tr>
+<td>Parents of relations</td>
+<td><code>(br)</code></td>
+<td><code>rel(br)</code></td>
+<td>Select parent relations of relations in input set</td>
+</tr>
+</table>
+<p>The filters can be further qualified by role:</p>
+
+<pre><code>r:&quot;x&quot; //members of relations via a role called &#39;x&#39;
+r:&quot;&quot;  //members of relations with empty role
+r.input:&quot;x&quot; //members of relations in a set called input, with role &#39;x&#39;
+r.input:&quot;&quot; //members of relations in a set called input, with empty role
+</code></pre>
+
+<h3 id="user-filter">User Filter</h3>
+
+<p>Filter objects by the user associated with most recent change.</p>
+<table class='table table-bordered table-hover'><tr>
+<th>Filter</th>
+<th>Syntax</th>
+<th>Description</th>
+</tr>
+<tr>
+<td>User</td>
+<td><code>(user:&quot;name&quot;)</code></td>
+<td>Filter objects last touched by user name <code>name</code></td>
+</tr>
+<tr>
+<td>User</td>
+<td><code>(uid:id)</code></td>
+<td>Filter objects last touched by user id <code>id</code></td>
+</tr>
+</table>
+<h3 id="conditional-filter">Conditional Filter</h3>
+
+<p>Filter objects based on a custom expression. Objects for which the expression
+does not return true will be filtered from the results.</p>
+
+<pre><code>(if: expression)
+</code></pre>
+
+<p>Where expression is an <em>evaluator</em> that returns a boolean value.</p>
+
+<h2 id="expressions-evaluators">Expressions (Evaluators)</h2>
+
+<p>Expressions consist of <em>functions</em> and operators.</p>
+
+<h3 id="operators">Operators</h3>
+<table class='table table-bordered table-hover'><tr>
+<th>Operator</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><code>!</code>, `</td>
+<td></td>
+</tr>
+<tr>
+<td><code>-</code>, <code>+</code>, <code>/</code>, <code>*</code></td>
+<td>Mathematical operators</td>
+</tr>
+<tr>
+<td><code>==</code>, <code>!=</code></td>
+<td>Equality operators</td>
+</tr>
+<tr>
+<td><code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code></td>
+<td>Comparisons</td>
+</tr>
+<tr>
+<td><code>expr ? x : y</code></td>
+<td>Ternary operator</td>
+</tr>
+</table>
+<h2 id="functions">Functions</h2>
+<table class='table table-bordered table-hover'><tr>
+<th>Function</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><code>angle()</code></td>
+<td>Calculates angle between two segments in a way</td>
+</tr>
+<tr>
+<td><code>center(...)</code></td>
+<td>Calculates centre of the bounding box of its input</td>
+</tr>
+<tr>
+<td><code>changeset()</code></td>
+<td>Returns the id of the changeset for last update to an object</td>
+</tr>
+<tr>
+<td><code>count(...)</code></td>
+<td>Count objects of the type specified in its parameter, which will be one of <code>nodes</code>, <code>ways</code>, <code>relations</code>, <code>deriveds</code>, <code>nwr</code>, <code>nw</code>, <code>wr</code>, <code>nr</code></td>
+</tr>
+<tr>
+<td><code>count_by_role()</code></td>
+<td>Count number of members with a specific role</td>
+</tr>
+<tr>
+<td><code>count_distinct_members()</code></td>
+<td>Count number of distinct members</td>
+</tr>
+<tr>
+<td><code>count_distinct_by_role()</code></td>
+<td>Count number of distinct members with a specific role</td>
+</tr>
+<tr>
+<td><code>count_members()</code></td>
+<td>Count number of members for an object</td>
+</tr>
+<tr>
+<td><code>count_tags()</code></td>
+<td>Count tags for an object</td>
+</tr>
+<tr>
+<td><code>date(...)</code></td>
+<td>Turns its argument into a number representing a date, for comparison purposes only</td>
+</tr>
+<tr>
+<td><code>gcat(...)</code></td>
+<td>Calculate combined geometry from its input set</td>
+</tr>
+<tr>
+<td><code>geom()</code></td>
+<td>Returns geometry of an object</td>
+</tr>
+<tr>
+<td><code>hull(...)</code></td>
+<td>Returns the convex hull of its argument</td>
+</tr>
+<tr>
+<td><code>id()</code></td>
+<td>Returns OSM id of an object</td>
+</tr>
+<tr>
+<td><code>is_closed()</code></td>
+<td>Returns 1 if a way is closed, 0 others. Closed means the first and last node are the same.</td>
+</tr>
+<tr>
+<td><code>is_date(...)</code></td>
+<td>Tests whether its argument represents a date</td>
+</tr>
+<tr>
+<td><code>is_number(...)</code></td>
+<td>Returns 1/0 depending on which its argument is a number</td>
+</tr>
+<tr>
+<td><code>is_tag(&quot;name&quot;)</code></td>
+<td>Return 1 if an object has a tag called <code>name</code>. Otherwise 0.</td>
+</tr>
+<tr>
+<td><code>keys()</code></td>
+<td>Returns keys for a given object</td>
+</tr>
+<tr>
+<td><code>lat()</code></td>
+<td>Latitude of an object (or its bounding box centroid)</td>
+</tr>
+<tr>
+<td><code>length()</code></td>
+<td>Returns length of an object. Will be length of a way or all ways in a relation</td>
+</tr>
+<tr>
+<td><code>lon()</code></td>
+<td>Longitude of an object (or its bounding box centroid)</td>
+</tr>
+<tr>
+<td><code>lrs_in(...,...)</code></td>
+<td>Returns 1 if its first argument is contained in the set provided as a second argument</td>
+</tr>
+<tr>
+<td><code>lrs_isect(...,...)</code></td>
+<td>Returns the intersection of its two arguments, treated as sets</td>
+</tr>
+<tr>
+<td><code>lrs_min(...)</code></td>
+<td>Returns the minimum of the elements in its argument</td>
+</tr>
+<tr>
+<td><code>lrs_max(...)</code></td>
+<td>Returns the maximum of the elements in its argument</td>
+</tr>
+<tr>
+<td><code>lrs_union(...,...)</code></td>
+<td>Returns the union of its two arguments, treated as sets</td>
+</tr>
+<tr>
+<td><code>lstr(..,..)</code></td>
+<td>Returns linestring constructed from its arguments</td>
+</tr>
+<tr>
+<td><code>min(...)</code></td>
+<td>Returns minimum value in the set provided as a parameter</td>
+</tr>
+<tr>
+<td><code>max(...)</code></td>
+<td>Returns maximum value in the set provided as a parameter</td>
+</tr>
+<tr>
+<td><code>number(...)</code></td>
+<td>Convers argument to a number, or &quot;NaN&quot;</td>
+</tr>
+<tr>
+<td><code>per_member(...)</code></td>
+<td>Executes its argument once per member of the element</td>
+</tr>
+<tr>
+<td><code>per_vertex(...)</code></td>
+<td>Executes its argument once per vertex of the element</td>
+</tr>
+<tr>
+<td><code>poly(..,..)</code></td>
+<td>Returns a polygon constructed from its arguments</td>
+</tr>
+<tr>
+<td><code>pos()</code></td>
+<td>Position for a member within an element</td>
+</tr>
+<tr>
+<td><code>pt(lat,lng)</code></td>
+<td>Returns a valid OSM node geometry for given location</td>
+</tr>
+<tr>
+<td><code>set(...)</code></td>
+<td>Returns semi-colon list of all distinct values in its input</td>
+</tr>
+<tr>
+<td><code>suffix(...)</code></td>
+<td>Returns any value following a number in its input</td>
+</tr>
+<tr>
+<td><code>sum(...)</code></td>
+<td>Sums values in set provided as parameter</td>
+</tr>
+<tr>
+<td><code>timestamp()</code></td>
+<td>Returns timestamp of an object</td>
+</tr>
+<tr>
+<td><code>trace(...)</code></td>
+<td>Returns the trace of its argument?</td>
+</tr>
+<tr>
+<td><code>type()</code></td>
+<td>Returns type of an object. E.g. node or way</td>
+</tr>
+<tr>
+<td><code>t[&quot;name&quot;]</code></td>
+<td>Returns value of the <code>name</code> tag</td>
+</tr>
+<tr>
+<td><code>u(...)</code></td>
+<td>???</td>
+</tr>
+<tr>
+<td><code>uid()</code></td>
+<td>Returns user id of the user who last edited an object</td>
+</tr>
+<tr>
+<td><code>user()</code></td>
+<td>Returns user name of last editor of an object</td>
+</tr>
+<tr>
+<td><code>version()</code></td>
+<td>Returns version number of an object</td>
+</tr>
+</table>
+<h2 id="overpass-turbo-extensions">Overpass Turbo Extensions</h2>
+
+<p>Overpass Turbo defines some extensions. These are like macros which are executed
+by the IDE and replaced with an appropriate value or statement.</p>
+<table class='table table-bordered table-hover'><tr>
+<th>Shortcut</th>
+<th>Description</th>
+</tr>
+<tr>
+<td><code>{{bbox}}</code></td>
+<td>Calculate a bounding box based on current map view</td>
+</tr>
+<tr>
+<td><code>{{center}}</code></td>
+<td>Calculate center coordinates of current map view</td>
+</tr>
+<tr>
+<td><code>{{date}}</code></td>
+<td>Current date and time</td>
+</tr>
+<tr>
+<td><code>{{date:specifier}}</code></td>
+<td>Create historical date based on <code>specifier</code>.Syntax is a number followed by a time period: second, minute, hour, days, weeks, months, years. E.g. <code>1 day</code>, <code>2 years</code></td>
+</tr>
+<tr>
+<td><code>{{geocodeId:&quot;query&quot;}}</code></td>
+<td>Perform Nominatim search using <code>query</code>. Use OSM id of first result</td>
+</tr>
+<tr>
+<td><code>{{geocodeArea:&quot;query&quot;}}</code></td>
+<td>Perform Nominatim search using <code>query</code> for an area. Use OSM id of first area</td>
+</tr>
+<tr>
+<td><code>{{geocodeBbox:&quot;query&quot;}}</code></td>
+<td>Perform Nominatim search using <code>query</code>. Use the bounding box of the first result</td>
+</tr>
+<tr>
+<td><code>{{geocodeCoords:&quot;query&quot;}}</code></td>
+<td>Perform Nominatim search using <code>query</code>. Use the centroid of the first result</td>
+</tr>
+<tr>
+<td><code>{{style:...}}</code></td>
+<td>Define MapCSS styles to be applied to query results</td>
+</tr>
+<tr>
+<td><code>{{data:overpass,server=...}}</code></td>
+<td>Specify URL of Overpass API endpoint</td>
+</tr>
+</table>
+<p>Custom macros can also be defined. Specify <code>{{shortcut=value}}</code> and all occurences of
+<code>{{shortcut}}</code> in the query will be replaced by <code>value</code>.</p>
+
+    </div>
+  </div>
+</div>
+
+      </main>
+
+       <footer class="footer mt-auto py-3 bg-light">
+         <div class="container">
+           <span class="text-muted">Generated with <a href="http://github.com/ldodds/overpass-doc">overpass-doc</a>.</span>
+         </div>
+       </footer>
+
+
+  </body>
+</html>
