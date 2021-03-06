@@ -5,44 +5,42 @@ A bounding box is a rectangle that defines a geographic area. In OverpassQL a bo
 is defined by four values. The first two define the south-west corner of the box. The
 second pair defines its north east corner.
 
-There are two main ways to define a bounding box within an OverpassQL.
+There are two main ways to define a bounding box within an OverpassQL query.
 
 This example defines a bounding box that applies to the whole query. This is achieved using
 a query setting called "`bbox`".
 
-Query settings provide a way to configure how a query runs. As we'll see later,
-that will setting query timeouts and customising output formats.
+Query settings provide a way to control how the entire query runs. Query settings appear
+at the start of a query and are defined with square brackets: `[]`.
 
-Query settings appear at the start of a query and are defined with square
-brackets: `[]`.
+Here we're using the `bbox` setting. As we'll see later, other settings let us
+choose different output formats and tweak timeouts.
 
-Here we're using the `bbox` setting which lets us define a default bounding box that will be
-used by statements that query the database.
+In the `bbox` setting we're providing the coordinated for a bounding box.
+These particular coordinates (`25.38653, 130.99883, -25.31478, 131.08938`) define a rectangle that
+includes Uluṟu. The sandstone monolith in Uluṟu-Kata Tjuta National Park, Australia.
 
-The coordinates we've provided (`25.38653, 130.99883, -25.31478, 131.08938`) defines a
-rectangle that includes Uluru. The sandstone monolith in Uluru-Kata Tjuta National Park, Australia.
+The second way to define a bounding box is as a parameter to a statement.
 
-The second way to define a bounding box, is as a parameter to a statement.
-
-To test this out, run the query in Overpass Turbo, then follow the instructions
-in the TRYME #1 comment to see that the bounding box is applied.
+To test this out, run the query in Overpass Turbo, then follow the instructions in the `TRYME #1`
+comment to see that the bounding box is applied.
 
 If you define a bounding box using a fixed set of points, then the query will
 only ever use that geographic area. But sometimes you want to run a query over
 whatever section of the map you're currently looking at.
 
-Overpass Turbo allows you to automatically insert a bounding box into your query
-based on the map view you currently have open. This is specified by including
-the text "`{{box}}`" instead of the coordinates. Overpass Turbo will then adjust
+The Overpass Turbo IDE provides a third way to define a bounding box. But automatically
+inserting the coordinates for the current map view into your query.
+This is specified by including the "`{{box}}`" shortcut instead of the coordinates. Overpass Turbo will then adjust
 your query before its run.
 
-This won't happen if you submit a query directly to the API. Its only a feature
-of the API
+This won't happen if you submit a query directly to the API. Its only a feature of the IDE. But
+helpful when you're writing queries interactively.
 
 When should you use the different variations?
 
 * if you're using the same bounding box across your query, use a query setting. It makes the query more readable
-* if you need to apply a bounding box to a single statement, then define it as a parameter
+* if you need to apply a bounding box to a single statement, then define it as a filter
 * if you're writing a query intended to be used interactively within Overpass Turbo then use `{{bbox}}`
 * if you're querying the API directly, always submit queries using specific coordinates. `{{bbox}}` won't work
 

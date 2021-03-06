@@ -7,7 +7,7 @@ In order for the API to know how to construct the CSV output you must provide
 a specification of what fields (columns) to include. These fields are either:
 
 * a special field name, which is predefined by the API, e.g. `::id`
-* the name of a tag
+* or the name of a tag
 
 The special field names include:
 
@@ -16,11 +16,12 @@ The special field names include:
 * `::lat` - its latitude
 * `::lon` - its longitude
 
-The list of columns to include are specified as parameters in the query setting.
+The list of columns to include in the output are specified as parameters in the query setting
+statement.
 
-Its also possible to customise whether a header line is included in the CSV
-file and the column separator to use. The default is to include a head and
-use tabs.
+Other parameters allow you to customise whether a header line is included in the CSV file and
+choose the column separator. The defaults are to include a header and produce a tab delimited
+file.
 
 The general syntax for the `out:csv` setting is:
 
@@ -34,19 +35,23 @@ Where:
 * `header` is either `true` or `false`
 * `col-separator` is the desired separator provided as a string.
 
-The query generates a simple comma-separated table containing
-the id, coordinates and names of caves. But some variations are also provided.
+This query generates a simple comma-separated table containing the `id`, coordinates
+and names of caves within the bounding box. But some other variations are also provided for
+you to try out.
 
-**Note**: if you want to include tags in your CSV output, then the `out` keyword
-of your query MUST generate tags. E.g `out body` or `out meta`.
+If you want to include tags in your CSV output, then the `out` keyword of your
+query **must** generate tags. So use `out body` or `out meta`.
 
-**Note**: The latitude and longitude values only really apply to nodes. Ways and relations are
-more complex spatial objects. However you can use the `out` keyword to automatically
-generate a single location ("centroid") for those types of feature. Specifying
-`out body center` will do the trick if your query returns ways or relations.
+Also note that when you're including latitude (`::lat`) and longitude (`::lon`)
+columns then for nodes you'll get their original coordinates. But ways and relations are
+more complex spatial objects. They aren't defined by a single point.
+
+You can use the `out` keyword to automatically generate a representative location (a "centroid")
+for those types of feature. Specifying `out body center` will do the trick. This will calculate
+a centroid for any way or relation in your results.
 
 **Tip**: when generating CSV output, if there is a query error or timeout then you will
-get empty results. I'd recommend writing and testing your basic query first, so you're
+get empty results. I'd recommend writing and testing your basic query first so you're
 sure its working. And then customise it further to generate the desired CSV output.
 
 @title 09 - Generating CSV output

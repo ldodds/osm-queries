@@ -1,22 +1,24 @@
 /*
-By default the Overpass API returns XML results.
+When you're viewing results in the Overpass Turbo IDE it'll show your results on a map.
+Or at least it will if you have used an `out` option that oroduces some geometry.
 
-When you're viewing results in the Overpass Turbo application by default it'll show your results on
-a map. (Assuming you have used an `out` option that includes geometry). You can always see the
-raw data by clicking on the "Data" tab in the UI.
+But you can always see the raw data by clicking on the "Data" tab.
 
-The API can also produce JSON output. To request that you need to use the `out`
-query setting. Confusingly this has the same name as the keyword used to generate
-results in different level of details, but they perform different roles.
+By default the Overpass API returns XML. But it can also produce JSON output.
 
-* `[out:xxx]` is a query setting that specifies the format of the data
-* `out` is a statement that is used to control how much data is included in the results
+To request that you need to use the `out` query setting. Confusingly this has the
+same name as the keyword used to generate results in different level of details,
+but they perform different roles and appear in different parts of a query.
 
-Unfortunately the output isn't geojson. Its a custom JSON output format.
+* `[out:xxx]` is a query setting that specifies the format of the data. It appears at the start of a query
+* `out` is a statement that is used to control how much data is included in the results. It appears in the body of a query.
 
-Its not hard to convert this to GeoJSON if you need it. If you're using the Overpass Turbo
-application then the "Export" menu offers the option to do this conversion for you. This is
-downloaded directly from the application. You can't request GeoJSON directly from the API.
+The JSON output is a custom format. It's not GeoJSON but isn't hard to convert to that
+format.
+
+If you're using the Overpass Turbo application then the "Export" menu offers the option to
+do this conversion for you. This is downloaded directly from the application. You can't
+request GeoJSON directly from the API.
 
 @title 08 - Generating JSON output
 @see https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#Output_Format_.28out:.29

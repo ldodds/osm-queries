@@ -1,13 +1,11 @@
 /*
- @title Find playgrounds within current bounding box
- */
+@title Find playgrounds
+*/
 [out:json][timeout:25];
 // gather results
 (
   // query part for: “leisure=playground and access!=no and access!=private”
-  node["leisure"="playground"]["access"!="no"]["access"!="private"]({{bbox}});
-  way["leisure"="playground"]["access"!="no"]["access"!="private"]({{bbox}});
-  relation["leisure"="playground"]["access"!="no"]["access"!="private"]({{bbox}});
+  nwr["leisure"="playground"]["access"!="no"]["access"!="private"]({{bbox}});
 );
 // print results
 out body;

@@ -1,19 +1,15 @@
 /*
- This is a variation of the query that extract information
- about typical high street shops and amenities.
+This is a variation of the query that extract information about typical high street shops and amenities.
 
- However it applies an additional filter to select just those
- nodes, ways and relations that have been changed since
- the 1st January 2021.
+Tt applies an additional filter to select just those nodes, ways and relations that have been changed since
+the 1st January 2021.
 
- It does this using the "newer" filter which used to specify the
- full date/time of interest.
+It does this using the `newer` query filter which used to specify the full date-time of interest.
 
- The filter cannot be applied directly to the first union, so
- the initial results are assigned to a variables called "highstreet"
- and the filter applied to that.
+The filter cannot be applied directly to the first union, so the initial results are assigned to a variables called "`highstreet`"
+and the filter is applied to that.
 
- @title Extract recently changed data for a typical UK high street
+@title The High Street, Recent changes
  */
 [bbox:{{bbox}}];
 (

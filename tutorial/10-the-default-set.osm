@@ -10,10 +10,10 @@ set.
 Our `node` queries have added results to the `_` set and the `out` statements
 have used the default set to produce our output.
 
-The query below makes this use of the default set explicit by naming it in
-each statement.
+The query below makes this use of the default set more obvious by explicitly
+using it in the individual statements.
 
-The results of a statement can be written to a set using the `->` operator.
+The results of a statement can be written to a named set using the `->` operator.
 
 As we'll see in the following examples it is possible to create, manipulate
 and produce output from multiple named sets of results.

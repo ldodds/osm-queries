@@ -279,7 +279,7 @@ node;
 out skel;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AThis+query+selects+all+of+nodes+that+are+within+a+bounding+box.%0A%0AA+bounding+box+is+a+rectangle+that+defines+a+geographic+area.+In+OverpassQL+a+bounding+box%0Ais+defined+by+four+values.+The+first+two+define+the+south-west+corner+of+the+box.+The%0Asecond+pair+defines+its+north+east+corner.%0A%0AThere+are+two+main+ways+to+define+a+bounding+box+within+an+OverpassQL.%0A%0AThis+example+defines+a+bounding+box+that+applies+to+the+whole+query.+This+is+achieved+using%0Aa+query+setting+called+%22%60bbox%60%22.%0A%0AQuery+settings+provide+a+way+to+configure+how+a+query+runs.+As+we%27ll+see+later%2C%0Athat+will+setting+query+timeouts+and+customising+output+formats.%0A%0AQuery+settings+appear+at+the+start+of+a+query+and+are+defined+with+square%0Abrackets%3A+%60%5B%5D%60.%0A%0AHere+we%27re+using+the+%60bbox%60+setting+which+lets+us+define+a+default+bounding+box+that+will+be%0Aused+by+statements+that+query+the+database.%0A%0AThe+coordinates+we%27ve+provided+%28%6025.38653%2C+130.99883%2C+-25.31478%2C+131.08938%60%29+defines+a%0Arectangle+that+includes+Uluru.+The+sandstone+monolith+in+Uluru-Kata+Tjuta+National+Park%2C+Australia.%0A%0AThe+second+way+to+define+a+bounding+box%2C+is+as+a+parameter+to+a+statement.%0A%0ATo+test+this+out%2C+run+the+query+in+Overpass+Turbo%2C+then+follow+the+instructions%0Ain+the+TRYME+%231+comment+to+see+that+the+bounding+box+is+applied.%0A%0AIf+you+define+a+bounding+box+using+a+fixed+set+of+points%2C+then+the+query+will%0Aonly+ever+use+that+geographic+area.+But+sometimes+you+want+to+run+a+query+over%0Awhatever+section+of+the+map+you%27re+currently+looking+at.%0A%0AOverpass+Turbo+allows+you+to+automatically+insert+a+bounding+box+into+your+query%0Abased+on+the+map+view+you+currently+have+open.+This+is+specified+by+including%0Athe+text+%22%60%7B%7Bbox%7D%7D%60%22+instead+of+the+coordinates.+Overpass+Turbo+will+then+adjust%0Ayour+query+before+its+run.%0A%0AThis+won%27t+happen+if+you+submit+a+query+directly+to+the+API.+Its+only+a+feature%0Aof+the+API%0A%0AWhen+should+you+use+the+different+variations%3F%0A%0A%2A+if+you%27re+using+the+same+bounding+box+across+your+query%2C+use+a+query+setting.+It+makes+the+query+more+readable%0A%2A+if+you+need+to+apply+a+bounding+box+to+a+single+statement%2C+then+define+it+as+a+parameter%0A%2A+if+you%27re+writing+a+query+intended+to+be+used+interactively+within+Overpass+Turbo+then+use+%60%7B%7Bbbox%7D%7D%60%0A%2A+if+you%27re+querying+the+API+directly%2C+always+submit+queries+using+specific+coordinates.+%60%7B%7Bbbox%7D%7D%60+won%27t+work%0A%0A%40title+01+-+Finding+nodes+with+a+bounding+box%0A%2A%2F%0A%2F%2FDefining+a+bounding+box+using+query+settings%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0Anode%3B%0A%0A%2F%2FDefining+a+bounding+box+using+a+statement+parameter%0A%2F%2F%0A%2F%2FTRYME+%231+delete+or+comment+out+the+previous+two+statement+lines%0A%2F%2Fand+try+running+the+following+variation+instead+after+first+removing%0A%2F%2F+the+two+%22%2F%2F+characters+so+that+the+statement+is+not+treated+as+a+comment%0A%2F%2Fnode%28-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%29%3B%0A%0A%2F%2FDefining+a+bounding+box+based+on+the+map+view+in+Overpass+Turbo%0A%2F%2F%0A%2F%2FTRYME+%232.+Delete+or+comment+out+the+previous+lines%2C+then%0A%2F%2Ftry+running+this+variation.+While+the+other+versions+use+a+fixed+box%2C%0A%2F%2Fthis+version+tracks+you+as+you+pan+and+zoom+over+the+map.+Try+running+it+to%0A%2F%2Fconfirm+this+for+yourself%0A%2F%2Fnode%28%7B%7Bbbox%7D%7D%29%3B%0A%0Aout+skel%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AThis+query+selects+all+of+nodes+that+are+within+a+bounding+box.%0A%0AA+bounding+box+is+a+rectangle+that+defines+a+geographic+area.+In+OverpassQL+a+bounding+box%0Ais+defined+by+four+values.+The+first+two+define+the+south-west+corner+of+the+box.+The%0Asecond+pair+defines+its+north+east+corner.%0A%0AThere+are+two+main+ways+to+define+a+bounding+box+within+an+OverpassQL+query.%0A%0AThis+example+defines+a+bounding+box+that+applies+to+the+whole+query.+This+is+achieved+using%0Aa+query+setting+called+%22%60bbox%60%22.%0A%0AQuery+settings+provide+a+way+to+control+how+the+entire+query+runs.+Query+settings+appear%0Aat+the+start+of+a+query+and+are+defined+with+square+brackets%3A+%60%5B%5D%60.%0A%0AHere+we%27re+using+the+%60bbox%60+setting.+As+we%27ll+see+later%2C+other+settings+let+us%0Achoose+different+output+formats+and+tweak+timeouts.%0A%0AIn+the+%60bbox%60+setting+we%27re+providing+the+coordinated+for+a+bounding+box.%0AThese+particular+coordinates+%28%6025.38653%2C+130.99883%2C+-25.31478%2C+131.08938%60%29+define+a+rectangle+that%0Aincludes+Ulu%E1%B9%9Fu.+The+sandstone+monolith+in+Ulu%E1%B9%9Fu-Kata+Tjuta+National+Park%2C+Australia.%0A%0AThe+second+way+to+define+a+bounding+box+is+as+a+parameter+to+a+statement.%0A%0ATo+test+this+out%2C+run+the+query+in+Overpass+Turbo%2C+then+follow+the+instructions+in+the+%60TRYME+%231%60%0Acomment+to+see+that+the+bounding+box+is+applied.%0A%0AIf+you+define+a+bounding+box+using+a+fixed+set+of+points%2C+then+the+query+will%0Aonly+ever+use+that+geographic+area.+But+sometimes+you+want+to+run+a+query+over%0Awhatever+section+of+the+map+you%27re+currently+looking+at.%0A%0AThe+Overpass+Turbo+IDE+provides+a+third+way+to+define+a+bounding+box.+But+automatically%0Ainserting+the+coordinates+for+the+current+map+view+into+your+query.%0AThis+is+specified+by+including+the+%22%60%7B%7Bbox%7D%7D%60%22+shortcut+instead+of+the+coordinates.+Overpass+Turbo+will+then+adjust%0Ayour+query+before+its+run.%0A%0AThis+won%27t+happen+if+you+submit+a+query+directly+to+the+API.+Its+only+a+feature+of+the+IDE.+But%0Ahelpful+when+you%27re+writing+queries+interactively.%0A%0AWhen+should+you+use+the+different+variations%3F%0A%0A%2A+if+you%27re+using+the+same+bounding+box+across+your+query%2C+use+a+query+setting.+It+makes+the+query+more+readable%0A%2A+if+you+need+to+apply+a+bounding+box+to+a+single+statement%2C+then+define+it+as+a+filter%0A%2A+if+you%27re+writing+a+query+intended+to+be+used+interactively+within+Overpass+Turbo+then+use+%60%7B%7Bbbox%7D%7D%60%0A%2A+if+you%27re+querying+the+API+directly%2C+always+submit+queries+using+specific+coordinates.+%60%7B%7Bbbox%7D%7D%60+won%27t+work%0A%0A%40title+01+-+Finding+nodes+with+a+bounding+box%0A%2A%2F%0A%2F%2FDefining+a+bounding+box+using+query+settings%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0Anode%3B%0A%0A%2F%2FDefining+a+bounding+box+using+a+statement+parameter%0A%2F%2F%0A%2F%2FTRYME+%231+delete+or+comment+out+the+previous+two+statement+lines%0A%2F%2Fand+try+running+the+following+variation+instead+after+first+removing%0A%2F%2F+the+two+%22%2F%2F+characters+so+that+the+statement+is+not+treated+as+a+comment%0A%2F%2Fnode%28-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%29%3B%0A%0A%2F%2FDefining+a+bounding+box+based+on+the+map+view+in+Overpass+Turbo%0A%2F%2F%0A%2F%2FTRYME+%232.+Delete+or+comment+out+the+previous+lines%2C+then%0A%2F%2Ftry+running+this+variation.+While+the+other+versions+use+a+fixed+box%2C%0A%2F%2Fthis+version+tracks+you+as+you+pan+and+zoom+over+the+map.+Try+running+it+to%0A%2F%2Fconfirm+this+for+yourself%0A%2F%2Fnode%28%7B%7Bbbox%7D%7D%29%3B%0A%0Aout+skel%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -367,45 +367,43 @@ out skel;
 is defined by four values. The first two define the south-west corner of the box. The
 second pair defines its north east corner.</p>
 
-<p>There are two main ways to define a bounding box within an OverpassQL.</p>
+<p>There are two main ways to define a bounding box within an OverpassQL query.</p>
 
 <p>This example defines a bounding box that applies to the whole query. This is achieved using
 a query setting called &quot;<code>bbox</code>&quot;.</p>
 
-<p>Query settings provide a way to configure how a query runs. As we&#39;ll see later,
-that will setting query timeouts and customising output formats.</p>
+<p>Query settings provide a way to control how the entire query runs. Query settings appear
+at the start of a query and are defined with square brackets: <code>[]</code>.</p>
 
-<p>Query settings appear at the start of a query and are defined with square
-brackets: <code>[]</code>.</p>
+<p>Here we&#39;re using the <code>bbox</code> setting. As we&#39;ll see later, other settings let us
+choose different output formats and tweak timeouts.</p>
 
-<p>Here we&#39;re using the <code>bbox</code> setting which lets us define a default bounding box that will be
-used by statements that query the database.</p>
+<p>In the <code>bbox</code> setting we&#39;re providing the coordinated for a bounding box.
+These particular coordinates (<code>25.38653, 130.99883, -25.31478, 131.08938</code>) define a rectangle that
+includes Uluṟu. The sandstone monolith in Uluṟu-Kata Tjuta National Park, Australia.</p>
 
-<p>The coordinates we&#39;ve provided (<code>25.38653, 130.99883, -25.31478, 131.08938</code>) defines a
-rectangle that includes Uluru. The sandstone monolith in Uluru-Kata Tjuta National Park, Australia.</p>
+<p>The second way to define a bounding box is as a parameter to a statement.</p>
 
-<p>The second way to define a bounding box, is as a parameter to a statement.</p>
-
-<p>To test this out, run the query in Overpass Turbo, then follow the instructions
-in the TRYME #1 comment to see that the bounding box is applied.</p>
+<p>To test this out, run the query in Overpass Turbo, then follow the instructions in the <code>TRYME #1</code>
+comment to see that the bounding box is applied.</p>
 
 <p>If you define a bounding box using a fixed set of points, then the query will
 only ever use that geographic area. But sometimes you want to run a query over
 whatever section of the map you&#39;re currently looking at.</p>
 
-<p>Overpass Turbo allows you to automatically insert a bounding box into your query
-based on the map view you currently have open. This is specified by including
-the text &quot;<code>{{box}}</code>&quot; instead of the coordinates. Overpass Turbo will then adjust
+<p>The Overpass Turbo IDE provides a third way to define a bounding box. But automatically
+inserting the coordinates for the current map view into your query.
+This is specified by including the &quot;<code>{{box}}</code>&quot; shortcut instead of the coordinates. Overpass Turbo will then adjust
 your query before its run.</p>
 
-<p>This won&#39;t happen if you submit a query directly to the API. Its only a feature
-of the API</p>
+<p>This won&#39;t happen if you submit a query directly to the API. Its only a feature of the IDE. But
+helpful when you&#39;re writing queries interactively.</p>
 
 <p>When should you use the different variations?</p>
 
 <ul>
 <li>if you&#39;re using the same bounding box across your query, use a query setting. It makes the query more readable</li>
-<li>if you need to apply a bounding box to a single statement, then define it as a parameter</li>
+<li>if you need to apply a bounding box to a single statement, then define it as a filter</li>
 <li>if you&#39;re writing a query intended to be used interactively within Overpass Turbo then use <code>{{bbox}}</code></li>
 <li>if you&#39;re querying the API directly, always submit queries using specific coordinates. <code>{{bbox}}</code> won&#39;t work</li>
 </ul>

@@ -263,7 +263,7 @@ node(around:100)["amenity"];
 out body;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0ANow+that+we+can+query+for+both+nodes+and+ways+we+can+do+more+complex+queries.%0A%0AHere%27s+is+an+example+that+finds+ways+within+our+bounding+box%2C+then+uses+an%0A%60around%60+query+to+find+nodes+tagged+as+amenities+that+are+within+100+meters.%0A%0ARemember+that+the+%60around%60+filter+will+read+from+the+default+set+if+no+other%0Aoptions+are+specified.+So+here+our+search+is+just+limited+to+the+ways+within%0Aour+bounding+box.%0A%0A%40title+18+-+Combining+node+and+way+queries%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0Away%3B%0Anode%28around%3A100%29%5B%22amenity%22%5D%3B%0Aout+body%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0ANow+that+we+can+query+for+both+nodes+and+ways+we+can+do+more+complex+queries.%0A%0AHere+is+an+example+that+finds+ways+within+our+bounding+box.+It+then+uses+an%0A%60around%60+filter+to+query+for+nodes+tagged+as+%60amenity%60+that+are+within+100+meters%0Aof+those+ways.%0A%0ARemember+that+the+%60around%60+filter+will+read+from+the+default+set+if+a+named%0Aset+is+not+specified.+So+the+node+query+is+implicitly+filtering+based+on+the+results%0Afound+in+the+%60way%60+query.+Both+queries+are+limited+by+the+bounding+box+set+for+the+whole+query.%0A%0A%40title+18+-+Combining+node+and+way+queries%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0Away%3B%0Anode%28around%3A100%29%5B%22amenity%22%5D%3B%0Aout+body%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -347,12 +347,13 @@ out body;
           
 						<p property="description"><p>Now that we can query for both nodes and ways we can do more complex queries.</p>
 
-<p>Here&#39;s is an example that finds ways within our bounding box, then uses an
-<code>around</code> query to find nodes tagged as amenities that are within 100 meters.</p>
+<p>Here is an example that finds ways within our bounding box. It then uses an
+<code>around</code> filter to query for nodes tagged as <code>amenity</code> that are within 100 meters
+of those ways.</p>
 
-<p>Remember that the <code>around</code> filter will read from the default set if no other
-options are specified. So here our search is just limited to the ways within
-our bounding box.</p>
+<p>Remember that the <code>around</code> filter will read from the default set if a named
+set is not specified. So the node query is implicitly filtering based on the results
+found in the <code>way</code> query. Both queries are limited by the bounding box set for the whole query.</p>
 </p>
 					
 

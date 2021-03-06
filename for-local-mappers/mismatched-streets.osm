@@ -1,14 +1,16 @@
 /*
-Find features with an `addr:street` tag whose value doesn't match a local street.
+This query can be used to highlight issues with address data.
 
-This is adapted from an example given in the Overpass developer blog. It shows
-some advanced features of OverpassQL language including creating objects,
-manipulating sets and use of functions.
+It find features with an `addr:street` tag whose value doesn't match the name of local street.
 
 The intention is to highlight potential data errors. There may be reasons why
 the tags and values are different, but it might also highlight simple typos.
 
-Try adjusting it to use your local town.
+Try adjusting it to use your local town by replacing "Bath" with a different name.
+
+This is adapted from an example given in the Overpass developer blog. It shows
+some advanced features of OverpassQL language including creating objects,
+manipulating sets and use of functions.
 
 @see https://wiki.openstreetmap.org/wiki/Overpass_API/Areas
 @see https://dev.overpass-api.de/blog/sliced_time_and_space.html

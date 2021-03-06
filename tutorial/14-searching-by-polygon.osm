@@ -1,30 +1,35 @@
 /*
-OverpassQL supports searching within a polygon defined by a collection of
+OverpassQL supports searching for features within a polygon defined by a collection of
 points.
 
 The `poly` filter accepts a single parameter. This must be a string value that
 contains an even number of latitude and longitude pairs. Collectively these
-coordinates define a closed shape on the map. This polygon then provides the
-boundary within which we are searching.
+coordinates should define a closed shape on the map.
 
-The query below extract nodes that can be found within a polygon that covers
-an area to the west of Uluru.
+This polygon is then used as the boundary for the query.
 
-Note that there isn't a bounding box defined in this query, as our area of
+This query extracts nodes that can be found within a polygon that covers
+an area to the west of Uluṟu.
+
+There isn't a default bounding box defined in this query, as our area of
 interest is fully described by the `poly` filter.
 
 Note there's some quirks around syntax here which make `poly` slightly different to
 `around`:
 
-* the parameter must be provided as a quoted string.
-* the coordinate values must be separated by spaces and not commas.
+* the parameter MUST be provided as a quoted string.
+* the coordinate values MUST be separated by spaces and not commas.
+
+The syntax for the `around` filter is different.
 
 Unfortunately, unlike `around`, the `poly` filter doesn't support querying based
-on a polygon that can be found within a previously extracted set of nodes. So you
-can't, for example, extract the polygon describing a closed way stored in OpenStreetmap
-and search within it. This feels like an oversight.
+on a polygon that was found by a previously extracted set of nodes.
 
-**Tip**: the more complex your polygon, the slower the search. Simply the boundary
+So you can't, for example, extract the polygon describing a closed way
+stored in OpenStreetmap and then search within it. This feels like an oversight, but
+we'll see how to do this type of query later in the tutorial.
+
+**Tip**: the more complex your polygon, the slower the search. Simplify the boundary
 to improve performance.
 
 @title 14 - Searching by polygon

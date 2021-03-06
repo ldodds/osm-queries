@@ -7,7 +7,7 @@ nearby on the map.
 
 The query below selects just those ways in our bounding box that have been
 tagged as a tourist attraction. As the time of writing, that results in a
-single way which marks out the boundary of Uluru.
+single way which marks out the boundary of Uluṟu.
 
 See the query comments for other variations to try, including finding
 highways, footpaths and amenities near to paths.

@@ -1,5 +1,9 @@
 /*
- @title Export bronze statues, sculptures and bust as CSV
+Find bronze statues, sculptures, busts and memorials and then outputs a CSV
+file of the results.
+
+@title Export bronze statues as CSV
+@see https://twitter.com/ldodds/status/1056125234267471872
 */
 [out:csv( ::id, ::lat, ::lon, name, artwork_type, description, artist_name, start_date, wikidata; TRUE; "|") ][timeout:60];
 // gather results

@@ -260,14 +260,14 @@
 //find any area with this name
 area["name"="Uluru-Kata Tjuta National Park"];
 (
- //find any ways that are WITHIN that area, filtering them by their tag
- way(area)["natural"="bare_rock"];
+ //find any ways and relations that are WITHIN that area, filtering them by their tag
+ wr(area)["natural"="bare_rock"];
  >;
 );
 out body;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AThis+query+finds+all+natural+rock+formations+within+Uluru-Kata+Tjuta+National+Park.%0AThe+results+include+Uluru%2C+Taputji+and+Mala+Kata.%0A%0ASo+far+we%27ve+written+queries+to+find+nodes%2C+ways+and+relations.+But+in+this+query%0Awe+are+using+a+new+statement%3A+%60area%60.%0A%0AAreas+are+interesting+in+that+they+are+not+formally+part+of+the+OSM+data+model.%0AThey+are+features+which+are+created+within+the+Overpass+API+database.+This+means+that%0Athey+can+be+queried+and+manipulated+via+the+API%2C+but+they%27re+not+something+you+can+edit.%0A%0AAreas+are+automatically+created+for+a+subset+of+ways+and+relations%2C+including%3A%0A%0A%2A+any+relation+with+a+%60type%60+of+%60multipolygon%60+and+a+%60name%60%0A%2A+any+relation+with+a+%60type%60+of+%60boundary%60+and+a+%60name%60%0A%2A+any+relation+that+has+an+%60admin_level%60+and+%60name%60+attribute%0A%2A+any+relation+with+a+%60postal_code%60+or+%60addr%3Apostcode%60%0A%2A+a+wide+range+of+different+named+ways+including+buildings%2C+highways%2C+natural+features%2C+leisure+areas%2C+places%2C+historic+and+tourism+areas%0A%0AA+definitive+list+can+be+found+in+the+links+below.%0A%0AAreas+then+are+a+subset+of+relations+and+ways.+From+a+query+perspective%2C+you%0Acan+think+of+them+like+other+elements.+For+example+in+this+query+we%27re+finding+an%0Aarea+based+on+its+name.%0A%0A%60%60%60%0Aarea%5B%22name%22%3D%22Uluru-Kata+Tjuta+National+Park%22%5D%0A%60%60%60%0A%0AThe+advantage+of+using+these+generated+features+over+the+original+ways+and+relations%0Ais+that+the+API+and+query+language+provides+some+additional+functionality+for+working+with+them.%0A%0AFor+example+in+this+query+we%27re+using+an+%60area%60+filter%2C+like+this%3A%0A%0A%60%60%60%0Away%28area%29%3B%0A%60%60%60%0A%0AThe+area+filter+will+restrict+the+ways+%28or+nodes%2C+or+relations%29+we%27re+interested+in%0Ato+those+that+are+within+an+area+we%27ve+already+found.+This+type+of+spatial+query%0Aisn%27t+available+using+either+ways+and+relations.+I+presume+this+is+to+limit+the+amount%0Aof+indexing+required+to+support+this+type+of+query.%0A%0AThe+area+query+and+the+area+filter+both+work+with+named+sets.+By+default+they+work%0Awith+the+default+set+%28%60_%60%29.+This+is+what+the+example+query+uses.%0A%0ABut+an+alternate+way+to+write+this+example+is+to+explicitly+store+the+area+we%27re%0Ainterested+in+a+named+set.+I+find+this+a+bit+clearer+in+practice.%0A%0AHere%27s+how+this+would+look%2C+using+a+named+set+called+%60ourArea%60%3A%0A%0A%60%60%60%0Aarea%5B%22name%22%3D%22Uluru-Kata+Tjuta+National+Park%22%5D-%3E.ourArea%3B%0A%28%0A+way%28area.ourArea%29%5B%22natural%22%3D%22bare_rock%22%5D%3B%0A+%3E%3B%0A%29%3B%0A%60%60%60%0A%0AIf+we+wanted+to+instead+find+nodes+or+relations+then+we+could+use+either+of+the%0Afollowing%3A%0A%0A%60%60%60%0Anode%28area.ourArea%29%3B%0Arelation%28area.ourArea%29%3B%0A%60%60%60%0A%0A%40see+http%3A%2F%2Fwww.indigenousaustralia.info%2Fthe-dreaming%2Frock-legends%2Ftaputji.html%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FOverpass_API%2FAreas%0A%40see+https%3A%2F%2Fgithub.com%2Fdrolbr%2FOverpass-API%2Fblob%2Fmaster%2Fsrc%2Frules%2Fareas.osm3s%0A%40title+22+-+Areas%0A%2A%2F%0A%2F%2Ffind+any+area+with+this+name%0Aarea%5B%22name%22%3D%22Uluru-Kata+Tjuta+National+Park%22%5D%3B%0A%28%0A+%2F%2Ffind+any+ways+that+are+WITHIN+that+area%2C+filtering+them+by+their+tag%0A+way%28area%29%5B%22natural%22%3D%22bare_rock%22%5D%3B%0A+%3E%3B%0A%29%3B%0Aout+body%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AThis+query+finds+all+natural+rock+formations+within+Ulu%E1%B9%9Fu-Kata+Tjuta+National+Park.%0A%0AThe+results+include+Ulu%E1%B9%9Fu%2C+Kata+Tjuta%2C+Taputji+and+Mala+Kata.%0A%0AKata+Tjuta+is+a+more+complex+rock+formation+and+is+represented+as+a+relation+in%0Athe+OSM+database.+So+if+we+had+used+only+a+%60way%60+query+then+it+wouldn%27t+be+present%0Ain+the+results.+The+%60wr%60+query+lets+us+do+a+type+agostic+query+to+find+the+areas%0Aof+interest.%0A%0ASo+far+we%27ve+written+queries+to+find+nodes%2C+ways+and+relations.+But+in+this+query%0Awe+are+using+a+new+statement%3A+%60area%60.%0A%0AAreas+are+interesting+in+that+they+are+not+formally+part+of+the+OSM+data+model.%0AThey+are+features+which+have+been+automatically+added+to+the+databases+that+power+the+Overpass+API.+This+means+that%0Athey+can+be+queried+and+manipulated+via+the+API%2C+but+they%27re+not+something+you+can+edit.%0A%0AAreas+are+automatically+created+for+a+range+of+different+types+of+ways+and+relations%2C+including%3A%0A%0A%2A+any+relation+with+a+%60type%60+of+%60multipolygon%60+and+a+%60name%60%0A%2A+any+relation+with+a+%60type%60+of+%60boundary%60+and+a+%60name%60%0A%2A+any+relation+that+has+an+%60admin_level%60+and+%60name%60+attribute%0A%2A+any+relation+with+a+%60postal_code%60+or+%60addr%3Apostcode%60%0A%2A+a+wide+range+of+different+named+ways+including+buildings%2C+highways%2C+natural+features%2C+leisure+areas%2C+places%2C+historic+and+tourism+areas%0A%0AThe+complete+list+is+evolving+over+time.%0A%0AAreas+then+are+a+set+of+features+that+are+derived+from+a+subset+of+the+ways+and%0Arelations+that+exist+in+the+wider+database.%0A%0AFrom+a+query+perspective%2C+you+can+think+of+them+like+other+elements+and+find+them%0Ausing+the+standard+range+of+filters.%0A%0AFor+example++in+this+query+we%27re+finding+an+area+based+on+its+name.%0A%0A%60%60%60%0Aarea%5B%22name%22%3D%22Uluru-Kata+Tjuta+National+Park%22%5D%0A%60%60%60%0A%0AThe+advantage+of+using+areas+rather+the+original+ways+and+relations+is+that+the+API+and%0Aquery+language+provides+some+additional+functionality+for+working+with+them.%0A%0AFor+example+in+this+query+we%27re+using+an+%60area%60+filter%2C+like+this%3A%0A%0A%60%60%60%0Away%28area%29%3B%0A%60%60%60%0A%0AThe+%60area%60+filter+restricts+the+ways+%28or+nodes%2C+or+relations%29+we%27re+interested+in%0Ato+just+those+that+within+an+area+we%27ve+already+found.+This+type+of+spatial+query%0Aisn%27t+normally+available+for+ways+and+relations.+I+presume+this+is+to+limit+the+amount%0Aof+indexing+required+to+support+this+type+of+query.%0A%0AThe+%60area%60+query+and+the+%60area%60+filter+both+work+with+named+sets.+By+default+they+work%0Awith+the+default+set+%28%60_%60%29.+And+this+is+what+the+example+query+uses.%0A%0ABut+an+alternate+way+to+write+this+example+is+to+explicitly+store+the+area+we%27re%0Ainterested+in+a+named+set.+I+find+this+a+bit+clearer+in+practice.%0A%0AHere%27s+how+this+would+look%2C+using+a+named+set+called+%60ourArea%60%3A%0A%0A%60%60%60%0Aarea%5B%22name%22%3D%22Uluru-Kata+Tjuta+National+Park%22%5D-%3E.ourArea%3B%0A%28%0A+way%28area.ourArea%29%5B%22natural%22%3D%22bare_rock%22%5D%3B%0A+%3E%3B%0A%29%3B%0A%60%60%60%0A%0AIf+we+wanted+to+instead+find+nodes+or+relations+then+we+could+use+either+of+the%0Afollowing%3A%0A%0A%60%60%60%0Anode%28area.ourArea%29%3B%0Arelation%28area.ourArea%29%3B%0A%60%60%60%0A%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FOverpass_API%2FAreas%0A%40see+https%3A%2F%2Fgithub.com%2Fdrolbr%2FOverpass-API%2Fblob%2Fmaster%2Fsrc%2Frules%2Fareas.osm3s%0A%40see+https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FKata_Tjuta%0A%40see+http%3A%2F%2Fwww.indigenousaustralia.info%2Fthe-dreaming%2Frock-legends%2Ftaputji.html%0A%40title+22+-+Areas%0A%2A%2F%0A%2F%2Ffind+any+area+with+this+name%0Aarea%5B%22name%22%3D%22Uluru-Kata+Tjuta+National+Park%22%5D%3B%0A%28%0A+%2F%2Ffind+any+ways+and+relations+that+are+WITHIN+that+area%2C+filtering+them+by+their+tag%0A+wr%28area%29%5B%22natural%22%3D%22bare_rock%22%5D%3B%0A+%3E%3B%0A%29%3B%0Aout+body%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -349,17 +349,23 @@ out body;
       <div class="row">
         <div class="col">
           
-						<p property="description"><p>This query finds all natural rock formations within Uluru-Kata Tjuta National Park.
-The results include Uluru, Taputji and Mala Kata.</p>
+						<p property="description"><p>This query finds all natural rock formations within Uluṟu-Kata Tjuta National Park.</p>
+
+<p>The results include Uluṟu, Kata Tjuta, Taputji and Mala Kata.</p>
+
+<p>Kata Tjuta is a more complex rock formation and is represented as a relation in
+the OSM database. So if we had used only a <code>way</code> query then it wouldn&#39;t be present
+in the results. The <code>wr</code> query lets us do a type agostic query to find the areas
+of interest.</p>
 
 <p>So far we&#39;ve written queries to find nodes, ways and relations. But in this query
 we are using a new statement: <code>area</code>.</p>
 
 <p>Areas are interesting in that they are not formally part of the OSM data model.
-They are features which are created within the Overpass API database. This means that
+They are features which have been automatically added to the databases that power the Overpass API. This means that
 they can be queried and manipulated via the API, but they&#39;re not something you can edit.</p>
 
-<p>Areas are automatically created for a subset of ways and relations, including:</p>
+<p>Areas are automatically created for a range of different types of ways and relations, including:</p>
 
 <ul>
 <li>any relation with a <code>type</code> of <code>multipolygon</code> and a <code>name</code></li>
@@ -369,18 +375,22 @@ they can be queried and manipulated via the API, but they&#39;re not something y
 <li>a wide range of different named ways including buildings, highways, natural features, leisure areas, places, historic and tourism areas</li>
 </ul>
 
-<p>A definitive list can be found in the links below.</p>
+<p>The complete list is evolving over time.</p>
 
-<p>Areas then are a subset of relations and ways. From a query perspective, you
-can think of them like other elements. For example in this query we&#39;re finding an
-area based on its name.</p>
+<p>Areas then are a set of features that are derived from a subset of the ways and
+relations that exist in the wider database.</p>
+
+<p>From a query perspective, you can think of them like other elements and find them
+using the standard range of filters.</p>
+
+<p>For example  in this query we&#39;re finding an area based on its name.</p>
 
 <p><code>
 area[&quot;name&quot;=&quot;Uluru-Kata Tjuta National Park&quot;]
 </code></p>
 
-<p>The advantage of using these generated features over the original ways and relations
-is that the API and query language provides some additional functionality for working with them.</p>
+<p>The advantage of using areas rather the original ways and relations is that the API and
+query language provides some additional functionality for working with them.</p>
 
 <p>For example in this query we&#39;re using an <code>area</code> filter, like this:</p>
 
@@ -388,13 +398,13 @@ is that the API and query language provides some additional functionality for wo
 way(area);
 </code></p>
 
-<p>The area filter will restrict the ways (or nodes, or relations) we&#39;re interested in
-to those that are within an area we&#39;ve already found. This type of spatial query
-isn&#39;t available using either ways and relations. I presume this is to limit the amount
+<p>The <code>area</code> filter restricts the ways (or nodes, or relations) we&#39;re interested in
+to just those that within an area we&#39;ve already found. This type of spatial query
+isn&#39;t normally available for ways and relations. I presume this is to limit the amount
 of indexing required to support this type of query.</p>
 
-<p>The area query and the area filter both work with named sets. By default they work
-with the default set (<code>_</code>). This is what the example query uses.</p>
+<p>The <code>area</code> query and the <code>area</code> filter both work with named sets. By default they work
+with the default set (<code>_</code>). And this is what the example query uses.</p>
 
 <p>But an alternate way to write this example is to explicitly store the area we&#39;re
 interested in a named set. I find this a bit clearer in practice.</p>
@@ -430,11 +440,13 @@ relation(area.ourArea);
                   <td>
                     <ul class="list-unstyled">
                       
-                           <li><a href="http://www.indigenousaustralia.info/the-dreaming/rock-legends/taputji.html">http://www.indigenousaustralia.info/the-dreaming/rock-legends/taputji.html</a></li>
-                      
                            <li><a href="https://wiki.openstreetmap.org/wiki/Overpass_API/Areas">https://wiki.openstreetmap.org/wiki/Overpass_API/Areas</a></li>
                       
                            <li><a href="https://github.com/drolbr/Overpass-API/blob/master/src/rules/areas.osm3s">https://github.com/drolbr/Overpass-API/blob/master/src/rules/areas.osm3s</a></li>
+                      
+                           <li><a href="https://en.wikipedia.org/wiki/Kata_Tjuta">https://en.wikipedia.org/wiki/Kata_Tjuta</a></li>
+                      
+                           <li><a href="http://www.indigenousaustralia.info/the-dreaming/rock-legends/taputji.html">http://www.indigenousaustralia.info/the-dreaming/rock-legends/taputji.html</a></li>
                       
                     </ul>
                   </td>

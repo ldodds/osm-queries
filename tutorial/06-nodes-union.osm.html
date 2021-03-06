@@ -265,7 +265,7 @@ node["natural"="cave_entrance"];
 out meta;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0ASometimes+when+we+are+querying+for+data%2C+we+want+to+build+up+a+larger+collection+of+nodes%0A%28or+ways%2C+or+relations%29+that+we+are+interested+in.+For+example%2C+a+collection+of%0Adifferent+types+of+road%2C+amenities+or+natural+features.%0A%0ARather+than+do+this+in+multiple+separate+queries%2C+we+can+extract+that+collection%0Ausing+a+single+query%2C+using+a+union.%0A%0AIn+OverpassQL+we+create+a+union+by+specifying+a+block+using+curved+brackets+%28%60%28%29%60%29.%0AWithin+that+block+we+can+include+all+of+the+queries+necessary+to+build+our+collection%0Aof+results.%0A%0AFor+example%2C+this+query+will+return+all+those+nodes+that+have+been+tagged+with+the%0A%60tourism%60+tag+AND+those+tagged+as+a+cave+entrance.+We+use+separate+individual+%60node%60+statements%0Ato+build+up+the+collection+we+want.%0A%0AThe+%60out%60+statement+then+outputs+the+combined+results.%0A%0AThis+type+of+query+is+useful+in+any+database+operation.+But+its+particularly+useful+for%0Aquerying+the+OpenStreetMap+database+because%3A%0A%0A%2A+we+are+often+extracting+different+types+of+features%2C+e.g.+nodes%2C+ways+and+relations%2C+and+its+easier+to+get+these+in+one+pass%0A%2A+nodes+%28and+ways%2C+and+relations%29+can+be+tagged+in+different+ways%2C+so+we+often+need+to+specify+variations+of+tags+to+collect+the+features+of+interest%0A%2A+by+building+up+larger+sets%2C+we+can+do+more+complex+queries+that+involve+set+operations%0A%0AWe%27ll+cover+set+operations+and+variables+in+a+later+example.%0A%0A%40title+06+-+Extracting+multiple+sets+of+nodes%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0A%28%0Anode%5B%22tourism%22%5D%3B%0Anode%5B%22natural%22%3D%22cave_entrance%22%5D%3B%0A%29%3B%0Aout+meta%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0ASometimes+when+we+are+querying+for+data%2C+we+want+to+build+up+a+larger+collection+of+features%0Athat+we+are+interested+in.+For+example%2C+a+collection+of+different+types+of+road%2C+amenities+or+natural+features.%0A%0ARather+than+do+this+in+multiple+separate+queries%2C+we+can+extract+that+collection+using+a+single+query%2C+using+a+union.%0A%0AIn+OverpassQL+we+create+a+union+by+specifying+a+block+using+curved+brackets+%28%60%28%29%60%29.%0AWithin+that+block+we+can+include+all+of+the+queries+necessary+to+build+our+collection%0Aof+results.%0A%0AThe+general+syntax+is%3A%0A%0A%60%60%60%0A%28%0A+statement1%3B%0A+statement2%3B%0A%29%0A%60%60%60%0A%0AFor+example+this+query+will+return+all+those+nodes+that+have+been+tagged+with+the%0A%60tourism%60+tag+AND+those+tagged+as+a+cave+entrance.%0A%0AWe+use+separate+individual+%60node%60+statements+to+build+up+the+collection+we+want.%0A%0AThe+%60out%60+statement+will+then+output+the+combined+results.%0A%0AThis+type+of+query+is+useful+in+any+context.+But+its+particularly+useful+for+querying+the+OpenStreetMap+database+because%3A%0A%0A%2A+we+are+often+extracting+different+types+of+features%2C+e.g.+nodes%2C+ways+and+relations%2C+and+its+easier+to+get+these+in+one+pass%0A%2A+nodes+%28and+ways%2C+and+relations%29+can+be+tagged+in+different+ways%2C+so+we+often+need+to+specify+variations+of+tags+to+collect+the+features+of+interest%0A%2A+by+building+up+larger+sets%2C+we+can+do+more+complex+queries+that+involve+set+operations%0A%0AWe%27ll+cover+set+operations+and+variables+in+a+later+example.%0A%0A%40title+06+-+Extracting+multiple+sets+of+nodes%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0A%28%0Anode%5B%22tourism%22%5D%3B%0Anode%5B%22natural%22%3D%22cave_entrance%22%5D%3B%0A%29%3B%0Aout+meta%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -347,25 +347,32 @@ out meta;
       <div class="row">
         <div class="col">
           
-						<p property="description"><p>Sometimes when we are querying for data, we want to build up a larger collection of nodes
-(or ways, or relations) that we are interested in. For example, a collection of
-different types of road, amenities or natural features.</p>
+						<p property="description"><p>Sometimes when we are querying for data, we want to build up a larger collection of features
+that we are interested in. For example, a collection of different types of road, amenities or natural features.</p>
 
-<p>Rather than do this in multiple separate queries, we can extract that collection
-using a single query, using a union.</p>
+<p>Rather than do this in multiple separate queries, we can extract that collection using a single query, using a union.</p>
 
 <p>In OverpassQL we create a union by specifying a block using curved brackets (<code>()</code>).
 Within that block we can include all of the queries necessary to build our collection
 of results.</p>
 
-<p>For example, this query will return all those nodes that have been tagged with the
-<code>tourism</code> tag AND those tagged as a cave entrance. We use separate individual <code>node</code> statements
-to build up the collection we want.</p>
+<p>The general syntax is:</p>
 
-<p>The <code>out</code> statement then outputs the combined results.</p>
+<p><code>
+(
+statement1;
+statement2;
+)
+</code></p>
 
-<p>This type of query is useful in any database operation. But its particularly useful for
-querying the OpenStreetMap database because:</p>
+<p>For example this query will return all those nodes that have been tagged with the
+<code>tourism</code> tag AND those tagged as a cave entrance.</p>
+
+<p>We use separate individual <code>node</code> statements to build up the collection we want.</p>
+
+<p>The <code>out</code> statement will then output the combined results.</p>
+
+<p>This type of query is useful in any context. But its particularly useful for querying the OpenStreetMap database because:</p>
 
 <ul>
 <li>we are often extracting different types of features, e.g. nodes, ways and relations, and its easier to get these in one pass</li>

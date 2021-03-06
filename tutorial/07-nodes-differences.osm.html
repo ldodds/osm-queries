@@ -266,7 +266,7 @@ node["natural"="cave_entrance"];
 out body;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AThe+previous+example+demonstrated+how+to+create+the+union+of+multiple+queries.%0A%0AThe+general+syntax+was%3A%0A%0A%60%60%60%0A%28+statement1%3B+statement2%3B+%29%0A%60%60%60%0A%0AWe+can+also+calculate+the+difference+between+two+sets+of+results.+We+do%0Athis+by+using+the+minus+operator.+The+general+syntax+is%3A%0A%0A%60%60%60%0A%28+statement1%3B+-+statement2%3B+%29%0A%60%60%60%0A%0AWhere+the+result+will+be+those+nodes+%28or+ways+or+relations%29+returned+by%0A%60statement1%60+that+weren%27t+returned+by+%60statement2%60%0A%0AThe+query+below+illustrates+how+to+use+this+by+finding+all+nodes+that+are%0Atagged+as+tourist+areas+and+are+not+tagged+as+caves.%0A%0AWe+can+achieve+the+same+thing+using+simple+tag+filters%2C+but+this+helps+to%0Aillustrate+the+basic+syntax.%0A%0A%40title+07+-+Calculating+differences+between+results%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0A%28%0Anode%5B%22tourism%22%5D%3B%0A-%0Anode%5B%22natural%22%3D%22cave_entrance%22%5D%3B%0A%29%3B%0Aout+body%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AThe+previous+example+demonstrated+how+to+create+a+union+from+multiple%0A%60node%60+queries.%0A%0AThe+sets+of+results+returned+by+each+query+statements+are+merged+to+produce%0Athe+output.%0A%0AWe+can+also+calculate+the+difference+between+two+sets+of+results.%0A%0AWe+do+this+by+using+the+minus+operator.+The+general+syntax+is%3A%0A%0A%60%60%60%0A%28+statement1%3B+-+statement2%3B+%29%0A%60%60%60%0A%0AThe+result+will+be+those+nodes+%28or+ways+or+relations%29+returned+by%0A%60statement1%60+that+weren%27t+returned+by+%60statement2%60.%0A%0AThis+query+finds+all+nodes+that+are+tagged+as+tourist+areas+and+are+not+also%0Atagged+as+caves.%0A%0AWe+can+achieve+the+same+thing+using+a+simple+tag+filter%2C+but+this+helps+to%0Aillustrate+the+basic+syntax.%0A%0A%40title+07+-+Calculating+differences+between+results%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0A%28%0Anode%5B%22tourism%22%5D%3B%0A-%0Anode%5B%22natural%22%3D%22cave_entrance%22%5D%3B%0A%29%3B%0Aout+body%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -348,28 +348,27 @@ out body;
       <div class="row">
         <div class="col">
           
-						<p property="description"><p>The previous example demonstrated how to create the union of multiple queries.</p>
+						<p property="description"><p>The previous example demonstrated how to create a union from multiple
+<code>node</code> queries.</p>
 
-<p>The general syntax was:</p>
+<p>The sets of results returned by each query statements are merged to produce
+the output.</p>
 
-<p><code>
-( statement1; statement2; )
-</code></p>
+<p>We can also calculate the difference between two sets of results.</p>
 
-<p>We can also calculate the difference between two sets of results. We do
-this by using the minus operator. The general syntax is:</p>
+<p>We do this by using the minus operator. The general syntax is:</p>
 
 <p><code>
 ( statement1; - statement2; )
 </code></p>
 
-<p>Where the result will be those nodes (or ways or relations) returned by
-<code>statement1</code> that weren&#39;t returned by <code>statement2</code></p>
+<p>The result will be those nodes (or ways or relations) returned by
+<code>statement1</code> that weren&#39;t returned by <code>statement2</code>.</p>
 
-<p>The query below illustrates how to use this by finding all nodes that are
-tagged as tourist areas and are not tagged as caves.</p>
+<p>This query finds all nodes that are tagged as tourist areas and are not also
+tagged as caves.</p>
 
-<p>We can achieve the same thing using simple tag filters, but this helps to
+<p>We can achieve the same thing using a simple tag filter, but this helps to
 illustrate the basic syntax.</p>
 </p>
 					

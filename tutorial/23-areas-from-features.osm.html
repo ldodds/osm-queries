@@ -258,7 +258,7 @@
         <div class="col">
 					<textarea id="overpass" cols="120">
 (
-  //find the node named Uluru. Save it in a named set called "summit"
+  //find the node named Uluṟu. Save it in a named set called "summit"
   node["name:pjt"="Uluṟu"]->.summit;
 
   //for the node(s) in the named set called "summit" find the areas they are in
@@ -273,7 +273,7 @@
 out body;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AThis+query+demonstrates+how+to+find+the+area+that+encloses+a+point.%0A%0ASometimes+we+want+to+find+the+area+that+enclosed+some+features+of+interest.%0AFor+example%2C+finding+the+administrative+area+for+a+firestation.+Or+the+park+that%0Acontains+a+play+area.%0A%0AThe+%60is_in%60+statement+allows+us+to+find+areas+based+on+some+previously+found%0Anodes%2C+ways+or+relations.+It+returns+the+list+of+areas+they+are+found+in.%0A%0AThe+first+part+of+our+query+find+the+area+that+contains+the+summit+of+Ulu%E1%B9%9Fu%3A%0A%0A%60%60%60%0Anode%5B%22name%3Apjt%22%3D%22Ulu%E1%B9%9Fu%22%5D-%3E.summit%3B%0A.summit+is_in+-%3E.someArea%3B%0A%60%60%60%0A%0AA+named+result+set+%28%60summit%60%29+is+used+here+to+make+things+clearer.+We+first+store%0Athe+node%28s%29+we+found+in+a+variable+called+%60summit%60.%0A%0AThen+we+use+%60is_in%60+to+find+which+areas+contain+those+elements.+This+will+be+ALL%0Athe+areas+that+cover+that+point.+Not+just+the+boundary+of+Ulu%E1%B9%9Fu%2C+but+also%0Athat+of+Ulu%E1%B9%9Fu-Kata+Tju%E1%B9%AFa+National+Park%2C+Petermann%2C+Macdonnell+Region+all+the+way%0Aup+to+Australia.+Its+the+full+spatial+coverage+from+this+point+or+points.%0A%0AThe+Overpass+API+will+give+us+the+tags+associated+with+areas%2C+but+not+the+geometry.%0AIf+we+want+that%2C+then+we+need+to+find+the+original+ways+or+relations+from+which%0Athe+area+was+created.%0A%0AWe+can+do+that+with+the+%60pivot%60+filter.+The+filter+find+the+corresponding+OSM%0Adatabase+feature+that+corresponds+to+an+area+%28or+areas%29+in+our+result+set.%0A%0AIn+our+example+query+we+find+the+%60way%60+that+corresponds+to+the+area+surrounding%0Athe+summit+of+Uluru+like+this%3A%0A%0A%60%60%60%0Away%28pivot.someArea%29%3B%0A%60%60%60%0A%0AIf+we%27d+instead+wanted+to+find+a+relation%2C+then+we+would+have+used%3A%0A%0A%60%60%60%0Arelation%28pivot.someArea%29%3B%0A%60%60%60%0A%0A%40title+23+-+Finding+the+areas+enclosing+a+feature%0A%2A%2F%0A%28%0A++%2F%2Ffind+the+node+named+Uluru.+Save+it+in+a+named+set+called+%22summit%22%0A++node%5B%22name%3Apjt%22%3D%22Ulu%E1%B9%9Fu%22%5D-%3E.summit%3B%0A%0A++%2F%2Ffor+the+node%28s%29+in+the+named+set+called+%22summit%22+find+the+areas+they+are+in%0A++%2F%2Fsave+the+results+in+another+named+set+called+%22someArea%22%0A++.summit+is_in+-%3E.someArea%3B%0A%0A++%2F%2FTRYME+2+try+commenting+out+these+two+lines+and+looking+in+the%0A++%2F%2F%22Data%22+tab+to+see+just+the+area+data%0A++way%28pivot.someArea%29%3B%0A++%3E%3B%0A%29%3B%0Aout+body%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0ASometimes+we+want+to+find+the+area+that+encloses+some+features+of+interest.%0AFor+example%2C+finding+the+administrative+area+for+a+firestation.+Or+the+park+that%0Acontains+a+play+area.%0A%0AThis+query+demonstrates+how+to+find+the+area+that+encloses+a+point+using+the%0A%60is_in%60+statement.%0A%0AThe+%60is_in%60+statement+allows+us+to+find+areas+based+on+some+previously+found%0Anodes%2C+ways+or+relations..%0A%0AThe+first+part+of+our+query+finds+the+area+that+contains+the+summit+of+Ulu%E1%B9%9Fu%3A%0A%0A%60%60%60%0Anode%5B%22name%3Apjt%22%3D%22Ulu%E1%B9%9Fu%22%5D-%3E.summit%3B%0A.summit+is_in+-%3E.someArea%3B%0A%60%60%60%0A%0AA+named+result+set+%28%60summit%60%29+is+used+here+to+make+things+clearer.+We+first+store%0Athe+node%28s%29+we+found+in+a+variable+called+%60summit%60.%0A%0AThen+we+use+%60is_in%60+to+find+which+areas+contain+those+elements.+This+will+be+ALL%0Athe+areas+that+cover+that+point.+Not+just+the+boundary+of+Ulu%E1%B9%9Fu%2C+but+also%0Athat+of+the+Ulu%E1%B9%9Fu-Kata+Tju%E1%B9%AFa+National+Park%2C+Petermann%2C+the+Macdonnell+Region+and+so%0Aon+all+the+way+up+to+Australia.%0A%0A%60is_in%60+returns+the+full+spatial+coverage+starting+from+one+or+more+features.%0A%0AThe+Overpass+API+will+give+us+the+tags+associated+with+areas%2C+but+not+their+geometry.%0A%0AIf+we+want+that%2C+then+we+need+to+find+the+original+ways+or+relations+from+which%0Athe+area+was+created.%0A%0AWe+do+that+by+applying+the+%60pivot%60+filter.+This+filter+finds+the+corresponding+OSM%0Adatabase+feature+for+an+area+%28or+areas%29+in+our+result+set.%0A%0AIn+our+example+query+we+find+the+%60way%60+that+corresponds+to+the+area+surrounding%0Athe+summit+of+Ulu%E1%B9%9Fu+like+this%3A%0A%0A%60%60%60%0Away%28pivot.someArea%29%3B%0A%60%60%60%0A%0AIf+we%27d+instead+wanted+to+find+a+relation%2C+then+we+would+have+used%3A%0A%0A%60%60%60%0Arelation%28pivot.someArea%29%3B%0A%60%60%60%0A%0A%40title+23+-+Finding+the+areas+enclosing+a+feature%0A%2A%2F%0A%28%0A++%2F%2Ffind+the+node+named+Ulu%E1%B9%9Fu.+Save+it+in+a+named+set+called+%22summit%22%0A++node%5B%22name%3Apjt%22%3D%22Ulu%E1%B9%9Fu%22%5D-%3E.summit%3B%0A%0A++%2F%2Ffor+the+node%28s%29+in+the+named+set+called+%22summit%22+find+the+areas+they+are+in%0A++%2F%2Fsave+the+results+in+another+named+set+called+%22someArea%22%0A++.summit+is_in+-%3E.someArea%3B%0A%0A++%2F%2FTRYME+2+try+commenting+out+these+two+lines+and+looking+in+the%0A++%2F%2F%22Data%22+tab+to+see+just+the+area+data%0A++way%28pivot.someArea%29%3B%0A++%3E%3B%0A%29%3B%0Aout+body%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -355,16 +355,17 @@ out body;
       <div class="row">
         <div class="col">
           
-						<p property="description"><p>This query demonstrates how to find the area that encloses a point.</p>
-
-<p>Sometimes we want to find the area that enclosed some features of interest.
+						<p property="description"><p>Sometimes we want to find the area that encloses some features of interest.
 For example, finding the administrative area for a firestation. Or the park that
 contains a play area.</p>
 
-<p>The <code>is_in</code> statement allows us to find areas based on some previously found
-nodes, ways or relations. It returns the list of areas they are found in.</p>
+<p>This query demonstrates how to find the area that encloses a point using the
+<code>is_in</code> statement.</p>
 
-<p>The first part of our query find the area that contains the summit of Uluṟu:</p>
+<p>The <code>is_in</code> statement allows us to find areas based on some previously found
+nodes, ways or relations..</p>
+
+<p>The first part of our query finds the area that contains the summit of Uluṟu:</p>
 
 <p><code>
 node[&quot;name:pjt&quot;=&quot;Uluṟu&quot;]-&gt;.summit;
@@ -376,18 +377,21 @@ the node(s) we found in a variable called <code>summit</code>.</p>
 
 <p>Then we use <code>is_in</code> to find which areas contain those elements. This will be ALL
 the areas that cover that point. Not just the boundary of Uluṟu, but also
-that of Uluṟu-Kata Tjuṯa National Park, Petermann, Macdonnell Region all the way
-up to Australia. Its the full spatial coverage from this point or points.</p>
+that of the Uluṟu-Kata Tjuṯa National Park, Petermann, the Macdonnell Region and so
+on all the way up to Australia.</p>
 
-<p>The Overpass API will give us the tags associated with areas, but not the geometry.
-If we want that, then we need to find the original ways or relations from which
+<p><code>is_in</code> returns the full spatial coverage starting from one or more features.</p>
+
+<p>The Overpass API will give us the tags associated with areas, but not their geometry.</p>
+
+<p>If we want that, then we need to find the original ways or relations from which
 the area was created.</p>
 
-<p>We can do that with the <code>pivot</code> filter. The filter find the corresponding OSM
-database feature that corresponds to an area (or areas) in our result set.</p>
+<p>We do that by applying the <code>pivot</code> filter. This filter finds the corresponding OSM
+database feature for an area (or areas) in our result set.</p>
 
 <p>In our example query we find the <code>way</code> that corresponds to the area surrounding
-the summit of Uluru like this:</p>
+the summit of Uluṟu like this:</p>
 
 <p><code>
 way(pivot.someArea);

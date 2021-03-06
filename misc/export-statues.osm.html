@@ -2,15 +2,15 @@
 <html class="h-100" prefix="og: http://ogp.me/ns#">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Export bronze statues, sculptures and bust as CSV</title>
+    <title>Export bronze statues as CSV</title>
 
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Export bronze statues, sculptures and bust as CSV" />
+    <meta property="og:title" content="Export bronze statues as CSV" />
     <meta property="og:description" content="A home for all the other queries" />
     <meta property="og:image" content="https://osm-queries.ldodds.com/../overpass-doc.png" />
 
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Export bronze statues, sculptures and bust as CSV" />
+    <meta name="twitter:title" content="Export bronze statues as CSV" />
     <meta name="twitter:image" content="https://osm-queries.ldodds.com/../overpass-doc.png" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -137,7 +137,7 @@
         <ul class="list-unstyled">
           
             <li class="bg-color" >
-              <a href="export-statues.osm.html">Export bronze statues, sculptures and bust as CSV</a>
+              <a href="export-statues.osm.html">Export bronze statues as CSV</a>
             </li>
           
             <li class="" >
@@ -149,11 +149,11 @@
             </li>
           
             <li class="" >
-              <a href="playgrounds-with-styles.osm.html">Find and style playgrounds within current bounding box</a>
+              <a href="playgrounds.osm.html">Find playgrounds</a>
             </li>
           
             <li class="" >
-              <a href="playgrounds.osm.html">Find playgrounds within current bounding box</a>
+              <a href="playgrounds-with-styles.osm.html">Find playgrounds, add styling</a>
             </li>
           
             <li class="" >
@@ -167,7 +167,7 @@
     <div class="col-6">
       <div class="row">
         <div class="col">
-          <h2 property="title">Export bronze statues, sculptures and bust as CSV</h2>
+          <h2 property="title">Export bronze statues as CSV</h2>
         </div>
       </div>
       <div class="row">
@@ -188,7 +188,7 @@ out body;
 out skel qt;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0A+%40title+Export+bronze+statues%2C+sculptures+and+bust+as+CSV%0A%2A%2F%0A%5Bout%3Acsv%28+%3A%3Aid%2C+%3A%3Alat%2C+%3A%3Alon%2C+name%2C+artwork_type%2C+description%2C+artist_name%2C+start_date%2C+wikidata%3B+TRUE%3B+%22%7C%22%29+%5D%5Btimeout%3A60%5D%3B%0A%2F%2F+gather+results%0A%28%0A++%2F%2Ffind+any+statues%2C+sculptures+or+busts+made+of+bronze%0A++node%5B%22material%22%3D%22bronze%22%5D%5B~%22artwork_type%22~%22%5Estatue%7Csculpture%7Cbust%24%22%5D%3B%0A++%2F%2Falso+find+any+memorial+statues+made+of+bronze%0A++node%5B%22material%22%3D%22bronze%22%5D%5B%22memorial%22%3D%22statue%22%5D%3B%0A%0A%29%3B%0A%2F%2F+print+results%0Aout+body%3B%0A%3E%3B%0Aout+skel+qt%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AFind+bronze+statues%2C+sculptures%2C+busts+and+memorials+and+then+outputs+a+CSV%0Afile+of+the+results.%0A%0A%40title+Export+bronze+statues+as+CSV%0A%40see+https%3A%2F%2Ftwitter.com%2Fldodds%2Fstatus%2F1056125234267471872%0A%2A%2F%0A%5Bout%3Acsv%28+%3A%3Aid%2C+%3A%3Alat%2C+%3A%3Alon%2C+name%2C+artwork_type%2C+description%2C+artist_name%2C+start_date%2C+wikidata%3B+TRUE%3B+%22%7C%22%29+%5D%5Btimeout%3A60%5D%3B%0A%2F%2F+gather+results%0A%28%0A++%2F%2Ffind+any+statues%2C+sculptures+or+busts+made+of+bronze%0A++node%5B%22material%22%3D%22bronze%22%5D%5B~%22artwork_type%22~%22%5Estatue%7Csculpture%7Cbust%24%22%5D%3B%0A++%2F%2Falso+find+any+memorial+statues+made+of+bronze%0A++node%5B%22material%22%3D%22bronze%22%5D%5B%22memorial%22%3D%22statue%22%5D%3B%0A%0A%29%3B%0A%2F%2F+print+results%0Aout+body%3B%0A%3E%3B%0Aout+skel+qt%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -270,11 +270,24 @@ out skel qt;
       <div class="row">
         <div class="col">
           
-						<p property="description"></p>
+						<p property="description"><p>Find bronze statues, sculptures, busts and memorials and then outputs a CSV
+file of the results.</p>
+</p>
 					
 
           <table class="table">
             <tbody>
+              
+                <tr>
+                  <td>Links</td>
+                  <td>
+                    <ul class="list-unstyled">
+                      
+                           <li><a href="https://twitter.com/ldodds/status/1056125234267471872">https://twitter.com/ldodds/status/1056125234267471872</a></li>
+                      
+                    </ul>
+                  </td>
+                </tr>
               
               <tr>
                 <td>Source File</td><td><a href="export-statues.osm"><code>export-statues.osm</code></a></td>

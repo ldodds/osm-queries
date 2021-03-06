@@ -261,7 +261,7 @@ node(1);
 out;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AThe+OpenStreetMap+data+model+consists+of%3A%0A%0A%2A+nodes+-+single+points%2C+e.g+a+postbox+or+tree%0A%2A+ways+-+a+set+of+connected+points%2C+e.g.+a+path+or+a+building%0A%2A+relations+-+a+grouping+of+ways+and+nodes%2C+e.g.+a+collection+of+buildings%0A%0AWhen+you+drill+down+from+relations+and+ways+you+always+end+up+with+nodes.+So%0Ayou+can+think+of+nodes+as+the+most+basic+element+of+the+data+model%3A+a+point+on%0Athe+globe+with+some+data+attached+to+it+as+tags+%28name-value+pairs%29.%0A%0AOur+first+query+is+one+of+the+simplest+possible+OverpassQL+queries.+It+select%0Athe+node+that+has+an+%60id%60+of+%601%60+from+the+OSM+database.+It+then+outputs+some%0Ainformation+about+that+node.%0A%0AWe%27ll+learn+more+about+different+ways+to+query+for+nodes%2C+ways+and+relations+in%0Aother+queries.%0A%0AAnd+we%27ll+also+learn+how+to+control+what+information+is+extracted+and+output%0Afrom+the+database.%0A%0ABut%2C+for+this+first+query%2C+the+main+things+to+note+is+that+a+query+consists+of%0Aa+series+of+statements.+In+this+case+there+are+two.+Each+statement+ends+with+a+semi-colon.%0A%0AThe+first+statement+%28%60node%281%29%60%29+performs+the+query.%0A%0AThe+second+statement+%28%60out%60%29+creates+the+output.%0A%0AMore+complex+queries+will+consist+of+many+more+statements+of+different+types.%0ABut+an+OverpassQL+queries+is+a+list+of+statements+that+are+executed+by+the+API.%0AThese+statements+build+of+sets+of+results+that+are+then+returned+to+the%0Auser.%0A%0AThe+Overpass+Turbo+user+interface+helpfully+displays+those+results+on+a+map.+But%0Aif+you+use+the+API+directly%2C+e.g.+from+a+script+or+programme%2C+then+you+can+choose+to%0Aconsume+and+use+the+data+however+you+like.%0A%0ATo+run+the+query%2C+click+the+%22Run+in+Overpass+Turbo%22+link.+A+new+window+will+open%0Acontaining+your+results.+As+you+work+through+this+tutorial%2C+you%27re+encouraged%0Ato+actually+run+the+queries+and%2C+where+suggested%2C+customise+them+to+explore%0Asome+of+the+features+of+the+language.%0A%0AIn+case+you%27re+wondering+node+number+1+happens+to+be+a+communications+tower+in%0AItaly.+I+have+no+idea+why.%0A%0AOne+important+thing+to+note+is+that+OpenStreetMap+ids+are+not+guaranteed+to%0Abe+stable.+Someone+could+come+along+delete+a+node+and+then+it+might+later+be+recreated%0Aby+the+same+or+a+different+user.+But+the+node+will+end+up+with+a+new+identifier.%0A%0AWhen+you+use+OverpassQL+you%27re+likely+to+be+querying+information+based+on+their+location%0Aor+metadata%2C+rather+than+their+identifier.+Or%2C+if+you+do%2C+be+prepared+that+the%0Anodes%2C+ways+or+relations+you%27re+fetching+might+disappear+in+the+future.%0A%0A%40title+00+-+The+Beginning%0A%2A%2F%0Anode%281%29%3B%0Aout%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AThe+OpenStreetMap+data+model+consists+of%3A%0A%0A%2A+nodes+-+single+points%2C+e.g+a+postbox+or+tree%0A%2A+ways+-+a+set+of+connected+points%2C+e.g.+a+path+or+a+building%0A%2A+relations+-+a+grouping+of+ways+and+nodes%2C+e.g.+a+collection+of+buildings%0A%0AWhen+you+drill+down+from+relations+and+ways+you+always+end+up+with+nodes.+Nodes%0Aare+the+most+basic+element+of+the+data+model%3A+a+point+on+the+map+with+some%0Adata+attached+to+it+as+tags+%28name-value+pairs%29.%0A%0AOur+first+query+is+one+of+the+simplest+possible+OverpassQL+queries.+It+select%0Athe+node+that+has+an+%60id%60+of+%601%60+from+the+OSM+database.+It+then+outputs+some%0Ainformation+about+that+node.%0A%0AWe%27ll+learn+more+about+different+ways+to+query+for+nodes%2C+ways+and+relations+in%0Aother+queries.%0A%0AAnd+we%27ll+also+learn+how+to+control+what+information+is+extracted+and+output%0Afrom+the+database.%0A%0ABut%2C+for+this+first+query%2C+the+main+things+to+note+is+that+a+query+consists+of%0Aa+series+of+statements.+In+this+case+there+are+two.+Each+statement+ends+with+a+semi-colon.%0A%0AThe+first+statement+%28%60node%281%29%60%29+performs+the+query.%0A%0AThe+second+statement+%28%60out%60%29+creates+the+output.%0A%0AAn+OverpassQL+query+is+a+list+of+statements+that+are+executed+by+the+API.+More+complex%0Aqueries+will+consist+of+many+more+statements+of+different+types.+These+statements+build%0Aup+sets+of+results+that+are+then+returned+to+the+user.%0A%0AThe+Overpass+Turbo+IDE+helpfully+displays+those+results+on+a+map%2C+where+it+can.+But%0Aif+you+use+the+API+directly%2C+e.g.+from+a+script+or+application%2C+then+you+can+choose+to%0Aconsume+and+use+the+data+however+you+like.%0A%0ATo+run+the+query%2C+click+the+%22Run%22+button.+A+new+window+will+open+containing+your+results.%0AAs+you+work+through+this+tutorial%2C+you%27re+encouraged+to+actually+run+the+queries+and%2C%0Awhere+suggested%2C+customise+them+to+explore+some+of+the+features+of+the+language.%0A%0AIn+case+you%27re+wondering+node+number+1+happens+to+be+a+communications+tower+in%0AItaly.+I+have+no+idea+why.%0A%0AOne+important+thing+to+note+is+that+OpenStreetMap+identifiers+are+not+guaranteed+to%0Abe+stable.+Someone+could+come+along+and+delete+a+node+and+then+it+might+later+be+recreated%0Aby+the+same+or+a+different+user.+The+node+will+end+up+with+a+new+identifier.%0A%0AWhen+you+use+OverpassQL+you%27re+likely+to+be+querying+information+based+on+their+location%0Aor+metadata%2C+rather+than+their+identifier.+Or%2C+if+you+do%2C+be+prepared+that+the+nodes%2C%0Aways+or+relations+you%27re+fetching+might+disappear+in+the+future.%0A%0A%40title+00+-+The+Beginning%0A%2A%2F%0Anode%281%29%3B%0Aout%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -351,9 +351,9 @@ out;
 <li>relations - a grouping of ways and nodes, e.g. a collection of buildings</li>
 </ul>
 
-<p>When you drill down from relations and ways you always end up with nodes. So
-you can think of nodes as the most basic element of the data model: a point on
-the globe with some data attached to it as tags (name-value pairs).</p>
+<p>When you drill down from relations and ways you always end up with nodes. Nodes
+are the most basic element of the data model: a point on the map with some
+data attached to it as tags (name-value pairs).</p>
 
 <p>Our first query is one of the simplest possible OverpassQL queries. It select
 the node that has an <code>id</code> of <code>1</code> from the OSM database. It then outputs some
@@ -372,30 +372,28 @@ a series of statements. In this case there are two. Each statement ends with a s
 
 <p>The second statement (<code>out</code>) creates the output.</p>
 
-<p>More complex queries will consist of many more statements of different types.
-But an OverpassQL queries is a list of statements that are executed by the API.
-These statements build of sets of results that are then returned to the
-user.</p>
+<p>An OverpassQL query is a list of statements that are executed by the API. More complex
+queries will consist of many more statements of different types. These statements build
+up sets of results that are then returned to the user.</p>
 
-<p>The Overpass Turbo user interface helpfully displays those results on a map. But
-if you use the API directly, e.g. from a script or programme, then you can choose to
+<p>The Overpass Turbo IDE helpfully displays those results on a map, where it can. But
+if you use the API directly, e.g. from a script or application, then you can choose to
 consume and use the data however you like.</p>
 
-<p>To run the query, click the &quot;Run in Overpass Turbo&quot; link. A new window will open
-containing your results. As you work through this tutorial, you&#39;re encouraged
-to actually run the queries and, where suggested, customise them to explore
-some of the features of the language.</p>
+<p>To run the query, click the &quot;Run&quot; button. A new window will open containing your results.
+As you work through this tutorial, you&#39;re encouraged to actually run the queries and,
+where suggested, customise them to explore some of the features of the language.</p>
 
 <p>In case you&#39;re wondering node number 1 happens to be a communications tower in
 Italy. I have no idea why.</p>
 
-<p>One important thing to note is that OpenStreetMap ids are not guaranteed to
-be stable. Someone could come along delete a node and then it might later be recreated
-by the same or a different user. But the node will end up with a new identifier.</p>
+<p>One important thing to note is that OpenStreetMap identifiers are not guaranteed to
+be stable. Someone could come along and delete a node and then it might later be recreated
+by the same or a different user. The node will end up with a new identifier.</p>
 
 <p>When you use OverpassQL you&#39;re likely to be querying information based on their location
-or metadata, rather than their identifier. Or, if you do, be prepared that the
-nodes, ways or relations you&#39;re fetching might disappear in the future.</p>
+or metadata, rather than their identifier. Or, if you do, be prepared that the nodes,
+ways or relations you&#39;re fetching might disappear in the future.</p>
 </p>
 					
 

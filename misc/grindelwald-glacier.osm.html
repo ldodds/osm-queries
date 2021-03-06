@@ -137,7 +137,7 @@
         <ul class="list-unstyled">
           
             <li class="" >
-              <a href="export-statues.osm.html">Export bronze statues, sculptures and bust as CSV</a>
+              <a href="export-statues.osm.html">Export bronze statues as CSV</a>
             </li>
           
             <li class="" >
@@ -149,11 +149,11 @@
             </li>
           
             <li class="" >
-              <a href="playgrounds-with-styles.osm.html">Find and style playgrounds within current bounding box</a>
+              <a href="playgrounds.osm.html">Find playgrounds</a>
             </li>
           
             <li class="" >
-              <a href="playgrounds.osm.html">Find playgrounds within current bounding box</a>
+              <a href="playgrounds-with-styles.osm.html">Find playgrounds, add styling</a>
             </li>
           
             <li class="" >
@@ -177,9 +177,7 @@
 // gather results
 (
   // query part for: “natural=glacier”
-  node["natural"="glacier"];
-  way["natural"="glacier"];
-  relation["natural"="glacier"];
+  nwr["natural"="glacier"];
 );
 // print results
 out body;
@@ -187,7 +185,7 @@ out body;
 out skel qt;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0A+%40title+Extract+glacier+features+as+a+specific+location%0A+%40see+https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FUpper_Grindelwald_Glacier%0A+%40tags+glacier%0A%2A%2F%0A%5Bout%3Ajson%5D%5Btimeout%3A25%5D%5Bbbox%3A46.5914%2C8.0828%2C46.6301%2C+8.1674%5D%3B%0A%2F%2F+gather+results%0A%28%0A++%2F%2F+query+part+for%3A+%E2%80%9Cnatural%3Dglacier%E2%80%9D%0A++node%5B%22natural%22%3D%22glacier%22%5D%3B%0A++way%5B%22natural%22%3D%22glacier%22%5D%3B%0A++relation%5B%22natural%22%3D%22glacier%22%5D%3B%0A%29%3B%0A%2F%2F+print+results%0Aout+body%3B%0A%3E%3B%0Aout+skel+qt%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AExtract+the+nodes%2C+ways+and+relations+tagged+as+a+glacier+near+the%0AGrindelwald+Glacier+in+Switzerland.%0A%0A%40title+Extract+glacier+features+as+a+specific+location%0A%40see+https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FUpper_Grindelwald_Glacier%0A%40tags+glacier%0A%2A%2F%0A%5Bout%3Ajson%5D%5Btimeout%3A25%5D%5Bbbox%3A46.5914%2C8.0828%2C46.6301%2C+8.1674%5D%3B%0A%2F%2F+gather+results%0A%28%0A++%2F%2F+query+part+for%3A+%E2%80%9Cnatural%3Dglacier%E2%80%9D%0A++nwr%5B%22natural%22%3D%22glacier%22%5D%3B%0A%29%3B%0A%2F%2F+print+results%0Aout+body%3B%0A%3E%3B%0Aout+skel+qt%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -269,7 +267,9 @@ out skel qt;
       <div class="row">
         <div class="col">
           
-						<p property="description"></p>
+						<p property="description"><p>Extract the nodes, ways and relations tagged as a glacier near the
+Grindelwald Glacier in Switzerland.</p>
+</p>
 					
 
           <table class="table">

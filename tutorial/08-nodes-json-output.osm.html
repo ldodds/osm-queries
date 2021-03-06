@@ -265,7 +265,7 @@ node["name"];
 out body;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0ABy+default+the+Overpass+API+returns+XML+results.%0A%0AWhen+you%27re+viewing+results+in+the+Overpass+Turbo+application+by+default+it%27ll+show+your+results+on%0Aa+map.+%28Assuming+you+have+used+an+%60out%60+option+that+includes+geometry%29.+You+can+always+see+the%0Araw+data+by+clicking+on+the+%22Data%22+tab+in+the+UI.%0A%0AThe+API+can+also+produce+JSON+output.+To+request+that+you+need+to+use+the+%60out%60%0Aquery+setting.+Confusingly+this+has+the+same+name+as+the+keyword+used+to+generate%0Aresults+in+different+level+of+details%2C+but+they+perform+different+roles.%0A%0A%2A+%60%5Bout%3Axxx%5D%60+is+a+query+setting+that+specifies+the+format+of+the+data%0A%2A+%60out%60+is+a+statement+that+is+used+to+control+how+much+data+is+included+in+the+results%0A%0AUnfortunately+the+output+isn%27t+geojson.+Its+a+custom+JSON+output+format.%0A%0AIts+not+hard+to+convert+this+to+GeoJSON+if+you+need+it.+If+you%27re+using+the+Overpass+Turbo%0Aapplication+then+the+%22Export%22+menu+offers+the+option+to+do+this+conversion+for+you.+This+is%0Adownloaded+directly+from+the+application.+You+can%27t+request+GeoJSON+directly+from+the+API.%0A%0A%40title+08+-+Generating+JSON+output%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FOverpass_API%2FOverpass_QL%23Output_Format_.28out%3A.29%0A%40see+http%3A%2F%2Foverpass-api.de%2Foutput_formats.html%23xml%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FOSM_XML%0A%40see+http%3A%2F%2Foverpass-api.de%2Foutput_formats.html%23json%0A%2A%2F%0A%2F%2FNOTE%3A+no+semi-colon+after+the+out+settings.+The+settings+are+considered+to+be%0A%2F%2Fa+single+statement.%0A%5Bout%3Ajson%5D%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0Anode%5B%22name%22%5D%3B%0Aout+body%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AWhen+you%27re+viewing+results+in+the+Overpass+Turbo+IDE+it%27ll+show+your+results+on+a+map.%0AOr+at+least+it+will+if+you+have+used+an+%60out%60+option+that+oroduces+some+geometry.%0A%0ABut+you+can+always+see+the+raw+data+by+clicking+on+the+%22Data%22+tab.%0A%0ABy+default+the+Overpass+API+returns+XML.+But+it+can+also+produce+JSON+output.%0A%0ATo+request+that+you+need+to+use+the+%60out%60+query+setting.+Confusingly+this+has+the%0Asame+name+as+the+keyword+used+to+generate+results+in+different+level+of+details%2C%0Abut+they+perform+different+roles+and+appear+in+different+parts+of+a+query.%0A%0A%2A+%60%5Bout%3Axxx%5D%60+is+a+query+setting+that+specifies+the+format+of+the+data.+It+appears+at+the+start+of+a+query%0A%2A+%60out%60+is+a+statement+that+is+used+to+control+how+much+data+is+included+in+the+results.+It+appears+in+the+body+of+a+query.%0A%0AThe+JSON+output+is+a+custom+format.+It%27s+not+GeoJSON+but+isn%27t+hard+to+convert+to+that%0Aformat.%0A%0AIf+you%27re+using+the+Overpass+Turbo+application+then+the+%22Export%22+menu+offers+the+option+to%0Ado+this+conversion+for+you.+This+is+downloaded+directly+from+the+application.+You+can%27t%0Arequest+GeoJSON+directly+from+the+API.%0A%0A%40title+08+-+Generating+JSON+output%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FOverpass_API%2FOverpass_QL%23Output_Format_.28out%3A.29%0A%40see+http%3A%2F%2Foverpass-api.de%2Foutput_formats.html%23xml%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FOSM_XML%0A%40see+http%3A%2F%2Foverpass-api.de%2Foutput_formats.html%23json%0A%2A%2F%0A%2F%2FNOTE%3A+no+semi-colon+after+the+out+settings.+The+settings+are+considered+to+be%0A%2F%2Fa+single+statement.%0A%5Bout%3Ajson%5D%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0Anode%5B%22name%22%5D%3B%0Aout+body%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -347,26 +347,28 @@ out body;
       <div class="row">
         <div class="col">
           
-						<p property="description"><p>By default the Overpass API returns XML results.</p>
+						<p property="description"><p>When you&#39;re viewing results in the Overpass Turbo IDE it&#39;ll show your results on a map.
+Or at least it will if you have used an <code>out</code> option that oroduces some geometry.</p>
 
-<p>When you&#39;re viewing results in the Overpass Turbo application by default it&#39;ll show your results on
-a map. (Assuming you have used an <code>out</code> option that includes geometry). You can always see the
-raw data by clicking on the &quot;Data&quot; tab in the UI.</p>
+<p>But you can always see the raw data by clicking on the &quot;Data&quot; tab.</p>
 
-<p>The API can also produce JSON output. To request that you need to use the <code>out</code>
-query setting. Confusingly this has the same name as the keyword used to generate
-results in different level of details, but they perform different roles.</p>
+<p>By default the Overpass API returns XML. But it can also produce JSON output.</p>
+
+<p>To request that you need to use the <code>out</code> query setting. Confusingly this has the
+same name as the keyword used to generate results in different level of details,
+but they perform different roles and appear in different parts of a query.</p>
 
 <ul>
-<li><code>[out:xxx]</code> is a query setting that specifies the format of the data</li>
-<li><code>out</code> is a statement that is used to control how much data is included in the results</li>
+<li><code>[out:xxx]</code> is a query setting that specifies the format of the data. It appears at the start of a query</li>
+<li><code>out</code> is a statement that is used to control how much data is included in the results. It appears in the body of a query.</li>
 </ul>
 
-<p>Unfortunately the output isn&#39;t geojson. Its a custom JSON output format.</p>
+<p>The JSON output is a custom format. It&#39;s not GeoJSON but isn&#39;t hard to convert to that
+format.</p>
 
-<p>Its not hard to convert this to GeoJSON if you need it. If you&#39;re using the Overpass Turbo
-application then the &quot;Export&quot; menu offers the option to do this conversion for you. This is
-downloaded directly from the application. You can&#39;t request GeoJSON directly from the API.</p>
+<p>If you&#39;re using the Overpass Turbo application then the &quot;Export&quot; menu offers the option to
+do this conversion for you. This is downloaded directly from the application. You can&#39;t
+request GeoJSON directly from the API.</p>
 </p>
 					
 

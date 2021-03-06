@@ -265,7 +265,7 @@ node(around:100.00,-25.340861, 131.0252552,-25.3400707, 131.0275297)["natural"="
 out body;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AOverpassQL+allows+us+to+perform+some+basic+spatial+queries.%0A%0AWe%27ve+already+explored+various+ways+to+query+for+nodes+within+a+bounding+box.%0A%0AWe+can+also+search+for+nodes+or+other+features+that+can+be+found+within+a+circular%0Aaround+using+the+%60around%60+filter.%0A%0AThe+simplest+form+of+this+filter+accepts+a+distance+%28in+meters%29+and+a+latitude+and%0Alongitude.+This+point+and+distance+describe+the+centre+of+a+circle+and+its+radius.%0A%0AThe+query+then+filters+elements+to+just+those+who+location+is+within+that+circle.%0A%0AThe+example+below+finds+nodes+tagged+as+caves+that+are+within+800m+of+the+peak%0Aof+Uluru.+There+is+a+single+result%2C+which+is+a+cave+called+Tjilpi+Pampa+Kulpi.%0A%0ANotice+that+we+don%27t+define+a+bounding+box+for+this+particular+query.+Our+area%0Aof+interest+is+specified+by+the+%60around%60+filter.%0A%0AThere+are+more+complex+ways+that+we+can+use+the+%60around%60+filter.%0A%0AInstead+of+searching+within+a+circle%2C+we+can+instead+query+for%0Anodes+that+can+be+found+near+to+a+line.+To+use+this+variant%2C+you+need+to+specify%0Amultiple+latitude%2Flongitude+pairs+that+describe+the+line+you+want+to+draw+on+the+map.%0A%0AAn+even+more+useful+version+of+%60around%60+is+shown+in+the+next+example.%0A%0A%40title+12+-+Searching+within+a+radius+using+around%0A%2A%2F%0Anode%28around%3A800.00%2C-25.344857%2C131.0325171%29%5B%22natural%22%3D%22cave_entrance%22%5D%3B%0A%0A%2F%2FTRYME%2C+find+caves+within+100m+of+a+line+defined+by+two+coordinates%0Anode%28around%3A100.00%2C-25.340861%2C+131.0252552%2C-25.3400707%2C+131.0275297%29%5B%22natural%22%3D%22cave_entrance%22%5D%3B%0A%0Aout+body%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AOverpassQL+allows+us+to+perform+some+basic+spatial+queries.%0A%0AWe%27ve+already+explored+various+ways+to+query+for+nodes+within+a+bounding+box.%0A%0AWe+can+also+search+for+nodes+or+other+features+that+can+be+found+within+a+circular%0Aarea+using+the+%60around%60+filter.%0A%0AThis+filter+uses+curved+brackets+%28%60%28%29%60%29.+Its+only+tag+filters+that+use+square+brackets+%28%60%5B%5D%60%29%0A%0AThe+simplest+form+of+this+filter+accepts+a+distance+%28in+meters%29+and+a+latitude+and%0Alongitude.+This+point+and+distance+describe+the+centre+of+a+circle+and+its+radius.%0A%0AThe+results+are+then+filtered+to+features+that+are+within+that+search+area.%0A%0AThis+example+query+finds+nodes+tagged+as+caves+that+are+within+800m+of+the+peak%0Aof+Ulu%E1%B9%9Fu.+There+is+a+single+result%2C+which+is+a+cave+called+Tjilpi+Pampa+Kulpi.%0A%0ANotice+that+we+don%27t+define+a+bounding+box+for+this+particular+query.+Our+area%0Aof+interest+is+specified+by+the+%60around%60+filter.%0A%0AThere+are+more+complex+ways+that+we+can+use+the+%60around%60+filter.%0A%0AInstead+of+searching+within+a+circle%2C+we+can+instead+query+for+nodes+that+can+be%0Afound+near+to+a+line.+To+use+this+variant%2C+we+would+need+to+specify+multiple%0Alatitude%2Flongitude+pairs+that+define+the+line+we+are+interested+in.+An+example+is%0Ashown+in+the+query+for+you+to+try.%0A%0AAn+even+more+useful+version+of+%60around%60+is+shown+in+the+next+example.%0A%0A%40title+12+-+Searching+within+a+radius+using+around%0A%2A%2F%0Anode%28around%3A800.00%2C-25.344857%2C131.0325171%29%5B%22natural%22%3D%22cave_entrance%22%5D%3B%0A%0A%2F%2FTRYME%2C+find+caves+within+100m+of+a+line+defined+by+two+coordinates%0Anode%28around%3A100.00%2C-25.340861%2C+131.0252552%2C-25.3400707%2C+131.0275297%29%5B%22natural%22%3D%22cave_entrance%22%5D%3B%0A%0Aout+body%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -352,24 +352,27 @@ out body;
 <p>We&#39;ve already explored various ways to query for nodes within a bounding box.</p>
 
 <p>We can also search for nodes or other features that can be found within a circular
-around using the <code>around</code> filter.</p>
+area using the <code>around</code> filter.</p>
+
+<p>This filter uses curved brackets (<code>()</code>). Its only tag filters that use square brackets (<code>[]</code>)</p>
 
 <p>The simplest form of this filter accepts a distance (in meters) and a latitude and
 longitude. This point and distance describe the centre of a circle and its radius.</p>
 
-<p>The query then filters elements to just those who location is within that circle.</p>
+<p>The results are then filtered to features that are within that search area.</p>
 
-<p>The example below finds nodes tagged as caves that are within 800m of the peak
-of Uluru. There is a single result, which is a cave called Tjilpi Pampa Kulpi.</p>
+<p>This example query finds nodes tagged as caves that are within 800m of the peak
+of Uluṟu. There is a single result, which is a cave called Tjilpi Pampa Kulpi.</p>
 
 <p>Notice that we don&#39;t define a bounding box for this particular query. Our area
 of interest is specified by the <code>around</code> filter.</p>
 
 <p>There are more complex ways that we can use the <code>around</code> filter.</p>
 
-<p>Instead of searching within a circle, we can instead query for
-nodes that can be found near to a line. To use this variant, you need to specify
-multiple latitude/longitude pairs that describe the line you want to draw on the map.</p>
+<p>Instead of searching within a circle, we can instead query for nodes that can be
+found near to a line. To use this variant, we would need to specify multiple
+latitude/longitude pairs that define the line we are interested in. An example is
+shown in the query for you to try.</p>
 
 <p>An even more useful version of <code>around</code> is shown in the next example.</p>
 </p>

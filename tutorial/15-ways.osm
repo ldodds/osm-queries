@@ -7,16 +7,17 @@ To query for ways we just use the `way` keyword instead of the `node` keyword.
 
 For example, this query extracts all the ways in our bounding box.
 
-When you run this query it will return the data about those ways. This includes
-their tags and references to the individual nodes that describe them.
+It will return the data about those ways. This includes their tags and references to the individual nodes that describe them.
 
-When you run this query, Overpass Turbo won't be able to generate a map for you.
-It will probably give you a warning about that. This is because ways don't have
-their own geometry. Instead they are associated with a collection of nodes that
-mark out the line or polygon we might draw on a map.
+But the IDE won't be able to generate a map for you. And will probably give you a warning about that.
 
-In Overpass Turbo you can view the tags for these ways and the ids of the
-nodes that describe them in the "Data" tab.
+This is because ways don't have their own geometry. Instead they are associated with a collection of nodes that
+mark out the shape of the way.
+
+You can view the tags for these ways and the ids of the nodes that are members of
+them via the "Data" tab in the IDE.
+
+In the next query we'll learn how to also extract the nodes for these ways
 
 @title 15 - Finding ways
 @see https://wiki.openstreetmap.org/wiki/Way

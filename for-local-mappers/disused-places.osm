@@ -1,14 +1,11 @@
 /*
- Query for nodes, ways and relations that use
- the disused tag namespace to indicate that they're
- no longer in use.
+Query for nodes, ways and relations that use the disused tag namespace to indicate that they're no longer in use.
 
- This might be a useful query for local mappers as it
- might indicate places to check to see if they are still
- disused or may have reopened.
+This might be a useful query as a reminder for places to resurvey to check
+to see if they are still disused or may have reopened.
 
- @title Disused amenities and buildings
- @see https://wiki.openstreetmap.org/wiki/Key:disused
+@title Disused amenities and buildings
+@see https://wiki.openstreetmap.org/wiki/Key:disused
  */
 [bbox:{{bbox}}];
 (

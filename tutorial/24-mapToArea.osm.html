@@ -269,7 +269,7 @@
 out body;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AThe+previous+example+illustrated+how+to+turn+an+area+into+a+way%2C+so+that+we%0Acan+plot+it+on+the+map.+For+that+we+used+the+%60pivot%60+filter.%0A%0ASometimes+it+can+be+helpful+to+go+the+other+way+and+find+the+area+that%0Acorresponds+to+a+way+or+relation.+To+do+that+we+use+the+%60map_to_area%60+statement%0A%0ABecause+we+can+then+do+spatial+queries+using+that+area%2C+which+we+can%27t+do+with%0Athe+original+way+or+relation.%0A%0AFor+example+in+this+query+we+find+the+OSM+relation+tagged+as+Mutitjulu.+This+is%0Athe+administrative+boundary+for+the+Mutitjulu+aboriginal+community+which+can+be%0Afound+just+east+of+Uluru.+This+is+stored+in+a+temporary+variable%0A%0AWe+then+use+the+%60map_to_area%60+statement+to+find+the+area+corresponding+to%0Athat+relation.+This+is+saved+in+a+variable+called+%60mutitjulu%60.%0A%0AWe+then+do+a+couple+of+type+agnostic+queries+to+find+node%2C+ways+and+relations%0Athat+are+tagged+as+buildings+or+leisure+areas.%0A%0A%40title+24+-+Find+the+area+derived+from+a+feature%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0A%28%0A++relation%5B%22name%22%3D%22Mutitjulu%22%5D+-%3E.rel%3B%0A++.rel+map_to_area+-%3E.mutitjulu%3B%0A++nwr%5B%22leisure%22%5D%28area.mutitjulu%29%3B%0A++%3E%3B%0A++nwr%5B%22building%22%5D%28area.mutitjulu%29%3B%0A++%3E%3B%0A%29%3B%0Aout+body%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AThe+previous+example+illustrated+how+to+turn+an+area+into+a+way%2C+so+that+we%0Acan+plot+it+on+the+map.+For+that+we+used+the+%60pivot%60+filter.%0A%0ASometimes+it+can+be+helpful+to+go+the+other+way+and+find+the+area+that%0Acorresponds+to+a+way+or+relation.+To+do+that+we+use+the+%60map_to_area%60+statement.%0A%0AThis+allows+us+to+then+do+spatial+queries+using+that+area%2C+which+we+can%27t+do+with%0Athe+original+way+or+relation.%0A%0AFor+example+in+this+query+we+find+the+OSM+relation+tagged+as+Mutitjulu.%0A%0AThis+is+intended+to+represent+an+administrative+boundary+for+the+Mutitjulu+community%0Athat+is+found+just+east+of+Ulu%E1%B9%9Fu.+This+is+stored+in+a+temporary+named+set.%0A%0AWe+then+use+the+%60map_to_area%60+statement+to+find+the+area+corresponding+to%0Athat+relation.+This+is+saved+in+a+variable+called+%60mutitjulu%60.%0A%0AWe+then+do+a+couple+of+type+agnostic+queries+to+find+node%2C+ways+and+relations%0Athat+are+tagged+as+buildings+or+leisure+areas.%0A%0A%40title+24+-+Find+the+area+derived+from+a+feature%0A%40see+https%3A%2F%2Fen.wikipedia.org%2Fwiki%2FMutitjulu%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0A%28%0A++relation%5B%22name%22%3D%22Mutitjulu%22%5D+-%3E.rel%3B%0A++.rel+map_to_area+-%3E.mutitjulu%3B%0A++nwr%5B%22leisure%22%5D%28area.mutitjulu%29%3B%0A++%3E%3B%0A++nwr%5B%22building%22%5D%28area.mutitjulu%29%3B%0A++%3E%3B%0A%29%3B%0Aout+body%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -355,14 +355,15 @@ out body;
 can plot it on the map. For that we used the <code>pivot</code> filter.</p>
 
 <p>Sometimes it can be helpful to go the other way and find the area that
-corresponds to a way or relation. To do that we use the <code>map_to_area</code> statement</p>
+corresponds to a way or relation. To do that we use the <code>map_to_area</code> statement.</p>
 
-<p>Because we can then do spatial queries using that area, which we can&#39;t do with
+<p>This allows us to then do spatial queries using that area, which we can&#39;t do with
 the original way or relation.</p>
 
-<p>For example in this query we find the OSM relation tagged as Mutitjulu. This is
-the administrative boundary for the Mutitjulu aboriginal community which can be
-found just east of Uluru. This is stored in a temporary variable</p>
+<p>For example in this query we find the OSM relation tagged as Mutitjulu.</p>
+
+<p>This is intended to represent an administrative boundary for the Mutitjulu community
+that is found just east of Uluṟu. This is stored in a temporary named set.</p>
 
 <p>We then use the <code>map_to_area</code> statement to find the area corresponding to
 that relation. This is saved in a variable called <code>mutitjulu</code>.</p>
@@ -374,6 +375,17 @@ that are tagged as buildings or leisure areas.</p>
 
           <table class="table">
             <tbody>
+              
+                <tr>
+                  <td>Links</td>
+                  <td>
+                    <ul class="list-unstyled">
+                      
+                           <li><a href="https://en.wikipedia.org/wiki/Mutitjulu">https://en.wikipedia.org/wiki/Mutitjulu</a></li>
+                      
+                    </ul>
+                  </td>
+                </tr>
               
               <tr>
                 <td>Source File</td><td><a href="24-mapToArea.osm"><code>24-mapToArea.osm</code></a></td>

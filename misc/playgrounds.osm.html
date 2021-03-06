@@ -2,15 +2,15 @@
 <html class="h-100" prefix="og: http://ogp.me/ns#">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>Find playgrounds within current bounding box</title>
+    <title>Find playgrounds</title>
 
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="Find playgrounds within current bounding box" />
+    <meta property="og:title" content="Find playgrounds" />
     <meta property="og:description" content="A home for all the other queries" />
     <meta property="og:image" content="https://osm-queries.ldodds.com/../overpass-doc.png" />
 
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Find playgrounds within current bounding box" />
+    <meta name="twitter:title" content="Find playgrounds" />
     <meta name="twitter:image" content="https://osm-queries.ldodds.com/../overpass-doc.png" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -137,7 +137,7 @@
         <ul class="list-unstyled">
           
             <li class="" >
-              <a href="export-statues.osm.html">Export bronze statues, sculptures and bust as CSV</a>
+              <a href="export-statues.osm.html">Export bronze statues as CSV</a>
             </li>
           
             <li class="" >
@@ -148,12 +148,12 @@
               <a href="grindelwald-glacier.osm.html">Extract glacier features as a specific location</a>
             </li>
           
-            <li class="" >
-              <a href="playgrounds-with-styles.osm.html">Find and style playgrounds within current bounding box</a>
+            <li class="bg-color" >
+              <a href="playgrounds.osm.html">Find playgrounds</a>
             </li>
           
-            <li class="bg-color" >
-              <a href="playgrounds.osm.html">Find playgrounds within current bounding box</a>
+            <li class="" >
+              <a href="playgrounds-with-styles.osm.html">Find playgrounds, add styling</a>
             </li>
           
             <li class="" >
@@ -167,7 +167,7 @@
     <div class="col-6">
       <div class="row">
         <div class="col">
-          <h2 property="title">Find playgrounds within current bounding box</h2>
+          <h2 property="title">Find playgrounds</h2>
         </div>
       </div>
       <div class="row">
@@ -177,9 +177,7 @@
 // gather results
 (
   // query part for: “leisure=playground and access!=no and access!=private”
-  node["leisure"="playground"]["access"!="no"]["access"!="private"]({{bbox}});
-  way["leisure"="playground"]["access"!="no"]["access"!="private"]({{bbox}});
-  relation["leisure"="playground"]["access"!="no"]["access"!="private"]({{bbox}});
+  nwr["leisure"="playground"]["access"!="no"]["access"!="private"]({{bbox}});
 );
 // print results
 out body;
@@ -187,7 +185,7 @@ out body;
 out skel qt;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0A+%40title+Find+playgrounds+within+current+bounding+box%0A+%2A%2F%0A%5Bout%3Ajson%5D%5Btimeout%3A25%5D%3B%0A%2F%2F+gather+results%0A%28%0A++%2F%2F+query+part+for%3A+%E2%80%9Cleisure%3Dplayground+and+access%21%3Dno+and+access%21%3Dprivate%E2%80%9D%0A++node%5B%22leisure%22%3D%22playground%22%5D%5B%22access%22%21%3D%22no%22%5D%5B%22access%22%21%3D%22private%22%5D%28%7B%7Bbbox%7D%7D%29%3B%0A++way%5B%22leisure%22%3D%22playground%22%5D%5B%22access%22%21%3D%22no%22%5D%5B%22access%22%21%3D%22private%22%5D%28%7B%7Bbbox%7D%7D%29%3B%0A++relation%5B%22leisure%22%3D%22playground%22%5D%5B%22access%22%21%3D%22no%22%5D%5B%22access%22%21%3D%22private%22%5D%28%7B%7Bbbox%7D%7D%29%3B%0A%29%3B%0A%2F%2F+print+results%0Aout+body%3B%0A%3E%3B%0Aout+skel+qt%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0A%40title+Find+playgrounds%0A%2A%2F%0A%5Bout%3Ajson%5D%5Btimeout%3A25%5D%3B%0A%2F%2F+gather+results%0A%28%0A++%2F%2F+query+part+for%3A+%E2%80%9Cleisure%3Dplayground+and+access%21%3Dno+and+access%21%3Dprivate%E2%80%9D%0A++nwr%5B%22leisure%22%3D%22playground%22%5D%5B%22access%22%21%3D%22no%22%5D%5B%22access%22%21%3D%22private%22%5D%28%7B%7Bbbox%7D%7D%29%3B%0A%29%3B%0A%2F%2F+print+results%0Aout+body%3B%0A%3E%3B%0Aout+skel+qt%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>

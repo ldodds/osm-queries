@@ -253,24 +253,84 @@
       
         	<div class="row">
           	<div class="col">
-            	<p>This collection of queries provides a simple tutorial that covers the key features
-of Overpass QL.</p>
+            	<p>This is a collection of queries that provides a simple tutorial that introduces
+the core features and syntax of the Overpass QL query language.</p>
 
-<p>Each query focuses on a specific feature of the language. Each feature is
-introduced and then you are encouraged to read, run and customise the query to
-learn how to adapt it.</p>
+<p>Each of the queries introduces a specific feature of the language, starting
+from querying for simple points of interest through to more complex spatial
+queries.</p>
 
-<p>Each query includes comments that explains the basic syntax of the query and
-how it works.</p>
+<p>By the end of the tutorial you will learn:</p>
 
-<p>In some cases, comments are marked as &quot;<code>TRYME</code>&quot;. These indicate sections of the
-query that you can customise to explore more of the functionality. Instructions
-are given in each example.</p>
+<ul>
+<li>some basics of the OpenStreetMap data model</li>
+<li>how to write queries to extract nodes, ways and relations from the OSM database using a variety of different methods</li>
+<li>how to filter data to extract just the features of interest</li>
+<li>how to write spatial queries to find features based on whether they are within specific areas or are within proximity to one another</li>
+<li>how to output data as CSV and JSON for use in other tools</li>
+</ul>
 
-<p><strong>Note</strong>: Overpass Turbo remembers which area of OpenStreetMap you were last looking at.
-This means that sometimes after a query is loaded and run in the editor, you might be
-looking at the wrong location. Use the &quot;Zoom to Data&quot; option (the magnifying glass) to
-recentre on your results.</p>
+<h2 id="how-to-use-the-tutorial">How to use the tutorial</h2>
+
+<p>Step through each of the queries in turn. They&#39;re numbered to help you do
+that.</p>
+
+<p>Each query introduces a specific feature of the language, with subsequent
+queries showing variations of how to use that feature. Or how to combine it
+with other features to do more complex queries.</p>
+
+<p>Read the descriptions and then review the query. Comments are included
+to describe the important elements of the query.</p>
+
+<p>Click the green run button to try the query against the live database.</p>
+
+<p>Your browser will open up a new page, loading the query and the description
+into the <a href="https://wiki.openstreetmap.org/wiki/Overpass_turbo">Overpass Turbo IDE</a>.</p>
+
+<p>The query will run automatically so you can see the results.</p>
+
+<p>Many of the queries include commented out sections marked as <code>//TRYME</code>.
+These indicate sections of the query that you can customise to explore more
+of the functionality. Instructions are given in each example.</p>
+
+<p>Once you have the query open in the IDE, you can remove these comments to try
+out variations of the query. Be sure to hit the &quot;Run&quot; button in the IDE
+to see your new results.</p>
+
+<h2 id="the-geographic-area-for-the-tutorial">The geographic area for the tutorial</h2>
+
+<p>Apart from the first query, the queries in the tutorial use the OpenStreetMap
+data describing an area in and around <a href="https://en.wikipedia.org/wiki/Ulu%E1%B9%9Fu">Uluṟu</a> within the <a href="https://en.wikipedia.org/wiki/Ulu%E1%B9%9Fu-Kata_Tju%E1%B9%AFa_National_Park">Uluṟu-Kata Tjuṯa National Park</a>
+in Australia.</p>
+
+<p>Working with natural features makes it more likely that the queries will consistently
+return the expected results with the area. But the functionality can be applied
+to any area of the map.</p>
+
+<p>I also chose this setting to hopefully prompt a bit of reflection in the reader
+about how maps are created, who they are created for, and what data they contain.</p>
+
+<p><a href="https://www.stateofopendata.od4d.net/chapters/issues/indigenous-data.html">Indigenous data sovereignty</a> isn&#39;t the intended focus of this tutorial, but they are relevant issues for anyone
+creating or using open data.</p>
+
+<p>So I encourage you to reflect on what you learn as you run these queries.
+What tags are used? Who is doing the tagging? What features are significant and
+why? And how can OpenStreetMap empower local communities to build and maintain their own maps?</p>
+
+<h2 id="results-not-displaying">Results not displaying?</h2>
+
+<p>Overpass Turbo remembers which area of OpenStreetMap you were last looking at.</p>
+
+<p>So when you revisit it, you&#39;re usually looking at the same location. This can
+mean that sometimes after a query is loaded and run in the editor, you might be
+looking at the wrong map location.</p>
+
+<p>This can also happen if you&#39;re copying and pasting queries into the editor and
+running them manually.</p>
+
+<p>If this happens use the &quot;Zoom to Data&quot; option in the map view, which is
+shown as a magnifying glass icon. The map will then automatically recentre on
+the query results.</p>
 
           	</div>
         	</div>

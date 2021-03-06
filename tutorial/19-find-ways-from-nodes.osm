@@ -2,13 +2,15 @@
 We previously looked at how to use the `>` operator to find members of ways.
 
 But we can also go the opposite way and find ways from their nodes. We can do
-this using the "recurse up" operator (`<`) which, as the arrow might suggest, goes in the
+this using the "recurse up" statement (`<`) which, as the arrow might suggest, goes in the
 opposite direction.
 
 This query finds all of the nodes in our bounding box and also the ways of which
 they are members.
 
-which they are members.
+There's also a `<<` statement that will traverse from nodes all the way to to
+the relations that contain them.
+
 @title 19 - Finding ways from their nodes
 */
 [bbox:-25.38653, 130.99883, -25.31478, 131.08938];

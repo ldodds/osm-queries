@@ -1,26 +1,25 @@
 /*
-The previous example demonstrated how to create the union of multiple queries.
+The previous example demonstrated how to create a union from multiple
+`node` queries.
 
-The general syntax was:
+The sets of results returned by each query statements are merged to produce
+the output.
 
-```
-( statement1; statement2; )
-```
+We can also calculate the difference between two sets of results.
 
-We can also calculate the difference between two sets of results. We do
-this by using the minus operator. The general syntax is:
+We do this by using the minus operator. The general syntax is:
 
 ```
 ( statement1; - statement2; )
 ```
 
-Where the result will be those nodes (or ways or relations) returned by
-`statement1` that weren't returned by `statement2`
+The result will be those nodes (or ways or relations) returned by
+`statement1` that weren't returned by `statement2`.
 
-The query below illustrates how to use this by finding all nodes that are
-tagged as tourist areas and are not tagged as caves.
+This query finds all nodes that are tagged as tourist areas and are not also
+tagged as caves.
 
-We can achieve the same thing using simple tag filters, but this helps to
+We can achieve the same thing using a simple tag filter, but this helps to
 illustrate the basic syntax.
 
 @title 07 - Calculating differences between results

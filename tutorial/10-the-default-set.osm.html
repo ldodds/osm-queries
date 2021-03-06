@@ -267,7 +267,7 @@ node["name"]->._;
 ._ out skel;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AOverpass+queries+consist+of+statements+that+query+the+OSM+database+to+build%0Aup+a+set+of+results+which+can+be+serialised+into+different+output+formats.%0A%0AThat+set+of+results+has+a+name.+It%27s+called+%60_%60%28underscore%29.%0A%0AAll+of+the+queries+we%27ve+written+so+far+have+implicitly+worked+with+this+result%0Aset.%0A%0AOur+%60node%60+queries+have+added+results+to+the+%60_%60+set+and+the+%60out%60+statements%0Ahave+used+the+default+set+to+produce+our+output.%0A%0AThe+query+below+makes+this+use+of+the+default+set+explicit+by+naming+it+in%0Aeach+statement.%0A%0AThe+results+of+a+statement+can+be+written+to+a+set+using+the+%60-%3E%60+operator.%0A%0AAs+we%27ll+see+in+the+following+examples+it+is+possible+to+create%2C+manipulate%0Aand+produce+output+from+multiple+named+sets+of+results.%0A%0A%40title+10+-+The+default+set%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0A%0A%2F%2Ffind+nodes+within+out+bounding+box+that+have+a+name%0A%2F%2Fand+write+the+result+to+the+default+set%0Anode%5B%22name%22%5D-%3E._%3B%0A%0A%2F%2Ffrom+the+default+set+output+just+the+id+and+coordinates+of+the+result%0A._+out+skel%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AOverpass+queries+consist+of+statements+that+query+the+OSM+database+to+build%0Aup+a+set+of+results+which+can+be+serialised+into+different+output+formats.%0A%0AThat+set+of+results+has+a+name.+It%27s+called+%60_%60%28underscore%29.%0A%0AAll+of+the+queries+we%27ve+written+so+far+have+implicitly+worked+with+this+result%0Aset.%0A%0AOur+%60node%60+queries+have+added+results+to+the+%60_%60+set+and+the+%60out%60+statements%0Ahave+used+the+default+set+to+produce+our+output.%0A%0AThe+query+below+makes+this+use+of+the+default+set+more+obvious+by+explicitly%0Ausing+it+in+the+individual+statements.%0A%0AThe+results+of+a+statement+can+be+written+to+a+named+set+using+the+%60-%3E%60+operator.%0A%0AAs+we%27ll+see+in+the+following+examples+it+is+possible+to+create%2C+manipulate%0Aand+produce+output+from+multiple+named+sets+of+results.%0A%0A%40title+10+-+The+default+set%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0A%0A%2F%2Ffind+nodes+within+out+bounding+box+that+have+a+name%0A%2F%2Fand+write+the+result+to+the+default+set%0Anode%5B%22name%22%5D-%3E._%3B%0A%0A%2F%2Ffrom+the+default+set+output+just+the+id+and+coordinates+of+the+result%0A._+out+skel%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -360,10 +360,10 @@ set.</p>
 <p>Our <code>node</code> queries have added results to the <code>_</code> set and the <code>out</code> statements
 have used the default set to produce our output.</p>
 
-<p>The query below makes this use of the default set explicit by naming it in
-each statement.</p>
+<p>The query below makes this use of the default set more obvious by explicitly
+using it in the individual statements.</p>
 
-<p>The results of a statement can be written to a set using the <code>-&gt;</code> operator.</p>
+<p>The results of a statement can be written to a named set using the <code>-&gt;</code> operator.</p>
 
 <p>As we&#39;ll see in the following examples it is possible to create, manipulate
 and produce output from multiple named sets of results.</p>

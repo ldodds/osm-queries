@@ -4,24 +4,27 @@ OverpassQL allows us to perform some basic spatial queries.
 We've already explored various ways to query for nodes within a bounding box.
 
 We can also search for nodes or other features that can be found within a circular
-around using the `around` filter.
+area using the `around` filter.
+
+This filter uses curved brackets (`()`). Its only tag filters that use square brackets (`[]`)
 
 The simplest form of this filter accepts a distance (in meters) and a latitude and
 longitude. This point and distance describe the centre of a circle and its radius.
 
-The query then filters elements to just those who location is within that circle.
+The results are then filtered to features that are within that search area.
 
-The example below finds nodes tagged as caves that are within 800m of the peak
-of Uluru. There is a single result, which is a cave called Tjilpi Pampa Kulpi.
+This example query finds nodes tagged as caves that are within 800m of the peak
+of Uluṟu. There is a single result, which is a cave called Tjilpi Pampa Kulpi.
 
 Notice that we don't define a bounding box for this particular query. Our area
 of interest is specified by the `around` filter.
 
 There are more complex ways that we can use the `around` filter.
 
-Instead of searching within a circle, we can instead query for
-nodes that can be found near to a line. To use this variant, you need to specify
-multiple latitude/longitude pairs that describe the line you want to draw on the map.
+Instead of searching within a circle, we can instead query for nodes that can be
+found near to a line. To use this variant, we would need to specify multiple
+latitude/longitude pairs that define the line we are interested in. An example is
+shown in the query for you to try.
 
 An even more useful version of `around` is shown in the next example.
 
