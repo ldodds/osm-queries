@@ -28,12 +28,6 @@ If you're querying the APIs directly, then you can just point your code at the r
 URL. But if you're using Overpass Turbo then you'll need to include a special instruction
 as the first line of your query.
 
-To switch to the development version of the Overpass API add the following:
-
-```
-{{data:overpass,server=http://dev.overpass-api.de/api_mmd/}}
-```
-
 To use the Kumi Systems Overpass instance, use the following:
 
 ```
