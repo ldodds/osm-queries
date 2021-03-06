@@ -2,37 +2,40 @@
 To create maps for ways, we need to also extract the nodes that describe
 their outline.
 
-In OverpassQL we do this using the "recurse down" operator "`>`". This statement
-takes an input set of elements and then finds any node (or way, or relation)
-that are a member of those elements.
+In OverpassQL we do this using the "recurse down" statement "`>`".
 
-The members of a way consist of its nodes. The members of a relation would
-consist of the nodes and ways that it contains. Nodes don't have members so
-these are ignored when performing a traversal.
+This statement takes an input set of elements and then finds any
+node (or way, or relation) that are a member of those elements.
 
-The query below extracts all ways within our bounding box. It then uses the
-traversal operator to also find the members of those nodes.
+The members of a way are its nodes.
 
-We use a union of those two queries to produce output that includes all the
-core information about both the nodes and the ways.
+The members of a relation would consist of the nodes and ways that it contains.
+
+Nodes don't have members so these are ignored when performing a traversal.
+
+This query extracts all ways within our bounding box. It then uses a
+traversal query to also find the members of those nodes.
+
+We then use a union of those two queries to produce output that includes the data
+about both the way and its nodes.
 
 The recurse operator implicitly uses the default set (`_`) as its input. Without
-that context, the syntax can seem a bit arcane!
+that bit of context, the syntax can seem a bit arcane! It took me a while to understand
+what it is doing.
 
-In fact the `>` operator is a syntax shortcut. Its commonly used in queries, so its
-useful to know what it means ("Find all members of elements in the result set").
+The `>` query is very commonly used in queries, as we need it whenever we want
+geometry for ways and relations. There is also version that will traverse all
+the way from relations doesn to nodes: `>>`.
 
-In some later examples we'll look at some variations on this syntax that might be
-easier to understand.
-
-**Note**: If we didn't use the `()` block and instead found the ways and then
-their nodes, then the output would only contain data about the nodes. This is because
-the `>` query will overwrite the contents of the default set with its results.
+If we didn't use the `()` block and just queried for ways and nodes in
+turn, then the output would _only_ contain data about the nodes. This is because
+the `>` query will overwrite the contents of the default set, so we'd lose the
+results of our `way` query.
 
 Always use a union block when performing traversals unless you really want to
-ignore the parent elements. Many examples of using OverpassQL just include the
-
+ignore the parent features. Many examples of using OverpassQL just include the
 `()` block by default, because its so important for most queries.
+
 @title 16 - Ways and their nodes
 */
 //define the bounding box for our search

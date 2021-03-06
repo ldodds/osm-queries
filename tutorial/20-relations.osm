@@ -1,6 +1,6 @@
 /*
-Having looked at nodes and ways, the final part of the data model to explore
-are relations.
+Having looked at nodes and ways, the final part of the OSM data model we have
+to explore are relations.
 
 Relations are collections of nodes and ways. They describe logical groupings of
 objects that go beyond their basic spatial relationship. For example a relation
@@ -10,11 +10,13 @@ can be used to describe:
 * an administrative boundary
 * a multipolygon, such as a collection of buildings that represent a single location
 
-We query for relations using the `relation` keyword. We can filter them using
-their tags and use the recurse down operators to find their contents.
+We query for relations using the `relation` keyword, or its synonym (`rel`).
 
-This query finds administrative boundaries that relate to our bounding
-box.
+We can apply filters based on tags, perform spatial queries as standard. And similar
+to ways we will need to use the recursion operators (`>`, `>>`) to find their
+geometries.
+
+This query finds administrative boundaries within our bounding box.
 
 @title 20 - Finding relations
 @see https://wiki.openstreetmap.org/wiki/Relation

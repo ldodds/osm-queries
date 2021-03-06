@@ -1,5 +1,5 @@
 /*
- @title Find and style playgrounds within current bounding box
+ @title Find playgrounds, add styling
  */
 [out:json][timeout:25];
 // gather results

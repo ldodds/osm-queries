@@ -2,7 +2,9 @@
 This query demonstrates syntax for querying and serialising
 the contents of a named set.
 
-Rather than work with the default set, this query only used named sets.
+Rather than work with the default set, this query only uses named sets. This
+illustrates how every statements works with data from an input set and stores its
+results in an output set.
 
 First we find nodes that have a name and store them in a set of results
 called "named_nodes".
@@ -10,11 +12,16 @@ called "named_nodes".
 Set names can include letters, digits and the underscore character. But names
 must not start with a digit.
 
-Secondly, we then query within that set of results, filtering to just those
+Secondly, we then query within that first set of results, filtering to just those
 nodes that are tagged as a cave entrance.
 
-To work with the nodes contained in a named set, rather than against the
-underlying OSM database, we append its name to the node command.
+For node queries we append the name of the set to the keyword using a dotted syntax:
+
+```
+node.named_nodes
+```
+
+This means the statement will use that set rather than the OSM database.
 
 So `node.named_nodes` means "Query nodes found in the set 'named_nodes'". The
 nodes are then filtered based on the value of their `natural` tag.
@@ -22,12 +29,15 @@ nodes are then filtered based on the value of their `natural` tag.
 The results of that query are written to another named set. This time called
 `caves`.
 
-Finally, we output the content of the `caves` set.
+Finally, we output the contents of the `caves` set.
 
 This query is a little artificial as we can achieve the same thing by querying
 the database directly. But in more complex queries you may be working with
 multiple sets of results that you want to filter, explore and output in different
 ways.
+
+We can also output results from different sets through repeated uses of the
+`out` keyword that reference different sets.
 
 Every OverpassQL query command can work with named sets as well as the default
 "`_`" set. They can also store their results in named sets. This provides a

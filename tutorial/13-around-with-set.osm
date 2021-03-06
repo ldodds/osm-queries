@@ -1,24 +1,27 @@
 /*
-The `around` filter can be used to find nodes, or other features, that are near
-to a previously extract set of results.
+The `around` filter can be used to find features that are near to a previously
+extracted set of results.
 
-The query does two things. Firstly it searches within the bounding
-box to find all nodes that are tagged as peaks. These nodes are stored in the
-default set ("`_`").
+This, more powerful, use of the filter is illustrated in this query.
 
-The second part of the query then find just those nodes that are tagged as
-caves, and are within 850m of one of the previously found results.
+The query does two things.
 
-In this case there is only a single peak within our bounding box (the top of
-Uluru), so the query returns just those caves that are within 850m. If there were
-multiple peaks, then our results would be larger.
+Firstly it searches within the bounding box to find all nodes that are
+tagged as peaks. These nodes will be automatically stored in the default set ("`_`").
 
-This works because, if the `around` filter isn't provided with coordinates,
-or a set of coordinates, then it uses the default set ("`_`) as the basis for its search.
+The second part of the query then filters to just those nodes that are tagged as
+caves AND are within 850m of one of the previously found results.
 
-As with other keywords, you can also specify a search set. The comments
-below indicate an alternative way to achieve the same result but using
-named sets.
+In this case there is only a single peak within our bounding box (the summit of
+Uluṟu), so the query returns just those caves that are within 850m.
+
+If the `around` filter isn't provided with coordinates, or a set of coordinates,
+then it uses the default set ("`_`) as the basis for its search.
+
+As with other query statements, you can also specify the set to use. The comments
+in the query indicate an alternative way to achieve the same result but using named sets.
+
+My suggestion is to always used named sets to make your queries more readable.
 
 This way of using `around` is much more powerful than specifying a fixed radius
 or line. We can instead do more complex queries such as finding amenities that
@@ -28,7 +31,7 @@ When experimenting with this query try using the `out count` variation. This
 produces a count of the nodes, rather than their coordinates and tags. Useful
 if you just want to do some quick analysis or collect some figures.
 
-**Note**: If you try `out count`, Overpass Turbo will warn you that there are
+**Tip**: If you try `out count`, Overpass Turbo may warn you that there are
 no results it can display on the map. Just look at the data tab instead.
 
 @title 12 - Using around to filter against a set of results

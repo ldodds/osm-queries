@@ -9,11 +9,17 @@ Tags and their values can be filtered by:
 * by regular expression matching tag values, e.g. whether the value of a tag matches a specific pattern
 * by regular expression matching tag names and values, e.g. where names and values match (different) patterns
 
+Together these provide a lot of flexibility.
+
+Later in the tutorial we'll learn how to do free text searches to find features
+of the map. But this is an IDE specific extension and not a feature of the basic
+Overpass API.
+
 @title 04 - Find nodes by matching tags and their values
 @see https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#By_tag_.28has-kv.29
 @see https://en.wikipedia.org/wiki/Regular_expression#POSIX_basic_and_extended
 */
-//find all the nodes in this box around Uluru
+//find all the nodes in this box around Uluṟu
 [bbox:-25.38653, 130.99883, -25.31478, 131.08938];
 
 //EXISTENCE CHECKS

@@ -9,7 +9,7 @@ are appended to the statement.
 The parameters can be used to control things like:
 
 * how much information is extracted about each node (or way, or relation)
-* control how geographic information is output
+* how geographic information is output
 * sorting and limiting results
 
 In this query we are just looking at the first of these: how to control the
@@ -23,22 +23,22 @@ The different parameters are:
 * `body` - output id, geometry and tags
 * `meta` - output id, geometry, tags plus change history
 
-Because they don't include any coordinates, the first two options will cause
-OverpassQL to only show you some XML output. As it can't generate a map from a
-list of ids and tags.
+Because they don't output any coordinates, the first two options will cause
+the IDE to only show you some XML output. It can't generate a map from a list of ids and tags.
 
 Run the query, trying different parameters. You can click around on the map to
-see the different levels of detail provided.
+see the different levels of detail provided for the nodes that are returned.
 
 If you look closely when using the `body` and `meta` options, you'll see that
-the majority of nodes returned don't have any tags. This is typically because these
-nodes are being used in a way or relation. For example, to describe the location of a
+the majority of nodes returned don't have any tags.
+
+This is typically because these nodes are being used as members of a way or relation. For example, to describe the location of a
 road or footpath. They aren't points of interest in their own right.
 
 @title 02 - Outputting data about nodes
 @see https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#out
 */
-//find all the nodes in this box around Uluru
+//find all the nodes in this box around Uluṟu
 [bbox:-25.38653, 130.99883, -25.31478, 131.08938];
 node;
 

@@ -9,19 +9,29 @@ Sometimes we want to query using `node`, `way` or `relation` because we know wha
 data we want. But how do we find things that might be represented as any of these
 types?
 
-When we're not sure which type to query for, then we use one of the following
-statements instead of `node`, `way` or `relation`:
+One approach is to union the results of multiple queries that fetch all the
+possible variations, e.g:
+
+```
+(
+ node["amenity"];
+ way["amenity"];
+ rel["amenity"];
+);
+```
+
+But this is repetitive. There are variations of the `node`, `way` and `relation`
+queries we can use that are more succinct:
 
 * `nw` - to find nodes and ways
 * `nr` - to find nodes and relations
 * `wr` - to find ways and relations
 * `nwr` - to find nodes, ways and relations
 
-We can apply tag, `around` and `poly` filters with these statements just like
-their single type equivalents.
+We can apply filters to these statements just like their single type equivalents.
 
 This is a much more succinct way of finding objects of various types. These
-are fairly recent additions to the language, so will still occasionally see
+are fairly recent additions to the language, so you will still encounter many
 queries that build up results by querying for each type in turn (see the comments
 in the example below).
 

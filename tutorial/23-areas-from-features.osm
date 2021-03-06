@@ -1,14 +1,15 @@
 /*
-This query demonstrates how to find the area that encloses a point.
-
-Sometimes we want to find the area that enclosed some features of interest.
+Sometimes we want to find the area that encloses some features of interest.
 For example, finding the administrative area for a firestation. Or the park that
 contains a play area.
 
-The `is_in` statement allows us to find areas based on some previously found
-nodes, ways or relations. It returns the list of areas they are found in.
+This query demonstrates how to find the area that encloses a point using the
+`is_in` statement.
 
-The first part of our query find the area that contains the summit of Uluṟu:
+The `is_in` statement allows us to find areas based on some previously found
+nodes, ways or relations..
+
+The first part of our query finds the area that contains the summit of Uluṟu:
 
 ```
 node["name:pjt"="Uluṟu"]->.summit;
@@ -20,18 +21,21 @@ the node(s) we found in a variable called `summit`.
 
 Then we use `is_in` to find which areas contain those elements. This will be ALL
 the areas that cover that point. Not just the boundary of Uluṟu, but also
-that of Uluṟu-Kata Tjuṯa National Park, Petermann, Macdonnell Region all the way
-up to Australia. Its the full spatial coverage from this point or points.
+that of the Uluṟu-Kata Tjuṯa National Park, Petermann, the Macdonnell Region and so
+on all the way up to Australia.
 
-The Overpass API will give us the tags associated with areas, but not the geometry.
+`is_in` returns the full spatial coverage starting from one or more features.
+
+The Overpass API will give us the tags associated with areas, but not their geometry.
+
 If we want that, then we need to find the original ways or relations from which
 the area was created.
 
-We can do that with the `pivot` filter. The filter find the corresponding OSM
-database feature that corresponds to an area (or areas) in our result set.
+We do that by applying the `pivot` filter. This filter finds the corresponding OSM
+database feature for an area (or areas) in our result set.
 
 In our example query we find the `way` that corresponds to the area surrounding
-the summit of Uluru like this:
+the summit of Uluṟu like this:
 
 ```
 way(pivot.someArea);
@@ -46,7 +50,7 @@ relation(pivot.someArea);
 @title 23 - Finding the areas enclosing a feature
 */
 (
-  //find the node named Uluru. Save it in a named set called "summit"
+  //find the node named Uluṟu. Save it in a named set called "summit"
   node["name:pjt"="Uluṟu"]->.summit;
 
   //for the node(s) in the named set called "summit" find the areas they are in
