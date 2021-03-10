@@ -2,15 +2,15 @@
 <html class="h-100" prefix="og: http://ogp.me/ns#">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <title>The High Street, Recent changes</title>
+    <title>Mapping bench inscriptions</title>
 
     <meta property="og:type" content="article" />
-    <meta property="og:title" content="The High Street, Recent changes" />
+    <meta property="og:title" content="Mapping bench inscriptions" />
     <meta property="og:description" content="Queries to support local mappers" />
     <meta property="og:image" content="https://osm-queries.ldodds.com/../overpass-doc.png" />
 
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="The High Street, Recent changes" />
+    <meta name="twitter:title" content="Mapping bench inscriptions" />
     <meta name="twitter:image" content="https://osm-queries.ldodds.com/../overpass-doc.png" />
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
@@ -144,7 +144,7 @@
               <a href="quite-interesting-no-link.osm.html">Interesting places without wikidata links</a>
             </li>
           
-            <li class="" >
+            <li class="bg-color" >
               <a href="benches.osm.html">Mapping bench inscriptions</a>
             </li>
           
@@ -156,7 +156,7 @@
               <a href="the-high-street.osm.html">The High Street</a>
             </li>
           
-            <li class="bg-color" >
+            <li class="" >
               <a href="high-street-recent-changes.osm.html">The High Street, Recent changes</a>
             </li>
           
@@ -167,7 +167,7 @@
     <div class="col-6">
       <div class="row">
         <div class="col">
-          <h2 property="title">The High Street, Recent changes</h2>
+          <h2 property="title">Mapping bench inscriptions</h2>
         </div>
       </div>
       <div class="row">
@@ -175,26 +175,40 @@
 					<textarea id="overpass" cols="120">
 [bbox:{{bbox}}];
 (
-  nwr["building"="retail"];
-  nwr["building"="supermarket"];
-  nwr["building"="commercial"];
-
-  nwr["amenity"="pub"];
-  nwr["amenity"="bar"];
-  nwr["amenity"="restaurant"];
-  nwr["amenity"="cafe"];
-  nwr["amenity"="library"];
-  nwr["amenity"="bank"];
-  nwr["amenity"="fast_food"];
-
-)->.highstreet;
-nwr.highstreet(newer:"2021-01-01T00:00:00Z");
+  node["amenity"="bench"];
+);
 out body;
->;
-out skel qt;
+
+{{style:
+
+  node[amenity=bench]
+  { color: grey; fill-color: white; fill-opacity: 1; opacity: 1}
+
+  node[amenity=bench][backrest=yes][!inscription]
+  { color: orange; fill-color: yellow; }
+
+  node[amenity=bench][backrest=yes][!inscription:url]
+  { color: orange; fill-color: yellow; }
+
+  node[amenity=bench][inscription][!openbenches:id]
+  { color: orange; fill-color: orange; }
+
+  node[amenity=bench][openbenches:id][!inscription]
+  { color: green; fill-color: white; }
+
+  node[amenity=bench][openbenches:id][!inscription:url]
+  { color: green; fill-color: white; }
+
+  node[amenity=bench][openbenches:id][inscription]
+  { color: green; fill-color: green; }
+
+  node[amenity=bench][openbenches:id][inscription:url]
+  { color: green; fill-color: green; }
+
+}}
 </textarea>
           <div class="float-right">
-            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AThis+is+a+variation+of+the+query+that+extract+information+about+typical+high+street+shops+and+amenities.%0A%0ATt+applies+an+additional+filter+to+select+just+those+nodes%2C+ways+and+relations+that+have+been+changed+since%0Athe+1st+January+2021.%0A%0AIt+does+this+using+the+%60newer%60+query+filter+which+used+to+specify+the+full+date-time+of+interest.%0A%0AThe+filter+cannot+be+applied+directly+to+the+first+union%2C+so+the+initial+results+are+assigned+to+a+variables+called+%22%60highstreet%60%22%0Aand+the+filter+is+applied+to+that.%0A%0A%40title+The+High+Street%2C+Recent+changes%0A+%2A%2F%0A%5Bbbox%3A%7B%7Bbbox%7D%7D%5D%3B%0A%28%0A++nwr%5B%22building%22%3D%22retail%22%5D%3B%0A++nwr%5B%22building%22%3D%22supermarket%22%5D%3B%0A++nwr%5B%22building%22%3D%22commercial%22%5D%3B%0A%0A++nwr%5B%22amenity%22%3D%22pub%22%5D%3B%0A++nwr%5B%22amenity%22%3D%22bar%22%5D%3B%0A++nwr%5B%22amenity%22%3D%22restaurant%22%5D%3B%0A++nwr%5B%22amenity%22%3D%22cafe%22%5D%3B%0A++nwr%5B%22amenity%22%3D%22library%22%5D%3B%0A++nwr%5B%22amenity%22%3D%22bank%22%5D%3B%0A++nwr%5B%22amenity%22%3D%22fast_food%22%5D%3B%0A%0A%29-%3E.highstreet%3B%0Anwr.highstreet%28newer%3A%222021-01-01T00%3A00%3A00Z%22%29%3B%0Aout+body%3B%0A%3E%3B%0Aout+skel+qt%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AOpenBenches+is+a+project+to+crowd-source+inscriptions+of+benches%0Aaround+the+world.+All+of+the+data+is+openly+licensed.%0A%0AData+from+OSM+can+be+used+to+help+with+surveying+benches+to+add+to%0AOpenBenches.+And+bench+locations+in+OpenBenches+could+be+used+to+help+improve+OSM+as+they%27re+alway+based+on+a+local+survey.+Users+are+asked+to+submit+a+photo+of+the+bench+and%2For+its+inscription.%0A%0AThis+query+is+intended+to+help+anyone+interested+in+improving+the+quality+of+bench+coverage+in+either+service.%0A%0ABenches+with+backrests+might+well+have+an+inscription.%0A%0ABenches+with+inscriptions+could+be+added+to+OpenBenches%0A%0ABenches+that+have+been+added+to+OpenBenches+could+have+the+id+tagged.%0A%0AThis+report+tries+to+summarise+how+well+benches+are+tagged+and+the+two+services+linked+based+on+the+current+map+view.%0A%0ABenches+with+an+%60inscription%60%2C+or+an+%60inscription%3Aurl%60+tag+and%0Aan+%60openbenches%3Aid%60+are+shown+as+green+circles.+These+are+complete.%0A%0ABenches+with+a+green+circle%2C+but+a+white+fill+have+an+OpenBenches+id+but+no+%60inscription%60+or+%60inscription%3Aurl%60+tag.+Data+is+missing+in+OSM.%0A%0ABenches+with+an+%60inscription%60+tag+but+no+%60openbenches%3Aid%60+are+shown+as+orange+circles.+They+could+be+surveyed+and+added+to+OpenBenches%0A%0ABenches+with+an+orange+circle+and+a+yellow+fill+have+a+backrest%2C+but+don%27t+have+an+%60inscription%60+or+%60inscription%3Aurl%60+tag.+There+may+be+missing+information+in+OSM+that+could+be+added+if+they+were+resurveyed.+And+they+could+be+added+to+OpenBenches+too.%0A%0ABenches+with+a+grey+circle+and+a+white+fill+have+no+tags+relating+to+backrests%2C+inscriptions%2C+etc.+Tags+might+be+missing.+They+could+be+checked+so+that+%60backrest%3Dno%60+could+be+added.%0A%0ABenches+that+are+in+OpenBenches+but+are+not+in+OSM+are+not+shown+%3A%29%0A%0AHopefully+this+might+be+useful+as+a+small+project%3F%0A%0A%0A%40title+Mapping+bench+inscriptions%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FKey%3Aopenbenches%3Aid%0A%40see+https%3A%2F%2Fwiki.openstreetmap.org%2Fwiki%2FTag%3Aamenity%253Dbench%0A%2A%2F%0A%5Bbbox%3A%7B%7Bbbox%7D%7D%5D%3B%0A%28%0A++node%5B%22amenity%22%3D%22bench%22%5D%3B%0A%29%3B%0Aout+body%3B%0A%0A%7B%7Bstyle%3A%0A%0A++node%5Bamenity%3Dbench%5D%0A++%7B+color%3A+grey%3B+fill-color%3A+white%3B+fill-opacity%3A+1%3B+opacity%3A+1%7D%0A%0A++node%5Bamenity%3Dbench%5D%5Bbackrest%3Dyes%5D%5B%21inscription%5D%0A++%7B+color%3A+orange%3B+fill-color%3A+yellow%3B+%7D%0A%0A++node%5Bamenity%3Dbench%5D%5Bbackrest%3Dyes%5D%5B%21inscription%3Aurl%5D%0A++%7B+color%3A+orange%3B+fill-color%3A+yellow%3B+%7D%0A%0A++node%5Bamenity%3Dbench%5D%5Binscription%5D%5B%21openbenches%3Aid%5D%0A++%7B+color%3A+orange%3B+fill-color%3A+orange%3B+%7D%0A%0A++node%5Bamenity%3Dbench%5D%5Bopenbenches%3Aid%5D%5B%21inscription%5D%0A++%7B+color%3A+green%3B+fill-color%3A+white%3B+%7D%0A%0A++node%5Bamenity%3Dbench%5D%5Bopenbenches%3Aid%5D%5B%21inscription%3Aurl%5D%0A++%7B+color%3A+green%3B+fill-color%3A+white%3B+%7D%0A%0A++node%5Bamenity%3Dbench%5D%5Bopenbenches%3Aid%5D%5Binscription%5D%0A++%7B+color%3A+green%3B+fill-color%3A+green%3B+%7D%0A%0A++node%5Bamenity%3Dbench%5D%5Bopenbenches%3Aid%5D%5Binscription%3Aurl%5D%0A++%7B+color%3A+green%3B+fill-color%3A+green%3B+%7D%0A%0A%7D%7D%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -276,23 +290,57 @@ out skel qt;
       <div class="row">
         <div class="col">
           
-						<p property="description"><p>This is a variation of the query that extract information about typical high street shops and amenities.</p>
+						<p property="description"><p>OpenBenches is a project to crowd-source inscriptions of benches
+around the world. All of the data is openly licensed.</p>
 
-<p>Tt applies an additional filter to select just those nodes, ways and relations that have been changed since
-the 1st January 2021.</p>
+<p>Data from OSM can be used to help with surveying benches to add to
+OpenBenches. And bench locations in OpenBenches could be used to help improve OSM as they&#39;re alway based on a local survey. Users are asked to submit a photo of the bench and/or its inscription.</p>
 
-<p>It does this using the <code>newer</code> query filter which used to specify the full date-time of interest.</p>
+<p>This query is intended to help anyone interested in improving the quality of bench coverage in either service.</p>
 
-<p>The filter cannot be applied directly to the first union, so the initial results are assigned to a variables called &quot;<code>highstreet</code>&quot;
-and the filter is applied to that.</p>
+<p>Benches with backrests might well have an inscription.</p>
+
+<p>Benches with inscriptions could be added to OpenBenches</p>
+
+<p>Benches that have been added to OpenBenches could have the id tagged.</p>
+
+<p>This report tries to summarise how well benches are tagged and the two services linked based on the current map view.</p>
+
+<p>Benches with an <code>inscription</code>, or an <code>inscription:url</code> tag and
+an <code>openbenches:id</code> are shown as green circles. These are complete.</p>
+
+<p>Benches with a green circle, but a white fill have an OpenBenches id but no <code>inscription</code> or <code>inscription:url</code> tag. Data is missing in OSM.</p>
+
+<p>Benches with an <code>inscription</code> tag but no <code>openbenches:id</code> are shown as orange circles. They could be surveyed and added to OpenBenches</p>
+
+<p>Benches with an orange circle and a yellow fill have a backrest, but don&#39;t have an <code>inscription</code> or <code>inscription:url</code> tag. There may be missing information in OSM that could be added if they were resurveyed. And they could be added to OpenBenches too.</p>
+
+<p>Benches with a grey circle and a white fill have no tags relating to backrests, inscriptions, etc. Tags might be missing. They could be checked so that <code>backrest=no</code> could be added.</p>
+
+<p>Benches that are in OpenBenches but are not in OSM are not shown :)</p>
+
+<p>Hopefully this might be useful as a small project?</p>
 </p>
 					
 
           <table class="table">
             <tbody>
               
+                <tr>
+                  <td>Links</td>
+                  <td>
+                    <ul class="list-unstyled">
+                      
+                           <li><a href="https://wiki.openstreetmap.org/wiki/Key:openbenches:id">https://wiki.openstreetmap.org/wiki/Key:openbenches:id</a></li>
+                      
+                           <li><a href="https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dbench">https://wiki.openstreetmap.org/wiki/Tag:amenity%3Dbench</a></li>
+                      
+                    </ul>
+                  </td>
+                </tr>
+              
               <tr>
-                <td>Source File</td><td><a href="high-street-recent-changes.osm"><code>high-street-recent-changes.osm</code></a></td>
+                <td>Source File</td><td><a href="benches.osm"><code>benches.osm</code></a></td>
               </tr>
               
                 <tr>
