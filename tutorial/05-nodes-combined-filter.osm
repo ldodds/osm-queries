@@ -3,7 +3,7 @@ Filters applied to queries for nodes, ways and relations can be combined to
 build up more complex expressions.
 
 Any number of filters can be appended to query statements. They must all apply for
-the a feature to be included in the results.
+a feature to be included in the results.
 
 In this example we combine a key-value match with a regular expression to
 match nodes that are tagged as cave entrances and whose name starts with

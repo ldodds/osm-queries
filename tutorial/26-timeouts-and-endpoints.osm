@@ -3,14 +3,14 @@ Like any open, public API the Overpass API imposes both time and memory limits
 on queries.
 
 The default time out value is 180 seconds. Which is quite a long time, although in
-practice your query might also be rejected because of server load or because its hit
+practice your query might also be rejected because of server load or because it hits
 memory limits.
 
 While the default timeout is quite generous, sometimes you just need a little bit
 more time. The `timeout` query parameter can be used to request a longer timeout for your
 query.
 
-Use it to specify a timeout value in seconds. The below takes out earlier CSV output
+Use it to specify a timeout value in seconds. The below takes our earlier CSV output
 example and sets a timeout of 60 seconds.
 
 One other option available is to switch to using a different Overpass API endpoint.

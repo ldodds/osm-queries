@@ -26,7 +26,7 @@ Unfortunately, unlike `around`, the `poly` filter doesn't support querying based
 on a polygon that was found by a previously extracted set of nodes.
 
 So you can't, for example, extract the polygon describing a closed way
-stored in OpenStreetmap and then search within it. This feels like an oversight, but
+stored in OpenStreetMap and then search within it. This feels like an oversight, but
 we'll see how to do this type of query later in the tutorial.
 
 **Tip**: the more complex your polygon, the slower the search. Simplify the boundary

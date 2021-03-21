@@ -3,7 +3,7 @@ This query demonstrates how to filter nodes based on their tags.
 
 This is a useful and important feature. You'll be using it a lot in your queries.
 
-Tags in OpenStreetmap are used to attach information to nodes, ways and
+Tags in OpenStreetMap are used to attach information to nodes, ways and
 relations. There is an ever growing list of tags used to capture different
 types of data.
 
@@ -61,7 +61,7 @@ node["name"];
 //different bounding boxes
 //node(-25.38653, 130.99883, -25.31478, 131.08938)["name"];
 
-//TRYME #2 try finding just nodes what have a Pitjantjatjara name
+//TRYME #2 try finding just nodes that have a Pitjantjatjara name
 //node["name:pjt"];
 
 //use out body to include tags in the output, so

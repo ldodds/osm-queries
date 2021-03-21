@@ -24,8 +24,8 @@ that bit of context, the syntax can seem a bit arcane! It took me a while to und
 what it is doing.
 
 The `>` query is very commonly used in queries, as we need it whenever we want
-geometry for ways and relations. There is also version that will traverse all
-the way from relations doesn to nodes: `>>`.
+geometry for ways and relations. There is also a version that will traverse all
+the way from relations down to nodes: `>>`.
 
 If we didn't use the `()` block and just queried for ways and nodes in
 turn, then the output would _only_ contain data about the nodes. This is because
@@ -34,7 +34,7 @@ results of our `way` query.
 
 Always use a union block when performing traversals unless you really want to
 ignore the parent features. Many examples of using OverpassQL just include the
-`()` block by default, because its so important for most queries.
+`()` block by default, because it's so important for most queries.
 
 @title 16 - Ways and their nodes
 */

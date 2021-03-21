@@ -6,7 +6,7 @@ We've already explored various ways to query for nodes within a bounding box.
 We can also search for nodes or other features that can be found within a circular
 area using the `around` filter.
 
-This filter uses curved brackets (`()`). Its only tag filters that use square brackets (`[]`)
+This filter uses curved brackets (`()`). Only tag filters use square brackets (`[]`).
 
 The simplest form of this filter accepts a distance (in meters) and a latitude and
 longitude. This point and distance describe the centre of a circle and its radius.
