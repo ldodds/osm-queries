@@ -16,7 +16,7 @@ In this case there is only a single peak within our bounding box (the summit of
 Uluṟu), so the query returns just those caves that are within 850m.
 
 If the `around` filter isn't provided with coordinates, or a set of coordinates,
-then it uses the default set ("`_`) as the basis for its search.
+then it uses the default set ("`_`") as the basis for its search.
 
 As with other query statements, you can also specify the set to use. The comments
 in the query indicate an alternative way to achieve the same result but using named sets.
@@ -34,7 +34,7 @@ if you just want to do some quick analysis or collect some figures.
 **Tip**: If you try `out count`, Overpass Turbo may warn you that there are
 no results it can display on the map. Just look at the data tab instead.
 
-@title 12 - Using around to filter against a set of results
+@title 13 - Using around to filter against a set of results
 */
 [bbox:-25.38653, 130.99883, -25.31478, 131.08938];
 node["natural"="peak"];

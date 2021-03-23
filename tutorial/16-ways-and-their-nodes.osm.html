@@ -189,7 +189,7 @@
             </li>
           
             <li class="" >
-              <a href="13-around-with-set.osm.html">12 - Using around to filter against a set of results</a>
+              <a href="13-around-with-set.osm.html">13 - Using around to filter against a set of results</a>
             </li>
           
             <li class="" >
@@ -273,7 +273,7 @@
 out body;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0ATo+create+maps+for+ways%2C+we+need+to+also+extract+the+nodes+that+describe%0Atheir+outline.%0A%0AIn+OverpassQL+we+do+this+using+the+%22recurse+down%22+statement+%22%60%3E%60%22.%0A%0AThis+statement+takes+an+input+set+of+elements+and+then+finds+any%0Anode+%28or+way%2C+or+relation%29+that+are+a+member+of+those+elements.%0A%0AThe+members+of+a+way+are+its+nodes.%0A%0AThe+members+of+a+relation+would+consist+of+the+nodes+and+ways+that+it+contains.%0A%0ANodes+don%27t+have+members+so+these+are+ignored+when+performing+a+traversal.%0A%0AThis+query+extracts+all+ways+within+our+bounding+box.+It+then+uses+a%0Atraversal+query+to+also+find+the+members+of+those+nodes.%0A%0AWe+then+use+a+union+of+those+two+queries+to+produce+output+that+includes+the+data%0Aabout+both+the+way+and+its+nodes.%0A%0AThe+recurse+operator+implicitly+uses+the+default+set+%28%60_%60%29+as+its+input.+Without%0Athat+bit+of+context%2C+the+syntax+can+seem+a+bit+arcane%21+It+took+me+a+while+to+understand%0Awhat+it+is+doing.%0A%0AThe+%60%3E%60+query+is+very+commonly+used+in+queries%2C+as+we+need+it+whenever+we+want%0Ageometry+for+ways+and+relations.+There+is+also+version+that+will+traverse+all%0Athe+way+from+relations+doesn+to+nodes%3A+%60%3E%3E%60.%0A%0AIf+we+didn%27t+use+the+%60%28%29%60+block+and+just+queried+for+ways+and+nodes+in%0Aturn%2C+then+the+output+would+_only_+contain+data+about+the+nodes.+This+is+because%0Athe+%60%3E%60+query+will+overwrite+the+contents+of+the+default+set%2C+so+we%27d+lose+the%0Aresults+of+our+%60way%60+query.%0A%0AAlways+use+a+union+block+when+performing+traversals+unless+you+really+want+to%0Aignore+the+parent+features.+Many+examples+of+using+OverpassQL+just+include+the%0A%60%28%29%60+block+by+default%2C+because+its+so+important+for+most+queries.%0A%0A%40title+16+-+Ways+and+their+nodes%0A%2A%2F%0A%2F%2Fdefine+the+bounding+box+for+our+search%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0A%0A%2F%2Fthis+block+creates+a+collection+of+ways+and+their+nodes%0A%28%0A+%2F%2Ffind+the+ways%0A+way%3B%0A%0A+%2F%2Ffind+the+nodes+that+are+members+of+those+ways%0A+%3E%3B%0A%29%3B%0A%0A%2F%2Foutput+the+collection+of+nodes+and+ways%0Aout+body%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0ATo+create+maps+for+ways%2C+we+need+to+also+extract+the+nodes+that+describe%0Atheir+outline.%0A%0AIn+OverpassQL+we+do+this+using+the+%22recurse+down%22+statement+%22%60%3E%60%22.%0A%0AThis+statement+takes+an+input+set+of+elements+and+then+finds+any%0Anode+%28or+way%2C+or+relation%29+that+are+a+member+of+those+elements.%0A%0AThe+members+of+a+way+are+its+nodes.%0A%0AThe+members+of+a+relation+would+consist+of+the+nodes+and+ways+that+it+contains.%0A%0ANodes+don%27t+have+members+so+these+are+ignored+when+performing+a+traversal.%0A%0AThis+query+extracts+all+ways+within+our+bounding+box.+It+then+uses+a%0Atraversal+query+to+also+find+the+members+of+those+nodes.%0A%0AWe+then+use+a+union+of+those+two+queries+to+produce+output+that+includes+the+data%0Aabout+both+the+way+and+its+nodes.%0A%0AThe+recurse+operator+implicitly+uses+the+default+set+%28%60_%60%29+as+its+input.+Without%0Athat+bit+of+context%2C+the+syntax+can+seem+a+bit+arcane%21+It+took+me+a+while+to+understand%0Awhat+it+is+doing.%0A%0AThe+%60%3E%60+query+is+very+commonly+used+in+queries%2C+as+we+need+it+whenever+we+want%0Ageometry+for+ways+and+relations.+There+is+also+a+version+that+will+traverse+all%0Athe+way+from+relations+down+to+nodes%3A+%60%3E%3E%60.%0A%0AIf+we+didn%27t+use+the+%60%28%29%60+block+and+just+queried+for+ways+and+nodes+in%0Aturn%2C+then+the+output+would+_only_+contain+data+about+the+nodes.+This+is+because%0Athe+%60%3E%60+query+will+overwrite+the+contents+of+the+default+set%2C+so+we%27d+lose+the%0Aresults+of+our+%60way%60+query.%0A%0AAlways+use+a+union+block+when+performing+traversals+unless+you+really+want+to%0Aignore+the+parent+features.+Many+examples+of+using+OverpassQL+just+include+the%0A%60%28%29%60+block+by+default%2C+because+it%27s+so+important+for+most+queries.%0A%0A%40title+16+-+Ways+and+their+nodes%0A%2A%2F%0A%2F%2Fdefine+the+bounding+box+for+our+search%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0A%0A%2F%2Fthis+block+creates+a+collection+of+ways+and+their+nodes%0A%28%0A+%2F%2Ffind+the+ways%0A+way%3B%0A%0A+%2F%2Ffind+the+nodes+that+are+members+of+those+ways%0A+%3E%3B%0A%29%3B%0A%0A%2F%2Foutput+the+collection+of+nodes+and+ways%0Aout+body%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -380,8 +380,8 @@ that bit of context, the syntax can seem a bit arcane! It took me a while to und
 what it is doing.</p>
 
 <p>The <code>&gt;</code> query is very commonly used in queries, as we need it whenever we want
-geometry for ways and relations. There is also version that will traverse all
-the way from relations doesn to nodes: <code>&gt;&gt;</code>.</p>
+geometry for ways and relations. There is also a version that will traverse all
+the way from relations down to nodes: <code>&gt;&gt;</code>.</p>
 
 <p>If we didn&#39;t use the <code>()</code> block and just queried for ways and nodes in
 turn, then the output would <em>only</em> contain data about the nodes. This is because
@@ -390,7 +390,7 @@ results of our <code>way</code> query.</p>
 
 <p>Always use a union block when performing traversals unless you really want to
 ignore the parent features. Many examples of using OverpassQL just include the
-<code>()</code> block by default, because its so important for most queries.</p>
+<code>()</code> block by default, because it&#39;s so important for most queries.</p>
 </p>
 					
 

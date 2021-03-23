@@ -3,7 +3,7 @@ This query demonstrates syntax for querying and serialising
 the contents of a named set.
 
 Rather than work with the default set, this query only uses named sets. This
-illustrates how every statements works with data from an input set and stores its
+illustrates how every statement works with data from an input set and stores its
 results in an output set.
 
 First we find nodes that have a name and store them in a set of results

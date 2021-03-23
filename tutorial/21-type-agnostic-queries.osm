@@ -1,5 +1,5 @@
 /*
-Objects in the Openstreetmap database can be represented in different ways.
+Objects in the OpenStreetMap database can be represented in different ways.
 
 For example a shop might initially be added as a node (a point location)
 and later changed to be represented by a way. This might happen if a mapper adds

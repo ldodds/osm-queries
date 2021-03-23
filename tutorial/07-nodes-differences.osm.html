@@ -189,7 +189,7 @@
             </li>
           
             <li class="" >
-              <a href="13-around-with-set.osm.html">12 - Using around to filter against a set of results</a>
+              <a href="13-around-with-set.osm.html">13 - Using around to filter against a set of results</a>
             </li>
           
             <li class="" >
@@ -266,7 +266,7 @@ node["natural"="cave_entrance"];
 out body;
 </textarea>
           <div class="float-right">
-            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AThe+previous+example+demonstrated+how+to+create+a+union+from+multiple%0A%60node%60+queries.%0A%0AThe+sets+of+results+returned+by+each+query+statements+are+merged+to+produce%0Athe+output.%0A%0AWe+can+also+calculate+the+difference+between+two+sets+of+results.%0A%0AWe+do+this+by+using+the+minus+operator.+The+general+syntax+is%3A%0A%0A%60%60%60%0A%28+statement1%3B+-+statement2%3B+%29%0A%60%60%60%0A%0AThe+result+will+be+those+nodes+%28or+ways+or+relations%29+returned+by%0A%60statement1%60+that+weren%27t+returned+by+%60statement2%60.%0A%0AThis+query+finds+all+nodes+that+are+tagged+as+tourist+areas+and+are+not+also%0Atagged+as+caves.%0A%0AWe+can+achieve+the+same+thing+using+a+simple+tag+filter%2C+but+this+helps+to%0Aillustrate+the+basic+syntax.%0A%0A%40title+07+-+Calculating+differences+between+results%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0A%28%0Anode%5B%22tourism%22%5D%3B%0A-%0Anode%5B%22natural%22%3D%22cave_entrance%22%5D%3B%0A%29%3B%0Aout+body%3B%0A&R" target="_blank">
+            <a class="btn btn-success btn-sm" href="https://overpass-turbo.eu/?Q=%2F%2A%0AThe+previous+example+demonstrated+how+to+create+a+union+from+multiple%0A%60node%60+queries.%0A%0AThe+sets+of+results+returned+by+each+query+statement+are+merged+to+produce%0Athe+output.%0A%0AWe+can+also+calculate+the+difference+between+two+sets+of+results.%0A%0AWe+do+this+by+using+the+minus+operator.+The+general+syntax+is%3A%0A%0A%60%60%60%0A%28+statement1%3B+-+statement2%3B+%29%0A%60%60%60%0A%0AThe+result+will+be+those+nodes+%28or+ways+or+relations%29+returned+by%0A%60statement1%60+that+weren%27t+returned+by+%60statement2%60.%0A%0AThis+query+finds+all+nodes+that+are+tagged+as+tourist+areas+and+are+not+also%0Atagged+as+caves.%0A%0AWe+can+achieve+the+same+thing+using+a+simple+tag+filter%2C+but+this+helps+to%0Aillustrate+the+basic+syntax.%0A%0A%40title+07+-+Calculating+differences+between+results%0A%2A%2F%0A%5Bbbox%3A-25.38653%2C+130.99883%2C+-25.31478%2C+131.08938%5D%3B%0A%28%0Anode%5B%22tourism%22%5D%3B%0A-%0Anode%5B%22natural%22%3D%22cave_entrance%22%5D%3B%0A%29%3B%0Aout+body%3B%0A&R" target="_blank">
                 <i class="bi bi-play"></i>Run
             </a>
           </div>
@@ -351,7 +351,7 @@ out body;
 						<p property="description"><p>The previous example demonstrated how to create a union from multiple
 <code>node</code> queries.</p>
 
-<p>The sets of results returned by each query statements are merged to produce
+<p>The sets of results returned by each query statement are merged to produce
 the output.</p>
 
 <p>We can also calculate the difference between two sets of results.</p>

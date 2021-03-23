@@ -52,7 +52,7 @@ a centroid for any way or relation in your results.
 
 **Tip**: when generating CSV output, if there is a query error or timeout then you will
 get empty results. I'd recommend writing and testing your basic query first so you're
-sure its working. And then customise it further to generate the desired CSV output.
+sure it's working. And then customise it further to generate the desired CSV output.
 
 @title 09 - Generating CSV output
 @see https://wiki.openstreetmap.org/wiki/Overpass_API/Overpass_QL#CSV_output_mode
