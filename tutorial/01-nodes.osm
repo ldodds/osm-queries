@@ -16,7 +16,7 @@ at the start of a query and are defined with square brackets: `[]`.
 Here we're using the `bbox` setting. As we'll see later, other settings let us
 choose different output formats and tweak timeouts.
 
-In the `bbox` setting we're providing the coordinated for a bounding box.
+In the `bbox` setting we're providing the coordinates for a bounding box.
 These particular coordinates (`25.38653, 130.99883, -25.31478, 131.08938`) define a rectangle that
 includes Uluṟu. The sandstone monolith in Uluṟu-Kata Tjuta National Park, Australia.
 

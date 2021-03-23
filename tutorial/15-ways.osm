@@ -17,7 +17,7 @@ mark out the shape of the way.
 You can view the tags for these ways and the ids of the nodes that are members of
 them via the "Data" tab in the IDE.
 
-In the next query we'll learn how to also extract the nodes for these ways
+In the next query we'll learn how to also extract the nodes for these ways.
 
 @title 15 - Finding ways
 @see https://wiki.openstreetmap.org/wiki/Way

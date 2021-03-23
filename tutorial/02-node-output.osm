@@ -64,5 +64,5 @@ out ids;
 //out body;
 
 //same as body but with addition of information about when the node
-//was updatd, who edited it, etc
+//was updated, who edited it, etc
 //out meta;

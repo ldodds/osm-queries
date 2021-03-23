@@ -8,7 +8,7 @@ opposite direction.
 This query finds all of the nodes in our bounding box and also the ways of which
 they are members.
 
-There's also a `<<` statement that will traverse from nodes all the way to to
+There's also a `<<` statement that will traverse from nodes all the way up to
 the relations that contain them.
 
 @title 19 - Finding ways from their nodes

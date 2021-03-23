@@ -2,7 +2,7 @@
 The previous example demonstrated how to create a union from multiple
 `node` queries.
 
-The sets of results returned by each query statements are merged to produce
+The sets of results returned by each query statement are merged to produce
 the output.
 
 We can also calculate the difference between two sets of results.

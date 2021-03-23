@@ -1,6 +1,6 @@
 /*
 When you're viewing results in the Overpass Turbo IDE it'll show your results on a map.
-Or at least it will if you have used an `out` option that oroduces some geometry.
+Or at least it will if you have used an `out` option that produces some geometry.
 
 But you can always see the raw data by clicking on the "Data" tab.
 
