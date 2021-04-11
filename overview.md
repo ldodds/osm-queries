@@ -30,7 +30,7 @@ queries using a custom query language called [Overpass QL](https://wiki.openstre
 ## An openly licensed collection of Overpass queries
 
 This website provides collections of OverpassQL queries to help you to learn the
-language and exploe the features.
+language and explore the features.
 
 Each of the themed collections includes a number of Overpass queries that you can
 immediately load and run via the Overpass Turbo editor. The collection also includes
